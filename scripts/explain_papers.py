@@ -10,6 +10,7 @@ Settings (environment variables):
   EXPLAIN_MAX         most papers to explain per run (default 40)
 """
 
+import http.client
 import json
 import os
 import sys
@@ -94,7 +95,9 @@ def explain(api_key, model, paper):
                 raise StopRun(f"OpenRouter rejected the model '{model}': {detail}")
             print(f"  HTTP {error.code} on attempt {attempt + 1}: {detail}", file=sys.stderr)
             time.sleep(10 if error.code == 429 else 3)
-        except (ValueError, KeyError, RuntimeError, urllib.error.URLError, TimeoutError) as error:
+        # OSError covers dropped connections and timeouts; HTTPException covers
+        # a response cut off partway through.
+        except (ValueError, KeyError, RuntimeError, OSError, http.client.HTTPException) as error:
             print(f"  failed on attempt {attempt + 1}: {error}", file=sys.stderr)
             time.sleep(3)
     return None
@@ -120,14 +123,13 @@ def main():
                 result["model"] = model
                 paper["explain"] = result
                 done += 1
+                # Save as we go so an unexpected error never loses paid-for work.
+                FEED_FILE.write_text(json.dumps(feed, ensure_ascii=False, indent=1) + "\n")
                 print(f"  ok  {paper['id']}")
             else:
                 print(f"  skipped {paper['id']}")
     except StopRun as error:
         print(f"Stopping early: {error}", file=sys.stderr)
-
-    if done:
-        FEED_FILE.write_text(json.dumps(feed, ensure_ascii=False, indent=1) + "\n")
     print(f"Added {done} explanations.")
 
 
