@@ -32,6 +32,14 @@ jobs:
       - name: Fetch new papers from arXiv
         run: python scripts/fetch_papers.py
 
+      - name: Explain new papers
+        continue-on-error: true
+        run: python scripts/explain_papers.py
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL }}
+          EXPLAIN_MAX: ${{ vars.EXPLAIN_MAX }}
+
       - name: Save the updated feed
         run: |
           if git diff --quiet -- site/papers.json; then

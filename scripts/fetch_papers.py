@@ -139,7 +139,11 @@ def load_existing():
 def merge(new, old, today):
     cutoff = (today - timedelta(days=KEEP_DAYS)).isoformat()
     by_id = {p["id"]: p for p in old}
-    by_id.update({p["id"]: p for p in new})
+    for paper in new:
+        # Keep explanations already generated for this paper.
+        if "explain" in by_id.get(paper["id"], {}):
+            paper["explain"] = by_id[paper["id"]]["explain"]
+        by_id[paper["id"]] = paper
     kept = [p for p in by_id.values() if p.get("published", "") >= cutoff]
     kept.sort(key=lambda p: (p.get("published", ""), p["id"]), reverse=True)
     return kept[:MAX_PAPERS]

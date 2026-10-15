@@ -211,6 +211,43 @@ main { padding-block: 8px 48px; }
 .save[aria-pressed="true"] { border-color: var(--save); color: var(--save); }
 .save svg { width: 14px; height: 14px; }
 
+.explain-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 0;
+  background: var(--accent-soft);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.explain-btn[aria-expanded="true"] { background: var(--accent); color: var(--accent-ink); }
+.explain {
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: 10px;
+  background: var(--accent-soft);
+  display: grid;
+  gap: 10px;
+  font-size: 0.92rem;
+}
+.explain h4 {
+  margin: 0 0 2px;
+  font: 500 0.7rem/1.2 var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+.explain p { margin: 0; }
+.explain .tldr { font-weight: 600; font-size: 0.98rem; }
+.explain dl { margin: 0; display: grid; gap: 6px; }
+.explain dt { font-weight: 600; }
+.explain dd { margin: 0; color: var(--muted); }
+.explain .by { font: 400 0.7rem/1.4 var(--mono); color: var(--muted); }
+
 .empty {
   margin-top: 24px;
   padding: 22px 18px;
@@ -330,6 +367,7 @@ const state = {
   loaded: false,
   saved: store.get("signalpath.saved", {}),
   open: new Set(),
+  explained: new Set(),
 };
 
 const $ = id => document.getElementById(id);
@@ -357,7 +395,13 @@ function authorLine(authors) {
 
 function source() {
   if (state.tab === "start") return CLASSICS;
-  if (state.tab === "saved") return Object.values(state.saved).sort((a, b) => (b.savedAt || 0) - (a.savedAt || 0));
+  if (state.tab === "saved") {
+    // Prefer the feed's copy so saved papers pick up explanations added later.
+    const inFeed = Object.fromEntries(state.feed.map(p => [p.id, p]));
+    return Object.values(state.saved)
+      .sort((a, b) => (b.savedAt || 0) - (a.savedAt || 0))
+      .map(p => inFeed[p.id] || p);
+  }
   return state.feed;
 }
 function matchesQuery(p) {
@@ -375,9 +419,21 @@ function renderChips(items) {
   ).join("");
 }
 
+function explainPanel(x) {
+  const terms = (x.terms || []).map(t => `<div><dt>${esc(t.term)}</dt><dd>${esc(t.meaning)}</dd></div>`).join("");
+  return `<div class="explain">
+    <p class="tldr">${esc(x.tldr)}</p>
+    <div><h4>In plain English</h4><p>${esc(x.plain)}</p></div>
+    ${x.why ? `<div><h4>Why it matters</h4><p>${esc(x.why)}</p></div>` : ""}
+    ${terms ? `<div><h4>Key terms</h4><dl>${terms}</dl></div>` : ""}
+    <p class="by">AI-generated from the abstract${x.model ? ` by ${esc(x.model)}` : ""}. Check the paper for details.</p>
+  </div>`;
+}
+
 function card(p) {
   const saved = !!state.saved[p.id];
   const open = state.open.has(p.id);
+  const explained = !!p.explain && state.explained.has(p.id);
   const when = p.published ? shortDate(p.published) : p.year || "";
   const idLine = [p.id, p.category].filter(Boolean).join(" · ");
   return `<article class="paper">
@@ -386,7 +442,9 @@ function card(p) {
     <p class="authors">${esc(authorLine(p.authors))}</p>
     ${p.topics && p.topics.length ? `<div class="tags">${p.topics.map(t => `<span class="tag">${esc(TOPIC_LABEL[t] || t)}</span>`).join("")}</div>` : ""}
     <p class="abstract${open ? "" : " clamp"}">${esc(p.summary)}</p>
+    ${explained ? explainPanel(p.explain) : ""}
     <div class="actions">
+      ${p.explain ? `<button class="explain-btn" data-act="explain" data-id="${esc(p.id)}" aria-expanded="${explained}">${explained ? "Hide explanation" : "Explain this paper"}</button>` : ""}
       <button class="link-btn" data-act="toggle" data-id="${esc(p.id)}">${open ? "Show less" : "Read more"}</button>
       <a class="link-btn" href="${esc(p.pdf)}" target="_blank" rel="noopener">PDF</a>
       <button class="save" data-act="save" data-id="${esc(p.id)}" aria-pressed="${saved}">
@@ -467,6 +525,8 @@ document.addEventListener("click", e => {
   const id = btn.dataset.id;
   if (btn.dataset.act === "toggle") {
     state.open.has(id) ? state.open.delete(id) : state.open.add(id);
+  } else if (btn.dataset.act === "explain") {
+    state.explained.has(id) ? state.explained.delete(id) : state.explained.add(id);
   } else if (btn.dataset.act === "save") {
     if (state.saved[id]) {
       delete state.saved[id];
