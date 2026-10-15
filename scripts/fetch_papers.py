@@ -30,37 +30,72 @@ NS = {
     "arxiv": "http://arxiv.org/schemas/atom",
 }
 
-# A paper must mention one of these to count as music technology.
-# cs.SD and eess.AS also carry a lot of speech research, which this filters out.
+# Terms match whole words; a trailing * matches any ending ("melod*" finds
+# "melody" and "melodic", and "tempo" no longer matches inside "temporal").
+
+# Any one of these marks a paper as music technology.
 MUSIC_TERMS = [
-    "music", "musical", "song", "singing", "singer", "melod", "chord",
-    "harmon", "instrument", "piano", "guitar", "drum", "violin", "synthesizer",
-    "synthesiser", "timbre", "rhythm", "tempo", "beat tracking", "midi",
-    "symbolic", "composer", "audio effect", "spatial audio", "binaural",
-    "ambisonic", "room impulse", "nime", "remix", "mixing", "mastering",
-    "sound design", "wavetable", "lyrics",
+    "music*", "musician*", "song", "songs", "songwriting", "singing", "singer*",
+    "melod*", "chord*", "harmony", "harmonies", "harmoniz*", "harmonis*",
+    "polyphon*", "piano*", "guitar*", "drum", "drums", "drummer*", "violin*",
+    "orchestra*", "instrumental", "musical instrument*", "midi", "lyrics",
+    "tempo", "rhythm*", "beat tracking", "nime", "dj", "remix*", "mastering",
+    "daw", "audio plugin*", "vst*", "sound design", "synth", "synths",
+    "wavetable*",
+]
+
+# These count only in papers that aren't about speech: "timbre" and
+# "synthesizer" also show up in text-to-speech research.
+WEAK_MUSIC_TERMS = [
+    "synthesizer*", "synthesiser*", "timbre", "spatial audio", "ambisonic*",
+    "binaural", "hrtf*", "head-related", "room impulse", "room acoustic*",
+    "foley", "audio effect*", "reverb*", "mixing",
+]
+
+SPEECH_TERMS = [
+    "speech", "speaker*", "spoken", "tts", "text-to-speech", "asr",
+    "voice conversion", "dialogue*", "conversational", "stutter*", "accent*",
+    "paralinguistic", "diarization",
 ]
 
 TOPIC_TERMS = {
-    "gen": ["generat", "text-to-music", "text-to-audio", "diffusion",
-            "accompaniment", "composition", "continuation", "language model"],
-    "sep": ["source separation", "separation", "stem", "demix", "unmix"],
-    "mir": ["transcription", "information retrieval", "beat tracking",
-            "chord recognition", "key estimation", "tagging", "pitch estimation",
-            "f0", "melody extraction", "cover song", "onset", "tempo estimation",
-            "classification", "structure analysis", "alignment"],
-    "syn": ["synthes", "dsp", "audio effect", "oscillator", "timbre transfer",
-            "wavetable", "reverb", "distortion", "virtual analog",
-            "differentiable", "filter design", "modular"],
-    "spa": ["spatial", "binaural", "ambisonic", "hrtf", "room acoustic",
-            "room impulse", "immersive", "loudspeaker array"],
-    "hci": ["interface", "interaction", "live performance", "musician",
-            "user study", "controller", "gesture", "digital musical instrument",
-            "nime", "co-creat", "creativity support", "real-time"],
-    "rep": ["representation", "embedding", "self-supervised", "codec",
-            "tokeniz", "contrastive", "pretrain", "pre-train",
-            "foundation model"],
+    "gen": ["generat*", "text-to-music", "text-to-audio", "diffusion",
+            "accompaniment", "composition*", "continuation"],
+    "sep": ["source separation", "separation", "stem", "stems", "demix*",
+            "unmix*"],
+    "mir": ["transcription", "transcribe*", "information retrieval",
+            "beat tracking", "chord recognition", "key estimation", "tagging",
+            "pitch estimation", "multi-pitch", "f0", "melody extraction",
+            "cover song*", "onset*", "tempo estimation", "genre*",
+            "music classification", "instrument recognition",
+            "structure analysis"],
+    "syn": ["synthes*", "dsp", "digital signal processing", "audio effect*",
+            "oscillator*", "timbre transfer", "wavetable*", "reverb*",
+            "distortion", "virtual analog", "differentiable", "filter design",
+            "modular", "vst*", "audio plugin*", "foley"],
+    "spa": ["spatial", "binaural", "ambisonic*", "hrtf*", "head-related",
+            "room acoustic*", "room impulse", "immersive",
+            "loudspeaker array*"],
+    "hci": ["interface*", "human-computer interaction", "interactive",
+            "live performance", "musician*", "user study", "controller*",
+            "gesture*", "digital musical instrument*", "nime", "co-creat*",
+            "creativity support"],
+    "rep": ["representation*", "embedding*", "self-supervised", "codec*",
+            "tokeniz*", "tokenis*", "contrastive", "pretrain*", "pre-train*",
+            "foundation model*"],
 }
+
+
+def pattern(terms):
+    parts = [re.escape(t[:-1]) + r"\w*" if t.endswith("*") else re.escape(t)
+             for t in terms]
+    return re.compile(r"\b(?:" + "|".join(parts) + r")\b")
+
+
+MUSIC_RE = pattern(MUSIC_TERMS)
+WEAK_MUSIC_RE = pattern(WEAK_MUSIC_TERMS)
+SPEECH_RE = pattern(SPEECH_TERMS)
+TOPIC_RES = {tid: pattern(terms) for tid, terms in TOPIC_TERMS.items()}
 
 
 def clean(text):
@@ -68,12 +103,13 @@ def clean(text):
 
 
 def is_music(text):
-    return any(term in text for term in MUSIC_TERMS)
+    if MUSIC_RE.search(text):
+        return True
+    return bool(WEAK_MUSIC_RE.search(text)) and not SPEECH_RE.search(text)
 
 
 def topics_for(text):
-    return [tid for tid, terms in TOPIC_TERMS.items()
-            if any(term in text for term in terms)]
+    return [tid for tid, regex in TOPIC_RES.items() if regex.search(text)]
 
 
 def parse_feed(xml_text):
@@ -144,7 +180,16 @@ def merge(new, old, today):
         if "explain" in by_id.get(paper["id"], {}):
             paper["explain"] = by_id[paper["id"]]["explain"]
         by_id[paper["id"]] = paper
-    kept = [p for p in by_id.values() if p.get("published", "") >= cutoff]
+    kept = []
+    for paper in by_id.values():
+        if paper.get("published", "") < cutoff:
+            continue
+        # Re-check older papers too, so filter changes apply to the whole feed.
+        text = f"{paper['title']} {paper['summary']}".lower()
+        if not is_music(text):
+            continue
+        paper["topics"] = topics_for(text)
+        kept.append(paper)
     kept.sort(key=lambda p: (p.get("published", ""), p["id"]), reverse=True)
     return kept[:MAX_PAPERS]
 
