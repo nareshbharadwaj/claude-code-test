@@ -1,6 +1,194 @@
 {
- "updated": "2026-10-15T15:08:46Z",
+ "updated": "2026-10-16T12:30:40Z",
  "papers": [
+  {
+   "id": "2610.21588",
+   "title": "Hear, Localize, and Reason: Spatially Aware Scene Understanding for Audio-Visual LLMs",
+   "authors": [
+    "Kim Sung-Bin",
+    "Lee Jung-Mok",
+    "Jinwoo Jung",
+    "Oh Hyun-Bin",
+    "Hyeonggon Ryu",
+    "David Harwath",
+    "Tae-Hyun Oh"
+   ],
+   "published": "2026-10-15",
+   "category": "cs.CV",
+   "topics": [
+    "spa",
+    "rep"
+   ],
+   "summary": "Audio-visual large language models (AV-LLMs) have made strong progress in multimodal understanding, yet most treat audio as monaural semantic content, limiting their ability to reason about where sounds originate and how they relate to the visual scene. Recent spatial audio-visual studies address parts of this problem, but often focus on specific abilities, such as spatial correspondence or direction and distance reasoning. In this work, we introduce HLR-AVSceneQA, a comprehensive benchmark with a hear-localize-reason hierarchy that evaluates whether models can recognize what is heard, localize sound sources in egocentric and allocentric views, and use these localized sources to reason about how they relate to the visual scene. We further introduce HLR-LLM, which augments a strong audio-visual foundation model with a binaural spatial audio branch alongside its monaural semantic audio pathway. We train HLR-LLM with a curriculum that incorporates final-stage chain-of-thought supervision for multi-step spatial reasoning. Experiments show that existing AV-LLMs remain limited in spatial grounding and relational reasoning, while HLR-LLM substantially improves spatial audio-visual scene understanding without compromising semantic audio-visual perception.",
+   "url": "https://arxiv.org/abs/2610.21588",
+   "pdf": "https://arxiv.org/pdf/2610.21588",
+   "explain": {
+    "tldr": "A new AI model and benchmark that helps systems understand where sounds come from in videos and reason about spatial relationships.",
+    "plain": "Current AI systems that process both audio and video treat sound as just semantic content—they know what's being said or what sound it is, but not where it's coming from. This paper introduces a benchmark test (HLR-AVSceneQA) that checks whether models can do three things: recognize sounds, locate where they originate in a scene, and explain how those sounds relate to what's visible. They also built HLR-LLM, an improved model that processes spatial audio information (like stereo cues that tell you direction) alongside regular audio, trained with step-by-step reasoning guidance. Their results show existing systems struggle with spatial understanding, while their approach significantly improves it.",
+    "why": "For musicians and producers, this matters because it could enable better tools for spatial audio production, immersive music experiences, and AI systems that truly understand the relationship between sound placement and visual content—useful for scoring, sound design, and interactive media.",
+    "terms": [
+     {
+      "term": "binaural spatial audio",
+      "meaning": "Audio recorded or processed using two channels (like stereo) in a way that preserves directional cues—the differences in timing and volume between left and right that tell your brain where a sound is coming from"
+     },
+     {
+      "term": "egocentric and allocentric views",
+      "meaning": "Egocentric is from a first-person perspective (what you see from your position); allocentric is from an external viewpoint (like a camera looking at the whole scene)"
+     },
+     {
+      "term": "chain-of-thought supervision",
+      "meaning": "Training an AI by showing it not just the final answer, but the step-by-step reasoning process needed to get there"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.21467",
+   "title": "DuET: Note-Frame Dual Encoding for Piano Performance-to-Score Transcription",
+   "authors": [
+    "Wei Zeng",
+    "Ye Wang"
+   ],
+   "published": "2026-10-15",
+   "category": "cs.SD",
+   "topics": [
+    "mir",
+    "rep"
+   ],
+   "summary": "Transcribing expressive piano performances into scores requires interpreting individual note timings within an underlying metrical structure. However, score attributes are associated with notes, whereas beats may occur without coincident note onsets. We introduce DuET, a Dual-Encoder Transformer that jointly learns note-level performance MIDI-to-score (PM2S) transcription and frame-level beat and downbeat tracking. Bidirectional cross-attention connects note and frame encoders, while an autoregressive decoder alternates between their representations to predict structured score attributes. We further introduce TimeRoPE and Time-Pitch Rotary Positional Encoding (TPRoPE) to establish a shared performance-time reference and explicitly encode relative temporal and pitch relationships. Evaluations on ASAP, a classical piano dataset, and our curated Gangqinpu dataset, which spans multiple genres with a focus on popular piano music, demonstrate improvements in score timing and notated duration. Compared with the strongest baseline on each dataset, DuET reduces MUSTER mean error from 6.56% to 3.64% on Gangqinpu and from 11.30% to 11.22% on ASAP. Ablations support the benefits of frame-level context, time-based positional encoding, and decoder-history masking. Code, weights, and demos are available at https://github.com/wei-zeng98/DuET.",
+   "url": "https://arxiv.org/abs/2610.21467",
+   "pdf": "https://arxiv.org/pdf/2610.21467",
+   "explain": {
+    "tldr": "A system that converts expressive piano recordings into written sheet music by tracking both individual notes and the underlying beat structure.",
+    "plain": "When a pianist plays, they don't always hit notes exactly on the beat—they add expression through timing variations. Converting this into sheet music requires understanding both *when* each note happens and *where* it fits in the musical meter. DuET uses two connected neural networks: one that focuses on individual notes and another that tracks the beat grid. They communicate with each other to produce accurate sheet music with correct note timings and durations. Tests on classical and popular piano music show it's more accurate than previous methods.",
+    "why": "This matters because automatic transcription of piano performances could help musicians quickly convert recordings into readable scores, speeding up the process of documenting or sharing performances. It's particularly useful for popular music and expressive playing styles where timing varies from the strict beat.",
+    "terms": [
+     {
+      "term": "MIDI-to-score (PM2S) transcription",
+      "meaning": "Converting a digital recording of a performance (MIDI data) into written musical notation"
+     },
+     {
+      "term": "Autoregressive decoder",
+      "meaning": "A system that generates output one piece at a time, where each new piece depends on all the previous pieces it generated"
+     },
+     {
+      "term": "Rotary Positional Encoding",
+      "meaning": "A technique for telling a neural network about the order and spacing of events in time or pitch"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.20967",
+   "title": "MIDI-REPA: Improving Text-to-Music Generation with Symbolic Representation Alignment",
+   "authors": [
+    "Song-Ze Yu",
+    "Fang-Duo Tsai",
+    "Yi-Hsuan Yang"
+   ],
+   "published": "2026-10-14",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "mir",
+    "rep"
+   ],
+   "summary": "State-of-the-art text-to-music models increasingly rely on scaling model capacity, data, and compute, while still learning musical structure directly from dense audio. Yet melody, rhythm, harmony, and structure can be represented compactly in symbolic form. We introduce MIDI-REPA, a representation-alignment framework that derives MIDI supervision from automatic music transcription (AMT) to align intermediate representations of a flow-matching DiT. Building on the 122M-parameter FluxAudio-S baseline from the 2026 ICME Academic Text-To-Music Challenge, we investigate what, where, and when to align. Aligning a MuScriptor-derived piano roll with an early DiT layer throughout the full flow trajectory performs the best. Without additional training data or techniques, MIDI-REPA remains competitive on the ATTM objective metrics while remaining trainable on a single RTX 3090 in about 31 hours. Our results highlight symbolic supervision as a simple and inexpensive learning signal for improving text-to-music generation. We release our transcription pipeline, JamendoMIDI, training code, and audio samples at https://midi-repa.vaclis.net.",
+   "url": "https://arxiv.org/abs/2610.20967",
+   "pdf": "https://arxiv.org/pdf/2610.20967",
+   "explain": {
+    "tldr": "A method that uses MIDI transcription to help text-to-music models learn musical structure more efficiently.",
+    "plain": "Text-to-music AI models usually learn directly from raw audio, which requires lots of computing power. This paper proposes using MIDI—the symbolic music format—as an additional learning signal. They automatically transcribe music to MIDI and use it to guide what the model learns at intermediate stages. Testing on a baseline model, they found that aligning MIDI information early in the generation process works best, and the approach trains quickly on consumer hardware without needing extra data.",
+    "why": "For musicians and producers, this could mean better text-to-music tools that understand melody, rhythm, and harmony more explicitly. Since MIDI is a format you already work with, this approach bridges symbolic music knowledge with AI generation in a way that might produce more musically coherent results.",
+    "terms": [
+     {
+      "term": "flow-matching DiT",
+      "meaning": "A type of AI model architecture that generates music by gradually refining random noise into coherent audio, guided by text descriptions"
+     },
+     {
+      "term": "automatic music transcription (AMT)",
+      "meaning": "Software that listens to audio and converts it into MIDI or sheet music notation"
+     },
+     {
+      "term": "representation alignment",
+      "meaning": "Guiding an AI model's internal learned patterns to match a specific structure, like MIDI, during training"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.20863",
+   "title": "SNOAR: Self-training with Noise filtering, Observation adding, and Remixing for Speech Denoising Without Clean References",
+   "authors": [
+    "Samuele Cornell",
+    "Matthew Maciejewski"
+   ],
+   "published": "2026-10-14",
+   "category": "eess.AS",
+   "topics": [],
+   "summary": "Unsupervised speech denoising methods such as MixIT and noisy-target training can be trained directly on noisy recordings, avoiding the sim-to-real gap of synthetic training data, but remain well below supervised performance. Teacher--student self-training, as in RemixIT, narrows this gap by remixing a teacher's estimates into new mixtures that supervise a student; however, since the student is trained only toward the teacher's estimates, teacher errors, in particular over-suppressed speech, are never recovered and propagate as the teacher is updated from the student. We propose SNOAR, a self-training framework that corrects the teacher's estimates before use: the noise leaked into its speech estimate is removed by differential noise filtering (DNF), and part of the noisy observation is added back in to restore suppressed speech and attenuate artifacts. We show that the two corrections depend on each other, as without DNF the loop collapses to the identity mapping. Compared to RemixIT, SNOAR is more stable along training and outperforms it in signal-based, perceptual, and word error rate metrics, reaching 97\\% of the SI-SDR improvement of a fully-supervised topline on WHAM!; on real CHiME-3 recordings, it improves every metric of three different teachers, while RemixIT degrades their perceptual quality.",
+   "url": "https://arxiv.org/abs/2610.20863",
+   "pdf": "https://arxiv.org/pdf/2610.20863",
+   "explain": {
+    "tldr": "A method to denoise speech from noisy recordings without clean reference audio by correcting teacher model errors during training.",
+    "plain": "Denoising speech from recordings is hard without clean reference versions to learn from. This paper improves on RemixIT, a self-training method where a teacher model learns to separate speech from noise, then teaches a student by creating new training examples. The problem: the teacher makes mistakes (especially over-removing speech), and these errors get locked in and repeated. SNOAR fixes this by cleaning up the teacher's estimates before reusing them—removing noise that leaked into the speech estimate and adding back some of the original noisy recording to restore what was lost. They show this works better than RemixIT on standard tests and real recordings.",
+    "why": "Musicians and producers often record in noisy environments without perfect takes. Better unsupervised denoising means cleaner audio without needing expensive studio recordings or synthetic training data, making professional-quality cleanup more accessible.",
+    "terms": [
+     {
+      "term": "self-training",
+      "meaning": "A technique where a model learns by training on its own predictions, improving iteratively without human labels"
+     },
+     {
+      "term": "SI-SDR",
+      "meaning": "A metric that measures how well separated speech sounds compared to the original, commonly used in audio quality tests"
+     },
+     {
+      "term": "sim-to-real gap",
+      "meaning": "The problem that models trained on synthetic or simulated data often perform worse on real-world recordings"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.20795",
+   "title": "EEG-Based Prediction of Music Enjoyment Using Deep Learning with Explainable Temporal Analysis",
+   "authors": [
+    "Parshav Singla",
+    "Simranjit Kaur",
+    "Maanya Walia",
+    "Niharika"
+   ],
+   "published": "2026-10-14",
+   "category": "cs.LG",
+   "topics": [],
+   "summary": "Understanding why listeners enjoy music is difficult because the experience is subjective and changes as a piece unfolds. Electroencephalography (EEG) offers a non-invasive way to study neural responses during listening, yet earlier work has mostly treated music emotion as a categorical label or relied on black-box models. We formulate enjoyment prediction as a regression problem on the public MUSIN-G dataset, which contains 128-channel EEG from 20 listeners together with song-level enjoyment ratings. Six deep learning models were compared under a participant-wise protocol, in which 15 listeners were used for training and validation and 5 were held out for testing. DeepConvNet, CNN-LSTM and GNN-CNN reached the lowest mean absolute error (0.97 to 0.99 on the 1 to 5 scale), while the temporal convolutional network (TCN) had the highest Pearson correlation with the ratings (r = 0.21). Gradient-based and occlusion-based explanations, averaged over all held-out windows, identify the time segments within each two-second window that most influence the TCN predictions. The study provides a reproducible cross-listener benchmark for EEG-based enjoyment regression and shows how explainability analysis complements standard metrics.",
+   "url": "https://arxiv.org/abs/2610.20795",
+   "pdf": "https://arxiv.org/pdf/2610.20795",
+   "explain": {
+    "tldr": "Deep learning models predict music enjoyment from brain signals, with explanations showing which moments matter most.",
+    "plain": "Researchers wanted to predict how much listeners enjoy music by analyzing their brain activity (EEG recordings) while they listen. They tested six different deep learning models on a dataset of 20 people rating songs. The best models achieved modest accuracy, and they used explanation techniques to identify which specific moments in the music most influenced the predictions. This approach treats enjoyment as a continuous scale rather than simple categories like 'happy' or 'sad.'",
+    "why": "This could help music producers and streaming platforms understand what makes listeners engaged, and the explainability aspect reveals which musical moments drive that engagement—potentially useful for composition and mixing decisions.",
+    "terms": [
+     {
+      "term": "EEG (Electroencephalography)",
+      "meaning": "A non-invasive method that measures electrical activity in the brain using sensors on the scalp"
+     },
+     {
+      "term": "regression",
+      "meaning": "A machine learning approach that predicts continuous numerical values (like a 1-5 enjoyment score) rather than categories"
+     },
+     {
+      "term": "explainability analysis",
+      "meaning": "Techniques that identify which parts of the input data (here, which moments in time) most influenced the model's predictions"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
   {
    "id": "2610.20465",
    "title": "vst-bench-ml: Auditable Dataset Generation for Audio Plugins",
@@ -1638,7 +1826,27 @@
    ],
    "summary": "A 4D audio-visual scene comprises a video, the dynamic geometry it depicts, and the sound sources that populate it, each with its own position and trajectory. Rendering such a scene from a novel viewpoint requires that every source be available as an individual waveform, so that it can be localized in the scene and propagated to the observer before the signals are mixed. Joint audio-video generators can synthesize the video and its soundtrack, but the soundtrack is emitted as a single audio-mix in which the sources are not individually accessible. We present SepGen, which extends a pretrained audio-video generator to emit the video, the mixed soundtrack, and one waveform per captioned source in one joint sampling run. SepGen supports two complementary modes: generation and separation. In generation mode, each source caption specifies what its stem contains. A two-speaker dialogue, for example, comes out as one stem per speaker in the original turn order. In separation mode, the input audio-mix remains clean while the captions specify what to extract, so the model can decompose a recording from a free-text description. We evaluate generation on scenes synthesized from text, and separation on scenes rendered by other generators and on real recordings of speech, music, and sound effects. Given an audio-mix and captions that carry the spoken lines, SepGen outperforms language-conditioned separators, most clearly on speech, and it keeps the lead when the lines are removed from the captions. Code, checkpoints, and datasets are available at https://sepgen.github.io/",
    "url": "https://arxiv.org/abs/2610.11361",
-   "pdf": "https://arxiv.org/pdf/2610.11361"
+   "pdf": "https://arxiv.org/pdf/2610.11361",
+   "explain": {
+    "tldr": "A model that separates audio into individual stems or generates them from descriptions, using video and text captions.",
+    "plain": "When you have a video with multiple sound sources (like dialogue, music, and effects all mixed together), it's hard to work with each sound separately. SepGen takes a trained audio-video model and extends it to output not just the mixed soundtrack, but also individual audio stems—one for each sound source. It works two ways: you can feed it a mixed recording and tell it what to extract (separation mode), or you can describe what sounds you want and it generates them separately (generation mode). The researchers tested it on speech, music, and sound effects, and found it works better than existing methods, especially for separating dialogue.",
+    "why": "For musicians and producers, this means better tools for remixing videos, extracting individual instruments or voices from recordings, or creating new soundtracks where you can control each element's position and level independently.",
+    "terms": [
+     {
+      "term": "stems",
+      "meaning": "Individual audio tracks or waveforms for separate sound sources (like one track for vocals, one for drums, etc.)"
+     },
+     {
+      "term": "audio-visual scene",
+      "meaning": "A video along with its associated sounds, treated as a unified 3D space where sounds have positions and movements"
+     },
+     {
+      "term": "language-conditioned",
+      "meaning": "A model that takes written or spoken instructions to control what it does"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.11237",
@@ -1658,7 +1866,27 @@
    ],
    "summary": "Group dance generation aims to synthesize coordinated multi-dancer choreography from music, with broad applications in animation and interactive content creation. This task requires modeling dense inter-person dependencies to ensure spatial coordination, while naturally preserving individual dancer identities. Existing approaches model all dancers jointly with end-to-end transformers, which tie the architecture to a fixed group size and entangle per-dancer identities across frames. We propose ChainDance, a scalable framework that reformulates group dance generation as a Chain-of-Dancers: a sequential decomposition over per-dancer conditional distributions, allowing a single model to scale across variable group sizes without retraining and naturally preserving per-dancer identity. Built on a frozen single-dancer diffusion backbone, ChainDance introduces two lightweight modules: a Role-Aware Text Encoder (RATE) for per-dancer semantic conditioning, and a Group-Aware Motion Encoder (GAME) that aggregates previously generated dancers via a distance-weighted graph convolutional network, and incorporates a training-free noise optimization procedure at inference time to enforce global spatial coherence. Experiments on AIOZ-GDance demonstrate that ChainDance achieves state-of-the-art motion quality and group coordination while structurally preserving per-dancer identity, with $3$-$4\\times$ fewer parameters and requiring $3$-$6\\times$ less training time compared to prior approaches.",
    "url": "https://arxiv.org/abs/2610.11237",
-   "pdf": "https://arxiv.org/pdf/2610.11237"
+   "pdf": "https://arxiv.org/pdf/2610.11237",
+   "explain": {
+    "tldr": "A system that generates coordinated group dances from music that works with any number of dancers without retraining.",
+    "plain": "Group dance generation creates choreography for multiple dancers moving together to music. The challenge is keeping dancers coordinated in space while maintaining each dancer's unique style. Instead of treating all dancers as one big problem, this approach generates dancers one at a time in sequence, where each new dancer sees what the previous ones did. The system uses a smaller, pre-trained single-dancer model as its foundation and adds lightweight components to handle group coordination and per-dancer instructions. Tests show it produces good results with fewer parameters and faster training than existing methods.",
+    "why": "For musicians and producers, this matters because it could enable easier creation of synchronized group choreography for music videos, games, or live performance visuals—without needing to retrain models for different group sizes.",
+    "terms": [
+     {
+      "term": "diffusion backbone",
+      "meaning": "A pre-trained foundational model that generates motion step-by-step by gradually refining random noise into realistic movement"
+     },
+     {
+      "term": "graph convolutional network",
+      "meaning": "A neural network that processes relationships between connected elements (here, dancers) by treating them as nodes in a graph"
+     },
+     {
+      "term": "Chain-of-Dancers decomposition",
+      "meaning": "Breaking down group dance generation into a sequence where each dancer is generated one after another, conditioning on previously generated dancers"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.11197",
@@ -1676,7 +1904,27 @@
    ],
    "summary": "Automatic music transcription (AMT) is limited by the scarcity of audio recordings paired with precise symbolic annotations. Synthetic data can provide supervision at scale, but it remains unclear whether effective transfer depends on realistic score structure or broad timbral coverage. We study these factors separately through an online sampler--renderer pipeline. A unified corruption sampler ranges from unmodified MIDI clips through partial corruption to deeply randomized note-event distributions. The renderer converts these events to audio while independently controlling instrument and timbral coverage. A fixed transcription model is trained jointly on offline recordings and newly rendered examples. Controlled ablations reveal an asymmetry between the two factors: moderate corruption of the note-event distribution does not impair transfer and can improve it, whereas broader renderer-side timbral support consistently improves out-of-domain generalization under a fixed note-event distribution. Finally, online-rendered examples complement real and existing synthetic data in a strong combined-data regime. These results suggest that synthetic AMT data should prioritize coverage of note-level attributes and their timbral realizations over realistic joint score structure.",
    "url": "https://arxiv.org/abs/2610.11197",
-   "pdf": "https://arxiv.org/pdf/2610.11197"
+   "pdf": "https://arxiv.org/pdf/2610.11197",
+   "explain": {
+    "tldr": "Synthetic training data helps music transcription more through diverse instrument sounds than realistic note patterns.",
+    "plain": "Automatic music transcription—converting audio to sheet music—struggles because there aren't enough recordings paired with accurate written scores. The researchers created synthetic training data by generating audio from MIDI in two ways: they either kept note patterns realistic or scrambled them, and they varied which instruments and sounds were used. They found that scrambling note patterns didn't hurt the transcription model's performance, but using many different instrument sounds consistently made it work better on unfamiliar music. This suggests that for synthetic training data, variety in how notes sound matters more than having perfectly realistic musical structure.",
+    "why": "If transcription software trains better on diverse timbres than realistic scores, it means producers and musicians could improve transcription tools by generating training data that covers many instrument sounds—potentially making automatic transcription more reliable across different musical styles and instruments.",
+    "terms": [
+     {
+      "term": "Automatic music transcription (AMT)",
+      "meaning": "Software that listens to audio and converts it into written musical notation or MIDI data"
+     },
+     {
+      "term": "Synthetic data",
+      "meaning": "Artificially generated training examples (in this case, audio created from MIDI) rather than real recordings"
+     },
+     {
+      "term": "Timbre",
+      "meaning": "The characteristic color or quality of a sound—what makes a trumpet sound different from a violin playing the same note"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.11156",
@@ -1705,7 +1953,27 @@
    ],
    "summary": "Large audio-language models (LALMs) have achieved strong performance in general audio understanding, yet most are designed for monaural input and discard the inter-channel cues essential for spatial perception. In contrast, existing spatial audio-language models are purpose-built for spatial tasks and fail to capitalize on the general understanding capabilities of monaural LALMs. We present MiDashengLM-Spatial, the first open-source end-to-end unified audio-language model, to our knowledge, which supports both general audio understanding and spatial awareness within a single architecture. It extends MiDashengLM with a spatial audio encoder, Spatial-Dasheng, integrated through a hierarchical semantic-to-spatial conditioning module that injects intermediate semantic representations into the spatial branch at multiple depths while preserving the original semantic pathway. To provide spatial audio-language supervision at scale, we develop a data synthesis pipeline that renders diverse spatial acoustic scenes with scene-level spatial descriptions and question-answer pairs. Experiments show that Spatial-Dasheng achieves strong performance on sound event localization and detection in real-world scenes, and that MiDashengLM-Spatial substantially outperforms existing LALMs on spatial understanding and reasoning benchmarks. Meanwhile, it remains competitive with state-of-the-art 8B-scale LALMs on diverse monaural benchmarks, demonstrating that spatial awareness can be acquired without compromising general audio understanding. The source code and model checkpoint are available at https://github.com/xiaomi-research/midashenglm-spatial and https://huggingface.co/mispeech/midashenglm-spatial.",
    "url": "https://arxiv.org/abs/2610.11156",
-   "pdf": "https://arxiv.org/pdf/2610.11156"
+   "pdf": "https://arxiv.org/pdf/2610.11156",
+   "explain": {
+    "tldr": "A unified audio AI model that understands both general sounds and spatial audio cues from multi-channel recordings.",
+    "plain": "Most audio AI models work with single-channel recordings and miss spatial information—where sounds come from in 3D space. This paper presents a model that combines general audio understanding with spatial awareness by adding a specialized spatial audio processor to an existing audio-language model. They created training data with spatial sound scenes and descriptions, and showed their model can locate sounds in space while staying competitive at general audio tasks.",
+    "why": "For musicians and producers working with spatial audio, immersive mixes, or spatial recording formats, this means AI tools could better understand and describe where sounds are positioned—useful for mixing feedback, spatial audio analysis, or creative applications.",
+    "terms": [
+     {
+      "term": "audio-language model (LALM)",
+      "meaning": "An AI system trained to understand audio recordings and respond to text questions or descriptions about them, similar to how image-language models work with pictures."
+     },
+     {
+      "term": "inter-channel cues",
+      "meaning": "Differences between audio channels (like left and right speakers) that tell you where a sound is located in space."
+     },
+     {
+      "term": "sound event localization and detection",
+      "meaning": "Identifying what sounds are present in a recording and pinpointing where each one is coming from spatially."
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.10774",
@@ -1726,7 +1994,27 @@
    ],
    "summary": "Audio generation models can translate natural-language descriptions into sound, but their outputs are typically waveforms. Their audio quality is constrained by audio compression, and their outputs do not readily support direct edits to notes, timbral parameters, or modulation relationships. We present AutoSynth, which represents MIDI performance events, fixed synthesizer parameters, and variable-length modulation routes as a unified sequence for a synthesizer, and learns their dependencies with an audio-conditioned autoregressive model. A single model supports both tasks. Given reference audio, the model directly predicts a synthesizer program; given text, it uses a pretrained audio generation model and converts the generated audio into a program. Training consists of two stages: supervised learning on large-scale audio-program pairs automatically constructed from a small set of native presets, followed by group-relative policy optimization with a mixed reward combining semantic similarity, pitch-related features, acoustic similarity, and sound usefulness. The pipeline requires neither paired text-target-program annotations nor a differentiable synthesizer. Experiments show that AutoSynth produces complete, editable synthesizer programs and achieves competitive results in both synthesizer inversion and text-driven generation. Audio demos and source code are available at https://auto-synth.github.io/.",
    "url": "https://arxiv.org/abs/2610.10774",
-   "pdf": "https://arxiv.org/pdf/2610.10774"
+   "pdf": "https://arxiv.org/pdf/2610.10774",
+   "explain": {
+    "tldr": "A system that converts audio or text descriptions into editable synthesizer programs instead of just waveforms.",
+    "plain": "Most AI music tools turn text or audio into sound waves you can't easily edit. AutoSynth instead creates complete synthesizer settings—including notes, knob positions, and modulation paths—that you can tweak afterward. It learns by studying pairs of audio and synthesizer programs, then gets refined through a training process that rewards programs that sound good and match what was requested. The result is editable, controllable synthesizer patches rather than locked-in audio files.",
+    "why": "This matters because it gives you back creative control. Instead of accepting whatever an AI generates, you get a synthesizer program you can adjust individual parameters, change notes, or modify how controls interact—just like programming a synth yourself.",
+    "terms": [
+     {
+      "term": "autoregressive model",
+      "meaning": "An AI that predicts one piece of information at a time in sequence, using what it predicted before to inform the next prediction"
+     },
+     {
+      "term": "synthesizer inversion",
+      "meaning": "The process of figuring out what synthesizer settings and parameters would produce a given sound"
+     },
+     {
+      "term": "modulation routes",
+      "meaning": "The connections that let one synthesizer control move another (like an LFO controlling filter cutoff)"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.10749",
@@ -1741,7 +2029,27 @@
    "topics": [],
    "summary": "Large audio-language models (LALMs) fuse an audio encoder into a large language model (LLM) through multi-stage training. This coupling means that a new domain or a stronger LLM requires retraining, and their answers cannot be traced to what the model heard: a chain-of-thought is a post-hoc account. We propose Listen-to-Reason (L2R), an interpretable-by-design pipeline that passes audio to the LLM through an explicit, human-readable tree: small heads on frozen expert encoders map each chunk of a clip to semantically meaningful nodes on the tree (for speech, music and environmental sound), and a frozen text-only LLM answers from these nodes and an ASR transcript without hearing the clip. Every answer can therefore be traced to the nodes and transcript it read, and the nodes are causal: replacing the deciding node with a distractor overturns 78% of correct answers on SAKURA. With a 7B reader, L2R outperforms all LALMs we compare against on SAKURA and trails them by 6-12 points on MMAU and MMAR, despite training about 1,400x fewer parameters on orders of magnitude less audio data. However, because any LLM can serve as the reader, we show that a stronger reader narrows this gap without retraining any audio component. A new domain is added with one small head: with five labelled clips per species, it outperforms QLoRA fine-tuning of an LALM on the same clips by 13-26 points.",
    "url": "https://arxiv.org/abs/2610.10749",
-   "pdf": "https://arxiv.org/pdf/2610.10749"
+   "pdf": "https://arxiv.org/pdf/2610.10749",
+   "explain": {
+    "tldr": "A system that makes audio AI interpretable by routing sound through labeled semantic nodes before answering questions.",
+    "plain": "Current audio-language models fuse audio processing directly into large language models, making it hard to understand what the AI actually heard or to adapt them to new domains. This paper proposes Listen-to-Reason, which instead maps audio chunks to human-readable semantic categories (like \"speech,\" \"drums,\" \"traffic\") organized in a tree structure, then feeds those labels plus a transcript to the language model. This way, every answer can be traced back to specific audio features the model identified, and you can verify the model's reasoning by swapping out nodes and seeing if answers change. The system works well on some benchmarks and can adapt to new audio domains (like bird species) with just a few labeled examples.",
+    "why": "Musicians and producers could benefit from AI tools that explain their decisions transparently—knowing *why* a system classified a sound or made a suggestion, rather than getting a black-box answer. This approach also makes it easier to customize AI for specific instruments, genres, or sound libraries without retraining everything from scratch.",
+    "terms": [
+     {
+      "term": "Large audio-language model (LALM)",
+      "meaning": "An AI system that combines audio processing with a language model, trained together so the audio encoder and text model are tightly integrated."
+     },
+     {
+      "term": "Frozen encoder",
+      "meaning": "An audio processing component that is not updated during training; it stays fixed so you don't need to retrain it when switching to a new language model or domain."
+     },
+     {
+      "term": "Chain-of-thought",
+      "meaning": "A step-by-step explanation of how an AI arrived at an answer; here, the authors note that traditional models generate these explanations after the fact, whereas their system's reasoning is built into the structure."
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.10624",
@@ -1763,7 +2071,27 @@
    ],
    "summary": "Spatial audio-visual understanding requires models to recognize not only what is present, but also where events occur and how they relate across modalities. Existing benchmarks often rely on simulated scenes, evaluate isolated spatial skills, and provide limited diagnostic insight into failure modes. We introduce SAVU-Bench, a real-world benchmark that systematically evaluates spatial audio-visual understanding across three capability levels and seven evaluation tasks. We further introduce SAVU-Diag, a scene-linked diagnostic set that decomposes reasoning questions into their prerequisite grounding and alignment sub-tasks. Evaluation of 12 representative models on SAVU-Bench reveals that while visual spatial grounding is relatively mature, spatial perception involving audio remains a primary bottleneck. SAVU-Diag further demonstrates that most reasoning errors co-occur with failures on these prerequisite tasks, though reasoning gaps persist even when prerequisites are correctly resolved. Motivated by these findings, we introduce SAVU-EA, a training-free evidence-augmented baseline that makes spatial cues more explicit. While SAVU-EA substantially improves spatial grounding and joint matching, high-level spatial reasoning remains challenging. Our findings highlight the urgent need for both robust spatial audio perception and deeper integration of cross-modal spatial relations.",
    "url": "https://arxiv.org/abs/2610.10624",
-   "pdf": "https://arxiv.org/pdf/2610.10624"
+   "pdf": "https://arxiv.org/pdf/2610.10624",
+   "explain": {
+    "tldr": "A benchmark testing how well AI models understand where sounds and visuals occur together in real scenes.",
+    "plain": "When you watch a video, you naturally understand not just what you see and hear, but where sounds are coming from and how they match what's on screen. This paper creates a test called SAVU-Bench to measure how well AI models do this. They tested 12 different models and found that while visual location-tracking works okay, understanding where sounds come from is much harder. They also discovered that when models fail at complex questions, it's often because they struggle with basic audio-spatial tasks first.",
+    "why": "For musicians and producers working with spatial audio (like surround sound or immersive mixes), this research shows where AI tools currently struggle—particularly in connecting audio locations to visual content. Understanding these limitations matters if you're considering AI for soundtrack creation, spatial mixing assistance, or interactive audio-visual projects.",
+    "terms": [
+     {
+      "term": "spatial audio-visual understanding",
+      "meaning": "recognizing not just what sounds and images are present, but where they're located in space and how they relate to each other"
+     },
+     {
+      "term": "cross-modal",
+      "meaning": "involving multiple senses or input types together (in this case, sound and vision working together)"
+     },
+     {
+      "term": "grounding",
+      "meaning": "connecting abstract concepts or events to specific locations or objects in a scene"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.10355",
@@ -1782,7 +2110,27 @@
    ],
    "summary": "Text-to-music systems produce increasingly convincing audio, yet evaluation reveals little about whether the result matches user intent. A global text-audio relevance score can overlook the implicit intent in underspecified prompts and mask failures in specific requirements, such as instrumentation, structure, rhythm, or mood progression. To bridge this gap, we formulate text-to-music intent alignment as satisfying a per-request rubric of independently verifiable items covering both a request's explicit requirements and its implied musical intent. Scoring items individually makes evaluation diagnostic by intent source and musical dimension, rather than a single opaque score. We instantiate this as MuRA-Bench, a benchmark of real-world platform requests curated by music experts. We further propose MIRA (Musical Intent Refinement Agent), a test-time agent that first grounds a request's intent into rubrics, then searches over prompt revisions for a black-box generator under a bounded budget, iteratively generating music, verifying it against the rubrics, and using this feedback to guide a trajectory-aware tree search. Experiments across open-source and commercial backends show that MIRA improves intent alignment, enabling an open-source generator to achieve performance comparable to representative commercial systems (e.g. Suno and Mureka). Project page: https://mirareview.github.io/.",
    "url": "https://arxiv.org/abs/2610.10355",
-   "pdf": "https://arxiv.org/pdf/2610.10355"
+   "pdf": "https://arxiv.org/pdf/2610.10355",
+   "explain": {
+    "tldr": "A system that refines text prompts for music generation to better match what users actually want.",
+    "plain": "When you describe music you want in words, AI music generators don't always create what you had in mind—a single score can't tell you if it failed on instrumentation, rhythm, mood, or something else. This paper breaks down evaluation into specific musical dimensions (like \"does it have the right instruments?\" and \"does the mood progress as intended?\"). They built MIRA, an agent that takes your music request, converts it into a checklist of requirements, then automatically rewrites your prompt multiple times, generates music for each version, checks it against the checklist, and keeps refining until it finds a better match. Tests show this helps open-source music generators perform closer to commercial systems like Suno.",
+    "why": "If you use AI to generate music from text descriptions, this work could help you get results that actually match your vision instead of settling for close-enough. It also shows how to evaluate whether AI music tools are really doing what you ask.",
+    "terms": [
+     {
+      "term": "text-to-music generation",
+      "meaning": "AI systems that create music audio based on written descriptions or prompts"
+     },
+     {
+      "term": "intent alignment",
+      "meaning": "how well the generated output matches what the user actually wanted"
+     },
+     {
+      "term": "tree search",
+      "meaning": "an algorithm that explores different options (like prompt variations) systematically to find the best one"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.09861",
@@ -1800,7 +2148,27 @@
    ],
    "summary": "Single-instrument automatic music transcription (AMT) has advanced substantially, yet choral applications require soprano, alto, tenor, and bass (SATB) to be transcribed as separate parts. Recent note-level choral AMT instead produces a single merged note track, limiting rehearsal, education, and score reconstruction. To address this limitation, we introduce Part-aware Choral Transcription (PawCT), to our knowledge the first end-to-end neural framework that identifies active SATB parts from choral audio and transcribes each into a separate note-level track. PawCT combines part-specific onset, offset, and frame prediction with part-presence estimation, union-level supervision, and structured training targets using a range prior (RP) based on SATB pitch ranges and its ordered-continuity (OC) extension, which adds within-part melodic continuity and cross-part pitch ordering. On YouChorale, PawCT-RP-OC achieves a macro part-aware note F1 of 0.225 at a 50-ms onset tolerance, outperforming an adapted choral baseline (0.165) by 36.4% relative and a two-stage post-hoc assignment pipeline (0.175). Its part-agnostic variant, PagCT, achieves a 50-ms onset F1 of 0.382, compared with 0.237 for the previous state-of-the-art choral AMT model. Cross-dataset evaluations on CSD and Cantoria further assess performance under dataset shift. These results demonstrate the benefit of jointly modeling note transcription and vocal-part assignment. Code and demos are available at https://hanyu-meng.github.io/Paw_Choral_AMT_Demo/.",
    "url": "https://arxiv.org/abs/2610.09861",
-   "pdf": "https://arxiv.org/pdf/2610.09861"
+   "pdf": "https://arxiv.org/pdf/2610.09861",
+   "explain": {
+    "tldr": "A neural system that transcribes choral music into separate soprano, alto, tenor, and bass note tracks from audio.",
+    "plain": "Existing music transcription systems struggle with choral music because they produce a single merged note track instead of separating the four vocal parts. This paper presents PawCT, a neural network designed to listen to choral audio, identify which vocal parts are singing, and write out the notes for each part separately. The system uses knowledge about typical pitch ranges for each voice type and expects parts to move smoothly and stay in their proper ranges. Testing shows it outperforms previous approaches at this task.",
+    "why": "For choral musicians and educators, having separate transcriptions of each vocal part makes it easier to learn arrangements, create sheet music, and rehearse individual lines. This could speed up the process of turning recordings into usable scores.",
+    "terms": [
+     {
+      "term": "automatic music transcription (AMT)",
+      "meaning": "software that listens to audio and converts it into written musical notes"
+     },
+     {
+      "term": "onset and offset",
+      "meaning": "the moment a note starts (onset) and stops (offset) in time"
+     },
+     {
+      "term": "F1 score",
+      "meaning": "a measurement of accuracy that balances how many correct notes were found versus false alarms"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.09701",
@@ -1819,7 +2187,27 @@
    ],
    "summary": "Spatial audio signal enhancement (SASE) aims to separate a desired soundfield from interference and noise while preserving its spatial cues. However, existing algorithms pay limited attention to preserving the spatial cues of the residual interference, which reduces their effectiveness in practical applications. In this paper, we propose a direction-preserving SASE algorithm based on multi-output beamforming. The proposed algorithm extracts the desired soundfield while preserving the spatial cues of both the desired soundfield and the residual interference soundfield. The simulation study shows that the proposed algorithm achieves performance comparable to the existing SASE algorithm in terms of estimation error, while it better preserves the spatial cues of the residual interference within a region of interest, in a noisy and reverberant environment.",
    "url": "https://arxiv.org/abs/2610.09701",
-   "pdf": "https://arxiv.org/pdf/2610.09701"
+   "pdf": "https://arxiv.org/pdf/2610.09701",
+   "explain": {
+    "tldr": "A method to clean up spatial audio recordings while keeping directional information about both desired sounds and remaining noise.",
+    "plain": "When recording spatial audio (like immersive or surround sound), you want to isolate the main sound while removing interference and noise. Most existing methods focus only on preserving where the desired sound comes from, but ignore where the unwanted sounds are coming from. This paper proposes a new approach using multi-output beamforming that keeps directional cues for both the desired sound and the leftover interference. Tests show it performs as well as existing methods at reducing errors while better maintaining spatial information about the remaining noise.",
+    "why": "For immersive audio production and spatial recording, knowing where sounds come from is as important as how loud they are. This technique could improve how natural and realistic cleaned-up spatial recordings sound, since listeners can still perceive where background noise is coming from rather than it sounding artificially removed.",
+    "terms": [
+     {
+      "term": "Spherical Harmonic Domain",
+      "meaning": "A mathematical way to represent spatial audio that describes sound coming from all directions around a listener, like a 360-degree recording."
+     },
+     {
+      "term": "Beamforming",
+      "meaning": "A technique using multiple microphones to focus on sounds from a specific direction while rejecting sounds from other directions."
+     },
+     {
+      "term": "Spatial cues",
+      "meaning": "The information in audio that tells you where a sound is coming from in 3D space."
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.09637",
@@ -1847,7 +2235,27 @@
    ],
    "summary": "How can we verify whose music contributed to an AI-generated output? This paper demonstrates how input-based attribution can provide verifiable evidence of which audio sources were used in a generation and whether they shaped the output. To do so, we condition the generation solely on audio without any text input, then trace the inputs behind each output, and establish their musical effect. In prompt adherence tests and controlled input swaps, the stems generated by our generator, MixAudio, follow the prompt audio in timbre and the context audio in harmony. Yet these outputs may still reproduce training data not supplied as inputs. We therefore audit memorization with our musical version identification model, musicDNA, and find few reproductions outside the input records. On human-judged cases within the flagged pool, it achieves higher precision and recall than the other tested memorization detectors. The two evaluations suggest that input records and output analysis provide complementary evidence for attribution, on which rights-holder reporting and compensation can draw as the AI music economy takes shape. Audio examples are available at https://neutune.github.io/attr2027demo/",
    "url": "https://arxiv.org/abs/2610.09637",
-   "pdf": "https://arxiv.org/pdf/2610.09637"
+   "pdf": "https://arxiv.org/pdf/2610.09637",
+   "explain": {
+    "tldr": "A system that traces which audio sources influenced AI-generated music and detects if training data was reproduced.",
+    "plain": "When AI generates music, it's hard to know which input sounds actually shaped the output or whether the AI is just replaying something from its training data. This paper presents MixAudio, a music generator that works from audio prompts alone, and musicDNA, a tool that checks whether generated music matches known training recordings. They tested whether the generator actually follows the input audio's characteristics and whether it reproduces memorized training data. They found the generator does follow input audio in certain ways, and their detection tool catches reproductions better than other methods tested.",
+    "why": "As AI music tools become commercial, musicians and rights-holders need to know whether their work influenced generated outputs and whether they're owed credit or payment. This work provides a way to verify those connections and catch unauthorized reproductions of training material.",
+    "terms": [
+     {
+      "term": "attribution",
+      "meaning": "identifying which source materials contributed to or influenced a generated output"
+     },
+     {
+      "term": "memorization",
+      "meaning": "when an AI system reproduces exact or near-exact copies of training data rather than creating something new"
+     },
+     {
+      "term": "stems",
+      "meaning": "individual audio tracks or layers (like drums, bass, vocals) that can be mixed together"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.09318",
@@ -1865,7 +2273,27 @@
    ],
    "summary": "In music beat tracking, model-predicted activations must be decoded into a discrete, musically coherent event sequence. Direct peak picking closely follows local evidence but can retain spurious peaks or miss weak beats. Dynamic Bayesian networks (DBNs), a widely used structured post-processor, improve sequence consistency under predefined global tempo, meter, and transition constraints, but their behavior can depend strongly on these settings. We introduce CASM, a context-aware semi-Markov decoder that instead conditions its temporal constraint on local activation evidence. CASM also accounts for ambiguity among competing periodic interpretations, including half- and double-tempo alternatives. Deterministic safeguards prevent implausible outputs and preserve beat-downbeat consistency. Applied to fixed activations from three neural beat trackers (BeatThis, MSCNN, and TCN), CASM improves temporal continuity while preserving event-level F1 across the GTZAN and SMC datasets, without backbone retraining or dataset-specific retuning. Further analysis shows that CASM is less sensitive than the DBN baseline to the composition of the calibration data.",
    "url": "https://arxiv.org/abs/2610.09318",
-   "pdf": "https://arxiv.org/pdf/2610.09318"
+   "pdf": "https://arxiv.org/pdf/2610.09318",
+   "explain": {
+    "tldr": "A smarter post-processor that converts beat-tracking predictions into musically sensible beat sequences without needing manual tuning.",
+    "plain": "Beat tracking systems predict where beats occur in music, but their raw predictions often include mistakes—missed weak beats or false peaks. Current methods use fixed rules about tempo and meter to clean up these predictions, but those rules need careful tuning for different music. This paper introduces CASM, which adapts its rules based on what the prediction actually looks like, and also considers whether the beat might be at half or double speed. When tested on three different beat trackers, CASM produced more consistent beat sequences while maintaining accuracy, and worked better across different types of music without needing retuning.",
+    "why": "Better beat tracking helps music production tools, DJ software, and music analysis systems work more reliably. If a beat tracker can produce cleaner, more musically coherent output automatically, it makes these tools more practical and requires less manual correction by users.",
+    "terms": [
+     {
+      "term": "semi-Markov decoder",
+      "meaning": "A method that predicts sequences of events (like beats) while allowing flexible timing between them, rather than assuming fixed intervals"
+     },
+     {
+      "term": "activations",
+      "meaning": "The raw numerical predictions from a neural network showing how likely a beat occurs at each moment in time"
+     },
+     {
+      "term": "Dynamic Bayesian network (DBN)",
+      "meaning": "A statistical model that enforces rules about how sequences should behave over time, like maintaining a steady tempo"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.09075",
@@ -1890,7 +2318,27 @@
    ],
    "summary": "The rapid expansion of text-to-music generative models challenges traditional paradigms of music creation and intellectual property. Plagiarism in this context is rarely an absolute mathematical binary, but an ambiguous threshold negotiated over harmonic structure, melodic contours, or overall perceived stylistic character. In this work, we test the transferability of state-of-the-art music version identification architectures from the human-to-human cover domain to the human-to-AI plagiarism setting. To evaluate this task, we introduce COPYCAT, a benchmark derived from real-world plagiarism cases and extended through generative re-synthesis and digital signal processing obfuscations, yielding 350,654 evaluation pairs. We show that scalar distance thresholding collapses under generative re-synthesis, while a supervised framework leveraging coordinate-wise embedding shifts recovers the dispersed plagiarism signal, raising overall $F_{0.5}$ from $0.612$ to $0.803$.",
    "url": "https://arxiv.org/abs/2610.09075",
-   "pdf": "https://arxiv.org/pdf/2610.09075"
+   "pdf": "https://arxiv.org/pdf/2610.09075",
+   "explain": {
+    "tldr": "Researchers adapt music cover-detection technology to spot AI-generated songs that plagiarize human compositions.",
+    "plain": "As AI music generators become more common, detecting plagiarism gets harder—it's not always a clear yes-or-no, but depends on similarities in harmony, melody, and style. The researchers tested whether existing systems that identify human cover songs could work for spotting AI plagiarism. They built a large test dataset called COPYCAT using real plagiarism cases and created variations of songs using AI re-synthesis and audio processing tricks. Simple similarity matching failed, but a more sophisticated machine-learning approach that tracks how embeddings shift between songs worked much better, improving detection accuracy significantly.",
+    "why": "As AI music tools become mainstream, musicians and rights holders need better ways to protect original work and detect unauthorized copies. This research shows a path toward practical plagiarism detection that could help enforce intellectual property in an AI-generated music landscape.",
+    "terms": [
+     {
+      "term": "version identification",
+      "meaning": "automatically recognizing when two songs are the same piece despite differences in performance, arrangement, or production"
+     },
+     {
+      "term": "embedding",
+      "meaning": "a numerical representation of a song's characteristics that a machine-learning model learns to create, useful for comparing songs"
+     },
+     {
+      "term": "obfuscation",
+      "meaning": "intentional changes to audio (like pitch-shifting or filtering) that disguise the original while keeping core elements recognizable"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.08760",
@@ -1919,7 +2367,27 @@
    ],
    "summary": "Recent advances in world models have enabled increasingly realistic visual synthesis. However, these generated environments remain largely silent. Bringing sound to world models poses three core challenges: real-time generation to keep pace with interactive video streams, interactive control to respond to mid-stream sound instructions, and spatially aligned stereo to reflect scene geometry and camera motion. To address these demands, we introduce WorldSonus, an interactive video-to-audio framework designed for real-time spatial sound synthesis in world models. For real-time generation, WorldSonus employs a streaming causal autoregressive diffusion architecture that synthesizes audio chunks at a low real-time factor (RTF) of 0.41. For interactive control, we incorporate an audio-centric captioning pipeline with chunk-indexed prompt scheduling, enabling dynamic manipulation of sound events during generation. For spatial alignment, we leverage high-quality stereo supervision curated from diverse stereo and ambisonic data. Extensive experiments demonstrate that while tailored for world models, WorldSonus generalizes effectively to open-domain video-to-audio benchmarks, matching or outperforming state-of-the-art bidirectional models in both acoustic quality and spatial alignment. Project page: https://noizai.github.io/WorldSonus/",
    "url": "https://arxiv.org/abs/2610.08760",
-   "pdf": "https://arxiv.org/pdf/2610.08760"
+   "pdf": "https://arxiv.org/pdf/2610.08760",
+   "explain": {
+    "tldr": "A system that generates realistic spatial sound in real-time for AI-created video environments with interactive control.",
+    "plain": "AI can now create realistic videos, but those videos are silent. This paper tackles adding sound to these generated worlds in three ways: making it fast enough to keep up with video playback, letting you control what sounds appear mid-generation, and making the sound match the scene's geometry and camera movement. They built WorldSonus, which generates audio in chunks using a streaming approach, responds to text instructions about sounds, and creates stereo audio (left and right channels) that aligns with the visual scene.",
+    "why": "This matters because interactive audio-visual environments—whether for games, VR, film, or music composition tools—need synchronized, controllable sound. As AI-generated video becomes more common, having matching spatial audio opens new creative possibilities for producers and composers working with synthetic media.",
+    "terms": [
+     {
+      "term": "diffusion architecture",
+      "meaning": "A type of AI model that generates audio by gradually refining noise into clear sound, similar to how some image generators work"
+     },
+     {
+      "term": "stereo supervision",
+      "meaning": "Training data where the AI learns from real stereo recordings (separate left and right channels) to understand how sound should differ between speakers"
+     },
+     {
+      "term": "real-time factor (RTF)",
+      "meaning": "A measure of speed: an RTF of 0.41 means the system generates audio 2.4 times faster than real-time playback"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.08295",
@@ -1941,7 +2409,27 @@
    ],
    "summary": "Morphing has recently gained renewed interest with the emergence of generative models, particularly in audio and image generation. In musical sound synthesis, morphing can generate intermediate sounds between two targets, helping musicians and sound engineers explore new sounds with interesting perceptual properties. As morphing is inherently defined in perceptual terms, evaluating this task is challenging. In this work, we introduce Sobolev Distances to Ideal Morphing (SDIM), a novel objective metric to quantify the regularity of audio morphing trajectories in perceptually relevant audio embedding spaces. Leveraging a physics-based sound synthesizer, we evaluate the discriminative power of SDIM on controlled morphing trajectories with varying degrees of regularity and compare it with that of existing audio morphing metrics. Results show that, contrary to state-of-the-art metrics, the proposed metric reliably discriminates desirable trajectories from adversarial ones.",
    "url": "https://arxiv.org/abs/2610.08295",
-   "pdf": "https://arxiv.org/pdf/2610.08295"
+   "pdf": "https://arxiv.org/pdf/2610.08295",
+   "explain": {
+    "tldr": "A new measurement tool that evaluates how smoothly audio morphing transitions between two sounds.",
+    "plain": "When generative models morph between two sounds, musicians want the transition to feel natural and perceptually smooth—not jumpy or weird. The researchers created a metric called SDIM that measures this smoothness by analyzing how the sound changes in a perceptual embedding space (a mathematical representation of what sounds actually mean to our ears). They tested it against existing metrics and found their approach better identifies smooth, desirable morphing paths versus awkward ones.",
+    "why": "Musicians and producers using AI tools to explore sounds between two targets need reliable ways to judge if the morphing sounds good. This metric could help generative models create more musically useful transitions and give sound designers better feedback on their morphing results.",
+    "terms": [
+     {
+      "term": "embedding space",
+      "meaning": "A mathematical representation where sounds are positioned based on their perceptual qualities, so similar-sounding things are close together"
+     },
+     {
+      "term": "Sobolev Distances",
+      "meaning": "A mathematical way to measure smoothness of transitions by looking at how quickly things change"
+     },
+     {
+      "term": "morphing trajectory",
+      "meaning": "The path a sound takes as it gradually transforms from one target sound to another"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.08284",
@@ -1960,7 +2448,27 @@
    ],
    "summary": "Music Source Restoration (MSR) seeks to recover original, unprocessed instrument stems from mixed, mastered, and possibly degraded recordings. Unlike conventional source separation, which treats the mixture as a linear sum of clean sources, MSR must additionally invert nonlinear production effects, such as equalization and compression, and transmission-related degradations, such as codec artifacts. We propose a three-stage framework built around this distinction: (1) a mixture restoration model that addresses degradation before separation, (2) a single model that separates the restored mixture into eight target stems (vocals, guitars, keyboards, synthesizers, bass, drums, percussion, and orchestra), and (3) stem-specific restoration experts fine-tuned on the separator's own residual artifacts. Each stage improves restoration quality over the previous one on the MSR Challenge test set. We release code and models to support future research in MSR at https://github.com/theMoro/music_source_restoration.",
    "url": "https://arxiv.org/abs/2610.08284",
-   "pdf": "https://arxiv.org/pdf/2610.08284"
+   "pdf": "https://arxiv.org/pdf/2610.08284",
+   "explain": {
+    "tldr": "A three-stage system that cleans up recordings, separates them into instrument stems, then fixes remaining artifacts.",
+    "plain": "When you extract individual instruments from a finished recording, you're fighting against two problems: the mixing process itself (EQ, compression, effects) and degradation from compression or streaming. This paper proposes handling these separately instead of all at once. They clean the recording first, then separate it into eight instrument types, then use specialized tools to fix whatever artifacts the separation created. Each step improves the final result.",
+    "why": "Musicians and producers working with stems from existing recordings—whether for remixing, sampling, or restoration—could get cleaner, more usable individual tracks. This matters if you're trying to extract stems from mastered songs or degraded sources where traditional separation struggles.",
+    "terms": [
+     {
+      "term": "source separation",
+      "meaning": "the process of splitting a mixed recording into individual instrument tracks or 'stems'"
+     },
+     {
+      "term": "codec artifacts",
+      "meaning": "unwanted distortions or noise introduced when audio is compressed for storage or streaming (like MP3 compression)"
+     },
+     {
+      "term": "residual artifacts",
+      "meaning": "leftover errors or unwanted sounds that remain after processing, like glitches from the separation step"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.08236",
@@ -1976,7 +2484,27 @@
    ],
    "summary": "We review the notion of representing music using point sets and argue that such representations are better adapted than sequential representations for matching patterns in unvoiced, polyphonic music, such as keyboard music. Musical transformations such as transposition, inversion, diminution, augmentation and retrograde can be modelled by geometric transformations in pitch-time representations that combine translation with scaling parallel to and reflection in the time axis. We identify eight types of geometric pitch-time representation that use chromatic pitch, morphetic pitch, morph or chroma to represent pitch and either onset time or midtime to represent time. We illustrate how these types of representation allow us to characterise different types of musical transformation. For example, by using midtime instead of onset time, we can precisely characterise certain retrograde relationships; and by using morph and chroma pitch representations we can characterise transformations involving octave displacements and duplications. We present the concept of a transformation class and consider the three specific classes, $F_{\\mathrm{2STR}}$, $F_{\\mathrm{2STRMod7}}$ and $F_{\\mathrm{2STRMod12}}$. We introduce the notion of an inter-pattern transformation graph for a set of patterns, $S$, and a transformation class, $F$. Each vertex in such a graph represents a pattern in $S$ and there is an edge in the graph from pattern $P_1$ to pattern $P_2$ if and only if $P_1$ can be mapped onto $P_2$ by a transformation in $F$. We show, with the aid of such graphs, that the musical relationships between the occurrences of the HAYDN theme in Ravel's Menuet sur le nom d'Haydn can be precisely described in terms of transformations in $F_{\\mathrm{2STR}}$, $F_{\\mathrm{2STRMod7}}$ and $F_{\\mathrm{2STRMod12}}$ within the pitch-time representations considered.",
    "url": "https://arxiv.org/abs/2610.08236",
-   "pdf": "https://arxiv.org/pdf/2610.08236"
+   "pdf": "https://arxiv.org/pdf/2610.08236",
+   "explain": {
+    "tldr": "Using geometric shapes to find musical patterns that have been transformed like transposed or inverted.",
+    "plain": "Finding the same musical idea when it's been changed—moved to a different key, played backwards, sped up—is hard in keyboard music with multiple notes playing together. Instead of thinking of music as a sequence of notes, the authors represent it as points in a geometric space (pitch and time). Musical transformations like transposition or inversion become geometric operations like shifting or flipping. They tested this approach on a famous theme from Ravel's music that quotes Haydn, showing they could precisely identify all the different versions of that theme.",
+    "why": "This matters if you're interested in music analysis tools, composition software, or understanding how composers reuse and transform musical ideas. It could help music software better recognize when you've used a melodic idea in different forms.",
+    "terms": [
+     {
+      "term": "transposition",
+      "meaning": "moving a melody up or down in pitch while keeping the same intervals between notes"
+     },
+     {
+      "term": "retrograde",
+      "meaning": "playing a melody backwards, from the last note to the first"
+     },
+     {
+      "term": "morphetic pitch",
+      "meaning": "a way of representing pitch that distinguishes between different octaves, unlike chroma which treats all C's as equivalent"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.08182",
@@ -1993,7 +2521,27 @@
    ],
    "summary": "Recent text-guided audio FX research has focused on translating natural-language descriptions into parameters or chain configurations within existing FX systems. However, comparatively little attention has been paid to how the internal control space of an individual FX processor can itself be constructed. To address this gap, we propose CTAG-FX, which functionally reinterprets the roles of 78 parameters in a text-conditioned synthesizer configuration as controls of a tone-shaping FX processor. Each synthesizer configuration defines a fixed tone-shaping processor that can be repeatedly applied to new audio inputs rather than producing only a one-off rendered output. The text-conditioned synthesizer configurations are generated using A&R-CTAG, a retrieval-enhanced extension of CTAG. We evaluate CTAG-FX through signal-level analysis, together with a scrambled-mapping ablation in which parameter-to-control assignments are randomly permuted to assess the contribution of the proposed role assignment. Role-based mapping produces prompt-distinct spectral and nonlinear behavior, whereas scrambling reduces this prompt-specific differentiation and yields a more prompt-insensitive nonlinear profile. Overall, these results suggest that synthesizer parameter spaces can serve not only as sound-generation spaces but also as design resources for constructing new audio-FX control spaces. Audio samples are available at https://taylor3527eg-hub.github.io/ctag-fx-platform-demo/.",
    "url": "https://arxiv.org/abs/2610.08182",
-   "pdf": "https://arxiv.org/pdf/2610.08182"
+   "pdf": "https://arxiv.org/pdf/2610.08182",
+   "explain": {
+    "tldr": "Reusing synthesizer parameters as controls for audio effects processors guided by text descriptions.",
+    "plain": "Usually, audio effects are designed with their own fixed control layouts. This paper proposes taking the 78 parameters from a text-guided synthesizer and repurposing them as controls for an effects processor instead. By assigning meaningful roles to these parameters, they create an effects unit that responds to text descriptions and shapes incoming audio in prompt-specific ways. Testing shows that this thoughtful role assignment produces better, more consistent results than randomly shuffling the parameter assignments.",
+    "why": "This could open new ways to design custom effects with intuitive text control, letting producers describe the tone they want rather than tweaking knobs blindly. It also suggests synthesizer designs might be more flexible than we think—their internals could serve multiple creative purposes.",
+    "terms": [
+     {
+      "term": "text-conditioned",
+      "meaning": "A system that takes written descriptions as input to control its behavior, rather than just knob positions"
+     },
+     {
+      "term": "parameter space",
+      "meaning": "The full set of adjustable controls in a synthesizer or effect, and how they relate to each other"
+     },
+     {
+      "term": "retrieval-enhanced",
+      "meaning": "A technique that looks up relevant examples or data to help guide the system's decisions"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.07966",
@@ -2010,7 +2558,27 @@
    ],
    "summary": "Neural audio synthesis models like the Realtime Audio Variational autoEncoder (RAVE) achieve impressive genera tion quality, yet how their internal representations encode musical features remains poorly understood. We present a systematic layer-wise and cross-layer cluster analysis of RAVE decoder activations across three models trained on different musical domains, tested with four stimulus types. We then evaluate architectural generalization with a general purpose EnCodec model. For RAVE, we find that synthetic stimuli are encoded well across models and audio features (pitch |\\r{ho}|=0.45, 5.1x the null, BPM |\\r{ho}| = 0.76, 8.6x the null). These results are reduced but still substantively apparent when using natural audio (mean across features |\\r{ho}|=0.25, 2.8x the null). Natural audio sees a stronger encoding when nonlinear probes are used (mean across features R2=0.56, 18x the null, +0.152 nonlinear gain over the linear probe R2). Encoding strength varies throughout the layers of the decoder and an increased ability to joint-encode in the middle layers is seen across all audio features (\\b{eta}2 all negative, p < 0.05). The general purpose EnCodec decoder also sees similar strong synthetic responses across audio features, similar nonlinear gains for natural audio joint encoding and similar depth profiles. We find the best cross-layer cluster improves the strength (r = 0.65, p = 0.006) and prevalence (r = 0.75, p = 0.001) of BPM encoding when compared against the best whole layers within the same section, with no effect for joint encoding. These findings advance the interpretability of neural audio models and inform targeted control strategies for neural synthesis.",
    "url": "https://arxiv.org/abs/2610.07966",
-   "pdf": "https://arxiv.org/pdf/2610.07966"
+   "pdf": "https://arxiv.org/pdf/2610.07966",
+   "explain": {
+    "tldr": "Researchers analyzed how neural audio synthesis models internally represent musical features like pitch and tempo.",
+    "plain": "Neural audio synthesis models like RAVE can generate realistic audio, but it's unclear how they actually process and store information about musical features internally. The researchers examined what happens at different layers inside these models when they process audio with known properties (pitch, tempo, etc.). They found that the models encode these features reasonably well, especially when given synthetic test sounds, and that different layers specialize in different ways—with middle layers being particularly good at handling multiple features together.",
+    "why": "Understanding how these models represent musical information could help producers and musicians better control neural synthesis tools, making it easier to manipulate specific aspects of generated sound rather than treating the model as a black box.",
+    "terms": [
+     {
+      "term": "VAE (Variational Autoencoder)",
+      "meaning": "A type of neural network that learns compressed representations of audio by encoding it into a smaller form and then reconstructing it"
+     },
+     {
+      "term": "decoder activations",
+      "meaning": "The internal numerical patterns that emerge as data flows through the decoding part of the network"
+     },
+     {
+      "term": "nonlinear probe",
+      "meaning": "A testing method that can capture complex, curved relationships between internal representations and musical features, rather than just straight-line relationships"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.07902",
@@ -2027,7 +2595,27 @@
    ],
    "summary": "Cantonese lyric writing requires close alignment between lexical tones and melodic pitch. Existing melody-guided lyric generation methods typically rely on symbolic melody to generate lyrics. However, in real songwriting scenarios, melodies are often expressed as raw singing audio or hummed recordings, where pitch is implicit, noisy, and unstructured, making these methods difficult to apply directly. To address this limitation, we propose ARIA, a two-stage audio-driven melody-tone relation modeling framework for Cantonese lyric authoring that generates Cantonese lyrics from singing recordings with provided character-level timestamps. Specifically, we first design a Tri-Stream Relation-Aware Tone Estimator (TRATE) to predict 0243 sequences from timestamped singing audio by modeling multi-stream acoustic cues and relational tonal structure. We then propose a Decoupled Retrieval-Augmented Tone-Conditioned Lyric Generator (DRA-TCLG) to generate fluent lyrics conditioned on predicted tonal plans with retrieval-enhanced lexical guidance. Moreover, we construct a large-scale aligned audio-Jyutping-0243 dataset from real Cantonese singing recordings to support this new task. Experimental results demonstrate that ARIA achieves strong performance in both 0243 prediction and tone-consistent lyric generation, validating the effectiveness of the proposed framework.",
    "url": "https://arxiv.org/abs/2610.07902",
-   "pdf": "https://arxiv.org/pdf/2610.07902"
+   "pdf": "https://arxiv.org/pdf/2610.07902",
+   "explain": {
+    "tldr": "System that generates Cantonese lyrics from sung audio by predicting tones and matching them to melody.",
+    "plain": "Writing Cantonese lyrics is tricky because the language's tones must match the melody's pitch. Most existing tools work with written musical notation, but real songwriting often starts with hummed or sung recordings where the pitch is messy and unclear. This paper presents ARIA, which takes a singing recording and timestamps for where words should go, then figures out what tones the melody implies and generates lyrics that fit those tones. They built a new dataset of real Cantonese songs to train and test the system.",
+    "why": "For Cantonese musicians and lyricists, this could make it faster to write lyrics that naturally fit a melody you've already sung or hummed, rather than having to work from sheet music or manually adjust tones afterward.",
+    "terms": [
+     {
+      "term": "tone (in Cantonese)",
+      "meaning": "the pitch pattern of a syllable that changes its meaning—Cantonese has six main tones, and using the wrong one changes what the word means"
+     },
+     {
+      "term": "retrieval-augmented",
+      "meaning": "a technique that looks up relevant examples from a database to help guide what the system generates"
+     },
+     {
+      "term": "Jyutping",
+      "meaning": "a romanization system for writing Cantonese sounds using Latin letters"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.07533",
@@ -2045,7 +2633,27 @@
    ],
    "summary": "Audio language models must handle dozens of distinct skills, from pitch comparison and speaker counting to musical tempo estimation and emotion recognition. Joint training on all skills at once causes interference: gains on one skill often come at the cost of another. We propose \\textbf{SkillFormer}, which decomposes audio understanding into skill-specific low-rank adapters and composes them at inference time through a learned router. The router examines the question to decide which adapters to activate and how much weight each should carry, so that a pitch query engages different parameters than a genre classification query. An alternating training schedule updates each adapter on its own skill cluster before jointly calibrating the router, preventing the gradient conflicts that arise in standard multi-task optimization. SkillFormer adds fewer than 4\\% of the base model's parameters and requires no changes to the audio encoder or language backbone. Evaluated on three architecturally distinct models across MMSU, MMAU-Pro, and MMAR, it raises the average accuracy by 2.5 to 4.1 points, with balanced gains across perception, reasoning, and semantic subcategories.",
    "url": "https://arxiv.org/abs/2610.07533",
-   "pdf": "https://arxiv.org/pdf/2610.07533"
+   "pdf": "https://arxiv.org/pdf/2610.07533",
+   "explain": {
+    "tldr": "SkillFormer trains audio language models on multiple tasks without them interfering with each other by using specialized adapters.",
+    "plain": "Audio language models need to handle many different audio tasks—like identifying pitch, counting speakers, or detecting emotion—but training them all together causes problems: improving at one task often makes the model worse at another. SkillFormer solves this by creating separate, lightweight skill-specific modules (adapters) for different tasks, then uses a smart router that looks at each question and decides which modules to use and how much. The training process updates each skill separately before fine-tuning how they work together, which prevents the conflicting signals that normally happen. The result is better performance across all tasks without significantly increasing the model's size.",
+    "why": "For musicians and producers, this means AI tools that understand audio could become more reliable at specific tasks you care about—whether that's analyzing a vocal's emotion, detecting tempo, or identifying instruments—without sacrificing performance elsewhere. This could lead to better music analysis and production tools.",
+    "terms": [
+     {
+      "term": "low-rank adapters",
+      "meaning": "Small, efficient add-on modules that specialize in specific tasks without requiring the entire model to be retrained"
+     },
+     {
+      "term": "router",
+      "meaning": "A learned decision-maker that examines a question and determines which specialized modules to activate and how much to use each one"
+     },
+     {
+      "term": "multi-task optimization",
+      "meaning": "Training a model on multiple different tasks simultaneously, which can cause conflicts when improvements in one task hurt performance in another"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.07486",
@@ -2061,7 +2669,27 @@
    ],
    "summary": "We report a small-data case study in adapting a pretrained latent audio diffusion model to the guqin, the seven-string Chinese zither, aiming at an \"AI radio\" that plays guqin-style music without end. From a library of historical recordings we curate 412 solo performances (42.5 h, 61 performers) and split them by composition. We fine-tune a rank-16 DoRA adapter on Stable Audio 3 Medium using its continuous latents, masking weighted towards continuation, captions that combine researched notes on each piece with mood tags and an automatically estimated pentatonic mode, and random-length crops, stopping when held-out loss stops improving. Seven blind listening studies by one expert listener guided every decision. The final adapter was rated highest for continuing unseen pieces (3.9/5, against 3.4 for the best earlier adapter) and 4.6/5 for generating from free-written scene descriptions. Negative results are equally informative: a from-scratch autoregressive model over the same latents produced no recognisable timbre, a signal-level friction-noise measure correlated with the listener's complaints in the wrong direction, and a pentatonic-fit measure tracked ratings overall but barely within a group of candidates. Chaining continuations for long playback exposed a silent tail on every generated clip and a loudness feedback loop, both with simple fixes. With one listener and at most ten clips per condition, no paired difference is statistically significant; we present an exploratory record of what helped, what did not, and why.",
    "url": "https://arxiv.org/abs/2610.07486",
-   "pdf": "https://arxiv.org/pdf/2610.07486"
+   "pdf": "https://arxiv.org/pdf/2610.07486",
+   "explain": {
+    "tldr": "Researchers adapted an AI music model to generate guqin music by fine-tuning it on historical recordings and using listening tests to guide improvements.",
+    "plain": "The guqin is a traditional Chinese instrument, and researchers wanted to create an AI system that could generate endless guqin-style music. They took a pretrained music generation model (Stable Audio) and adapted it using 412 historical guqin recordings, adding musical descriptions and mode information. They ran seven listening studies with an expert to test different approaches, finding that their adapted model could continue unseen pieces and generate music from written descriptions reasonably well. However, they also discovered what didn't work—like trying to build a model from scratch—and identified technical issues like silent gaps between generated clips.",
+    "why": "This shows how AI music tools can be customized for specific instruments and musical traditions, even with limited training data. For musicians and producers interested in AI, it demonstrates a practical, listening-focused approach to adapting general models to specialized sounds rather than relying only on automatic metrics.",
+    "terms": [
+     {
+      "term": "latent audio diffusion model",
+      "meaning": "An AI system that generates audio by learning patterns from training data, working in a compressed representation rather than raw sound waves"
+     },
+     {
+      "term": "DoRA adapter",
+      "meaning": "A lightweight technique for customizing a pretrained model for a new task without retraining the entire model from scratch"
+     },
+     {
+      "term": "pentatonic mode",
+      "meaning": "A musical scale with five notes per octave, common in many non-Western musical traditions including Chinese music"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.06478",
@@ -2084,7 +2712,27 @@
    ],
    "summary": "Sound morphing, generating intermediate sounds that transition from one sonic identity to another, can be a powerful tool for musical sound design. Existing diffusion-based morphing approaches entangle temporal structure and timbral identity, offering no mechanism to hold one fixed while transforming the other. We present smorph, a training-free guidance framework that preserves how a sound behaves over time while transforming what the sound is, allowing users to morph, for instance from brass to strings at a fixed pitch. We demonstrate across three morphing modes: prompt-to-prompt, audio-to-prompt, and audio-to-audio. Evaluations across diverse datasets show that smorph effectively produces smooth morph trajectories while substantially improving temporal-structure and source preservation over baselines, albeit with more conservative target-ward transformation in some settings. In an exploratory case study, musicians found smorph trajectories to be expressive and playable, suggesting structural anchoring can serve as a productive constraint for instrumental interaction.",
    "url": "https://arxiv.org/abs/2610.06478",
-   "pdf": "https://arxiv.org/pdf/2610.06478"
+   "pdf": "https://arxiv.org/pdf/2610.06478",
+   "explain": {
+    "tldr": "A tool that smoothly transforms one sound into another while keeping its timing and rhythm fixed.",
+    "plain": "Sound morphing creates intermediate sounds that transition between two different sonic identities—like gradually changing brass to strings. The problem is that existing approaches blur together how a sound evolves over time with what the sound actually is, so you can't control them separately. Smorph solves this by using a guidance framework that preserves the temporal structure (the rhythm and timing) while transforming the timbral identity (the character or color). Musicians tested it and found the morphing transitions expressive and playable.",
+    "why": "This matters to producers and sound designers because it gives you fine-grained control over sound design—you can experiment with new timbres without losing the rhythmic or melodic shape you want. It could also make real-time sound morphing more practical for live performance or interactive music.",
+    "terms": [
+     {
+      "term": "diffusion models",
+      "meaning": "AI systems that generate new content by gradually refining noise into structured sound or images, often used for creative generation"
+     },
+     {
+      "term": "timbral identity",
+      "meaning": "the characteristic color or quality of a sound—what makes a trumpet sound different from a violin"
+     },
+     {
+      "term": "temporal structure",
+      "meaning": "how a sound evolves and changes over time, including its rhythm, timing, and dynamic shape"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.05932",
@@ -2102,7 +2750,27 @@
    "topics": [],
    "summary": "Visual voice cloning requires intelligible, speaker-consistent speech synchronized with visible articulation. However, sequential multimodal conditioning can disrupt previously established temporal and speaker cues, while imbalanced inference guidance can improve linguistic accuracy at the expense of lip synchronization. In this paper, we propose UltraDub, a Unifying Visually-Steered Flow learning and trajectory Guidance Dubbing framework that leverages vision in two ways: as continuous motion for multimodal context aggregation, and as structural rhythm for trajectory rectification. Specifically, we introduce the Motion-guided Dual-context Retrieving (MDR) module, which continually recalibrates linguistic and speaker-style retrieval through shared lip-motion query residuals, utilizing independent time-conditioned gates to regulate their contributions. Furthermore, we propose Rhythm-anchored Trajectory Guidance (RTG), a training-free mechanism that evaluates hierarchical multimodal corrections at a visual-only predictive midpoint, safely strengthening semantic conditioning while better preserving temporal alignment. Finally, we construct DiverseDub, a multi-scenario benchmark to evaluate video dubbing in the wild. Extensive experiments demonstrate that UltraDub achieves state-of-the-art performance across four datasets.",
    "url": "https://arxiv.org/abs/2610.05932",
-   "pdf": "https://arxiv.org/pdf/2610.05932"
+   "pdf": "https://arxiv.org/pdf/2610.05932",
+   "explain": {
+    "tldr": "A system that creates dubbed speech matching actors' lip movements while keeping voices natural and consistent.",
+    "plain": "When dubbing videos (replacing dialogue with new speech), you need the new voice to match the actor's lip movements, sound like the same person, and remain intelligible. The challenge is that trying to improve one aspect—like making words clearer—often breaks another, like lip sync. UltraDub uses visual information from the actor's mouth movements in two ways: to help the system remember both what words to say and what the speaker sounds like, and to guide corrections that keep timing aligned with the video. They tested it on multiple datasets and report it outperforms existing approaches.",
+    "why": "This matters for musicians and producers working on film, TV, or game localization—dubbing into different languages while keeping performances authentic. Better dubbing tools could make international content more natural-sounding and reduce the uncanny feeling of mismatched lips and speech.",
+    "terms": [
+     {
+      "term": "multimodal conditioning",
+      "meaning": "using multiple types of input information (like both audio and video) to guide what a system generates"
+     },
+     {
+      "term": "lip synchronization",
+      "meaning": "matching the timing of spoken words to the visible movement of an actor's mouth"
+     },
+     {
+      "term": "trajectory guidance",
+      "meaning": "steering the system's output along a desired path by providing reference points or corrections during generation"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.05768",
@@ -2120,7 +2788,27 @@
    ],
    "summary": "We ask: given a retrieved source audio $S$ and a separate reference audio $R$, can we synthesize novel audio $Y$ out of this pair $(S,R)$ such that $Y$ remains acoustically consistent with $S$, while not persistently copying segments of $S$ or $R$? The first clause is a well-known goal in Foley audio production, and the second is a well-known issue in neural RAG when $S$ and $R$ are naively injected into neural generators. We show that both clauses can be addressed simultaneously using a method we coin relational synthesis, a variation of concatenative synthesis where target cost is replaced by a relational Gromov-like structural cost. Rather than imitating the content of $R$, relational synthesis exploits it from the \"other side of the hill\": it transfers the temporal structure and directed amplitude motion of $R$ to reorganize and concatenate the grains of $S$ in a novel manner that protects $S$'s acoustic information. Our experiments show that relational synthesis integrates naturally with neural RAG and produces Foley audio that performs well on metrics measuring temporal agreement, acoustic fidelity, and leakage persistence, while maintaining distribution-level quality and text alignment.",
    "url": "https://arxiv.org/abs/2610.05768",
-   "pdf": "https://arxiv.org/pdf/2610.05768"
+   "pdf": "https://arxiv.org/pdf/2610.05768",
+   "explain": {
+    "tldr": "A method that combines two audio sources to create new Foley sounds while preserving acoustic character and avoiding direct copying.",
+    "plain": "When making sound effects (Foley), producers often want to transform one sound using the structure or rhythm of another. This paper addresses two problems: keeping the original sound recognizable while borrowing the timing pattern from a reference sound, and preventing AI systems from just copying chunks of either source. They use a technique called relational synthesis that rearranges small pieces of the source sound according to the reference sound's rhythm and amplitude changes, rather than trying to imitate the reference directly. Tests show this produces Foley that sounds natural, maintains the original acoustic quality, and doesn't leak recognizable copies of the source material.",
+    "why": "This could help Foley artists and sound designers create variations of sounds more efficiently by automatically adapting one sound's character to match another's timing or motion. It also addresses a real problem in AI-assisted audio generation where systems tend to copy their inputs rather than creatively transform them.",
+    "terms": [
+     {
+      "term": "concatenative synthesis",
+      "meaning": "Building new sounds by cutting up and reassembling small pieces (grains) from existing audio"
+     },
+     {
+      "term": "Foley",
+      "meaning": "Sound effects created by recording or synthesizing everyday sounds for film, games, or other media"
+     },
+     {
+      "term": "retrieval-augmented generation (RAG)",
+      "meaning": "An AI approach that finds relevant existing examples and uses them to help generate new content"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.05549",
@@ -2138,7 +2826,27 @@
    ],
    "summary": "We formulate joint estimation of common-slope decay rates and amplitudes from room impulse responses (RIRs) as parameterized nonnegative matrix factorization with the Itakura--Saito divergence as the loss function (IS-NMF). Estimation at each short-time Fourier transform frequency bin produces detailed reverberation time (RT) curves directly from RIR powers with no backward integration needed. Standard space-alternating generalized expectation-maximization (SAGE) algorithm yields closed-form amplitude updates and a convex subproblem for each decay rate update. To accelerate estimation, we introduce contribution-weighted SAGE, which emphasizes observations where each component contributes strongly to the modeled power. Experiments with synthetic data show accurate recovery of well-separated decays and faster loss reduction than standard SAGE. Application to measured coupled-room RIRs yields frequency-dependent RT curves and reveals complementary space-time contributions of the shared decay components.",
    "url": "https://arxiv.org/abs/2610.05549",
-   "pdf": "https://arxiv.org/pdf/2610.05549"
+   "pdf": "https://arxiv.org/pdf/2610.05549",
+   "explain": {
+    "tldr": "A method to measure how sound decays in rooms by analyzing impulse responses using matrix factorization.",
+    "plain": "When sound bounces around a room, it decays at different rates depending on frequency and location. This paper presents a technique to estimate these decay rates and the strength of different sound paths directly from room impulse responses—the recordings that capture how a room affects sound. They use a mathematical approach called nonnegative matrix factorization, which breaks down complex data into simpler components. Their method produces detailed reverberation time curves at each frequency without needing extra processing steps, and they made it faster by focusing computation on the most important parts of the data.",
+    "why": "Understanding how sound decays in a room is fundamental for acoustic design, room correction, and realistic reverb simulation. This technique could help producers and acoustic engineers characterize spaces more precisely and model room acoustics more accurately in recordings or virtual environments.",
+    "terms": [
+     {
+      "term": "room impulse response (RIR)",
+      "meaning": "a recording that captures how a room affects sound by recording the echoes and reflections after a brief sound burst"
+     },
+     {
+      "term": "nonnegative matrix factorization",
+      "meaning": "a mathematical technique that breaks down a table of numbers into simpler components, where all values must be zero or positive"
+     },
+     {
+      "term": "reverberation time (RT)",
+      "meaning": "how long it takes for sound to decay to inaudible levels in a room, typically measured at different frequencies"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.05336",
@@ -2159,7 +2867,27 @@
    ],
    "summary": "Transcribing music into a human-readable score requires a coherent understanding of rhythm, harmony, melody, and form. Two obstacles limit this goal: annotated recordings are scarce, and accurate local predictions can still produce inconsistent musical sequences. We present SheetSage2, a unified music transcription framework that combines synthetic data, task-specific structured decoding, and autoregressive distillation. Automatically annotated MIDI, rendered into audio, provides scalable supervision across music understanding tasks. Task-specific structured decoders integrate complementary musical cues and their temporal dependencies to produce musically coherent scores. Autoregressive distillation further retains transcription accuracy without task-specific dynamic programming at inference. Across eight benchmark collections, a single SheetSage2-AR model exceeds the listed prior systems on 12 of 15 benchmark--metric pairs in our evaluation, substantially improving over SheetSage1 and surpassing task-specific models on several benchmarks. Model weights and inference code are publicly available.",
    "url": "https://arxiv.org/abs/2610.05336",
-   "pdf": "https://arxiv.org/pdf/2610.05336"
+   "pdf": "https://arxiv.org/pdf/2610.05336",
+   "explain": {
+    "tldr": "A system that automatically transcribes music recordings into readable sheet music by learning from synthetic data and ensuring musical coherence.",
+    "plain": "Converting audio recordings into written sheet music is hard because there's limited training data and because getting individual notes right doesn't guarantee the result sounds musically sensible. SheetSage2 solves this by training on artificially created music (MIDI converted to audio), using a decoder that understands how musical elements like rhythm and harmony connect over time, and then simplifying the process for actual use. The system outperformed previous approaches across multiple test datasets.",
+    "why": "This matters because accurate music transcription could save musicians and producers hours of manual work when converting recordings or sketches into scores, and it could help music software better understand what you're playing or producing.",
+    "terms": [
+     {
+      "term": "synthetic data",
+      "meaning": "artificially generated training examples (here, MIDI files converted to audio) rather than real recordings"
+     },
+     {
+      "term": "autoregressive distillation",
+      "meaning": "a technique where a simpler model learns to replicate a complex model's predictions, making it faster to use while keeping accuracy"
+     },
+     {
+      "term": "structured decoding",
+      "meaning": "a decoding method that enforces musical rules and relationships rather than predicting each element independently"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.05055",
@@ -2181,7 +2909,27 @@
    ],
    "summary": "Learning-based acoustic sound source localization and detection (SSLD) requires large labeled datasets covering diverse acoustic conditions. Since obtaining measured data is costly, training commonly uses simulated data, while practical devices must operate under real-world conditions. However, higher simulation complexity increases data-generation cost, and the complexity required for reliable generalization remains unclear. In practice, SSLD methods often rely on efficient geometrical acoustic simulation, typically the image-source method. This work investigates how geometrical acoustic simulation complexity affects the real-world performance of a common multi-source SSLD model. We train the model with simulators ranging from anechoic conditions to high-order image-source simulations, optionally including diffuse reverberation, array simulation, and randomized image-source positions, and evaluate them on three measurement-based test datasets. Results show that anechoic simulation is insufficient, while medium-complexity image-source simulations already provide strong real-world performance. Further increases in complexity yield only marginal gains, with the best performance obtained using the highest tested image-source order, array simulation, and randomized image-source positions. For this configuration, measured-domain performance approaches within-domain simulated performance, suggesting limited benefit from further increasing simulation complexity. These findings show how the complexity-performance trade-off can be exploited in future data-driven SSLD, and highlight image-source randomization as an efficient way to improve generalization.",
    "url": "https://arxiv.org/abs/2610.05055",
-   "pdf": "https://arxiv.org/pdf/2610.05055"
+   "pdf": "https://arxiv.org/pdf/2610.05055",
+   "explain": {
+    "tldr": "Training sound localization AI with moderately complex simulations works nearly as well as highly complex ones for real-world use.",
+    "plain": "Sound source localization—figuring out where sounds come from—is hard to train because real recorded data is expensive to collect. Researchers instead use simulated acoustic environments to train AI models. This paper tests whether more realistic, complex simulations actually improve performance on real recordings. They found that simple anechoic (echo-free) simulation doesn't work, but medium-complexity simulations already perform nearly as well as the most complex ones tested, with only small improvements from adding more realism.",
+    "why": "For musicians and producers using spatial audio tools or microphone arrays, this means faster development of sound localization features. Simpler training simulations mean companies can develop these tools more cheaply and quickly without sacrificing real-world accuracy.",
+    "terms": [
+     {
+      "term": "image-source method",
+      "meaning": "A way to simulate how sound bounces around a room by mathematically modeling reflections off walls"
+     },
+     {
+      "term": "anechoic",
+      "meaning": "An environment with no echoes or reverberation, like a perfectly sound-absorbing room"
+     },
+     {
+      "term": "generalization",
+      "meaning": "How well an AI model trained on simulated data performs on real-world recordings it hasn't seen before"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.04871",
@@ -2199,7 +2947,27 @@
    ],
    "summary": "Tonality is a fundamental organizing principle of Western music. However, the gradual transition from common-practice tonality to atonality around the turn of the twentieth century cannot be captured by binary labels. To characterize intermediate tonal states and trace this evolution, we propose a multidimensional framework for quantifying tonal strength, grounded in tonal theory and mechanisms underlying tonal dissolution. This framework operationalizes the global statistical regularity, temporal coherence, and local perceptual alignment of tonal organization through three complementary features: pitch-class distribution uniformity, temporal stability of tonal centers, and local tonal clarity, respectively. To validate the model, we introduce two new datasets: a binary dataset comprising 196 tonal and atonal pieces, and a historical MIDI corpus of 1,561 compositions by 21 composers spanning the Baroque era to the early twentieth century. The proposed model achieves high discriminative performance on the binary classification task (F_1=0.985), and quantitatively reveals a continuous historical trajectory from established tonality through progressive weakening to eventual dissolution. Computational analysis of representative composers further confirms significant declines in tonal strength throughout the careers of late-Romantic and modernist figures. Additionally, analysis of EMOPIA dataset reveals a weak but statistically significant positive correlation between higher tonal strength values and positive emotional valence. This work establishes a unified quantitative model for analyzing tonal evolution and provides a continuous measure for future behavioral and neurophysiological investigations of the relationships among tonal organization, musical emotion, and cognition.",
    "url": "https://arxiv.org/abs/2610.04871",
-   "pdf": "https://arxiv.org/pdf/2610.04871"
+   "pdf": "https://arxiv.org/pdf/2610.04871",
+   "explain": {
+    "tldr": "A framework that measures how tonal music is on a continuous scale rather than just tonal-or-atonal, tracking how tonality weakened over time.",
+    "plain": "Western music gradually moved from strongly tonal (like Bach) to atonal (like Schoenberg) around 1900, but this shift can't be captured by simply labeling pieces as one or the other. The researchers built a system that measures tonality across three dimensions: how evenly distributed the pitches are, how stable the tonal center stays over time, and how clear the tonality sounds locally. Testing on 1,561 historical compositions, they found their system accurately distinguishes tonal from atonal music and reveals a continuous weakening of tonality through composers' careers during the late 1800s and early 1900s.",
+    "why": "This gives musicians and musicologists a precise way to describe and study the gradual evolution of tonality in music history, rather than forcing pieces into rigid categories. It could help producers and composers understand what makes music sound more or less tonal, and connects tonal organization to emotional response.",
+    "terms": [
+     {
+      "term": "pitch-class distribution uniformity",
+      "meaning": "how evenly or unevenly the twelve musical pitches are used in a piece; tonal music favors certain pitches, atonal music spreads them more equally"
+     },
+     {
+      "term": "tonal center",
+      "meaning": "the home pitch or key that a piece feels anchored to; in C major, C is the tonal center"
+     },
+     {
+      "term": "atonality",
+      "meaning": "music that deliberately avoids organizing around a single home pitch or key"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.08850",
@@ -2217,7 +2985,27 @@
    ],
    "summary": "Musical-instrument recognition is a fundamental music information retrieval (MIR) task supporting transcription, source separation, and audio understanding. Despite significant algorithmic progress, there is still room for improvement in recognizing acoustically similar instruments, particularly in polyphonic mixtures. We examine the contribution of ultrasonic components, i.e., frequencies above the audible 0-20 kHz range. Although most of this content cannot be represented at conventional 44.1/48-kSPS sampling rates under the Nyquist criterion, it is available in high-quality 96-kSPS recordings. Using a 96-kSPS multitrack corpus covering 15 classes across performers, instruments, studios, and sessions, we compare full-band, low-pass, and ultrasonic-only inputs using classical machine-learning and deep-learning classifiers. Our results show that source-dependent ultrasonic extensions and broadband transients contain instrument-specific information that significantly improves isolated and polyphonic recognition and motivates wider-bandwidth studies of other MIR tasks.",
    "url": "https://arxiv.org/abs/2610.08850",
-   "pdf": "https://arxiv.org/pdf/2610.08850"
+   "pdf": "https://arxiv.org/pdf/2610.08850",
+   "explain": {
+    "tldr": "Ultrasonic frequencies above human hearing improve machine recognition of musical instruments in recordings.",
+    "plain": "Identifying which instruments are playing in a recording is useful for music transcription and analysis, but it's harder when instruments sound similar or play together. This research discovered that frequencies too high for humans to hear—above 20 kHz—contain unique patterns that help distinguish instruments. By analyzing high-quality recordings sampled at 96 kHz (instead of the standard 44.1 kHz), they found that these ultrasonic signatures, especially in the sharp attack sounds of instruments, gave machine-learning models better accuracy at recognizing instruments, both when playing alone and in mixtures.",
+    "why": "If instrument recognition improves, it could make automatic music transcription, source separation (isolating individual instruments from a mix), and other music analysis tools more reliable—potentially useful for producers, composers, and music software developers.",
+    "terms": [
+     {
+      "term": "Nyquist criterion",
+      "meaning": "A rule stating that to capture frequencies up to a certain limit, you need to sample at least twice that frequency; e.g., 44.1 kHz sampling captures up to ~22 kHz."
+     },
+     {
+      "term": "polyphonic mixtures",
+      "meaning": "Audio where multiple instruments or voices play at the same time, rather than one at a time."
+     },
+     {
+      "term": "music information retrieval (MIR)",
+      "meaning": "The field of extracting useful information from music recordings, like identifying instruments, detecting beats, or transcribing notes."
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.06949",
@@ -2233,7 +3021,27 @@
    ],
    "summary": "Large audio language models answer questions about speech, sound, and music, yet their accuracy drops sharply on tasks that need fine-grained acoustic analysis. Judging which of two speakers has the higher pitch demands iterative signal-level reasoning that a content question does not. Current models spend the same computational depth on both. We introduce AdaLoop, a lightweight recurrent module that learns how many latent refinement steps a given audio--question pair requires. A shared transformer block iterates over the audio representation, guided by the question, while a learned halting mechanism exits the loop once the representation is ready. AdaLoop adds fewer than 3\\% of the base model's parameters and plugs into any audio encoder--language model pair without modifying either component. Evaluated on three architecturally distinct models across MMSU, MMAU-Pro, and MMAR, AdaLoop raises the average accuracy by 2.9 to 3.8 points, with the largest gains on perception-heavy subtasks where the model learns to apply deeper reasoning.",
    "url": "https://arxiv.org/abs/2610.06949",
-   "pdf": "https://arxiv.org/pdf/2610.06949"
+   "pdf": "https://arxiv.org/pdf/2610.06949",
+   "explain": {
+    "tldr": "AdaLoop adds adaptive reasoning loops to audio language models, spending more computation on hard acoustic tasks.",
+    "plain": "Audio language models—systems that answer questions about speech, sound, and music—struggle with tasks requiring careful listening, like comparing two speakers' pitches. The problem is that these models use the same amount of processing for every question, whether it's easy or hard. AdaLoop is a small add-on that learns how many times to refine its understanding of the audio for each specific question. It uses a learned stopping mechanism to exit when it has enough information, and tests show it improves accuracy by 2.9 to 3.8 percentage points, especially on perception-heavy tasks.",
+    "why": "For musicians and producers, this means AI tools for audio analysis could become more reliable at subtle acoustic judgments—like pitch comparison or timbre analysis—without slowing down simple tasks. It's also efficient: the add-on uses minimal extra parameters, so it could be deployed on existing systems.",
+    "terms": [
+     {
+      "term": "latent reasoning",
+      "meaning": "internal refinement steps where the model improves its understanding of audio without outputting intermediate answers"
+     },
+     {
+      "term": "halting mechanism",
+      "meaning": "a learned decision-maker that tells the model when it has processed the audio enough and can stop iterating"
+     },
+     {
+      "term": "audio encoder",
+      "meaning": "the part of a system that converts raw audio into a numerical representation the model can work with"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.04570",
@@ -2251,7 +3059,27 @@
    ],
    "summary": "In this article, we present a method of spectral serialization envisioned by G. Mahler and A. Schoenberg between the late 19th and early 20th centuries that enables the selection of timbres rooted in musical structure. Based on information geometry, we evaluate the Wasserstein distance between polyphonic timbre spectra, as demonstrated in our previous paper, in terms of the second moment of spectral chords comprising three or more notes, expressed in squared hertz. By embedding these quantities in a Banach space, we analyze specific passages from works by R. Strauss, Mahler, A. Berg, and A. Webern from the perspective of timbre, showing how the same chord exhibits different affinities and divergences depending on orchestration. Taking the wah wah mute as an example, we propose a model that treats instrumental timbre and speech within the same Banach space, and we attempt to quantify the \"vowel triangle\" in Hz. These efforts constitute a partial but integrated solution to the historical three problems of Schoenberg. Serialism, Klangfarbenmelodie, and Sprechgesang which neither Mahler nor Schoenberg in their lifetimes, nor the postwar generation of composers including Nono, Boulez, and Stockhausen, was able to resolve fully. We aim to reconsider musical thought as a whole from the perspective of timbre and to open new possibilities for interpretation, performance, and composition. All tools are publicly available on GitHub, so that anyone can reproduce and extend these analyses.",
    "url": "https://arxiv.org/abs/2610.04570",
-   "pdf": "https://arxiv.org/pdf/2610.04570"
+   "pdf": "https://arxiv.org/pdf/2610.04570",
+   "explain": {
+    "tldr": "A method to analyze how orchestration changes a chord's timbre using mathematical distance measurements.",
+    "plain": "Early 20th-century composers like Schoenberg wanted to treat timbre (the color of sound) as a core musical element, not just an afterthought. This paper proposes a mathematical framework using something called Wasserstein distance to measure how different instrument combinations change the same chord's sound. They analyze real orchestral pieces and show how the same notes sound different depending on which instruments play them—and they even explore connections between instrumental timbre and sung vowels.",
+    "why": "If this approach works, it could help composers and arrangers make more intentional choices about orchestration, understand historical compositional techniques better, and potentially create new tools for exploring how different instrument combinations affect the music you're writing.",
+    "terms": [
+     {
+      "term": "Wasserstein distance",
+      "meaning": "A mathematical way to measure how different two distributions of values are—in this case, how different two spectra (frequency content) are from each other."
+     },
+     {
+      "term": "Klangfarbenmelodie",
+      "meaning": "A German term meaning 'tone-color melody'—the idea of creating melody by changing the timbre of notes rather than just changing pitch."
+     },
+     {
+      "term": "Banach space",
+      "meaning": "A mathematical structure that lets you measure distances and do calculations with complex objects like spectra."
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.06920",
@@ -2268,7 +3096,27 @@
    ],
    "summary": "Automatic music annotation is typically tackled under the assumption of a fixed annotation schema. In practice, commercial music catalogs often need to accommodate new musical attributes as needs evolve. Given that expert music annotation is expensive, it is not evident which methodological approach is most effective at accommodating new attributes and backfilling existing tracks; audio-language models promise zero-shot prediction, but at what annotation budget does supervised adaptation become more compelling? We propose a benchmark based on the MGPHot popular music annotation dataset for simulating music schema extension across different annotation budgets. We investigate zero-shot prediction with audio-language models, learning new attributes from pretrained representations, and adapting models trained on existing annotations. Our results suggest that supervised adaptation is more effective than zero-shot prediction even with small annotation budgets, while frozen representation reuse remains the most effective approach for modest budgets without the tuning required by deeper adaptation.",
    "url": "https://arxiv.org/abs/2610.06920",
-   "pdf": "https://arxiv.org/pdf/2610.06920"
+   "pdf": "https://arxiv.org/pdf/2610.06920",
+   "explain": {
+    "tldr": "Compares methods for adding new musical attributes to existing annotation systems with limited labeled data.",
+    "plain": "Music databases need to add new descriptive tags (like 'lo-fi' or 'orchestral') as tastes change, but hiring experts to label everything is expensive. This paper tests three approaches: using AI models trained on general music-language data to guess new tags without examples, reusing features from existing annotations, and fine-tuning models with a small number of labeled examples. They found that even with just a few labeled examples, training models specifically for new tags works better than using general pre-trained models, though reusing existing features without modification was surprisingly effective for limited budgets.",
+    "why": "If you're building music software or managing a music catalog, this research shows the most practical way to add new musical descriptors without expensive re-annotation—useful for streaming services, DAWs, or music libraries that evolve their tagging systems.",
+    "terms": [
+     {
+      "term": "zero-shot prediction",
+      "meaning": "Making predictions on new tasks without any labeled examples, relying only on general knowledge the model already has"
+     },
+     {
+      "term": "audio-language models",
+      "meaning": "AI systems trained on both music audio and text descriptions, so they can understand music in human terms"
+     },
+     {
+      "term": "frozen representation reuse",
+      "meaning": "Using learned features from existing models without changing them, rather than updating the model with new data"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.03656",
@@ -2286,7 +3134,27 @@
    ],
    "summary": "Multi-pitch estimation in vocal ensembles is challenging because singers occupy overlapping pitch ranges and often sing at closely spaced fundamental frequencies, causing their harmonics to overlap in time-frequency representations. Existing models commonly use harmonic constant-Q transform (HCQT)-based representations to provide frequency-adaptive resolution, at the cost of expensive feature extraction when training mixtures are generated on the fly. We revisit this design and compare HCQT with a linear short-time Fourier transform (STFT), whose frequency bins are directly provided as model inputs. Despite its fixed frequency resolution and the absence of a pitch-aligned input grid, the linear STFT outperforms HCQT while substantially reducing feature-extraction cost. Further analysis shows that a longer analysis window or broader spectral coverage provides no additional improvement, while restricting the input to the predicted pitch range reduces the advantage of the linear STFT. These results suggest that finer frequency resolution does not necessarily improve vocal-ensemble MPE, and that shorter analysis windows can be more effective for time-varying vocal pitches.",
    "url": "https://arxiv.org/abs/2610.03656",
-   "pdf": "https://arxiv.org/pdf/2610.03656"
+   "pdf": "https://arxiv.org/pdf/2610.03656",
+   "explain": {
+    "tldr": "Linear STFT outperforms the more complex HCQT for detecting multiple overlapping vocal pitches while being faster to compute.",
+    "plain": "When multiple singers perform together, their pitches and overtones overlap, making it hard to identify each individual voice. Researchers compared two ways of converting audio into visual frequency patterns: a fancy adaptive method (HCQT) designed specifically for pitch detection, and a simpler standard method (STFT). Surprisingly, the simpler method worked better and ran faster. They found that having super-fine frequency detail doesn't help, but using shorter time windows does help capture singers' changing pitches.",
+    "why": "This matters because better multi-pitch detection could improve tools for transcribing vocal arrangements, separating individual singers from recordings, or analyzing ensemble performances—all useful for producers, arrangers, and music researchers.",
+    "terms": [
+     {
+      "term": "STFT (Short-Time Fourier Transform)",
+      "meaning": "A standard method that breaks audio into small time chunks and shows what frequencies are present in each chunk, like a musical spectrogram."
+     },
+     {
+      "term": "HCQT (Harmonic Constant-Q Transform)",
+      "meaning": "A specialized frequency analysis that uses wider frequency bins for low pitches and narrower bins for high pitches, mimicking how musical pitch perception works."
+     },
+     {
+      "term": "Multi-pitch estimation",
+      "meaning": "The task of automatically detecting all the different pitches being sung or played at the same time in a recording."
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.03589",
@@ -2307,7 +3175,27 @@
    ],
    "summary": "Post-training text-to-music generation requires reward signals that capture multiple aspects of musical quality beyond what any single automatic metric can measure. We study structured, rubric-based rewards from pretrained audio-language models (ALMs) as training signals for both autoregressive and diffusion-based music generators. An ALM scores each generated clip against the rubric; we rank candidates generated for the same text prompt by their scores and convert these rankings into preference pairs for DPO on both MusicGen-small and ACE-Step v1, and additionally use the rubric scores directly as scalar rewards for DiffusionNFT on ACE-Step v1. On MusicCaps, rubric-based optimization improves CLAP, SongEval, and Audiobox-Aesthetics simultaneously, with the strongest gains obtained by DiffusionNFT on ACE-Step. By contrast, on MusicGen-small, building preferences from any one of these automatic evaluators produces clear cross-metric trade-offs: the targeted evaluator improves while other independent evaluators deteriorate. We further study tempo, key, and instrumentation, where precise objective rewards are available. Directly optimizing these specialized rewards reliably improves the target attributes, whereas ALM rubrics provide only partial transfer for tempo and instrumentation and no measurable improvement for key. Together, these results suggest a practical division of labor: ALM rubrics are effective for broad perceptual qualities that are difficult to formalize, while specialized objective rewards remain preferable when reliable measurements are available.",
    "url": "https://arxiv.org/abs/2610.03589",
-   "pdf": "https://arxiv.org/pdf/2610.03589"
+   "pdf": "https://arxiv.org/pdf/2610.03589",
+   "explain": {
+    "tldr": "Using structured quality checklists from AI audio models improves music generation, but works better for some qualities than others.",
+    "plain": "When AI generates music from text descriptions, it's hard to know if the result is actually good—no single automatic measurement captures everything that matters musically. This paper tests using detailed quality rubrics (like checklists) from pretrained audio-language models to guide the training of music generators. They found that rubric-based optimization improved several quality measures simultaneously on one system, but created trade-offs on another where improving one metric made others worse. Interestingly, rubrics worked well for subjective qualities like overall musicality, but performed poorly for objective things like key or tempo where precise measurements exist.",
+    "why": "This matters because it shows a practical path toward better AI music generation: use AI-based quality rubrics for the fuzzy, human-judgment aspects of music (does it sound good?), while using precise technical measurements for concrete attributes (is it in the right key?). This could lead to AI tools that produce more musically satisfying results.",
+    "terms": [
+     {
+      "term": "diffusion-based music generators",
+      "meaning": "AI systems that create music by gradually refining random noise into coherent sound, similar to how some image generators work"
+     },
+     {
+      "term": "DPO (Direct Preference Optimization)",
+      "meaning": "A training method that teaches AI systems by showing them pairs of examples and indicating which one is better"
+     },
+     {
+      "term": "audio-language models (ALMs)",
+      "meaning": "AI systems trained to understand both sound and text, so they can describe or evaluate audio based on written descriptions"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
   },
   {
    "id": "2610.03428",
