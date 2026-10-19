@@ -1,6 +1,158 @@
 {
- "updated": "2026-10-18T12:05:59Z",
+ "updated": "2026-10-19T11:54:03Z",
  "papers": [
+  {
+   "id": "2610.23063",
+   "title": "Known Music, Unknown Response: Leakage-Audited Dynamic Arousal Forecasting With Scheduled Future Music",
+   "authors": [
+    "Bin Wen",
+    "Dai-Qiao Zhang",
+    "Tien-Ping Tan"
+   ],
+   "published": "2026-10-16",
+   "category": "cs.SD",
+   "topics": [
+    "rep"
+   ],
+   "summary": "Dynamic music emotion recognition usually estimates concurrent or lag-aligned labels from audio that has already been observed. We instead forecast the change in consensus arousal when the upcoming music is scheduled but all later affect labels remain hidden. Evaluation holds out complete songs, encodes each eligible 4-s chunk independently, predicts arousal innovation, and compares the correct future with displaced segments from the same song. On PMEmo and a 1,494-song DEAM evaluation pool excluded from engineering development, a complete past/future MuQ representation raises concordance correlation coefficient (CCC) by 0.389--0.507 over recent affect and remains 0.268--0.382 above a calibrated nonlinear state model. A future-only trajectory contains no past or current audio and still exceeds that state model by 0.150--0.249. The earliest legal future chunk, which ends 5.5--11 s before the target, also remains informative. Correct placement exceeds an overlapping 5-s shift by 0.100--0.209 and the acoustic-nearest eligible same-song segment by 0.078--0.105, with positive song-cluster lower bounds. These results show that both scheduled content and its within-song position carry forecast information under the stated observation rules. The study provides a leakage-controlled reference for known-future music forecasting without treating predictive substitutions as causal interventions.",
+   "url": "https://arxiv.org/abs/2610.23063",
+   "pdf": "https://arxiv.org/pdf/2610.23063",
+   "explain": {
+    "tldr": "Predicting how arousal will change when upcoming music plays, using only the scheduled music and its position in the song.",
+    "plain": "Usually, music emotion systems guess how you feel based on audio you've already heard. This paper does something different: it predicts how your arousal (energy/excitement level) will change when new music is about to play, but you haven't heard it yet. They tested this by hiding future emotional labels and seeing if the system could forecast arousal shifts just from knowing what music comes next and where it sits in the song. They found that knowing the upcoming music and its position in the track gives real predictive power—better than just tracking past emotional patterns.",
+    "why": "This matters because it suggests music's emotional impact isn't just about what you're hearing now, but also about what you know is coming. For producers and composers, it hints that song structure and sequencing choices have measurable effects on listener emotion, independent of moment-to-moment audio features.",
+    "terms": [
+     {
+      "term": "arousal",
+      "meaning": "the energy or intensity dimension of emotion—how excited or calm you feel"
+     },
+     {
+      "term": "concordance correlation coefficient (CCC)",
+      "meaning": "a statistical measure of how well predictions match actual values, ranging from -1 to 1"
+     },
+     {
+      "term": "leakage",
+      "meaning": "when a machine learning model accidentally uses information it shouldn't have access to, making results look better than they really are"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.22989",
+   "title": "MUB: An Identity-Masked Benchmark for Music Understanding in Multimodal Language Models",
+   "authors": [
+    "Kun Liu",
+    "Lyra Tao"
+   ],
+   "published": "2026-10-16",
+   "category": "cs.SD",
+   "topics": [
+    "syn"
+   ],
+   "summary": "Evaluating musical perception in multimodal language models requires separating audio evidence from answers recoverable through metadata or external tools. We present the Music Understanding Benchmark (MUB), a locally assembled collection of 500 identity-masked recordings with existing annotations for tempo, key, time signature, and structural intervals. The collection covers all 24 major/minor key combinations, tempos of 47--180 beats per minute, and 4,676 annotated intervals. Original titles, artists, and platform identifiers are excluded from evaluation inputs. Relative to recent music question-answering and temporal-grounding work, MUB emphasizes scalar tempo prediction and full-recording interval outputs, together with a documented metadata-masking protocol. Saved baseline predictions yield 53.6\\% tempo accuracy for a simple DSP estimator and 98.4\\% time-signature accuracy for a constant 4/4 predictor. We identify important limitations, including an asymmetric legacy key metric, unverified independent annotation agreement, extreme metre imbalance, and unresolved recording-level rights clearance. No contemporary multimodal language model comparison has yet been completed. MUB is therefore an evaluation resource and protocol under validation, rather than a completed demonstration of model capabilities.",
+   "url": "https://arxiv.org/abs/2610.22989",
+   "pdf": "https://arxiv.org/pdf/2610.22989",
+   "explain": {
+    "tldr": "A test dataset for evaluating whether AI music models can understand tempo, key, and structure from audio alone.",
+    "plain": "When testing whether AI models understand music, it's hard to know if they're actually listening to the audio or just looking up song titles online. This paper introduces MUB, a collection of 500 recordings where artist names and titles are hidden, along with human-verified information about tempo, musical key, time signature, and where sections start and end. They tested some basic music-analysis tools as a starting point—one could guess the time signature correctly 98% of the time by just assuming 4/4 for everything. The authors acknowledge the dataset still has issues to work out before it's ready for serious model testing.",
+    "why": "As AI tools become more common in music production and analysis, musicians need reliable ways to check if these models actually understand music or are just pattern-matching metadata. This benchmark helps ensure AI music tools are genuinely listening to what you create.",
+    "terms": [
+     {
+      "term": "multimodal language models",
+      "meaning": "AI systems trained on multiple types of information (like text and audio) that can answer questions about them"
+     },
+     {
+      "term": "metadata-masking",
+      "meaning": "hiding identifying information like song titles and artist names so evaluation depends only on the audio itself"
+     },
+     {
+      "term": "DSP estimator",
+      "meaning": "a simple computer algorithm that analyzes audio signals directly, without using machine learning"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.22962",
+   "title": "Rethinking Magnitude Compression in Spectral Losses for DDSP Parameter Estimation",
+   "authors": [
+    "Byunghoo Park",
+    "Jayeon Yi",
+    "Minje Kim"
+   ],
+   "published": "2026-10-16",
+   "category": "cs.SD",
+   "topics": [
+    "syn"
+   ],
+   "summary": "Spectral losses for differentiable digital signal processing (DDSP) commonly compress magnitudes, for example by using log-magnitude terms. Such compression mimics human perception, but whether it helps the optimization is less clear, and is usually found only by comparing trained models. In this work, we show that whether compression helps depends on the system's informative region: the region of its dynamic range that carries the information pointing toward the target. To indicate where this region lies without having to train, we introduce concordance, which measures how well a loss orders candidate parameter settings by their distance from the target. We then compare uncompressed, compressed, and combined losses by fitting a modal plate reverb and a subtractive synthesizer model to target sounds. A third system, selected for its low-energy informative region, tests the relationship in the opposite direction. In every system, the loss that matches the informative region performs best: the uncompressed one where the region lies at high energies, and the compressed one where it lies low. Surprisingly, the common combination of both log-magnitude and linear-magnitude terms performs best in none of the systems. Code and audio examples are available at https://github.com/superstem000/compression-analysis",
+   "url": "https://arxiv.org/abs/2610.22962",
+   "pdf": "https://arxiv.org/pdf/2610.22962",
+   "explain": {
+    "tldr": "Magnitude compression in spectral losses helps DDSP parameter estimation only when the important signal information is in low-energy regions.",
+    "plain": "When training neural networks to estimate synthesizer or effects parameters from audio, researchers typically compress the audio spectrum using logarithms to match human hearing. This paper questions whether that's always best. They introduce a measurement called 'concordance' to predict where the important information lives in a sound's dynamic range without training. Testing on three different systems, they found that compressed losses work best when important details are quiet, while uncompressed losses work better when important details are loud. Surprisingly, using both compressed and uncompressed losses together—a common practice—didn't outperform either alone.",
+    "why": "If you're building tools that automatically estimate synthesizer settings or effects parameters from audio, this research suggests you should think carefully about whether to compress your loss function based on your specific sound. It could lead to faster, more accurate parameter estimation for music production tools.",
+    "terms": [
+     {
+      "term": "DDSP",
+      "meaning": "Differentiable Digital Signal Processing—a framework that lets neural networks learn to control audio synthesis and effects by treating them as trainable components."
+     },
+     {
+      "term": "spectral loss",
+      "meaning": "A measurement of how different two sounds are by comparing their frequency content, used to guide training."
+     },
+     {
+      "term": "concordance",
+      "meaning": "A metric that measures whether a loss function correctly ranks different parameter choices by how close they get to a target sound."
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.22535",
+   "title": "D-Composer: Language Modeling for Simultaneous Drum Transcription and Sound Event Decomposition",
+   "authors": [
+    "Patrick O'Reilly",
+    "Saumya Pailwan",
+    "Annie Chu",
+    "Jason Smith",
+    "Bryan Pardo"
+   ],
+   "published": "2026-10-15",
+   "category": "cs.SD",
+   "topics": [
+    "sep",
+    "mir",
+    "syn",
+    "rep"
+   ],
+   "summary": "Drum beats are often conceptualized and produced as arrangements of repeated single-drum sound events or one-shots. Drum Analysis-by-Synthesis (AbS) models combine this structural assumption with reconstruction-based training to perform MIR tasks such as drum transcription, drum source separation, and one-shot extraction, offering a flexible alternative to more traditional task-specific supervision. However, leading AbS approaches struggle to generalize to a broad range of drum timbres (e.g., electronic drum kits), rely on high-quality paired audio-transcription training data, and do not model intra-class timbral variation within a single arrangement (e.g., multiple kick sounds). To overcome these limitations, we propose D-Composer, an autoregressive language modeling framework that decomposes drum recordings into labeled sound events and their onset times. In drum transcription and one-shot extraction tasks, D-Composer performs comparably to or better than a state-of-the-art AbS system and task-specific baselines while generalizing to a broader range of drum timbres. Our results demonstrate that when equipped with abundant synthetic data and compact acoustic token representations, language modeling provides a simple recipe for unifying transcription and sound event decomposition.",
+   "url": "https://arxiv.org/abs/2610.22535",
+   "pdf": "https://arxiv.org/pdf/2610.22535",
+   "explain": {
+    "tldr": "A language model that transcribes drums and separates individual drum sounds from recordings.",
+    "plain": "Drum beats are made from individual drum hits (kick, snare, etc.). This paper presents D-Composer, which listens to a drum recording and figures out what drum sounds happened and when they occurred. Unlike previous systems that struggle with different drum kit styles or need lots of paired training examples, D-Composer works better across electronic and acoustic drums, learns from synthetic data, and can handle when the same drum (like a kick) sounds different throughout a song.",
+    "why": "For musicians and producers, this could improve tools for drum editing, remixing, and extracting individual drum sounds from recordings—useful for sample-based production or fixing timing issues in drum tracks.",
+    "terms": [
+     {
+      "term": "transcription",
+      "meaning": "converting audio into a written representation—here, identifying which drums played and when"
+     },
+     {
+      "term": "autoregressive language modeling",
+      "meaning": "a machine learning approach that predicts the next item in a sequence one step at a time, like how autocomplete works"
+     },
+     {
+      "term": "acoustic token representations",
+      "meaning": "compact digital summaries of sound characteristics that the model uses instead of raw audio"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
   {
    "id": "2610.21588",
    "title": "Hear, Localize, and Reason: Spatially Aware Scene Understanding for Audio-Visual LLMs",
@@ -75,6 +227,43 @@
      {
       "term": "Rotary Positional Encoding",
       "meaning": "A technique for telling a neural network about the order and spacing of events in time or pitch"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.22416",
+   "title": "From Individual Songs to Music Corpora: Evaluating Explainable Harmonic Decision-Making on HookTheory",
+   "authors": [
+    "Josef Pavlíček",
+    "Martin Pelikán"
+   ],
+   "published": "2026-10-14",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "rep"
+   ],
+   "summary": "Automatic melody harmonization is often evaluated through individual compositions or data-driven corpus models. This study examines whether an explainable harmonic decision model developed for individual songs can be applied to independently collected human annotations without changing its rules. We evaluate a frozen Explainable Melody Harmonizer (EMH) on selected HookTheory excerpts containing aligned melody and chord annotations. EMH generates chord sequences from melody alone using explicit criteria for melodic compatibility, harmonic function, persistence, cadence, meter-aware segmentation, and Viterbi-like optimization. Human chords are withheld during generation and used only for post-hoc comparison. Nineteen excerpts yielded 439 evaluable harmonic segments. Exact chord agreement reached 20.50%, chord-root agreement 31.66%, and harmonic-function agreement 47.62%, with functions assessed relative to the key inferred by EMH. Decision-level analysis identified 203 segments (46.24%) where the human chord lay outside the model's candidate vocabulary and 146 (33.26%) where it was available but not selected. These findings distinguish representational limitations from differences in chord selection without treating the human reference as the only musically valid solution. The study demonstrates a reproducible, interpretable approach to corpus-based evaluation of harmonic decision-making.",
+   "url": "https://arxiv.org/abs/2610.22416",
+   "pdf": "https://arxiv.org/pdf/2610.22416",
+   "explain": {
+    "tldr": "Tests whether a rule-based harmony system trained on individual songs works on real-world chord annotations without modification.",
+    "plain": "When musicians write melodies, they need to add chords underneath them. This paper tests a system called EMH that automatically suggests chords based on the melody, using explicit musical rules rather than machine learning. The researchers froze this system (didn't retrain it) and tested it on 439 chord segments from HookTheory, a real database of songs with melody and chord annotations. They found the system matched human chord choices exactly 20% of the time, but agreed on the harmonic function (the role the chord plays) 48% of the time. By analyzing where disagreements happened, they could tell whether the system simply didn't know certain chords or chose differently despite knowing them.",
+    "why": "This matters because it shows a transparent way to evaluate harmony suggestions—you can see *why* the system made each choice rather than just getting a yes/no answer. For producers and composers, this kind of interpretable system could help understand automatic harmonization tools and trust their suggestions more.",
+    "terms": [
+     {
+      "term": "harmonic function",
+      "meaning": "the role a chord plays in the key—like tonic (home), dominant (tension), or subdominant—independent of which specific chord it is"
+     },
+     {
+      "term": "Viterbi-like optimization",
+      "meaning": "an algorithm that finds the best sequence of choices by considering how each choice affects the next one"
+     },
+     {
+      "term": "corpus",
+      "meaning": "a large collection of real music data, like a database of songs with annotations"
      }
     ],
     "model": "anthropic/claude-haiku-4.5"
