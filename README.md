@@ -77,7 +77,7 @@ impostor, then players give clues out loud, discuss and vote on their phones.
 - The host chooses word packs (Indian food, festivals, Bollywood, places,
   home, sports, everyday life), can add the family's own words, and picks
   what the impostor sees: nothing, the category, or a decoy word.
-- Optional twists: two impostors, a secret partner, a jester, a detective,
+- Optional twists: two impostors, a spy, a jester, a detective,
   rounds with maybe no impostor, clue styles, and a last-chance guess.
 
 There is no server to run. The host's phone runs the game and connects to the

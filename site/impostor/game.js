@@ -387,7 +387,7 @@ function finishRound(state) {
       }
     });
     if (accomplice && free.length) {
-      summary.push(`${name(accomplice)} was the secret partner and helped the impostor escape. +2`);
+      summary.push(`${name(accomplice)} was the Spy and helped the impostor escape. +2`);
       add(accomplice, 2);
     }
   }

@@ -458,7 +458,7 @@ function gameScreen() {
 
 const EXTRAS = [
   { key: "twoImpostors", title: "Two impostors", desc: "Two impostors who don't know about each other. Catch one and you vote again." },
-  { key: "accomplice", title: "Secret partner", desc: "One player knows the word and who the impostor is, and wins if the impostor escapes." },
+  { key: "accomplice", title: "Spy", desc: "One player secretly works for the impostor. The Spy knows the word and who the impostor is, and wins if the impostor escapes." },
   { key: "jester", title: "Jester", desc: "Knows the word, but wins only by getting voted out." },
   { key: "detective", title: "Detective", desc: "Once per round, can secretly check whether one player is the impostor." },
   { key: "noImpostor", title: "Maybe no impostor", desc: "Some rounds secretly have no impostor. You can vote \"No impostor\"." },
@@ -557,7 +557,7 @@ function secretCard(v, opts = {}) {
       civilian: "Give clues that prove you know it, without giving it away.",
       detective: "You're the <b>Detective</b>. Once this round, secretly check one player.",
       jester: "You're the <b>Jester</b>! Win by getting yourself voted out. Act a bit suspicious, but not too much.",
-      accomplice: `You're the <b>Secret partner</b>. The impostor is <b>${esc((c.impostors || []).map(nameOf).join(" and "))}</b>. Help them escape!`,
+      accomplice: `You're the <b>Spy</b>. The impostor is <b>${esc((c.impostors || []).map(nameOf).join(" and "))}</b>. Help them escape!`,
     }[c.role];
     body = `<div class="role">Your word</div><div class="word">${esc(c.word)}</div><div class="note">${extra}</div>`;
   }
@@ -683,7 +683,7 @@ function guess(v) {
     ${v.isHost ? `<button class="btn quiet" data-action="skipGuess">Skip the guess</button>` : ""}`;
 }
 
-const ROLE_NAMES = { civilian: "Family", impostor: "Impostor", detective: "Detective", jester: "Jester", accomplice: "Secret partner" };
+const ROLE_NAMES = { civilian: "Family", impostor: "Impostor", detective: "Detective", jester: "Jester", accomplice: "Spy" };
 
 function results(v) {
   const x = v.reveal;
