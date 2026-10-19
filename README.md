@@ -64,3 +64,32 @@ python3 scripts/fetch_papers.py
 
 To change which papers count as music technology, or how topics are assigned,
 edit `MUSIC_TERMS` and `TOPIC_TERMS` in `scripts/fetch_papers.py`.
+
+## Kaun Hai Impostor? (family party game)
+
+`site/impostor/` is a separate party game published alongside the feed, at
+`https://<your-username>.github.io/<repo-name>/impostor/`. Everyone in the
+room uses their own phone. Everyone gets the secret word except the
+impostor, then players give clues out loud, discuss and vote on their phones.
+
+- One person taps **Create a new game** and shares the 4-letter room code or
+  the **Invite family** link. Everyone else enters their name and joins.
+- The host chooses word packs (Indian food, festivals, Bollywood, places,
+  home, sports, everyday life), can add the family's own words, and picks
+  what the impostor sees: nothing, the category, or a decoy word.
+- Optional twists: two impostors, a secret partner, a jester, a detective,
+  rounds with maybe no impostor, clue styles, and a last-chance guess.
+
+There is no server to run. The host's phone runs the game and connects to the
+other phones directly over [PeerJS](https://peerjs.com); its free public
+server is only used to introduce the phones. Each phone receives only what
+its player may see. Keep the host's phone open during the game. If a phone
+reloads or drops off Wi-Fi, it rejoins the same game automatically.
+
+| Path | What it does |
+| --- | --- |
+| `site/impostor/game.js` | The rules: dealing roles, turns, voting and scoring |
+| `site/impostor/words.js` | Word packs and clue styles |
+| `site/impostor/app.js` | Screens and the phone-to-phone connection |
+
+Run the rules tests with `node --test tests/`.
