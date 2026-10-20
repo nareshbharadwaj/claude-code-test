@@ -65,6 +65,7 @@ function newCode() {
 class Host {
   constructor(name, saved) {
     this.conns = new Map(); // playerId -> { conn, seen }
+    this.lastAction = new Map(); // playerId -> { load, n } of the last action applied
     this.state = saved || null;
     // Everyone else is away until their phone reconnects.
     this.state?.players.forEach((p) => (p.connected = p.id === playerId));
@@ -124,7 +125,16 @@ class Host {
       if (!pid) return;
       const entry = this.conns.get(pid);
       if (entry && entry.conn === conn) entry.seen = Date.now();
-      if (msg.t === "action") this.dispatch(pid, msg.action);
+      if (msg.t === "action") {
+        // Phones resend taps the host hasn't confirmed, so skip any already applied.
+        const last = this.lastAction.get(pid);
+        const seen = last && last.load === msg.load && msg.n <= last.n;
+        if (!seen) {
+          this.lastAction.set(pid, { load: msg.load, n: msg.n });
+          this.dispatch(pid, msg.action, msg.retry);
+        }
+        conn.send({ t: "ack", load: msg.load, n: msg.n });
+      }
     });
     conn.on("close", () => {
       const entry = pid && this.conns.get(pid);
@@ -153,12 +163,13 @@ class Host {
     if (this.peer.disconnected && !this.peer.destroyed) this.peer.reconnect();
   }
 
-  dispatch(pid, action) {
+  dispatch(pid, action, quiet = false) {
     if (!this.state) return;
     const error = Game.apply(this.state, pid, action);
     if (error) {
+      // A resent tap that no longer applies (the vote already closed) isn't worth a message.
       if (pid === playerId) toast(error);
-      else this.conns.get(pid)?.conn.send({ t: "error", message: error });
+      else if (!quiet) this.conns.get(pid)?.conn.send({ t: "error", message: error });
       return;
     }
     if (action.type === "kick") {
@@ -202,6 +213,11 @@ class Client {
     this.name = name;
     this.gotState = false;
     this.seen = Date.now();
+    // Taps not yet confirmed by the host. They're resent after a reconnect,
+    // since a connection can die silently and swallow them.
+    this.outbox = [];
+    this.sent = 0;
+    this.load = Math.random().toString(36).slice(2, 10);
     ui.status = "Joining room " + code + "…";
     render();
     this.peer = new Peer(peerOptions());
@@ -231,17 +247,24 @@ class Client {
     this.conn = conn;
     conn.on("open", () => {
       this.seen = Date.now();
-      conn.send({ t: "hello", playerId, name: this.name });
+      this.hello();
     });
     conn.on("data", (msg) => {
       this.seen = Date.now();
       if (msg.t === "state") {
+        if (!this.welcomed) {
+          this.welcomed = true;
+          this.outbox.forEach((item) => conn.send({ ...item, retry: true }));
+        }
         this.gotState = true;
         ui.connected = true;
         ui.screen = "game";
         remember({ role: "client", code: this.code, name: this.name });
         setRoomInUrl(this.code);
         setView(msg.view);
+      } else if (msg.t === "ack") {
+        // The host handles taps in order, so this confirms everything up to n.
+        if (msg.load === this.load) this.outbox = this.outbox.filter((item) => item.n > msg.n);
       } else if (msg.t === "error") {
         toast(msg.message);
       } else if (msg.t === "bye") {
@@ -278,7 +301,7 @@ class Client {
   // ask the host for a fresh state and reconnect if nothing comes back soon.
   resume() {
     const asked = Date.now();
-    if (this.conn?.open) this.conn.send({ t: "hello", playerId, name: this.name });
+    if (this.conn?.open) this.hello();
     else return this.connect();
     clearTimeout(this.resumeTimer);
     this.resumeTimer = setTimeout(() => {
@@ -286,9 +309,18 @@ class Client {
     }, 2500);
   }
 
+  // The host answers a hello with the current state, after which any
+  // unconfirmed taps are resent.
+  hello() {
+    this.welcomed = false;
+    this.conn.send({ t: "hello", playerId, name: this.name });
+  }
+
   send(action) {
-    if (this.conn?.open) this.conn.send({ t: "action", action });
-    else toast("Reconnecting… try again in a moment");
+    const item = { t: "action", load: this.load, n: ++this.sent, action };
+    this.outbox.push(item);
+    if (this.conn?.open && this.welcomed) this.conn.send(item);
+    else if (!ui.connected) toast("Reconnecting… your tap will go through when you're back");
   }
 
   leave() {
@@ -300,6 +332,7 @@ class Client {
 }
 
 function act(action) {
+  action = { ...action, moment: ui.view?.moment };
   if (net instanceof Host) net.dispatch(playerId, action);
   else if (net) net.send(action);
 }
@@ -681,7 +714,7 @@ function clues(v) {
       <div class="who">${mine ? "Your turn!" : esc(nameOf(speaker))}</div>
       <p class="muted">${mine ? "Say your clue out loud, then tap Done." : isAway(speaker) ? "is away. Their phone will be back when they reopen the page." : "is giving a clue"}</p>
     </div>
-    ${mine ? `<button class="btn" data-action="clueDone">Done</button>` : v.isHost ? `<button class="btn quiet" data-action="clueDone">${isAway(speaker) ? `They've said it, next player` : "Skip to next player"}</button>` : ""}
+    ${mine ? `<button class="btn" data-action="clueDone" data-id="${r.turnKey}">Done</button>` : v.isHost ? `<button class="btn quiet" data-action="clueDone" data-id="${r.turnKey}">${isAway(speaker) ? `They've said it, next player` : "Skip to next player"}</button>` : ""}
     ${styleCard(v)}
     <div class="panel">${orderList(v)}</div>
     ${detectivePanel(v)}
@@ -884,6 +917,9 @@ app.addEventListener("click", (e) => {
       break;
     case "guess":
       act({ type: "guess", word: id });
+      break;
+    case "clueDone":
+      act({ type: "clueDone", turn: id });
       break;
     default:
       act({ type: el.dataset.action });

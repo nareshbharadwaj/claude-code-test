@@ -168,3 +168,27 @@ test("only the host can change settings or start", () => {
   assert.notEqual(apply(s, "p1", { type: "settings", settings: { jester: true } }), null);
   assert.equal(s.settings.jester, false);
 });
+
+test("a repeated Done can't skip the next player's turn", () => {
+  const { s } = table(4);
+  s.round.order.forEach((id) => apply(s, id, { type: "ready" }));
+  const key = viewFor(s, "p0").round.turnKey;
+  const [first, second] = s.round.order;
+  assert.equal(apply(s, first, { type: "clueDone", turn: key }), null);
+  assert.ok(apply(s, first, { type: "clueDone", turn: key }), "resent tap rejected");
+  assert.ok(apply(s, "p0", { type: "clueDone", turn: key }), "host's stale skip rejected");
+  assert.equal(s.round.order[s.round.turn], second);
+});
+
+test("a tap from an earlier moment is ignored", () => {
+  const { s, rng } = table(4, { lastChance: false });
+  const late = s.round.order.find((id) => id !== "p0");
+  const readyMoment = viewFor(s, late).moment;
+  apply(s, "p0", { type: "forceStart" });
+  playToVote(s);
+  apply(s, "p0", { type: "closeVote" }, rng);
+  apply(s, "p0", { type: "next" }, rng);
+  assert.ok(apply(s, late, { type: "ready", moment: readyMoment }), "last round's Ready rejected");
+  assert.equal(s.round.ready[late], undefined);
+  assert.equal(apply(s, late, { type: "ready", moment: viewFor(s, late).moment }), null);
+});

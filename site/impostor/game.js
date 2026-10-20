@@ -153,6 +153,11 @@ export function startRound(state, rng = Math.random) {
   state.phase = "reveal";
 }
 
+// Names the moment a tap was made in. A tap carrying an older moment, like a
+// vote resent after that vote closed, is ignored.
+export const momentKey = (state) => `${state.roundNumber}:${state.phase}:${state.round ? state.round.voteHistory.length : 0}`;
+
+export const turnKey = (round) => `${round.number}-${round.clueRound}-${round.turn}`;
 const impostorsOf = (round) => Object.keys(round.roles).filter((id) => round.roles[id] === "impostor");
 const inRound = (round, id) => Boolean(round && round.roles[id]);
 
@@ -171,6 +176,7 @@ export function apply(state, pid, action, rng = Math.random) {
   const isHost = pid === state.hostId;
   const r = state.round;
   const type = action && action.type;
+  if (action && action.moment !== undefined && action.moment !== momentKey(state)) return "That moment has passed";
 
   switch (type) {
     case "settings": {
@@ -216,6 +222,9 @@ export function apply(state, pid, action, rng = Math.random) {
     }
     case "clueDone": {
       if (state.phase !== "clues") return "Not now";
+      // A "Done" names the turn it ends, so a repeat (a resent tap, or the
+      // speaker and host both tapping) can't skip the next player.
+      if (action.turn !== undefined && action.turn !== turnKey(r)) return "That turn has already moved on";
       if (!isHost && r.order[r.turn] !== pid) return "Not your turn";
       r.turn += 1;
       if (r.turn >= r.order.length) {
@@ -404,6 +413,7 @@ export function viewFor(state, pid) {
     code: state.code,
     phase: state.phase,
     me: pid,
+    moment: momentKey(state),
     isHost: pid === state.hostId,
     settings: state.settings,
     canStart: canStart(state),
@@ -425,6 +435,7 @@ export function viewFor(state, pid) {
     number: r.number,
     order: r.order,
     turn: r.turn,
+    turnKey: turnKey(r),
     clueRound: r.clueRound,
     clueRounds: state.settings.clueRounds,
     style: r.style,
