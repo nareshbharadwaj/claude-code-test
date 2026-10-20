@@ -115,15 +115,49 @@ test("decoy mode gives the impostor a different word without telling them", () =
   assert.notEqual(card.word, s.round.word);
 });
 
-test("a disconnected player does not block voting", () => {
+test("an away player is still dealt in, and the vote waits for them", () => {
+  const rng = seeded(3);
+  const s = newGame("ABCD", "p0", "Host");
+  ["p1", "p2", "p3"].forEach((id) => addPlayer(s, id, id));
+  s.players.find((p) => p.id === "p3").connected = false;
+  assert.equal(apply(s, "p0", { type: "start", lastChance: false }, rng), null);
+  assert.ok(s.round.order.includes("p3"), "away player dealt in");
+  assert.ok(viewFor(s, "p3").card.role !== "waiting");
+
+  s.settings.lastChance = false;
+  playToVote(s);
+  const [imp] = impostors(s);
+  const innocent = s.round.order.find((id) => id !== imp);
+  s.round.order.filter((id) => id !== "p3").forEach((id) => apply(s, id, { type: "vote", target: id === imp ? innocent : imp }));
+  assert.equal(s.phase, "vote", "still waiting on the away player");
+  assert.ok(apply(s, "p1", { type: "closeVote" }), "only the host can count early");
+  assert.equal(apply(s, "p0", { type: "closeVote" }), null);
+  assert.equal(s.phase, "results");
+});
+
+test("an away player can still vote when they come back", () => {
   const { s } = table(4, { lastChance: false });
   playToVote(s);
   const [imp] = impostors(s);
-  const gone = s.round.order.find((id) => id !== imp && id !== "p0");
-  s.players.find((p) => p.id === gone).connected = false;
-  const innocent = s.round.order.find((id) => id !== imp);
-  s.round.order.filter((id) => id !== gone).forEach((id) => apply(s, id, { type: "vote", target: id === imp ? innocent : imp }));
+  const late = s.round.order.find((id) => id !== imp);
+  s.players.find((p) => p.id === late).connected = false;
+  const innocent = s.round.order.find((id) => id !== imp && id !== late);
+  s.round.order.filter((id) => id !== late).forEach((id) => apply(s, id, { type: "vote", target: id === imp ? innocent : imp }));
+  assert.equal(s.phase, "vote");
+  s.players.find((p) => p.id === late).connected = true;
+  assert.equal(apply(s, late, { type: "vote", target: imp }), null);
   assert.equal(s.phase, "results");
+});
+
+test("the reveal waits for everyone unless the host starts clues", () => {
+  const { s } = table(4);
+  const [first, ...rest] = s.round.order;
+  rest.forEach((id) => apply(s, id, { type: "ready" }));
+  assert.equal(s.phase, "reveal");
+  assert.ok(apply(s, rest[0] === "p0" ? rest[1] : rest[0], { type: "forceStart" }));
+  assert.equal(apply(s, "p0", { type: "forceStart" }), null);
+  assert.equal(s.phase, "clues");
+  assert.equal(viewFor(s, first).card.role === "waiting", false);
 });
 
 test("only the host can change settings or start", () => {

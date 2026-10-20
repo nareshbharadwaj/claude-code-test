@@ -118,7 +118,6 @@ class Host {
         if (old && old.conn !== conn) old.conn.close();
         this.conns.set(pid, { conn, seen: Date.now() });
         Game.addPlayer(this.state, pid, msg.name);
-        Game.recheck(this.state);
         this.publish();
         return;
       }
@@ -136,12 +135,11 @@ class Host {
   drop(pid) {
     this.conns.delete(pid);
     Game.setConnected(this.state, pid, false);
-    Game.recheck(this.state);
     this.publish();
   }
 
-  // Phones ping every few seconds; one that goes quiet (locked screen, lost
-  // Wi-Fi) is marked away so nobody waits on it.
+  // Phones ping every few seconds; one that goes quiet (locked screen, another
+  // app, lost Wi-Fi) is shown as away. It keeps its place in the round.
   sweep() {
     const now = Date.now();
     for (const [pid, entry] of this.conns) {
@@ -178,6 +176,15 @@ class Host {
       if (conn.open) conn.send({ t: "state", view: Game.viewFor(this.state, pid) });
     }
     setView(Game.viewFor(this.state, playerId));
+  }
+
+  // Back from another app. The page was frozen, so pings that arrived meanwhile
+  // haven't been read yet: don't count anyone as gone for that.
+  resume() {
+    const now = Date.now();
+    for (const entry of this.conns.values()) entry.seen = now;
+    if (this.peer.disconnected && !this.peer.destroyed) this.peer.reconnect();
+    if (this.state) this.publish();
   }
 
   leave() {
@@ -246,17 +253,17 @@ class Client {
     });
   }
 
-  lost() {
+  lost(now = false) {
     if (ui.connected) {
       ui.connected = false;
       render();
     }
-    this.retry();
+    this.retry(now ? 0 : 1500);
   }
 
-  retry() {
+  retry(delay = 1500) {
     clearTimeout(this.retryTimer);
-    this.retryTimer = setTimeout(() => this.connect(), 2000);
+    this.retryTimer = setTimeout(() => this.connect(), delay);
   }
 
   tick() {
@@ -267,6 +274,18 @@ class Client {
     }
   }
 
+  // Back from another app. The connection often looks open but is dead, so
+  // ask the host for a fresh state and reconnect if nothing comes back soon.
+  resume() {
+    const asked = Date.now();
+    if (this.conn?.open) this.conn.send({ t: "hello", playerId, name: this.name });
+    else return this.connect();
+    clearTimeout(this.resumeTimer);
+    this.resumeTimer = setTimeout(() => {
+      if (this.seen < asked) this.lost(true);
+    }, 2500);
+  }
+
   send(action) {
     if (this.conn?.open) this.conn.send({ t: "action", action });
     else toast("Reconnecting… try again in a moment");
@@ -275,6 +294,7 @@ class Client {
   leave() {
     clearInterval(this.timer);
     clearTimeout(this.retryTimer);
+    clearTimeout(this.resumeTimer);
     this.peer.destroy();
   }
 }
@@ -347,8 +367,10 @@ async function keepAwake() {
 document.addEventListener("visibilitychange", () => {
   if (document.visibilityState !== "visible" || !net) return;
   keepAwake();
-  if (net instanceof Client && !net.conn?.open) net.connect();
+  net.resume();
 });
+// iOS sometimes restores a page from memory without a visibilitychange.
+window.addEventListener("pageshow", (e) => e.persisted && net?.resume());
 
 // ---------- Rendering ----------
 
@@ -371,6 +393,44 @@ const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "
 
 function nameOf(id) {
   return ui.view?.players.find((p) => p.id === id)?.name || "Someone";
+}
+
+function isAway(id) {
+  return ui.view?.players.find((p) => p.id === id)?.connected === false;
+}
+
+const awayTag = (id) => (isAway(id) ? ` <span class="tag plum">Away</span>` : "");
+
+// Who the round is waiting on, with phones that dropped out marked.
+function waitingOn(ids, verb) {
+  if (!ids.length) return "";
+  const away = ids.some(isAway);
+  return `<div class="panel small"><b>${verb}:</b> ${ids.map((id) => esc(nameOf(id)) + awayTag(id)).join(", ")}
+    ${away ? `<p class="muted" style="margin-top:6px">Away phones reconnect when they reopen this page. ${ui.view.isHost ? "You can wait, or carry on without them." : "The host can wait or carry on."}</p>` : ""}</div>`;
+}
+
+// A host-only button to stop waiting, which checks first if anyone is missing out.
+function proceedButton(v, ids, action, label, consequence) {
+  if (!v.isHost) return "";
+  const ask = ids.length ? `${ids.map(nameOf).join(", ")} ${consequence} Carry on anyway?` : "";
+  return `<button class="btn quiet" data-action="${action}" data-confirm="${esc(ask)}">${label}</button>`;
+}
+
+// Between rounds: away players are still dealt in, so the host can remove anyone who has left.
+function awayNotice(v) {
+  const away = v.players.filter((p) => !p.connected);
+  if (!away.length) return "";
+  return `<div class="banner small"><b>Away:</b> ${away.map((p) => esc(p.name)).join(", ")}.
+    They'll still be dealt in next round and see their card when they reconnect.
+    ${v.isHost ? "If someone has left for good, remove them with ×." : ""}</div>`;
+}
+
+function removablePlayers(v) {
+  const away = v.players.filter((p) => !p.connected);
+  if (!v.isHost || !away.length) return "";
+  return `<div class="panel"><ul class="players">${away.map((p) => `
+    <li><span class="name">${esc(p.name)}</span><span class="tag plum">Away</span>
+      <button class="x" aria-label="Remove ${esc(p.name)}" data-action="kick" data-id="${esc(p.id)}">×</button></li>`).join("")}</ul></div>`;
 }
 
 function render() {
@@ -475,7 +535,7 @@ function lobby(v) {
       <span class="muted small">${p.score} pts</span>
       ${v.isHost && !p.isHost ? `<button class="x" aria-label="Remove ${esc(p.name)}" data-action="kick" data-id="${esc(p.id)}">×</button>` : ""}
     </li>`).join("");
-  const count = v.players.filter((p) => p.connected).length;
+  const count = v.players.length;
 
   const settings = v.isHost ? `
     <div class="panel stack">
@@ -530,6 +590,7 @@ function lobby(v) {
       <h3>Players (${count})</h3>
       <ul class="players">${players}</ul>
     </div>
+    ${awayNotice(v)}
     ${settings}`;
 }
 
@@ -590,21 +651,20 @@ function styleCard(v) {
 
 function reveal(v) {
   const me = v.players.find((p) => p.id === v.me);
-  const waiting = v.players.filter((p) => p.inRound && p.connected && !p.ready).map((p) => p.name);
+  const waiting = v.players.filter((p) => p.inRound && !p.ready).map((p) => p.id);
   if (v.card.role === "waiting") return secretCard(v);
   return `
     <h2>Round ${v.round.number}: check your card</h2>
     ${secretCard(v)}
     ${styleCard(v)}
-    ${me.ready
-      ? `<p class="muted center">Waiting for ${esc(waiting.join(", ")) || "everyone"}…</p>`
-      : `<button class="btn" data-action="ready">Got it, I'm ready</button>`}
-    ${v.isHost && waiting.length ? `<button class="btn quiet" data-action="forceStart">Start clues without waiting</button>` : ""}`;
+    ${me.ready ? "" : `<button class="btn" data-action="ready">Got it, I'm ready</button>`}
+    ${waitingOn(waiting, "Still checking their card")}
+    ${waiting.length ? proceedButton(v, waiting, "forceStart", "Start clues without waiting", "can still see their card when they're back, using \"Peek at my card\".") : ""}`;
 }
 
 function orderList(v) {
   const r = v.round;
-  return `<ol class="order">${r.order.map((id, i) => `<li class="${i === r.turn ? "now" : i < r.turn ? "done" : ""}">${esc(nameOf(id))}${id === v.me ? " (you)" : ""}</li>`).join("")}</ol>`;
+  return `<ol class="order">${r.order.map((id, i) => `<li class="${i === r.turn ? "now" : i < r.turn ? "done" : ""}">${esc(nameOf(id))}${id === v.me ? " (you)" : ""}${awayTag(id)}</li>`).join("")}</ol>`;
 }
 
 function peek(v) {
@@ -619,9 +679,9 @@ function clues(v) {
     <div class="big-turn">
       <p class="muted">Clue round ${r.clueRound} of ${r.clueRounds}</p>
       <div class="who">${mine ? "Your turn!" : esc(nameOf(speaker))}</div>
-      <p class="muted">${mine ? "Say your clue out loud, then tap Done." : "is giving a clue"}</p>
+      <p class="muted">${mine ? "Say your clue out loud, then tap Done." : isAway(speaker) ? "is away. Their phone will be back when they reopen the page." : "is giving a clue"}</p>
     </div>
-    ${mine ? `<button class="btn" data-action="clueDone">Done</button>` : v.isHost ? `<button class="btn quiet" data-action="clueDone">Skip to next player</button>` : ""}
+    ${mine ? `<button class="btn" data-action="clueDone">Done</button>` : v.isHost ? `<button class="btn quiet" data-action="clueDone">${isAway(speaker) ? `They've said it, next player` : "Skip to next player"}</button>` : ""}
     ${styleCard(v)}
     <div class="panel">${orderList(v)}</div>
     ${detectivePanel(v)}
@@ -645,7 +705,7 @@ function vote(v) {
     ? `<div class="banner"><b>${esc(nameOf(r.notice.out))} was an impostor!</b> But there's another one hiding. Vote again.</div>`
     : "";
   const out = r.eliminated.includes(v.me);
-  const waiting = v.players.filter((p) => p.inRound && p.connected && !p.out && !p.voted).map((p) => p.name);
+  const waiting = v.players.filter((p) => p.inRound && !p.out && !p.voted).map((p) => p.id);
   let body;
   if (out || v.card.role === "waiting") {
     body = `<p class="muted center">You're sitting this vote out.</p>`;
@@ -661,8 +721,8 @@ function vote(v) {
     <h2>Vote${r.voteRound > 1 ? ` again` : ""}</h2>
     ${notice}
     ${body}
-    <p class="muted small center">${waiting.length ? `Still voting: ${esc(waiting.join(", "))}` : "Counting…"}</p>
-    ${v.isHost ? `<button class="btn quiet" data-action="closeVote">Close the vote now</button>` : ""}
+    ${waitingOn(waiting, "Still voting")}
+    ${proceedButton(v, waiting, "closeVote", "Count the votes now", "won't get a vote this time.")}
     ${detectivePanel(v)}`;
 }
 
@@ -674,13 +734,14 @@ function guess(v) {
       <p>You were the impostor. Guess the secret word to steal 2 points.</p>
       <div class="votes">${r.guessOptions.map((w) => `<button class="vote-btn" data-action="guess" data-id="${esc(w)}">${esc(w)}</button>`).join("")}</div>`;
   }
-  const who = r.guessers.filter((id) => !r.guessed.includes(id)).map(nameOf);
+  const pending = r.guessers.filter((id) => !r.guessed.includes(id));
   return `
     <div class="big-turn">
       <div class="who">Pakda gaya!</div>
-      <p class="muted">${esc(r.guessers.map(nameOf).join(" and "))} ${r.guessers.length > 1 ? "were" : "was"} the impostor. ${who.length ? `${esc(who.join(" and "))} is now guessing the word…` : ""}</p>
+      <p class="muted">${esc(r.guessers.map(nameOf).join(" and "))} ${r.guessers.length > 1 ? "were" : "was"} the impostor, and now gets one guess at the word.</p>
     </div>
-    ${v.isHost ? `<button class="btn quiet" data-action="skipGuess">Skip the guess</button>` : ""}`;
+    ${waitingOn(pending, "Guessing")}
+    ${proceedButton(v, pending, "skipGuess", "Skip the guess", "won't get to guess the word.")}`;
 }
 
 const ROLE_NAMES = { civilian: "Family", impostor: "Impostor", detective: "Detective", jester: "Jester", accomplice: "Spy" };
@@ -715,6 +776,8 @@ function results(v) {
       <h3>Scoreboard</h3>
       <table class="roles"><tbody>${board}</tbody></table>
     </div>
+    ${awayNotice(v)}
+    ${removablePlayers(v)}
     ${v.isHost ? `
       <button class="btn" data-action="next" ${v.canStart ? "" : "disabled"}>Next round</button>
       <button class="btn quiet" data-action="lobby">Change settings</button>` : `<p class="muted center">Waiting for the host to start the next round…</p>`}`;
@@ -746,6 +809,7 @@ function parseWords(text) {
 app.addEventListener("click", (e) => {
   const el = e.target.closest("[data-action]");
   if (!el || el.disabled) return;
+  if (el.dataset.confirm && !confirm(el.dataset.confirm)) return;
   const id = el.dataset.id;
   const s = ui.view?.settings;
   switch (el.dataset.action) {

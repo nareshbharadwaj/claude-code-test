@@ -96,12 +96,14 @@ function chooseWord(state, rng) {
 }
 
 export function canStart(state) {
-  return state.players.filter((p) => p.connected).length >= MIN_PLAYERS;
+  return state.players.length >= MIN_PLAYERS;
 }
 
 export function startRound(state, rng = Math.random) {
   const s = state.settings;
-  const ids = state.players.filter((p) => p.connected).map((p) => p.id);
+  // Everyone at the table is dealt in, even if their phone is briefly away;
+  // they see their card when it reconnects. The host removes anyone who left.
+  const ids = state.players.map((p) => p.id);
   const n = ids.length;
   const { pack, word, decoy } = chooseWord(state, rng);
   const noImpostorRound = s.noImpostor && rng() < NO_IMPOSTOR_CHANCE;
@@ -153,7 +155,6 @@ export function startRound(state, rng = Math.random) {
 
 const impostorsOf = (round) => Object.keys(round.roles).filter((id) => round.roles[id] === "impostor");
 const inRound = (round, id) => Boolean(round && round.roles[id]);
-const connectedIn = (state, ids) => ids.filter((id) => state.players.find((p) => p.id === id)?.connected);
 
 function voters(state) {
   const r = state.round;
@@ -247,7 +248,7 @@ export function apply(state, pid, action, rng = Math.random) {
         (action.target === NO_IMPOSTOR && state.settings.noImpostor && r.voteHistory.length === 0);
       if (!valid) return "Pick someone else";
       r.votes[pid] = action.target;
-      if (connectedIn(state, voters(state)).every((id) => r.votes[id])) tally(state, rng);
+      if (voters(state).every((id) => r.votes[id])) tally(state, rng);
       return null;
     }
     case "closeVote": {
@@ -260,7 +261,7 @@ export function apply(state, pid, action, rng = Math.random) {
       if (r.guesses[pid] || !r.guessOptions.includes(action.word)) return "Not allowed";
       r.guesses[pid] = action.word;
       const caught = r.eliminated.filter((id) => r.roles[id] === "impostor");
-      if (connectedIn(state, caught).every((id) => r.guesses[id])) finishRound(state);
+      if (caught.every((id) => r.guesses[id])) finishRound(state);
       return null;
     }
     case "skipGuess": {
@@ -285,20 +286,11 @@ function updateSettings(s, patch) {
   }
 }
 
+// The game waits for every player, connected or not. A phone that drops out
+// never loses its turn, card or vote; the host decides when to stop waiting.
 function maybeFinishReveal(state) {
   const r = state.round;
-  if (connectedIn(state, r.order).every((id) => r.ready[id])) state.phase = "clues";
-}
-
-// Called whenever someone drops or comes back, so a missing phone never
-// leaves the table waiting on it.
-export function recheck(state, rng = Math.random) {
-  const r = state.round;
-  if (!r) return;
-  if (state.phase === "reveal") maybeFinishReveal(state);
-  if (state.phase === "vote" && connectedIn(state, voters(state)).every((id) => r.votes[id]) && Object.keys(r.votes).length) {
-    tally(state, rng);
-  }
+  if (r.order.every((id) => r.ready[id])) state.phase = "clues";
 }
 
 function tally(state, rng) {
@@ -331,7 +323,6 @@ function endVoting(state, rng) {
     const others = shuffle(pack.words.filter((w) => w !== r.word), rng).slice(0, GUESS_CHOICES - 1);
     r.guessOptions = shuffle([r.word, ...others], rng);
     state.phase = "guess";
-    if (!connectedIn(state, caught).length) finishRound(state);
     return;
   }
   finishRound(state);

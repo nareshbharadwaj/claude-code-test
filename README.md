@@ -84,7 +84,10 @@ There is no server to run. The host's phone runs the game and connects to the
 other phones directly over [PeerJS](https://peerjs.com); its free public
 server is only used to introduce the phones. Each phone receives only what
 its player may see. Keep the host's phone open during the game. If a phone
-reloads or drops off Wi-Fi, it rejoins the same game automatically.
+reloads, switches apps or drops off Wi-Fi, it rejoins the same game
+automatically. A phone that is away keeps its place: it is still dealt in and
+the game waits for its card check, clue turn and vote. The host sees who is
+away and can carry on without them at any point.
 
 | Path | What it does |
 | --- | --- |
