@@ -1,6 +1,333 @@
 {
- "updated": "2026-10-19T14:44:55Z",
+ "updated": "2026-10-20T12:47:17Z",
  "papers": [
+  {
+   "id": "2610.26684",
+   "title": "MuLaCover: Flexible Cover Song Generation via Symbolic Tonal Control",
+   "authors": [
+    "Lynn Yi",
+    "Zihan Xiong",
+    "Junjie Cao",
+    "Xiaolong Weng",
+    "Yingzhe Ma",
+    "Gus Xia",
+    "Jinliang Liu",
+    "Yuxin Xie",
+    "Xianwei Zhuang",
+    "Yuguo Yin",
+    "Qiao Jin",
+    "Gongxi Zhu",
+    "Jiayu Wang",
+    "Junjie Liang",
+    "Qin Yue",
+    "Ziyu Wang",
+    "Dading Chong",
+    "Meng Cao",
+    "Jiahuan Zhou",
+    "Dongchao Yang"
+   ],
+   "published": "2026-10-19",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "mir",
+    "syn",
+    "rep"
+   ],
+   "summary": "A cover song re-renders an existing piece, most commonly by preserving its tonal content -- melody and chord progression -- while reshaping other musical attributes. This suggests a natural formulation for generative cover synthesis with pretrained music language models: explicitly control tonal content, while specifying lyrics and style through text. Existing approaches condition on frame-level features, tightly coupling generation to the reference's timing and structure, and limiting flexibility such as tempo variation, structural rearrangement, or partial conditioning. To this end, we present MuLaCover, a cover generation model that conditions a pretrained text-to-song foundation model on an editable symbolic lead sheet. Our design enables alignment-free control: generated outputs preserve the tonal signature of the source without frame-level alignment, allowing flexible timing, structure, and segment-level generation. We further introduce a training curriculum with partially mismatched audio-symbolic pairs, improving diversity and robustness. We evaluate MuLaCover with objective metrics, standard subjective ratings, and in-depth expert interviews that provide fine-grained diagnostic insights. Experiments show that MuLaCover achieves state-of-the-art performance among open-source systems and is competitive with leading commercial models such as Suno-v5.5. Audio samples and code are available at our project page: https://mulalabs.ai/mulacover/",
+   "url": "https://arxiv.org/abs/2610.26684",
+   "pdf": "https://arxiv.org/pdf/2610.26684",
+   "explain": {
+    "tldr": "A system that generates cover songs by letting you control melody and chords while specifying lyrics and style through text.",
+    "plain": "Cover songs typically keep the original's melody and chord progression but change other elements like tempo or arrangement. This paper presents MuLaCover, which uses a pretrained AI music model to generate covers from an editable lead sheet—a simple notation of melody and chords. Unlike previous approaches that lock generation to the original's timing, MuLaCover lets you freely adjust tempo, rearrange sections, or generate only parts of a song. The system was trained with mismatched audio-symbol pairs to make it more flexible and diverse. Tests show it performs competitively with commercial tools like Suno.",
+    "why": "For musicians and producers, this means more creative control when generating cover versions—you can experiment with different tempos, structures, or partial re-recordings without being locked to the original's timing. It could speed up arranging or demoing cover ideas.",
+    "terms": [
+     {
+      "term": "symbolic lead sheet",
+      "meaning": "A simplified musical notation showing the melody line and chord symbols, without audio or timing details"
+     },
+     {
+      "term": "frame-level alignment",
+      "meaning": "Matching generation to specific time points in the original recording, which restricts flexibility"
+     },
+     {
+      "term": "pretrained foundation model",
+      "meaning": "An AI model trained on large amounts of music data beforehand, then adapted for specific tasks like cover generation"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.26258",
+   "title": "AudioScorer: Learning Question-Aware Token Relevance for Large Audio Language Models",
+   "authors": [
+    "Marwan Farag",
+    "Bin Yang"
+   ],
+   "published": "2026-10-19",
+   "category": "cs.SD",
+   "topics": [
+    "rep"
+   ],
+   "summary": "Large Audio Language Models (LALMs) reason over speech, environmental sounds, music, and other acoustic information. However, their audio encoders produce dense token sequences that make long-form audio costly to process. Existing audio pruning methods reduce this cost using heuristics such as attention, representation similarity, or temporal sampling, but do not explicitly learn which tokens are most useful for a given question. We propose AudioScorer, a lightweight model that scores audio tokens according to the user question. It is trained by distilling the ranking of audio tokens under the frozen LALM's answer-gradient saliency, together with downstream answer supervision. Compared with other pruning methods, AudioScorer achieves the best or tied-best result at 10% token retention on 7 of 10 semantic and acoustic tasks, including speech recognition, emotion recognition, and audio-scene classification.",
+   "url": "https://arxiv.org/abs/2610.26258",
+   "pdf": "https://arxiv.org/pdf/2610.26258",
+   "explain": {
+    "tldr": "A method that learns which parts of audio matter most for answering specific questions, reducing processing costs.",
+    "plain": "Large audio language models process audio by breaking it into many small pieces (tokens), which is expensive for long recordings. Most existing methods decide which pieces to keep using simple rules. AudioScorer instead learns what's actually relevant by training on what the model thinks matters for answering each specific question. They tested it on tasks like recognizing speech, emotions, and sounds, and found it works better than other methods while keeping only 10% of the audio tokens.",
+    "why": "For musicians and producers, this could make AI audio tools faster and more practical—whether you're using them for analysis, transcription, or sound design. It means these tools could work better on longer recordings or run on less powerful hardware.",
+    "terms": [
+     {
+      "term": "token",
+      "meaning": "a small chunk of audio data that a model processes; think of it like breaking a song into tiny pieces"
+     },
+     {
+      "term": "pruning",
+      "meaning": "removing unnecessary parts of data to make processing faster and cheaper"
+     },
+     {
+      "term": "saliency",
+      "meaning": "a measure of how important or noticeable something is to a model's decision"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.26253",
+   "title": "Structural Context from Audio and Lyric Evidence for Music Structure Analysis Using the New SheetSage-MSA Dataset",
+   "authors": [
+    "Hongbing Li",
+    "Yaolong Ju"
+   ],
+   "published": "2026-10-19",
+   "category": "cs.SD",
+   "topics": [
+    "mir",
+    "hci"
+   ],
+   "summary": "Music structure analysis (MSA) aims to identify functional labels and their boundaries in music. Despite recent progress, three challenges remain. First, fine-grained annotations for MSA are scarce. Second, existing systems often share one encoder between boundary detection and functional labeling despite their different information requirements. Third, most end-to-end systems are audio-only and ignore structural cues from lyrics. To address these issues, we construct SheetSage-MSA, an MSA dataset derived from SheetSage, containing 13,880 cleaned excerpt annotations from 9,010 songs and approximately 82.5 hours of annotated audio. We further propose SCALE (Structural Context from Audio and Lyric Evidence), which uses separate task-specific audio pathways to model local transitions and long-range structural context, and incorporates timestamped lyrics and lyrical recurrence to refine chorus predictions. On the HarmonixSet benchmark, SCALE outperforms the existing state-of-the-art SongFormer by 3.5 and 4.2 percentage points in HR.5F and HR3F, respectively, while improving ACC by 0.9 points. An interactive demo page containing the source code is also available at https://multimodal-music-research-lab.github.io/SCALE/.",
+   "url": "https://arxiv.org/abs/2610.26253",
+   "pdf": "https://arxiv.org/pdf/2610.26253",
+   "explain": {
+    "tldr": "New dataset and AI system that identifies song sections (verse, chorus, etc.) using both audio and lyrics.",
+    "plain": "Music structure analysis means automatically labeling different parts of a song—like verses and choruses—and finding where they start and end. Current systems struggle because good training data is limited, they use the same approach for two different tasks that need different information, and they ignore lyrics. This paper introduces a large dataset of 9,010 songs with detailed section labels, and proposes SCALE, a system that uses separate audio pathways for different structural tasks and adds lyric information to better recognize repeated sections like choruses.",
+    "why": "For musicians and producers, better automatic song structure analysis could help with music organization, remixing, or generating accompaniment. For music software makers, this work shows how combining audio and lyrics improves accuracy, which could improve features in DAWs or music analysis tools.",
+    "terms": [
+     {
+      "term": "Music structure analysis (MSA)",
+      "meaning": "Automatically identifying and labeling the functional sections of a song (like intro, verse, chorus, bridge) and where they occur."
+     },
+     {
+      "term": "Encoder",
+      "meaning": "A neural network component that converts raw input (like audio) into a useful internal representation the system can work with."
+     },
+     {
+      "term": "Lyrical recurrence",
+      "meaning": "When the same lyrics or similar lyrical patterns repeat in a song, which often signals repeated musical sections."
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.26112",
+   "title": "Applicability and Generalization of Audio Fingerprinting Methods to Speech",
+   "authors": [
+    "Kemal Altwlkany",
+    "Elmedin Selmanovic",
+    "Sead Delalić",
+    "Emanuel Lacic"
+   ],
+   "published": "2026-10-19",
+   "category": "cs.SD",
+   "topics": [
+    "syn",
+    "rep"
+   ],
+   "summary": "Audio fingerprinting methods identify audio based on its content, even when the content has been possibly corrupted. Despite their applicability and usage in the speech domain, research and advancements in audio fingerprinting traditionally focus on music and are almost exclusively evaluated on music. We provide insights into speech-oriented audio fingerprinting by benchmarking the best performing audio fingerprinting models on speech data while taking into consideration the effects of noise, reverberation, temporal changes, pitch modifications, and lossy compression. Our findings indicate that audio fingerprinting methods based on self-supervised learning outperform classical approaches on speech data, while the performance of these models on speech is inferior compared to the performance that they achieve on music. Results also include an analysis of false positives, showing that fingerprinting methods are more likely to match with an audio of the same speaker rather than an audio of the same text, when mismatches occur.",
+   "url": "https://arxiv.org/abs/2610.26112",
+   "pdf": "https://arxiv.org/pdf/2610.26112",
+   "explain": {
+    "tldr": "Audio fingerprinting methods work worse on speech than music, with self-supervised learning performing best.",
+    "plain": "Audio fingerprinting is a technique that identifies audio content even when it's been damaged or altered. Most research focuses on music, but fingerprinting is also used for speech. This paper tests leading fingerprinting methods on speech data while adding challenges like noise, echo, pitch shifts, and compression. They found that newer machine-learning-based methods outperform older techniques on speech, but still don't work as well as they do on music. Interestingly, when fingerprinting makes mistakes on speech, it tends to match the wrong audio if it's from the same speaker rather than the same words.",
+    "why": "If you're working with speech—podcasts, voice recordings, or vocal samples—understanding how fingerprinting performs on your material matters. This research shows the current limitations and suggests which methods might be more reliable for speech-based applications.",
+    "terms": [
+     {
+      "term": "audio fingerprinting",
+      "meaning": "A compact digital summary of audio content that lets you identify a recording even if it's been altered, compressed, or played through noisy conditions."
+     },
+     {
+      "term": "self-supervised learning",
+      "meaning": "A machine-learning approach where a model learns patterns from raw data without needing humans to label examples, often by predicting parts of the data from other parts."
+     },
+     {
+      "term": "false positives",
+      "meaning": "Incorrect matches—when the fingerprinting system says two different audio clips are the same when they actually aren't."
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.25371",
+   "title": "Whistle and Wrong Lyrics: Synthetic Queries Are Not Enough for Real-World Query-by-Melody",
+   "authors": [
+    "Luigi Rivolta"
+   ],
+   "published": "2026-10-18",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "syn"
+   ],
+   "summary": "People look up a song by humming it, but also by whistling it or singing it with the wrong words. Published query-by-humming systems and benchmarks focus on hums and sung queries, and no public dataset pairs whistles or wrong-lyrics singing with song recordings. We study both query types with a melody-only retrieval system: a key-normalized pitch track embedded by a 5.2M-parameter contour encoder, with a spectral-peak tracker for whistles. First, a physics-grounded generator renders synthetic whistles and nonsense-syllable singing from the vocal melodies of 11,083 songs. Training on them raises top-1 retrieval of held-out synthetic queries against an 11,050-song gallery from 0.180 to 0.251 for whistles and from 0.193 to 0.264 for wrong-lyrics singing, but the gain does not transfer: on the MLEnd test performers the best synthetic-only model gets 210 of 339 real whistles right at top-1, against 214 for the baseline. Second, a closed-set fine-tune on real MLEnd whistles with performer-disjoint splits raises whistle-to-hum top-1 from 0.631 (95% CI 0.581-0.681) to 0.673 (0.622-0.723), on known songs only. Third, two further generations of synthetic queries also fail to transfer: melody-conditioned whistles and la-la singing from a commercial neural music model leave real-whistle top-1 at 0.631, and an open-source pipeline (YingMusic-Singer-Plus singing with partly wrong, mumbled or nonsense lyrics, a DDSP whistle synthesizer, and a melody-error model fitted on real performers) gives at best 0.619 (paired difference -0.012, 95% CI -0.038 to +0.015). Across physics-based, commercial neural and open-source neural synthetic data, nothing transferred to real whistles, which points to collecting real queries as the missing step. Code is public; models and data will be released.",
+   "url": "https://arxiv.org/abs/2610.25371",
+   "pdf": "https://arxiv.org/pdf/2610.25371",
+   "explain": {
+    "tldr": "Synthetic whistles and wrong-lyrics singing don't help train systems to recognize real whistles or wrong-lyrics queries.",
+    "plain": "Musicians search for songs by humming, whistling, or singing with wrong words. Researchers built a system to find songs from these queries using pitch tracking and neural networks. They tried training it on artificially generated whistles and wrong-lyrics singing, but found this synthetic data didn't improve performance on real whistles and wrong-lyrics from actual people—suggesting real recordings are needed instead.",
+    "why": "If you want music apps that recognize whistles or imperfect singing as search queries, this work shows that synthetic training data alone won't work. It highlights the practical gap between lab-generated audio and how people actually hum, whistle, and sing.",
+    "terms": [
+     {
+      "term": "pitch track",
+      "meaning": "a sequence of musical notes extracted from audio, showing the melody without timbre or harmony"
+     },
+     {
+      "term": "contour encoder",
+      "meaning": "a neural network that converts the shape of a melody into a compact numerical representation for comparison"
+     },
+     {
+      "term": "spectral-peak tracker",
+      "meaning": "a tool that finds the dominant frequencies in audio, useful for isolating a whistle's pure tone from background noise"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.25344",
+   "title": "TOMORI: A Tool-Orchestrated Mixing Operator for REAPER Interaction",
+   "authors": [
+    "Yining Wang",
+    "Tianjiao Li"
+   ],
+   "published": "2026-10-18",
+   "category": "cs.SD",
+   "topics": [
+    "gen"
+   ],
+   "summary": "Code-based agents can operate creative software, but mixing requests often describe an intended sound without specifying the edits needed to achieve it. We present TOMORI, a code-based mixing-agent harness for native digital audio workstation (DAW) control. Custom plugins provide REAPER project inspection, optional audio measurement, and execution of model-generated Lua code. All observations return as text; delivery includes an editable project and rendered audio. TOMORI-BENCH pairs 110 human-reviewed reference edits with three instruction forms and evaluates native DAW execution end to end through operation structure, parameter precision, and rendered-audio outcomes. Across 990 cases from three primary models, explicit instructions yield high reference agreement, while abstract requests reduce project agreement and audio improvement. Paired ablations show that the full workflow improves explicit execution over a single submission. Prompted audio measurement succeeds in all 28 selected abstract cases but yields no clear overall improvement on the reference-based metrics and increases tool calls. These results expose the gap between executable DAW control and precise realization of perceptual mixing goals.",
+   "url": "https://arxiv.org/abs/2610.25344",
+   "pdf": "https://arxiv.org/pdf/2610.25344",
+   "explain": {
+    "tldr": "A system that lets AI agents control REAPER to execute mixing tasks by writing code, tested on real mixing requests.",
+    "plain": "Mixing engineers often describe the sound they want without knowing exactly which knobs to turn. This paper presents TOMORI, a tool that lets AI models control REAPER (a popular DAW) by writing code to make mixing changes. The system can inspect projects, measure audio, and run the AI's instructions. They tested it on 110 real mixing tasks in different ways: when given specific instructions (like \"boost the bass\"), the AI did well; when given vague requests (like \"make it sound better\"), it struggled more. Adding audio measurement didn't clearly help overall.",
+    "why": "This matters because it shows both the promise and limits of AI-assisted mixing. If you're curious about AI in music production, this reveals why AI can follow explicit technical steps but still struggles to understand what \"better\" means—a key challenge for future mixing tools.",
+    "terms": [
+     {
+      "term": "DAW (Digital Audio Workstation)",
+      "meaning": "Software for recording, editing, and mixing music, like REAPER, Pro Tools, or Logic"
+     },
+     {
+      "term": "Lua code",
+      "meaning": "A programming language that REAPER uses to automate tasks and control its mixing tools"
+     },
+     {
+      "term": "reference agreement",
+      "meaning": "How closely the AI's edits matched the human expert's preferred way of solving the same mixing problem"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.24522",
+   "title": "MOMO: Human Motion from Moving Sounds",
+   "authors": [
+    "Deli Cai",
+    "Shuyang Xu",
+    "Zhiyang Dou",
+    "Zitong Lan",
+    "Mingmin Zhao",
+    "Changxing Ding",
+    "Taku Komura"
+   ],
+   "published": "2026-10-17",
+   "category": "cs.CV",
+   "topics": [
+    "gen",
+    "spa",
+    "rep"
+   ],
+   "summary": "Human responses to sound depend not only on its semantic content, but also on the evolving spatial relationship between source and listener, conveyed through spatial audio and its temporal dynamics. Modeling human reactions to such dynamic spatial audio is important for character animation, human behavior analysis, and robotics. As of yet, existing audio-driven motion generation methods primarily focus on non-spatial or static acoustic conditions, leaving this important problem largely underexplored. To bridge this gap, we formulate the novel task of dynamic spatial-audio-driven human motion generation and introduce two motion-captured datasets. We introduce the Dynamic Spatial Audio and Motion dataset (DySAM) as the first dataset and benchmark for this task, providing synchronized binaural audio, 3D human motions, and moving sound source trajectories. Given the importance of dynamic spatial cues of sound sources, we further provide the Dynamic Spatial Audio Localization dataset (DySAL), an auxiliary binaural localization dataset that pairs diverse acoustic events with head poses and moving source trajectories to support spatial audio perception. For benchmarking, we propose MOMO for human Motion generation from Moving Sounds, a diffusion-based framework guided by three coupled principles: localization, understanding, and generation. MOMO performs localization by estimating head-centric spatial direction cues of the moving source directly from raw binaural audio, avoiding reliance on ground-truth source coordinates. It performs understanding by extracting frame-wise audio-content representations, and performs generation by conditioning motion diffusion on both semantic features and dynamic spatial cues. Experiments show that MOMO outperforms existing baselines in motion fidelity, audio-motion alignment, and physical plausibility.",
+   "url": "https://arxiv.org/abs/2610.24522",
+   "pdf": "https://arxiv.org/pdf/2610.24522",
+   "explain": {
+    "tldr": "Generate realistic human motion from moving sound sources using spatial audio cues and machine learning.",
+    "plain": "When you hear a sound moving around you—like someone walking past—your body naturally responds by turning your head or shifting your posture. This paper tackles generating realistic human animations that react to moving sound sources, not just static audio. The researchers created two new datasets with synchronized recordings of spatial audio (binaural sound), human motion capture, and tracked sound source positions. Their method, called MOMO, learns to understand where a sound is coming from based on how it reaches both ears, what the sound means, and then generates believable body movements that match the audio's spatial dynamics.",
+    "why": "This matters for music producers and sound designers working on interactive media, games, or VR experiences where characters need to realistically react to spatial audio. It could also help musicians understand how listeners naturally respond to spatial sound design in immersive performances or installations.",
+    "terms": [
+     {
+      "term": "binaural audio",
+      "meaning": "Sound recorded or mixed to simulate how both your ears hear a source, creating a sense of direction and space"
+     },
+     {
+      "term": "diffusion-based framework",
+      "meaning": "A machine learning approach that generates motion by gradually refining random noise into realistic movement, guided by audio information"
+     },
+     {
+      "term": "motion capture",
+      "meaning": "Recording the positions and movements of a real person's body to create digital 3D animation data"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.24031",
+   "title": "SynerGest: Temporal-Spatial Synergistic Gesture Generation for Dyadic Conversations",
+   "authors": [
+    "Chengxiang Guo",
+    "Jian Wang",
+    "Lanmiao Liu",
+    "Zhan Tang",
+    "Junhua Fei",
+    "Xiao Li"
+   ],
+   "published": "2026-10-16",
+   "category": "cs.CV",
+   "topics": [
+    "gen",
+    "spa",
+    "hci",
+    "rep"
+   ],
+   "summary": "Co-speech gesture generation in dyadic conversations for creating immersive virtual avatars remains highly challenging. Existing models often struggle to balance kinematic stability with rhythmic responsiveness and suffer from semantic entanglement, leading to either generic mean-pose regression or unnatural micro-jitters. To address these challenges, we propose SynerGest, a high-fidelity dyadic gesture generation framework grounded in Contrastive Flow Matching (CFM). Specifically, our CFM objective explicitly penalizes mismatched semantic pairs during training, discouraging spatial shortcuts and over-smoothed predictions while improving conditional semantic alignment. Furthermore, to overcome architectural bottlenecks, we introduce the Impulse-Trend Synergistic Attention (ITSA) module. Grounded in the key insight of decoupling \"what moves\" from \"when it moves,\" ITSA models sharp, speech-driven rhythmic impulses separately from continuous kinematic trends, supporting precise audio-motion synchronization and global structural stability. Extensive qualitative and quantitative evaluations on two public datasets demonstrate that SynerGest achieves state-of-the-art performance, delivering contextually responsive and kinematically fluid dyadic interactions.",
+   "url": "https://arxiv.org/abs/2610.24031",
+   "pdf": "https://arxiv.org/pdf/2610.24031",
+   "explain": {
+    "tldr": "A system that generates realistic hand and body gestures for virtual avatars during two-person conversations.",
+    "plain": "When creating virtual avatars that talk to each other, making their gestures look natural is hard—they either move too smoothly and lose rhythm, or jitter unnaturally. This paper proposes SynerGest, which uses a technique called Contrastive Flow Matching to learn which gestures match which speech, and a special attention module that separately handles the timing of movements (when to move) versus the smooth motion itself (how to move). Tests on real conversation datasets show it produces gestures that feel more natural and stay synchronized with speech.",
+    "why": "If you're interested in music videos, virtual performances, or interactive music systems with animated characters, this work shows how to make avatars gesture convincingly during dialogue—useful for creating more engaging and realistic musical or conversational experiences.",
+    "terms": [
+     {
+      "term": "Contrastive Flow Matching",
+      "meaning": "A training method that learns by comparing correct and incorrect pairings, helping the model understand which gestures belong with which speech"
+     },
+     {
+      "term": "Kinematic stability",
+      "meaning": "Smooth, natural-looking motion without jittering or unnatural jerks"
+     },
+     {
+      "term": "Dyadic",
+      "meaning": "Involving two people or entities interacting with each other"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
   {
    "id": "2610.23063",
    "title": "Known Music, Unknown Response: Leakage-Audited Dynamic Arousal Forecasting With Scheduled Future Music",
