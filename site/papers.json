@@ -1,6 +1,237 @@
 {
- "updated": "2026-10-20T12:47:17Z",
+ "updated": "2026-10-21T12:59:37Z",
  "papers": [
+  {
+   "id": "2610.28100",
+   "title": "Transformer-Based Plate Parameter Estimation with Differentiable and Particle-Swarm Refinement",
+   "authors": [
+    "David Marttila",
+    "Rodrigo Diaz",
+    "Pablo Tablas De Paula",
+    "Ilias Ibnyahya",
+    "Chin-Yun Yu"
+   ],
+   "published": "2026-10-20",
+   "category": "eess.AS",
+   "topics": [
+    "syn"
+   ],
+   "summary": "We present two Transformer-based methods for Task A of the 1st DAFx Parameter Estimation Challenge, which requires estimating six effective physical parameters of a synthetic plate-reverb model from its impulse response (IR). Method A1 combines an Audio Spectrogram Transformer encoder and Transformer regressor with differentiable IR refinement. Method A2 uses the same encoder to condition a continuous normalizing flow and refines sampled candidates using particle swarm optimisation (PSO) and gradient polishing. Both methods preserve the absolute IR scale to recover surface density. On a synthetic holdout set of 100 IRs, both refinement procedures reduce waveform and parameter errors by more than three orders of magnitude relative to the unrefined neural outputs. The PSO-based pipeline achieves the lowest errors, indicating near-perfect recovery in this matched synthetic setting.",
+   "url": "https://arxiv.org/abs/2610.28100",
+   "pdf": "https://arxiv.org/pdf/2610.28100",
+   "explain": {
+    "tldr": "Two AI methods estimate physical parameters of plate reverb from its sound using neural networks and optimization refinement.",
+    "plain": "Plate reverb is a classic effect that simulates sound bouncing in a metal plate. The challenge is figuring out the physical settings (like plate size and material density) just by listening to how it affects sound. This paper uses Transformer neural networks—a type of AI good at processing audio—combined with two different refinement techniques: one using calculus-based optimization and another using particle swarm optimization (a nature-inspired search method). Both approaches dramatically improved accuracy, with the particle swarm version achieving near-perfect results on test data.",
+    "why": "If you could automatically measure a plate reverb's physical properties from its sound, you could better recreate classic reverb tones, design new reverbs more precisely, or understand how different physical designs affect the sound you hear.",
+    "terms": [
+     {
+      "term": "impulse response (IR)",
+      "meaning": "The sound a reverb produces when given a very short click; it captures the complete character of the effect"
+     },
+     {
+      "term": "Transformer",
+      "meaning": "A neural network architecture that's particularly good at learning patterns in sequences, including audio"
+     },
+     {
+      "term": "particle swarm optimisation (PSO)",
+      "meaning": "A search algorithm inspired by how bird flocks move, used to find the best solution by testing many candidates"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.28043",
+   "title": "Sound Matching with a Differentiable Karplus-Strong Algorithm",
+   "authors": [
+    "Pablo Tablas de Paula",
+    "David Marttila",
+    "Rodrigo Díaz",
+    "Irán Román",
+    "Emmanouil Benetos",
+    "Joshua D. Reiss"
+   ],
+   "published": "2026-10-20",
+   "category": "eess.AS",
+   "topics": [
+    "mir",
+    "syn",
+    "rep"
+   ],
+   "summary": "We present a self-supervised, event-based sound matching model using a differentiable extended Karplus-Strong algorithm. To avoid relying on external onset and fundamental frequency detectors, we explore training methodologies combining parameter losses on synthetic data with audio losses. We demonstrate that time-domain fractional delay interpolation provides gradient accuracy comparable to frequency-sampling while avoiding time-aliasing in highly resonant time-varying scenarios. Through systematic gradient analysis, we reveal that standard spectral losses provide no meaningful directional gradients for onset times, heavily degrading joint training. Training exclusively with parameter losses on synthetic data effectively learns fundamental frequency, timbral parameters, and onset times, but struggles to generalise to monophonic studio recordings of plucked guitar. External detectors combined with audio losses generalise best, isolating the model to timbre optimisation. While our Karplus-Strong decoder recovers interpretable parameters and naturally captures the transient characteristics of plucked guitar, Harmonics plus Noise baselines yield higher reconstruction fidelity by most metrics.",
+   "url": "https://arxiv.org/abs/2610.28043",
+   "pdf": "https://arxiv.org/pdf/2610.28043",
+   "explain": {
+    "tldr": "A differentiable Karplus-Strong algorithm learns to match plucked string sounds by predicting onset times, pitch, and timbre without external detectors.",
+    "plain": "The researchers built a system that can analyze plucked guitar sounds and recreate them by controlling parameters of a Karplus-Strong synthesizer—a classic algorithm for modeling plucked strings. They trained it using synthetic data and real audio, discovering that certain loss functions (ways of measuring how close the match is) work better than others. The model successfully learns when notes start, their pitch, and their tone color, though it works best when combined with external pitch detection. While simpler methods sometimes sound more accurate, this approach has the advantage of producing interpretable, musically meaningful parameters.",
+    "why": "This matters because it offers a way to automatically analyze and re-synthesize plucked string sounds using a model that produces understandable parameters—useful for sound design, music analysis, or building tools that let you edit recorded guitar tones by tweaking synthesis parameters rather than working with raw audio.",
+    "terms": [
+     {
+      "term": "Karplus-Strong algorithm",
+      "meaning": "A simple synthesis method that models plucked string sounds by filtering and feeding back noise through a delay line"
+     },
+     {
+      "term": "self-supervised",
+      "meaning": "Training a model without hand-labeled data by having it learn from the structure of the data itself"
+     },
+     {
+      "term": "differentiable",
+      "meaning": "Designed so that gradients (directional information for learning) can flow backward through it, allowing the algorithm to be trained like a neural network"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.27491",
+   "title": "MiCLA: Mixture-to-Constituent Latent Alignment for Polyphonic Audio Representation Learning",
+   "authors": [
+    "Kohei Yamamoto",
+    "Kosuke Okusa"
+   ],
+   "published": "2026-10-20",
+   "category": "cs.SD",
+   "topics": [
+    "rep"
+   ],
+   "summary": "Real-world audio typically contains concurrent sound events, yet standard self-supervised methods treat each clip as an isolated training unit without explicitly modeling mixture--constituent relationships. We propose Mixture-to-Constituent Latent Alignment (MiCLA), a two-stage self-supervised pre-training framework that uses synthetic log-mel mixing to align mixture representations with their constituent clips. Stage 1 structures single-clip representations via masked self-distillation and contrastive regularization. Stage 2 introduces bidirectional alignment: for a synthetic mixture, MiCLA suppresses the component aligned with one constituent and aligns the residual with the other, using projective residualization on patch tokens and sample-adaptive soft residualization on the global class token. In downstream evaluations, MiCLA achieves 43.2% mean average precision (mAP) on AS-20K and 50.3% mAP on AS-2M under fine-tuning, and achieves the highest mAP among evaluated models on both AudioSet settings under frozen Convex Gated Probing (CGP). Furthermore, a Joint Semantic Retrieval diagnostic shows that MiCLA improves simultaneous retrieval of both constituent classes over target-averaging baselines. These results indicate that directional mixture-to-constituent alignment provides an effective pre-training signal for polyphonic audio representation learning.",
+   "url": "https://arxiv.org/abs/2610.27491",
+   "pdf": "https://arxiv.org/pdf/2610.27491",
+   "explain": {
+    "tldr": "A training method that helps AI models better understand audio with multiple overlapping sounds by learning how mixtures relate to individual sources.",
+    "plain": "Most audio in the real world has multiple sounds happening at once, but standard AI training methods ignore this. This paper proposes MiCLA, which trains models by creating synthetic mixtures of sounds and teaching the model to understand how the mixture relates to each individual sound component. They test it on large audio datasets and find it performs better than existing methods at identifying sounds in complex audio, and can better retrieve both sounds when they're mixed together.",
+    "why": "For musicians and producers, this matters because better AI understanding of polyphonic audio could improve tools for source separation, audio tagging, and music analysis—tasks that currently struggle when multiple instruments or sounds play together.",
+    "terms": [
+     {
+      "term": "self-supervised pre-training",
+      "meaning": "Training an AI model on unlabeled audio data by creating its own learning targets, rather than needing humans to label everything"
+     },
+     {
+      "term": "log-mel",
+      "meaning": "A way of converting audio into a visual representation that mimics how human ears perceive loudness and pitch"
+     },
+     {
+      "term": "polyphonic",
+      "meaning": "Audio containing multiple simultaneous sounds or musical voices playing at the same time"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.27403",
+   "title": "Steering intonational tunes in text-to-speech synthesis",
+   "authors": [
+    "Juan Pablo Vigneaux",
+    "Jennifer Cole"
+   ],
+   "published": "2026-10-19",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "syn"
+   ],
+   "summary": "Text-to-speech systems built on residual vector quantization often generate audio in two stages: a transformer backbone emits the first level of each frame's token stack, and a smaller depth model generates the rest autoregressively. We ask which components of such a model are responsible for prosodic intonation, more precisely for generating the English nuclear tune (for instance, the falling pitch melody that distinguishes an assertion from a question's rising melody), and whether interventions on those components can be used to control intonation. Prompt-based control mostly fails; only a final question mark is a reliable lever. Interchange interventions in CSM and S2 locate the tune: the backbone's hidden state carries it to the waveform through the depth model, and the first level of the stack carries little or none of it. Steering the backbone state with a difference-of-means vector computed on new material generated with a final period or question mark moves the tune, but the push toward an assertion degrades the voice. Steering vectors computed instead from the backbone states associated with human imitations of theoretically-specified tunes, whose text carries no punctuation, and applied inside the generation loop, move most recordings to the other condition in both systems (even when fitted without the speaker being steered), at a small cost in predicted naturalness. These imitation-derived vectors are aligned with the one obtained from the two punctuated conditions far beyond a shuffled-label null, so the backbone state of a punctuated prompt already represents intonation. The steered recordings broadly become falling or rising, according to the intent, but the edge tone moves more coherently than the pitch accent, and the target tune cannot be selected precisely beyond this broad tendency.",
+   "url": "https://arxiv.org/abs/2610.27403",
+   "pdf": "https://arxiv.org/pdf/2610.27403",
+   "explain": {
+    "tldr": "Researchers identify and steer the pitch patterns (intonation) in AI speech synthesis by manipulating hidden neural states.",
+    "plain": "Text-to-speech systems generate speech in stages, but it's unclear which parts control intonation—the pitch patterns that make speech sound like a question versus a statement. The researchers found that the main neural network (backbone) carries intonation information to the final output, while punctuation marks alone don't reliably control it. By computing 'steering vectors' from recordings of human speakers imitating specific pitch patterns, they could push the synthesized speech toward rising or falling melodies, though the control isn't perfectly precise.",
+    "why": "This matters because musicians and producers using text-to-speech tools could gain finer control over the emotional tone and naturalness of synthesized vocals. Understanding how AI models handle intonation helps make synthetic speech sound more expressive and intentional.",
+    "terms": [
+     {
+      "term": "residual vector quantization",
+      "meaning": "A technique that breaks audio into discrete tokens (like a musical alphabet) in layers, allowing the model to generate speech step-by-step"
+     },
+     {
+      "term": "steering vector",
+      "meaning": "A mathematical direction computed from examples that, when applied to a neural network's internal states, nudges the output toward a desired characteristic"
+     },
+     {
+      "term": "nuclear tune",
+      "meaning": "The main pitch melody pattern at the end of a spoken phrase that conveys meaning (like rising pitch for questions)"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.27217",
+   "title": "pyFDN: A Python Toolbox for Feedback Delay Network Design, Analysis, and Optimization",
+   "authors": [
+    "Sebastian J. Schlecht",
+    "Facundo Franchino",
+    "Jeremy B. Bai"
+   ],
+   "published": "2026-10-19",
+   "category": "eess.AS",
+   "topics": [
+    "syn",
+    "rep"
+   ],
+   "summary": "Feedback delay networks (FDNs) provide a compact representation of recursive audio systems for artificial reverberation and decorrelation. Their practical use spans structured matrix design, acoustic decay shaping, numerical simulation, and modal analysis, increasingly combined with differentiable optimization. We present pyFDN, an open-source Python toolbox that brings these operations into a common workflow. The library combines numerical design and analysis routines with block-based time-domain processing and integration with FLAMO for frequency-domain differentiable processing. Explicit network builds and JSON presets connect design, optimization, rendering, and reuse. This paper describes the software architecture, representative capabilities, and reproducibility mechanisms of version 0.5.0, providing a reference for research and teaching that use the toolbox.",
+   "url": "https://arxiv.org/abs/2610.27217",
+   "pdf": "https://arxiv.org/pdf/2610.27217",
+   "explain": {
+    "tldr": "A Python tool for designing, analyzing, and optimizing feedback delay networks used in digital reverberation.",
+    "plain": "Feedback delay networks (FDNs) are a way to create artificial reverb and other effects by routing audio through interconnected delays. Researchers and producers have been using them in different ways—designing the network structure, shaping how sound decays, simulating it digitally, and now optimizing them automatically. This paper introduces pyFDN, a shared toolkit that puts all these operations together in one place, so musicians and researchers can design, test, tweak, and save their reverb designs more easily.",
+    "why": "If you make reverb plugins or study how reverb works, this toolbox could speed up your workflow by combining design, testing, and optimization in one system. It also makes research reproducible and easier to teach, since everyone uses the same tools.",
+    "terms": [
+     {
+      "term": "Feedback delay network (FDN)",
+      "meaning": "A digital audio system that creates reverb-like effects by feeding delayed copies of sound back into itself through a mixing matrix."
+     },
+     {
+      "term": "Differentiable optimization",
+      "meaning": "Automatically tuning parameters of a system by calculating how small changes affect the output, allowing computers to find better settings on their own."
+     },
+     {
+      "term": "Modal analysis",
+      "meaning": "Examining the natural resonant frequencies and decay patterns of a reverb system to understand how it colors sound."
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.27023",
+   "title": "Point2Acoustic: Efficient Room Acoustic Parameter Estimation from 3D Geometry and Material Properties",
+   "authors": [
+    "Xun Gao",
+    "Raksha Ramakrishna",
+    "Tommy Falk",
+    "Werner de Bruijn"
+   ],
+   "published": "2026-10-19",
+   "category": "eess.AS",
+   "topics": [
+    "syn",
+    "spa"
+   ],
+   "summary": "Scene-adaptive immersive audio rendering requires rapid estimation of acoustic parameters that reflect the surrounding environment. For repeated runtime scene updates, performing a detailed geometric-acoustic simulation for every update can be computationally costly. We present Point2Acoustic, a learning-based framework for direct estimation of six-band reverberation time ($RT_{60}$) and reverberant-to-direct ratio (RDR) from 3D scene geometry and acoustic material properties. Each scene is represented by a surface-sampled point cloud with spatial coordinates and frequency-dependent absorption and scattering coefficients, and encoded using PointNet or PointNet++. We train and evaluate the framework on a synthetic furnished-room dataset with varied geometry and acoustic materials, using geometric-acoustic simulation to obtain reference targets. Point2Acoustic achieves accurate multi-band prediction with millisecond-scale inference, and ablation results indicate that explicit global room descriptors and semantic surface labels provide no consistent benefit. The proposed formulation supports efficient scene-adaptive acoustic rendering in extended reality (XR).",
+   "url": "https://arxiv.org/abs/2610.27023",
+   "pdf": "https://arxiv.org/pdf/2610.27023",
+   "explain": {
+    "tldr": "A machine learning system that quickly predicts how rooms sound from their 3D shape and materials.",
+    "plain": "When you want immersive audio in virtual environments, you need to know how sound behaves in a space—things like how long echoes last and how much direct sound reaches you versus reflected sound. Calculating this precisely for every scene update is slow. This paper trains a neural network to predict these acoustic properties directly from a 3D model of a room and its materials, running in milliseconds instead of minutes. They tested it on synthetic rooms and found it makes accurate predictions across different frequencies.",
+    "why": "For musicians and producers working with spatial audio, VR, or interactive music, this means real-time acoustic simulation becomes practical. You could hear how your mix sounds in different virtual spaces instantly, without waiting for heavy computation.",
+    "terms": [
+     {
+      "term": "RT60 (reverberation time)",
+      "meaning": "How long it takes for sound to fade away in a room, measured in seconds. A longer RT60 means more echo."
+     },
+     {
+      "term": "Point cloud",
+      "meaning": "A 3D representation of a space as a collection of points with coordinates, like a digital point-based model of a room's surfaces."
+     },
+     {
+      "term": "PointNet",
+      "meaning": "A neural network architecture designed to process point clouds directly, learning patterns from spatial point data."
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
   {
    "id": "2610.26684",
    "title": "MuLaCover: Flexible Cover Song Generation via Symbolic Tonal Control",
@@ -237,6 +468,47 @@
      {
       "term": "reference agreement",
       "meaning": "How closely the AI's edits matched the human expert's preferred way of solving the same mixing problem"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.26929",
+   "title": "ShlokaDhara: A Multi-Speaker Sanskrit Speech Corpus for Learning Meter-Aware Prosody in Text-to-Recitation",
+   "authors": [
+    "Harshal Kausadikar",
+    "Onkar Kishor Susladkar",
+    "Prathmesh Santosh Choudhari",
+    "Vedangi Deepak Deshpande",
+    "Ismini Lorentzu",
+    "Sparsh Mittal"
+   ],
+   "published": "2026-10-17",
+   "category": "eess.AS",
+   "topics": [
+    "gen",
+    "syn"
+   ],
+   "summary": "Sanskrit verse recitation is governed by $\\textit{Chandas}$, a strict prosodic framework defined by rhythmic $\\textit{Laghu}$ (light) and $\\textit{Guru}$ (heavy) syllables. Because existing Sanskrit speech datasets prioritize ASR or conversational TTS, they lack the metrical fidelity required for authentic verse synthesis. We introduce $\\textbf{\\textit{ShlokaDhara}}$, a 43-hour, multi-speaker Sanskrit speech corpus capturing diverse meters, recitation styles, and melodic variations. We specifically focus on $\\textit{Text-to-Recite}$, a synthesis task explicitly requiring both prosodic accuracy and metrical correctness. Benchmarking state-of-the-art TTS architectures via an automated UTMOS (neural MOS) predictor demonstrates that XTTS-v2 achieves the highest perceptual quality. We further validate the XTTS-v2 generated samples using two paradigms: subjective assessments by 16 Sanskrit experts and novel empirical metrics, specifically, syllable-level $\\textit{Laghu-Guru}$ duration analysis to objectively quantify structural metrical awareness. Ultimately, this work establishes a robust dataset and evaluation benchmark for prosody-aware computational Sanskrit recitation. Generated Samples: https://shlokadhara.vercel.app/",
+   "url": "https://arxiv.org/abs/2610.26929",
+   "pdf": "https://arxiv.org/pdf/2610.26929",
+   "explain": {
+    "tldr": "A Sanskrit speech dataset and benchmark for synthesizing verse recitation with correct rhythmic meter.",
+    "plain": "Sanskrit poetry follows strict rules about which syllables should be short or long—like a metrical pattern. Existing speech datasets for Sanskrit don't capture this properly, so computer-generated recitations sound wrong. This paper introduces a 43-hour collection of recorded Sanskrit verse in different styles and meters, then tests whether modern text-to-speech systems can generate recitations that respect these rhythmic rules. They found that one system (XTTS-v2) worked best, and they created new ways to measure whether generated recitations actually follow the correct meter patterns.",
+    "why": "If you're interested in how music and language interact, this shows how computational tools could eventually help preserve and teach Sanskrit recitation traditions. It also demonstrates methods for evaluating whether AI-generated speech respects cultural and linguistic structure—ideas that could apply to other musical or poetic traditions.",
+    "terms": [
+     {
+      "term": "Chandas",
+      "meaning": "The Sanskrit system of metrical rules that governs how syllables in verse should be timed—which ones are short (light) or long (heavy)."
+     },
+     {
+      "term": "Text-to-Recite",
+      "meaning": "A speech synthesis task focused specifically on generating verse recitation rather than natural conversation, requiring both correct pronunciation and correct meter."
+     },
+     {
+      "term": "UTMOS (neural MOS predictor)",
+      "meaning": "An automated system that estimates how natural or good-quality a generated speech sample sounds, without needing human listeners each time."
      }
     ],
     "model": "anthropic/claude-haiku-4.5"
