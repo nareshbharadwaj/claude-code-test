@@ -1,6 +1,520 @@
 {
- "updated": "2026-10-21T12:59:37Z",
+ "updated": "2026-10-22T13:01:19Z",
  "papers": [
+  {
+   "id": "2610.29928",
+   "title": "A Learned Musical-Time Coordinate for Piano Audio-to-Score Transcription",
+   "authors": [
+    "Min-Hsing Wang",
+    "Tsung-Ren Huang"
+   ],
+   "published": "2026-10-21",
+   "category": "cs.SD",
+   "topics": [
+    "mir"
+   ],
+   "summary": "End-to-end piano audio-to-score (A2S) transcription is the task of reconstructing a notated score from an audio recording in a single system. Existing A2S approaches usually rely on pre-segmented excerpts, and few handle whole pieces without external segmentation. This raises the question of whether a musical-time coordinate can guide score transcription while also helping the system segment whole pieces. Previous work on jazz saxophone A2S uses an external beat tracker to obtain such a coordinate for score prediction. We introduce downbeat phase, a musical-time coordinate learned jointly with score transcription that represents each audio frame's relative position within a notated bar. With this coordinate, our system can not only condition its score decoder on downbeat phase but also self-segment at bar boundaries and stitch the segments into a whole piece. Evaluation suggests that the coordinate improves metrical structure and supports whole-piece transcription with comparable notation quality.",
+   "url": "https://arxiv.org/abs/2610.29928",
+   "pdf": "https://arxiv.org/pdf/2610.29928",
+   "explain": {
+    "tldr": "A system learns to transcribe piano recordings to sheet music for whole pieces by learning where each sound falls within a musical bar.",
+    "plain": "Converting a piano recording into readable sheet music is hard, especially for full pieces rather than short clips. Most existing systems need help knowing where bar lines should go. This paper teaches a transcription system to learn 'downbeat phase'—essentially, where each moment in the audio sits relative to the bar structure—at the same time it's learning to transcribe. This learned coordinate helps the system both predict the right notes and automatically figure out where to split the piece into bars, then reassemble it into a complete score.",
+    "why": "If this works well, musicians and producers could convert piano recordings into editable sheet music automatically, without manually chopping up the audio or using separate tools to find the beat. This matters for music notation, archiving, and making recordings easier to work with in notation software.",
+    "terms": [
+     {
+      "term": "audio-to-score transcription",
+      "meaning": "automatically converting a recording of music into written sheet music notation"
+     },
+     {
+      "term": "downbeat phase",
+      "meaning": "a learned measure of where each sound in the audio falls within a musical bar (e.g., on beat 1, beat 2, etc.)"
+     },
+     {
+      "term": "end-to-end",
+      "meaning": "a single system that handles the whole task in one go, rather than using separate tools for different steps"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.29613",
+   "title": "Optimized Compressor Parameterization for Produced Music in Hearing Aids",
+   "authors": [
+    "Robin Holland",
+    "Christoph Hoog Antink",
+    "Henning Puder"
+   ],
+   "published": "2026-10-21",
+   "category": "eess.AS",
+   "topics": [],
+   "summary": "Hearing aid compression is typically designed for speech, yet music demands different trade-offs due to its narrower dynamic range (DR) and impulsive transients. This paper investigates whether music fitting benefits from being signal-aware, both in mapping compression demand across signal-audiogram conditions and in tuning its parameters to these combinations rather than inheriting them from speech-derived prescriptions. Compression demand is characterized across eight audiometric profiles, three residual DR severities, and three produced music signals under linear gain. Signal dynamics emerge as a first-order factor: production-compressed music fits the residual DR of the mild-to-moderate profiles evaluated, while dynamically rich recordings challenge even moderate hearing loss. Per-signal optimization of single- and multi-band wide dynamic range compression is then applied to two profiles with the highest compression demand. This optimization improves the Hearing Aid Audio Quality Index over gain-optimized NAL-NL2 baselines while also improving audibility, indicating substantial headroom for music-specific fitting.",
+   "url": "https://arxiv.org/abs/2610.29613",
+   "pdf": "https://arxiv.org/pdf/2610.29613",
+   "explain": {
+    "tldr": "Hearing aids need different compression settings for music than speech, optimized per song.",
+    "plain": "Hearing aids use compression to make sound audible for people with hearing loss, but they're typically tuned for speech. Music has different characteristics—it can be either very compressed (like produced pop music) or very dynamic (like classical recordings)—so the same settings don't work well for both. This paper tests whether customizing compression settings for individual music tracks and hearing loss profiles sounds better than using standard speech-based settings. They found that optimizing compression per song improved both sound quality and audibility compared to standard approaches.",
+    "why": "If you produce music or care about how it sounds to people with hearing loss, this suggests hearing aid fittings could be much better if they account for your music's specific dynamic characteristics rather than treating all audio the same way.",
+    "terms": [
+     {
+      "term": "dynamic range",
+      "meaning": "the difference between the quietest and loudest parts of a sound or song"
+     },
+     {
+      "term": "wide dynamic range compression",
+      "meaning": "a hearing aid tool that reduces loud sounds and boosts quiet ones to fit a wider range of volumes into what someone can hear"
+     },
+     {
+      "term": "audiogram",
+      "meaning": "a measurement of how much hearing loss someone has at different frequencies"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.29256",
+   "title": "Heard But Not Said: Prompting Understates Temporal Information of Musical Moments in Frozen Large Audio-Language Models",
+   "authors": [
+    "Eunsik Shin"
+   ],
+   "published": "2026-10-21",
+   "category": "cs.SD",
+   "topics": [
+    "sep"
+   ],
+   "summary": "Large audio-language models (LALMs) understand music, yet struggle to locate a described moment in time. We ask whether this reflects missing temporal information or a bottleneck in how the time span is extracted. Using a paired-query probe built from Slakh2100 stem activations, we attach a state query (e.g., ``only piano and bass are playing'') and a change query (e.g., ``the guitar drops out, leaving piano and bass'') to the same span and vary how much preceding audio the model is shown. Across frozen LALMs, three ways of extracting the span ask different questions: full-track prompting asking whether the model can say when; windowed yes/no scoring asking whether it verifies the moment when handed the segment, and whether it needs what came before; attention asking whether it can find the moment on its own. State queries score above baseline without context, while change queries improve with preceding context in most short-segment models; 30s padded encoders show no comparable recovery. Prompting and attention expose almost none of this. Prompting failures thus understate what LALMs can verify, though not what they can locate, by an amount set by query type and encoder.",
+   "url": "https://arxiv.org/abs/2610.29256",
+   "pdf": "https://arxiv.org/pdf/2610.29256",
+   "explain": {
+    "tldr": "Large audio-language models understand musical moments better than prompting suggests; different extraction methods reveal hidden temporal knowledge.",
+    "plain": "Large audio-language models can understand music but struggle when asked to pinpoint when something happens in a song. Researchers tested whether this is because the models lack temporal information or because the way we ask them questions hides what they actually know. They created paired queries—one asking about a musical state (\"only piano and bass\") and one about a change (\"guitar drops out\")—and tried different ways of extracting answers. They found that models can verify moments better than prompting alone suggests, especially when given context about what came before, but this ability stays hidden unless you ask the right way.",
+    "why": "For musicians and producers using AI tools, this matters because it shows current models have more temporal understanding than their limitations suggest. Understanding these hidden capabilities could lead to better AI features for finding moments in songs, editing, or synchronization tasks.",
+    "terms": [
+     {
+      "term": "frozen large audio-language models (LALMs)",
+      "meaning": "AI models trained to understand both sound and language, kept in their original state without further training"
+     },
+     {
+      "term": "prompting",
+      "meaning": "asking an AI model a question or giving it instructions to get a response"
+     },
+     {
+      "term": "attention",
+      "meaning": "a mechanism that lets AI models focus on specific parts of input data to find relevant information"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.29222",
+   "title": "Phase-Based Onset Enhancement for Piano Transcription in Ensemble Settings",
+   "authors": [
+    "Hyemi Kim",
+    "Jiyun Park",
+    "Juhan Nam"
+   ],
+   "published": "2026-10-21",
+   "category": "cs.SD",
+   "topics": [
+    "mir",
+    "rep"
+   ],
+   "summary": "Piano transcription models have achieved very high performance in recent state-of-the-art systems, but their performance tends to degrade in ensemble settings where the piano is played alongside other instruments. While some approaches attempt to address this issue by incorporating multi-instrumental datasets, the problem remains challenging. In particular, when other instruments produce high-energy sustained tones while relatively low-energy piano notes occur simultaneously, the magnitude components of their frequency representations overlap, making it difficult to accurately distinguish piano notes. To address this issue, we propose an improved piano transcription model that jointly leverages magnitude and phase information, enabling more robust piano transcription performance in ensemble settings. We evaluate the proposed model on two piano ensemble datasets with precise MIDI note annotations, which we obtained by revisiting and extending existing datasets. Notably, we constructed a new piano concerto dataset, PCD-K, by playing a piano part on a Disklavier and recording the audio and MIDI pairs with pre-recorded orchestral tracks. Experimental results demonstrate that phase information is highly effective in improving performance, outperforming magnitude-based approaches in ensemble settings.",
+   "url": "https://arxiv.org/abs/2610.29222",
+   "pdf": "https://arxiv.org/pdf/2610.29222",
+   "explain": {
+    "tldr": "Using phase information alongside magnitude improves piano note detection when piano plays with other instruments.",
+    "plain": "Piano transcription—automatically detecting which notes a piano plays—works well solo but struggles in ensembles when other instruments' loud sustained tones mask quieter piano notes. The researchers found that looking at both the magnitude (loudness) and phase (timing details) of audio frequencies helps separate piano from other instruments. They tested this on two datasets, including a new one they created by recording a Disklavier piano playing with orchestral backing tracks, and showed phase-based methods outperform magnitude-only approaches.",
+    "why": "If you're working on tools to transcribe or analyze piano in orchestral recordings or mixed ensembles, this shows that phase information—often overlooked in audio analysis—can significantly improve accuracy in detecting what the piano is actually playing.",
+    "terms": [
+     {
+      "term": "magnitude and phase",
+      "meaning": "Two components of audio frequency information: magnitude is how loud each frequency is, phase describes the timing/alignment of those frequencies"
+     },
+     {
+      "term": "Disklavier",
+      "meaning": "A piano that can both play notes and record exactly which keys were pressed, producing synchronized audio and MIDI data"
+     },
+     {
+      "term": "MIDI note annotations",
+      "meaning": "Precise digital records of which piano notes were played and when, used as ground truth for training and testing"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.29150",
+   "title": "Where Does Timbre Hide? Localizing Speaker Information in Speech Signals",
+   "authors": [
+    "Yiquan Zhou",
+    "Yixuan Wang",
+    "Xiaozhe Qi",
+    "Xin Gao",
+    "Shihao Li"
+   ],
+   "published": "2026-10-21",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "sep",
+    "rep"
+   ],
+   "summary": "Timbre similarity is a key evaluation target for generative speech systems, including voice conversion, speaker-cloning text-to-speech, and zero-shot speech models. When the generated voice does not match the target speaker, the problem often reflects imperfect separation of speaker-related timbre from content, making it important to identify where timbre information resides and which representations still carry it. Using speaker identity as a measurable proxy, we probe frequency bands, phase/magnitude structure, WORLD source/filter decomposition, voiced/unvoiced regions, self-supervised learning (SSL) layers, EnCodec/HuBERT tokens, and a 45-listener test across Mandarin, English, and Japanese speech/singing data. Speaker information is distributed: 1--8 kHz magnitude and vocal-tract spectral-envelope structure dominate perception, above-8 kHz bands remain machine-discriminative, shallow SSL layers expose compact speaker information, and token leakage depends on tokenizer/layer choice. These findings indicate where generation systems should condition on or transform speaker information, and where content, codec, and token pipelines should audit residual speaker leakage.",
+   "url": "https://arxiv.org/abs/2610.29150",
+   "pdf": "https://arxiv.org/pdf/2610.29150",
+   "explain": {
+    "tldr": "Researchers identify where speaker identity information hides in speech signals to improve voice conversion and voice cloning.",
+    "plain": "When AI systems generate speech in someone's voice, they often fail to capture the right timbre—the unique sonic quality that makes a voice recognizable. The problem is that speaker information gets mixed up with the actual words being spoken. This study systematically searched through different parts of speech signals (different frequencies, sound components, and AI model layers) to find where speaker identity information actually lives. They tested this across multiple languages and had listeners verify their findings, discovering that certain frequency ranges and vocal characteristics carry the most recognizable speaker information, while other parts leak speaker identity in ways AI systems might not expect.",
+    "why": "For musicians and producers working with voice conversion, voice cloning, or AI singing tools, this explains why these systems sometimes fail to sound like the target voice or accidentally change the speaker when you only want to change the words. Understanding where timbre hides helps engineers build better tools that preserve or transform voice characteristics more reliably.",
+    "terms": [
+     {
+      "term": "timbre",
+      "meaning": "the characteristic tone or color of a sound that lets you recognize a voice or instrument, separate from pitch and loudness"
+     },
+     {
+      "term": "self-supervised learning (SSL) layers",
+      "meaning": "levels within an AI model that learn patterns from raw audio without needing labeled examples, often used as a foundation for speech tasks"
+     },
+     {
+      "term": "vocal-tract spectral-envelope",
+      "meaning": "the shape of the frequency content created by your throat and mouth shape, which is a major part of what makes your voice sound like you"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.29119",
+   "title": "MuseFlow-TSE: Music-Aware Target Speech Extraction via Cross-Source Band-Splitting and Data-to-Data Flow Matching",
+   "authors": [
+    "Lu Ma",
+    "Yongliang Wang",
+    "Zhewen Su",
+    "Xin Tian"
+   ],
+   "published": "2026-10-21",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "sep"
+   ],
+   "summary": "Target speech extraction (TSE) isolates a speaker's voice given an enrollment utterance, but existing work is validated almost exclusively without music. Discriminative methods are content-faithful yet masking-bounded; generative methods improve naturalness but may hallucinate, drift in identity, and require many steps. We present MuseFlow-TSE, a discriminative deletion, generative insertion framework for music-bearing scenes. Stage-1 is a music-aware cross-source band-split extractor that estimates target, interfering speakers, music, and noise under conservation and music-leakage constraints. Stage-2 is a data-to-data flow refiner initialized by the discriminative estimate, negatively conditioned on interference stems, and run for 1--4 difficulty-adaptive Euler steps with an end-to-end fidelity objective.",
+   "url": "https://arxiv.org/abs/2610.29119",
+   "pdf": "https://arxiv.org/pdf/2610.29119",
+   "explain": {
+    "tldr": "A system that isolates a singer's voice from recordings with music and other speakers.",
+    "plain": "When you want to extract one person's voice from a recording that also has music and other speakers, it's really hard. This paper presents MuseFlow-TSE, which does this in two stages: first, it splits the audio into separate parts (target voice, other speakers, music, and noise) while being careful not to lose the music; second, it refines the result using a generative process that learns from the first stage and improves the quality. The approach balances staying true to what's actually in the recording while making the extracted voice sound natural.",
+    "why": "This matters if you're working with vocal recordings that have instrumental backing or live performances—situations where you need clean vocals but can't rely on existing tools that were only tested on speech without music.",
+    "terms": [
+     {
+      "term": "target speech extraction (TSE)",
+      "meaning": "isolating one specific person's voice from a mixed audio recording"
+     },
+     {
+      "term": "band-split",
+      "meaning": "dividing audio into separate frequency ranges or source components (like splitting into vocals, drums, bass, etc.)"
+     },
+     {
+      "term": "negatively conditioned",
+      "meaning": "telling a generative model what *not* to produce, so it avoids recreating unwanted sounds like background speakers or noise"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.29101",
+   "title": "Dual-Channel Contrastive Encoding of Sperm Whale Coda",
+   "authors": [
+    "João Victor Quintanilha",
+    "Emma Virnelli",
+    "Shuo Zhang"
+   ],
+   "published": "2026-10-21",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "rep"
+   ],
+   "summary": "Sperm whales (Physeter macrocephalus) communicate through short click sequences called codas, whose structure includes the rhythmic pattern of inter-click intervals (ICI) and the spectral composition of the clicks. In this paper, we propose the Dual-Channel Contrastive Encoder (DCCE), which explicitly encodes rhythm and spectral information with separate encoders before fusing them. We evaluate DCCE on three coda-understanding tasks: social unit, coda type, and individual identification. We compare DCCE against strong baselines from literature under a common linear-probe protocol and analyze the role of each channel and training objective through ablations. On 1,383 codas, shared partitions and validation-only layer selection support three random splits and three recording-date-disjoint folds. DCCE with unit pairing and type supervision achieves mean random-split macro-F1 of 0.901/0.865/0.597 for unit/type/identity. Raw ICI remains strongest for type (0.987), and ICI plus temporal mel statistics is a strong identity reference (0.724). An auxiliary identity objective improves spectral-branch identity prediction but does not improve the mean fused-identity score in this configuration. Date-grouped evaluation and four year holdouts expose generalization limits. The results support task-dependent combinations of timing and spectral information, without establishing independent biological channels or general architectural superiority. Code, notebooks, and complete results are available at https://dcce-research-site.vercel.app.",
+   "url": "https://arxiv.org/abs/2610.29101",
+   "pdf": "https://arxiv.org/pdf/2610.29101",
+   "explain": {
+    "tldr": "A machine learning system that separately analyzes whale click timing and sound quality to identify whale social groups and individuals.",
+    "plain": "Sperm whales communicate through rhythmic click sequences with specific timing patterns and sound characteristics. Researchers built a system with two separate analysis paths—one for the rhythm of clicks and one for their sound spectrum—that combine their findings to identify which whale group made the sounds and which individual whale it was. The rhythm information alone worked best for identifying coda types, while combining rhythm and spectral details helped identify individual whales, though the system struggled to generalize across different recording dates.",
+    "why": "This work demonstrates how analyzing different acoustic dimensions separately can help identify patterns in complex animal communication. Musicians and producers might find the approach relevant for analyzing or processing layered sound information, and it shows practical challenges in building systems that work reliably across different recording conditions.",
+    "terms": [
+     {
+      "term": "inter-click intervals (ICI)",
+      "meaning": "the time gaps between individual clicks in a whale's coda sequence—essentially the rhythm or timing pattern"
+     },
+     {
+      "term": "spectral composition",
+      "meaning": "the frequency content or tonal qualities of a sound—what frequencies are present and how strong they are"
+     },
+     {
+      "term": "contrastive encoding",
+      "meaning": "a machine learning technique that learns by comparing similar and different examples to find meaningful patterns"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.29093",
+   "title": "Agentic Music Post-Production",
+   "authors": [
+    "Jaywon Koo",
+    "Junghyun Koo",
+    "Marco A. Martinez-Ramirez",
+    "Wei-Hsiang Liao",
+    "Seungheon Doh",
+    "Qiyu Wu",
+    "Vicente Ordonez",
+    "Yuki Mitsufuji"
+   ],
+   "published": "2026-10-21",
+   "category": "cs.SD",
+   "topics": [
+    "syn"
+   ],
+   "summary": "We introduce MixAgent, an agentic pipeline for music post-production that follows the workflow of audio engineers to build interpretable and editable mixing plans guided by a reference song. A grouping agent first routes related input tracks, such as drum recordings, into subgroups. A planning agent then uses retrieved examples to choose and order audio effects, such as volume control and reverb, for tracks, subgroups, and the full mix. To refine the mix, a detector identifies what needs correction, and a critic proposes numerical parameter adjustments from tracks to the full mix. In our experiments, prompting recent multimodal models to listen and revise often worsens the mix, making reliable correction a central challenge. We therefore build MixCritic, a dataset of 45,657 repair critiques derived from parameters fitted to professional mixes, and train the critic with supervised fine-tuning followed by preference optimization on rendered audio outcomes. On MedleyDB, learned refinement reduces error by 19% relative to the initial mix, with preference optimization reducing it by 8.4% over supervised training alone. Retrieved examples further improve effects selection, and a human listening test shows that MixAgent gets higher quality ratings than mixes produced by Qwen3-Omni, Gemini 3.8 Flash and GPT-4o-audio.",
+   "url": "https://arxiv.org/abs/2610.29093",
+   "pdf": "https://arxiv.org/pdf/2610.29093",
+   "explain": {
+    "tldr": "MixAgent automates music mixing by routing tracks, selecting effects, and refining parameters guided by reference songs.",
+    "plain": "Professional mixing involves many decisions: grouping related tracks, choosing effects like reverb or EQ, and tweaking settings to sound good. This paper presents MixAgent, a system that mimics how audio engineers work by first organizing tracks into groups, then selecting and ordering effects based on similar professional mixes, and finally refining the mix by detecting problems and adjusting parameters. The key challenge was getting AI models to reliably improve mixes—just asking them to listen and fix things often made things worse. So the researchers created a dataset of 45,000+ professional mixing corrections and trained a specialized critic to suggest better parameter settings. Their system reduced mixing errors by 19% and outperformed other AI music tools in listening tests.",
+    "why": "This matters because mixing is time-consuming and requires expertise. A tool that can handle routine mixing decisions—grouping instruments, applying effects, and fine-tuning levels—could speed up production workflows and make professional-quality mixing more accessible to producers without years of experience.",
+    "terms": [
+     {
+      "term": "subgroups",
+      "meaning": "collections of related tracks (like all drums or all vocals) that are mixed together as a unit before going to the final mix"
+     },
+     {
+      "term": "preference optimization",
+      "meaning": "a training method that teaches a system to prefer better outcomes by comparing different results rather than just copying examples"
+     },
+     {
+      "term": "multimodal models",
+      "meaning": "AI systems that can process multiple types of information at once, like both audio and text"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.29060",
+   "title": "Derivation Depth Exposes Reasoning Failures in Tool-Augmented Music Analysis",
+   "authors": [
+    "Rupali Rajesh",
+    "Sethuraman T",
+    "Savya Khosla",
+    "Srinidhi Sunkara",
+    "Aditya Shanmugham",
+    "Rohan Maheshwari",
+    "Derek Hoiem"
+   ],
+   "published": "2026-10-21",
+   "category": "cs.SD",
+   "topics": [
+    "mir"
+   ],
+   "summary": "Audio-language models remain unreliable at extracting basic musical properties from audio, motivating pipelines that place a music information retrieval (MIR) tool between the audio and the model. The tool reports measurements such as keys, chords, and structural similarity, and the model is expected to derive the answer. We test whether it can. Holding the musical information fixed, we vary derivation depth: the number of reasoning steps between the tool output and the answer. When the report states the conclusion, all five models score near 100%, and they follow it even when it is wrong. One step away, accuracy drops. On modulation, open models fall to 57-81%, although they answer that single step correctly when asked directly, and reach 0% at greater depths. Frontier models degrade less, but still degrade. Adding the audio does not recover the loss. The bottleneck in tool-augmented music analysis is not access to musical information but reasoning from it, so tool design must account for how much derivation it leaves to the model.",
+   "url": "https://arxiv.org/abs/2610.29060",
+   "pdf": "https://arxiv.org/pdf/2610.29060",
+   "explain": {
+    "tldr": "Audio-language models struggle to reason through multiple steps from music analysis tool outputs, even when given correct information.",
+    "plain": "When researchers tested whether AI models could use music analysis tools (which measure things like keys and chords), they found a surprising problem: the models work great when the answer is stated directly, but fail when they need to reason through even one or two steps to get there. For example, on questions about musical modulation (key changes), open-source models dropped from near-perfect accuracy to 57-81% accuracy with just one reasoning step needed. The issue isn't that the models can't access the musical information—it's that they can't reliably think through what to do with it.",
+    "why": "This matters because it shows that simply feeding AI models better music analysis tools won't automatically make them better at music understanding. If you're building systems that use these tools, you need to design them so the model doesn't have to do complex reasoning—the tool should do more of the thinking for you.",
+    "terms": [
+     {
+      "term": "music information retrieval (MIR) tool",
+      "meaning": "Software that automatically analyzes audio to extract specific musical facts like key, tempo, or chord progressions"
+     },
+     {
+      "term": "derivation depth",
+      "meaning": "The number of reasoning steps a model must take to get from tool output to final answer"
+     },
+     {
+      "term": "audio-language model",
+      "meaning": "An AI system trained to understand both sound and text, able to answer questions about audio"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.29031",
+   "title": "KunSet: A Corpus and Benchmark for Lyrics Alignment and Rhyme Retrieval in Kunqu Opera",
+   "authors": [
+    "Lejun Min",
+    "Siqi Chen",
+    "Delong Wang",
+    "Tong Zheng",
+    "Yunqi Lu",
+    "Zhishan Zhou",
+    "Ke Chen",
+    "Yuting Zhong",
+    "Junrong Li",
+    "Shengran Jin",
+    "Beixuan Pei",
+    "Jun Chen",
+    "Yang Li"
+   ],
+   "published": "2026-10-21",
+   "category": "cs.SD",
+   "topics": [
+    "mir"
+   ],
+   "summary": "Kunqu is one of the oldest extant forms of Chinese opera, yet its digitization remains scarce and difficult to annotate, with two challenges standing out: first, close analysis of Kunqu performance demands syllable-level lyrics alignment; second, analyzing Kunqu pronunciation requires its phonological attributes (e.g., rhyme) to be linked with each syllable. To address these challenges, we present KunSet, the first Kunqu performance corpus comprising 482,164 fine-grained annotations of syllable-level lyrics and phonological attributes in total media duration of 155.2 h with 106.3 h annotated. To ensure annotation quality, KunSet was preannotated by an iterative ML-assisted pipeline and corrected by over 200 trained annotators via a purpose-built online annotation system under a two-round review process. To assess KunSet as a music information retrieval (MIR) benchmark, we evaluate two tasks: lyrics alignment, by finetuning a forced-alignment model with an acoustic anchor decoder; and same-rhyme retrieval, using frozen Chinese HuBERT features. Models built with KunSet outperform their baselines. We release KunSet and model checkpoints to support MIR research on traditional-music corpora.",
+   "url": "https://arxiv.org/abs/2610.29031",
+   "pdf": "https://arxiv.org/pdf/2610.29031",
+   "explain": {
+    "tldr": "A dataset and benchmark for matching Kunqu opera lyrics to audio and finding rhyming syllables.",
+    "plain": "Kunqu is an ancient Chinese opera form that's rarely digitized. The researchers created KunSet, a large collection of Kunqu performances with detailed annotations linking each syllable of lyrics to the audio and marking phonological features like rhyme. They built and tested two systems: one that automatically syncs lyrics to audio, and another that finds syllables with matching rhymes. Both systems performed better when trained on KunSet than on existing methods.",
+    "why": "This work preserves and makes analyzable a centuries-old musical tradition that's at risk of being lost. For musicians and producers interested in traditional music, it demonstrates how to systematically document and computationally analyze opera with syllable-level precision—useful for transcription, analysis, and potentially new creative applications.",
+    "terms": [
+     {
+      "term": "forced-alignment",
+      "meaning": "automatically matching spoken or sung words to their exact timing in an audio recording"
+     },
+     {
+      "term": "phonological attributes",
+      "meaning": "sound-based properties of language, like which syllables rhyme or share similar pronunciation patterns"
+     },
+     {
+      "term": "HuBERT features",
+      "meaning": "a machine-learning model that converts audio into numerical representations capturing speech and sound characteristics"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.29026",
+   "title": "Resonance and Depth: Composing Timbral Identity and Spatial Form in an Artist-in-the-Loop Co-Creative Multi-Agent Percussive Performance",
+   "authors": [
+    "Keon Ju Maverick Lee"
+   ],
+   "published": "2026-10-21",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "syn",
+    "spa",
+    "hci"
+   ],
+   "summary": "This research-creation artistic report presents Resonance and Depth, a 9-minute immersive electroacoustic/acousmatic performance that treats timbre and space as primary compositional materials. Built from live electronic percussion and a personal corpus recorded, curated, and composed by the author, the work investigates how timbral identity and musical form can emerge through real-time recombination, spatialisation, and performer-system interaction rather than conventional harmonic development. The performance is realised as an artist-in-the-loop co-creative multi-agent system integrating MACAT, MACataRT, a MIDI-based musical agent, a spatialisation layer, and a conductor agent. These components recombine and transform the performer's material through concatenative synthesis, audio mosaicing, symbolic mediation, physically inspired synthesis, and object-based spatialisation. The work approaches spatialisation as an active compositional process in which position, trajectory, depth, diffusion, width, and apparent size participate in musical phrasing and form. Through this practice-based framework, Resonance and Depth examines how performer identity can be retained, transformed, and redistributed across human, algorithmic, timbral, and spatial processes within an immersive co-creative performance ecology.",
+   "url": "https://arxiv.org/abs/2610.29026",
+   "pdf": "https://arxiv.org/pdf/2610.29026",
+   "explain": {
+    "tldr": "An electroacoustic performance where AI agents and a live percussionist collaborate to create music by transforming sounds and positioning them in space.",
+    "plain": "This is an artistic work that uses timbre (tone color) and spatial positioning as the main building blocks instead of traditional harmony. A percussionist performs live while multiple AI agents listen and respond in real-time, recombining the performer's sounds in new ways and moving them around in 3D space. The system treats the performer and the algorithms as equal creative partners, allowing the musician's identity to flow between human playing, computer processing, and spatial effects.",
+    "why": "This shows how live performers can collaborate with AI systems as creative partners rather than just tools, and demonstrates that space itself can be a compositional element as important as melody or rhythm. It's relevant if you're interested in how technology can expand what's possible in live performance or how to maintain artistic identity when working with algorithmic systems.",
+    "terms": [
+     {
+      "term": "concatenative synthesis",
+      "meaning": "Creating new sounds by cutting up and reassembling pieces of existing recordings in different orders"
+     },
+     {
+      "term": "audio mosaicing",
+      "meaning": "Covering or replacing a sound by finding similar small pieces from a sound library and stitching them together"
+     },
+     {
+      "term": "object-based spatialisation",
+      "meaning": "Placing individual sounds as distinct objects in 3D space rather than mixing them into stereo channels"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.28711",
+   "title": "Qwen-Audio-3.1-ASR Technical Report",
+   "authors": [
+    "Chuanmeng Bian",
+    "Daren Chen",
+    "Peixin Chen",
+    "Zhigao Chen",
+    "Chong Deng",
+    "Zhiyun Fan",
+    "Zhifu Gao",
+    "Bo Gong",
+    "Qing Gu",
+    "Jiajun He",
+    "Yawei Hu",
+    "Yunjie Ji",
+    "Wei Ju",
+    "Jingbei Li",
+    "Xiangang Li",
+    "Xu Li",
+    "Zengxi Li",
+    "Zheng Li",
+    "Chengdong Liang",
+    "Baiji Liu",
+    "Yaming Liu",
+    "Ying Liu",
+    "Bin Ma",
+    "Yiping Peng",
+    "Yuezhang Peng",
+    "Zhendong Peng",
+    "Yu Pu",
+    "Yang Shi",
+    "Xin Shu",
+    "Jian Tang",
+    "Biao Tian",
+    "Peiyao Wang",
+    "Tianzi Wang",
+    "Wen Wang",
+    "Wupeng Wang",
+    "Cheng Wen",
+    "Yuzhong Wu",
+    "Zijian Xia",
+    "Yunchong Xiao",
+    "Nan Yang",
+    "Jianwei Yu",
+    "Jixing Yu",
+    "Binbin Zhang",
+    "Lei Zhang",
+    "Sitong Zhao",
+    "Guangdong Zhou",
+    "Yuan Zhou",
+    "Jianheng Zhuo"
+   ],
+   "published": "2026-10-20",
+   "category": "cs.SD",
+   "topics": [
+    "mir",
+    "hci",
+    "rep"
+   ],
+   "summary": "We present Qwen-Audio-3.1-ASR, a family of audio-language models that builds upon its predecesor Qwen-Audio-3.0-ASR with improved speech recognition and expanded capabilities in speaker-diarized transcription and general audio understanding. The family retains support for 30 languages and 16 Chinese dialects, together with instruction-controlled capabilities including historical-context conditioning, hierarchical hotword customization, and native transcription polishing. Speaker-diarized ASR produces structured outputs containing speaker labels, timestamps, and recognized text, maintaining consistent speaker labels across turns and the representation of overlapping speech. The general audio understanding capabilities cover audio-, speech-, and music-captioning, temporal grounding and sound event detection, as well as audio question answering and multiple-choice reasoning. These tasks broaden the application scope from recognizing spoken words to interpreting speakers, acoustic events, and their temporal relations. To accommodate different deployment requirements, the family includes variants for asynchronous file transcription, low-latency streaming, interactive voice input, and non-streaming recognition, with speaker-diarized transcription and general audio understanding available in certain variants. Evaluations span conventional ASR, multilingual and dialectal speech, speaker-diarized transcription, and general audio understanding, demonstrating the capabilities of the Qwen-Audio-3.1-ASR family across transcription and broader audio analysis tasks.",
+   "url": "https://arxiv.org/abs/2610.28711",
+   "pdf": "https://arxiv.org/pdf/2610.28711",
+   "explain": {
+    "tldr": "Qwen-Audio-3.1-ASR improves speech recognition and adds speaker identification, music captioning, and sound event detection across 30 languages.",
+    "plain": "This is an upgraded speech-to-text system that does more than just convert spoken words to text. It can now identify who is speaking (speaker diarization), describe music and sounds, detect what acoustic events are happening, and answer questions about audio. The system works in multiple languages and dialects, and comes in different versions—some for quick file processing, others for real-time streaming conversations. The researchers tested it on standard speech recognition tasks as well as these new capabilities.",
+    "why": "For musicians and producers, this matters because it can automatically transcribe sessions with multiple speakers while identifying who said what, caption your music and sound design work, and detect specific acoustic events—useful for organizing recordings, creating documentation, or building interactive audio applications.",
+    "terms": [
+     {
+      "term": "speaker diarization",
+      "meaning": "automatically identifying and labeling different speakers in an audio recording, so you know who said what"
+     },
+     {
+      "term": "audio captioning",
+      "meaning": "generating text descriptions of what's happening in audio, similar to how image captioning describes pictures"
+     },
+     {
+      "term": "sound event detection",
+      "meaning": "identifying and locating specific sounds or acoustic events in audio, like detecting when a drum hits or a door slams"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
   {
    "id": "2610.28100",
    "title": "Transformer-Based Plate Parameter Estimation with Differentiable and Particle-Swarm Refinement",
