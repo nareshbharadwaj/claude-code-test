@@ -1,6 +1,271 @@
 {
- "updated": "2026-10-22T13:01:19Z",
+ "updated": "2026-10-23T12:40:37Z",
  "papers": [
+  {
+   "id": "2610.31596",
+   "title": "Signed Wasserstein distance for room impulse response comparison",
+   "authors": [
+    "Linda Fabiani",
+    "Sebastian J. Schlecht",
+    "Filip Elvander"
+   ],
+   "published": "2026-10-22",
+   "category": "eess.AS",
+   "topics": [
+    "syn",
+    "spa"
+   ],
+   "summary": "The nature of room impulse response signals is often adverse to a clear evaluation of similarity: they are sparse, rapidly varying, signed signals resulting from the complex interaction of room reflections and phase relationships. Therefore, conventional point-wise metrics may be sensitive to small temporal shifts and provide poor loss surfaces for optimization. In this paper, we propose an optimal transport-based distance for RIR similarity that explicitly accounts for the structure of impulse responses, inspired by the signed Wasserstein distance formulation. Optimal transport provides a natural framework for this problem, by comparing signals based on how their underlying distributions are displaced rather than requiring a one-to-one correspondence. We evaluate the proposed distance against commonly used audio baseline metrics through a series of room-parameter perturbation studies. The results demonstrate the advantage of using the signed Wasserstein metric for geometric evaluation tasks and show a promising performance for room parameter optimization within a differentiable Image-Source model.",
+   "url": "https://arxiv.org/abs/2610.31596",
+   "pdf": "https://arxiv.org/pdf/2610.31596",
+   "explain": {
+    "tldr": "A new method to compare room impulse responses that handles their sparse, shifting nature better than standard metrics.",
+    "plain": "Room impulse responses—the acoustic fingerprints of spaces—are tricky to compare because they're sparse signals with rapid changes and phase shifts. Standard metrics that compare point-by-point often fail when signals are slightly time-shifted. This paper proposes using optimal transport, a mathematical framework that compares distributions rather than requiring exact alignment, adapted specifically for signed signals like impulse responses. Tests show this approach works better for evaluating room acoustics and optimizing room parameters in acoustic simulations.",
+    "why": "If you're modeling room acoustics, designing virtual spaces, or optimizing microphone placement, you need reliable ways to measure how similar two acoustic environments are. This metric could improve tools for room simulation and acoustic design.",
+    "terms": [
+     {
+      "term": "room impulse response (RIR)",
+      "meaning": "A recording of how a room responds to a sound—captures all the reflections and echoes that define that space's acoustics"
+     },
+     {
+      "term": "optimal transport",
+      "meaning": "A mathematical method for comparing two distributions by measuring the minimum cost to transform one into the other, rather than comparing point-by-point"
+     },
+     {
+      "term": "Image-Source model",
+      "meaning": "A simulation technique that models room acoustics by treating reflections as if they come from virtual 'image' sources, used to predict how sound behaves in a space"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.31510",
+   "title": "Piano2Pop: Expanding Piano Demos into Pop Productions Without Aligned Supervision",
+   "authors": [
+    "Yun-Chen Cheng",
+    "Chih-Pin Tan",
+    "Tzu-Hung Huang",
+    "Yi-Hsuan Yang"
+   ],
+   "published": "2026-10-22",
+   "category": "cs.LG",
+   "topics": [
+    "gen",
+    "mir",
+    "rep"
+   ],
+   "summary": "We introduce Piano2Pop, a music-expansion task that transforms piano MIDI into instrumental pop productions. Enabled by recent advances in music generation and polyphonic music transcription, our pseudo-supervised approach conditions a pretrained flow-matching model on piano rolls without aligned piano-pop supervision. We train on synthetic piano-instrumental pairs derived from pop recordings, comparing pair-free transcription, including function-selective (FST) and register-density (RDA) augmentations, with a pair-supervised piano-cover generator as pseudo-demo sources. On 476 testing real-world piano-cover/pop pairs, the pair-supervised approach achieves the best Frechet Audio Distance, Accompaniment Prompt Adherence, and spectral shape on real-piano inputs, while FST mitigates piano-heavy outputs in pair-free training and remains a promising alternative. All fine-tuned systems significantly outperform the zero-shot baselines, which suggests a role for task-specific modeling.",
+   "url": "https://arxiv.org/abs/2610.31510",
+   "pdf": "https://arxiv.org/pdf/2610.31510",
+   "explain": {
+    "tldr": "A system that automatically transforms piano MIDI sketches into full pop music productions without needing paired training examples.",
+    "plain": "Musicians often start with piano demos but need help expanding them into full arrangements. This paper presents Piano2Pop, which takes a piano MIDI file and generates a complete pop production with drums, bass, and other instruments. Since there's no large dataset of piano-to-pop pairs to learn from, the researchers created synthetic training data from existing pop songs and used a pretrained music generation model. They tested different approaches and found that using piano covers as intermediate examples worked best, producing results that sound more like real pop productions.",
+    "why": "This could help producers and songwriters quickly turn piano sketches into fuller arrangements, speeding up the demo-to-production workflow. It shows how AI can assist with arrangement and orchestration tasks without requiring perfectly matched training data.",
+    "terms": [
+     {
+      "term": "flow-matching model",
+      "meaning": "A type of AI model trained to gradually transform one thing into another, here used to generate music conditioned on input"
+     },
+     {
+      "term": "pseudo-supervised",
+      "meaning": "Training an AI system using automatically generated or synthetic examples instead of manually labeled real data"
+     },
+     {
+      "term": "Frechet Audio Distance",
+      "meaning": "A metric that measures how similar two pieces of audio sound by comparing their learned features"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.31434",
+   "title": "PerMix: Anomalous sound detection by predicting the perturbation ratio of mixed samples",
+   "authors": [
+    "Jihoon Choi",
+    "Jung-Woo Choi"
+   ],
+   "published": "2026-10-22",
+   "category": "eess.AS",
+   "topics": [
+    "rep"
+   ],
+   "summary": "In anomalous sound detection based on self-supervised learning, the performance of the detection model largely depends on the selection of the pretext task through which the characteristics of normal data are learned. A common pretext task is to mix samples from different classes and classify the mixed sample as its target class with an angular margin loss. However, this supervision becomes mismatched when the target sample is the minority component of the mixture and the margin remains fixed irrespective of the mixing ratio. To address these issues, we propose a pretext task that directly predicts the perturbation ratio of mixed samples by reformulating the logit so that the angular margin is scaled by the perturbation ratio. In addition, we adopt a supervised contrastive loss modified for mixed samples, in which positive pairs are formed according to the dominant class. Experiments show that our approach achieves state-of-the-art results on the DCASE 2020 Task 2 benchmark. Our code is available at https://github.com/kaistss/PerMix.",
+   "url": "https://arxiv.org/abs/2610.31434",
+   "pdf": "https://arxiv.org/pdf/2610.31434",
+   "explain": {
+    "tldr": "A method for detecting unusual sounds by learning from mixed audio samples with adjusted training signals.",
+    "plain": "Anomalous sound detection identifies unexpected or abnormal sounds in audio. Current methods mix samples together and train models to recognize them, but they struggle when one sound is much quieter than the other in the mixture. This paper proposes predicting how much one sound was mixed into another, and adjusts the training signal based on that ratio. They also use a modified learning technique that focuses on the dominant sound in each mixture. The approach performs better on a standard sound detection benchmark.",
+    "why": "Better anomaly detection helps with quality control in manufacturing, maintenance monitoring of machines, and safety systems—any application where unusual sounds signal problems. Improving how models learn from mixed audio could also benefit music production and audio analysis tools.",
+    "terms": [
+     {
+      "term": "pretext task",
+      "meaning": "A training task designed to help a model learn useful patterns from unlabeled data, even though the task itself isn't the final goal"
+     },
+     {
+      "term": "perturbation ratio",
+      "meaning": "The proportion or amount of one sound mixed into another"
+     },
+     {
+      "term": "contrastive loss",
+      "meaning": "A training method that encourages the model to make similar sounds closer together and different sounds farther apart in its internal representation"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.31202",
+   "title": "Predicting Music Valence and Arousal via Textual and Multimodal In-Context Learning in Large Language Models",
+   "authors": [
+    "Chi-En Dai",
+    "Chih-Pin Tan",
+    "Yi-Hsuan Yang"
+   ],
+   "published": "2026-10-22",
+   "category": "cs.SD",
+   "topics": [
+    "gen"
+   ],
+   "summary": "While arousal can be reliably predicted from musical audio, emotional valence remains difficult to model due to its subjective and context-dependent nature. In this work, we investigate the potential of in-context learning (ICL) with large language models to advance continuous valence and arousal prediction. Rather than predicting emotion scores directly, our framework leverages contextual demonstrations from an auxiliary dataset to refine the initial predictions produced by a small, task-specific base model. We systematically evaluate a text-based ICL variant using lyrics and generated audio captions, alongside a multimodal variant that incorporates raw audio signals. Using the entire MER60 dataset strictly as a held-out test set, our experiments demonstrate substantial performance gains, particularly for valence. Text-based ICL improves the valence $R^2$ from 0.110 to 0.427 with 80 demonstration shots, while the multimodal variant achieves 0.346 with only 10 shots. These findings suggest that training-free ICL offers an effective inference-time strategy for current language models to predict continuous music emotion.",
+   "url": "https://arxiv.org/abs/2610.31202",
+   "pdf": "https://arxiv.org/pdf/2610.31202",
+   "explain": {
+    "tldr": "Using large language models with example demonstrations improves predictions of how happy/sad and energetic/calm music sounds.",
+    "plain": "Predicting how emotionally positive or negative a song feels (valence) is harder than predicting how energetic it is (arousal), partly because it's subjective. This work uses large language models in a new way: instead of training them on emotion data, they show the model examples from similar songs, then ask it to predict emotion scores for new music. They tried two approaches—one using song lyrics and descriptions, another using actual audio—and found both worked better than a basic model, especially for predicting valence (emotional positivity).",
+    "why": "Understanding music emotion computationally could help producers and platforms organize music by mood, create better recommendations, or assist in soundtrack selection. The finding that language models can improve emotion prediction without special training suggests new tools might become available for music analysis.",
+    "terms": [
+     {
+      "term": "valence",
+      "meaning": "how positive or negative a piece of music sounds, ranging from sad/dark to happy/bright"
+     },
+     {
+      "term": "arousal",
+      "meaning": "how energetic or calm music feels, ranging from relaxed to intense"
+     },
+     {
+      "term": "in-context learning",
+      "meaning": "showing a language model examples of similar tasks before asking it to solve a new one, without retraining"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.31093",
+   "title": "HARMONY: Hierarchical Anchor Retrieval on Manifold for Oblivious-source Machinery Acoustic Anomaly Detection",
+   "authors": [
+    "Yuhang Zhang",
+    "Yang Li",
+    "Qiang Wu",
+    "Mingyuan Li"
+   ],
+   "published": "2026-10-22",
+   "category": "cs.SD",
+   "topics": [
+    "rep"
+   ],
+   "summary": "In standard acoustic anomaly detection (ASD), models are usually trained separately for each machine or domain using explicit metadata. However, in realistic deployments, machine identifiers are incomplete, unreliable, or simply unavailable. Thus, metadata-free machinery ASD asks a single model to monitor mixed machine populations without machine IDs. In this paper, we argue that the main failure mode is not a weak detector family, but representation entanglement. The heterogeneous normal modes overlap in frozen pre-trained feature spaces, making anomaly scoring and approximate retrieval unreliable. We study this problem directly and propose HARMONY (Hierarchical Anchor Retrieval on Manifold for Oblivious-source acoustic aNomalY detection), an anchor-guided geometric repartitioning framework that reorganizes mixed-source features into compact Voronoi regions and reuses this structure for hierarchical retrieval. On DCASE 2020, HARMONY improves mean AUC from 75.40% to 90.00% (14.60 percentage points) over the strongest unified baseline and from 83.90% to 90.00% over a strong foundation-feature baseline. On a single CPU, its hierarchical retrieval achieves a 7.8x speedup over exhaustive search with only a 0.20 percentage-point AUC drop. These results suggest that incorporating explicit geometric partitioning can improve both detection accuracy and retrieval efficiency for ASD. Code is available at https://github.com/Zzyh0208/HARMONY.",
+   "url": "https://arxiv.org/abs/2610.31093",
+   "pdf": "https://arxiv.org/pdf/2610.31093",
+   "explain": {
+    "tldr": "A method to detect equipment failures in mixed machines without knowing which machine is which, using geometric organization of audio features.",
+    "plain": "When monitoring multiple machines with a single system, you often don't know which machine produced which sound—yet current anomaly detection systems need that information. The researchers found the real problem isn't weak detection, but that features from different machines get tangled together in the same space, making it hard to spot what's abnormal. They propose HARMONY, which reorganizes these mixed features into separate geometric regions (like dividing a space into territories), then uses this structure to quickly find similar sounds and detect anomalies. On standard test data, this improved detection accuracy significantly and made the system 7.8 times faster.",
+    "why": "For producers and engineers monitoring equipment or recording in complex acoustic environments, this matters because it enables reliable anomaly detection without needing to label or identify every sound source beforehand—useful for live sound, studio monitoring, or field recording where you can't always control or identify what's being captured.",
+    "terms": [
+     {
+      "term": "representation entanglement",
+      "meaning": "when audio features from different sources get mixed together in the same space, making them hard to distinguish"
+     },
+     {
+      "term": "Voronoi regions",
+      "meaning": "geometric territories where each region contains points closer to one anchor point than any other"
+     },
+     {
+      "term": "hierarchical retrieval",
+      "meaning": "finding similar sounds by searching through organized levels of groups, rather than checking every possibility"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.31083",
+   "title": "MQAScore: Fine-Grained Text-Music Alignment Evaluation via Large Audio Language Model",
+   "authors": [
+    "Wei-Jaw Lee",
+    "Chun-Ping Wang",
+    "Xuanjun Chen",
+    "Yi-Hsuan Yang"
+   ],
+   "published": "2026-10-22",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "mir",
+    "rep"
+   ],
+   "summary": "Text-to-music alignment is commonly evaluated by the global similarity between text and audio embeddings, which collapses all described attributes into a single score and obscures which ones are missing. We instead introduce MQAScore, which verifies each atomic musical concept along five clip-level dimensions (genre, instrument, mood/theme, vocal, and usage) by the probability that a large audio language model (LALM) answers affirmatively to a binary question. To assess evaluator reliability, we construct verification labels from presence/absence annotations and LLM-guided concept substitutions, and propose the Sensitivity-Invariance Ratio, which measures how selectively an evaluator responds to meaning-changing substitutions. Experiments show that concept-level scoring improves both question-answering and similarity-based evaluators, and MQAScore can be a more reliable and interpretable fine-grained complement to global similarity for evaluating text-to-music alignment.",
+   "url": "https://arxiv.org/abs/2610.31083",
+   "pdf": "https://arxiv.org/pdf/2610.31083",
+   "explain": {
+    "tldr": "A new evaluation method that checks if AI-generated music matches text descriptions by testing specific musical features rather than one overall score.",
+    "plain": "When AI generates music from text descriptions, current evaluation methods give a single similarity score that hides which musical aspects (like genre or instruments) are actually missing. This paper proposes MQAScore, which instead asks a large audio language model specific yes-or-no questions about five musical dimensions: genre, instrument, mood, vocals, and usage. They tested this approach and found that checking individual musical concepts gives more reliable and clearer feedback than a single global score, helping creators understand exactly what went wrong with a generated track.",
+    "why": "For musicians and producers using AI music tools, this means better feedback on what the AI actually understood from your description. Instead of just getting a score, you'd learn whether it missed the genre, got the instruments wrong, or misunderstood the mood—making it easier to refine your prompts or improve the AI system.",
+    "terms": [
+     {
+      "term": "text-to-music alignment",
+      "meaning": "how well AI-generated music matches the text description you gave it"
+     },
+     {
+      "term": "large audio language model (LALM)",
+      "meaning": "an AI trained to understand and answer questions about what it hears in audio"
+     },
+     {
+      "term": "embeddings",
+      "meaning": "numerical representations that capture the meaning of text or audio in a way computers can compare"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.30783",
+   "title": "MixJudge: Learning a Language-Queryable Critic for Vocal Mixing",
+   "authors": [
+    "Kuan-Hsun Ho",
+    "Yuan-Chiao Cheng",
+    "Yen-Tung Yeh",
+    "Yi-Hsuan Yang"
+   ],
+   "published": "2026-10-22",
+   "category": "cs.SD",
+   "topics": [],
+   "summary": "Mixing requires not only applying processing but also assessing the resulting mix. Audio-language models can provide conversa- tional mixing advice, but existing evaluations do not separately test whether they can judge specific mixing issues. Since professional supervision for such judgments is scarce, we construct a curriculum of 11 vocal-mix issues at multiple severity levels and use it to train MixJudge, a language-queryable audio critic. MixJudge shows its ability to retrieve mixing issues, distinguish opposite issues, and order the severity of an issue. Moreover, its judgments transfer to menu selection: given a set of processing candidates, MixJudge often favors versions acoustically closer to a held-out professional version, demonstrating how explicit mixing judgment can support comparison and downstream mixing decisions.",
+   "url": "https://arxiv.org/abs/2610.30783",
+   "pdf": "https://arxiv.org/pdf/2610.30783",
+   "explain": {
+    "tldr": "A system that learns to identify and rate specific vocal mixing problems by listening and responding to questions.",
+    "plain": "Mixing involves both applying effects and judging whether the result sounds good. While AI models can chat about mixing advice, nobody has tested whether they can actually spot specific problems like too much reverb or poor balance. The researchers created training data covering 11 common vocal mixing issues at different severity levels, then built MixJudge—a tool that listens to mixes and answers questions about what's wrong. It can identify issues, tell opposite problems apart, and rate how severe a problem is. When given choices of different processing options, it tends to pick the ones that sound closer to professional mixes.",
+    "why": "This could help producers and engineers get detailed feedback on their mixes without needing an expert in the room. Instead of vague suggestions, you could ask the system specific questions about your vocal mix and get assessments of particular problems, which could guide your mixing choices.",
+    "terms": [
+     {
+      "term": "audio-language models",
+      "meaning": "AI systems trained on both sound and text, so they can listen to audio and discuss it in conversation"
+     },
+     {
+      "term": "curriculum",
+      "meaning": "a structured training approach where a model learns from examples organized by difficulty or category"
+     },
+     {
+      "term": "transfer",
+      "meaning": "when a model trained on one task performs well on a related but different task"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
   {
    "id": "2610.29928",
    "title": "A Learned Musical-Time Coordinate for Piano Audio-to-Score Transcription",
@@ -995,7 +1260,7 @@
     "Onkar Kishor Susladkar",
     "Prathmesh Santosh Choudhari",
     "Vedangi Deepak Deshpande",
-    "Ismini Lorentzu",
+    "Ismini Lourentzou",
     "Sparsh Mittal"
    ],
    "published": "2026-10-17",
@@ -1004,7 +1269,7 @@
     "gen",
     "syn"
    ],
-   "summary": "Sanskrit verse recitation is governed by $\\textit{Chandas}$, a strict prosodic framework defined by rhythmic $\\textit{Laghu}$ (light) and $\\textit{Guru}$ (heavy) syllables. Because existing Sanskrit speech datasets prioritize ASR or conversational TTS, they lack the metrical fidelity required for authentic verse synthesis. We introduce $\\textbf{\\textit{ShlokaDhara}}$, a 43-hour, multi-speaker Sanskrit speech corpus capturing diverse meters, recitation styles, and melodic variations. We specifically focus on $\\textit{Text-to-Recite}$, a synthesis task explicitly requiring both prosodic accuracy and metrical correctness. Benchmarking state-of-the-art TTS architectures via an automated UTMOS (neural MOS) predictor demonstrates that XTTS-v2 achieves the highest perceptual quality. We further validate the XTTS-v2 generated samples using two paradigms: subjective assessments by 16 Sanskrit experts and novel empirical metrics, specifically, syllable-level $\\textit{Laghu-Guru}$ duration analysis to objectively quantify structural metrical awareness. Ultimately, this work establishes a robust dataset and evaluation benchmark for prosody-aware computational Sanskrit recitation. Generated Samples: https://shlokadhara.vercel.app/",
+   "summary": "Sanskrit verse recitation is governed by $\\textit{Chandas}$, a strict prosodic framework defined by rhythmic $\\textit{Laghu}$ (light) and $\\textit{Guru}$ (heavy) syllables. Because existing Sanskrit speech datasets prioritize ASR or conversational TTS, they lack the metrical fidelity required for authentic verse synthesis. We introduce $\\textbf{$\\textit{ShlokaDhara}$}$, a 43-hour, multi-speaker Sanskrit speech corpus capturing diverse meters, recitation styles, and melodic variations. We specifically focus on $\\textit{Text-to-Recite}$, a synthesis task explicitly requiring both prosodic accuracy and metrical correctness. Benchmarking state-of-the-art TTS architectures via an automated UTMOS (neural MOS) predictor demonstrates that XTTS-v2 achieves the highest perceptual quality. We further validate the XTTS-v2 generated samples using two paradigms: subjective assessments by 16 Sanskrit experts and novel empirical metrics, specifically, syllable-level $\\textit{Laghu-Guru}$ duration analysis to objectively quantify structural metrical awareness. Ultimately, this work establishes a robust dataset and evaluation benchmark for prosody-aware computational Sanskrit recitation. Generated Samples: https://shlokadhara.vercel.app/",
    "url": "https://arxiv.org/abs/2610.26929",
    "pdf": "https://arxiv.org/pdf/2610.26929",
    "explain": {
