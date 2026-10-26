@@ -1,6 +1,318 @@
 {
- "updated": "2026-10-25T12:37:20Z",
+ "updated": "2026-10-26T14:22:36Z",
  "papers": [
+  {
+   "id": "2610.32981",
+   "title": "SEMAC: Spherical Energy Matching Ambisonics Codec for Efficient Higher-Order Ambisonics Compression",
+   "authors": [
+    "Christoph Hold",
+    "Jan Buethe",
+    "Jean-Marc Valin",
+    "Jan Skoglund",
+    "Toni Hirvonen",
+    "Nils Peters"
+   ],
+   "published": "2026-10-23",
+   "category": "eess.AS",
+   "topics": [
+    "spa",
+    "rep"
+   ],
+   "summary": "Higher-order Ambisonics (HOA) is an attractive format for immersive spatial audio, but its high channel count and directional properties present significant audio coding challenges. The widely deployed Opus audio codec supports HOA through Channel Mapping Families 2 and 3 (RFC 8486), which code and transmit every Ambisonics channel, so the bitrate grows quadratically with the spherical harmonic order. We introduce SEMAC, which instead represents an Ambisonics signal by a quantized full-order directional energy envelope together with fewer CELT-coded transport channels. CELT separates a per-band energy envelope from the signal shape and restores it after quantization, and SEMAC generalizes this principle to directional signals. Since the reduced transport spans only a lower-dimensional subspace, the decoder re-imposes the envelope observed at the encoder input, restoring the directional energy distribution at full order. A MUSHRA test on fifth-order material compares SEMAC against Opus CMF~3 in matched configurations at 512 and 768 kbit/s. SEMAC with 16 of 36 transport channels is rated above full-order CMF~3 at both rates, and at equal transport channel count above order truncation. The proposed SEMAC strategy of coding fewer transport channels with the directional envelope is found perceptually preferable to coding all HOA channels at low precision.",
+   "url": "https://arxiv.org/abs/2610.32981",
+   "pdf": "https://arxiv.org/pdf/2610.32981",
+   "explain": {
+    "tldr": "A new compression method for immersive spatial audio that uses fewer data channels while preserving directional sound information.",
+    "plain": "Higher-order Ambisonics is a popular format for immersive spatial audio, but it requires transmitting many audio channels, which demands a lot of bandwidth. SEMAC compresses this by sending fewer channels while separately encoding the directional energy pattern of the sound field. When the decoder receives this information, it reconstructs the full directional detail. In listening tests on fifth-order Ambisonics, SEMAC achieved better sound quality than the current standard Opus codec at the same bitrates, using less than half the channels.",
+    "why": "If you work with immersive audio or spatial recording, this matters because it could let you stream or store high-quality spatial audio with less bandwidth and storage—making immersive formats more practical for real-world applications.",
+    "terms": [
+     {
+      "term": "Higher-order Ambisonics (HOA)",
+      "meaning": "A spatial audio format that captures sound direction and space using multiple channels; higher orders capture finer directional detail but require more data"
+     },
+     {
+      "term": "Spherical harmonic order",
+      "meaning": "A measure of directional resolution in spatial audio; higher orders mean more precise directional information but exponentially more channels"
+     },
+     {
+      "term": "CELT",
+      "meaning": "An audio codec (compression algorithm) that separates loudness from sound character, allowing each to be compressed differently"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.32629",
+   "title": "Interpretable Singing Emotion Recognition Using Acoustic and Vocal Technique Features",
+   "authors": [
+    "Fotini Kiriakopoulou",
+    "Vassilis Lyberatos",
+    "Spyridon Kantarelis",
+    "Athanasios Voulodimos",
+    "Giorgos Stamou"
+   ],
+   "published": "2026-10-23",
+   "category": "cs.SD",
+   "topics": [
+    "rep"
+   ],
+   "summary": "Singing emotion recognition relies predominantly on deep learning models that achieve strong performance but offer limited insight into the vocal characteristics driving emotion, of- ten overlooking the singing voice as a distinct signal. We propose an interpretable singing emotion recognition framework using a compact set of singing-specific descriptors across prosody, spec- tral features, phonetics, and vocal technique. To decode model decisions and link predictions to measurable acoustic phenomena, we employ SHAP and apply GRAD-CAM to qualitatively assess the learned representations of vocal techniques. Evaluations show that singing-specific features reduce cross-singer variability, while vocal technique descriptors provide interpretable insights into singing expression. Furthermore, out-of-domain evaluation on VocalSet reveals interesting associations between emotional expression and ground-truth technical execution. The analysis highlights vibrato and pharyngeal techniques as salient cues of emotional delivery, with SHAP indicating that vibrato is context-dependent on articulation rate. These findings emphasize the value of domain-specific features for interpretable singing emotion analysis.",
+   "url": "https://arxiv.org/abs/2610.32629",
+   "pdf": "https://arxiv.org/pdf/2610.32629",
+   "explain": {
+    "tldr": "A system that recognizes emotion in singing using interpretable acoustic features specific to vocal technique.",
+    "plain": "Most emotion recognition systems use deep learning but don't explain which vocal qualities matter. This work builds a model using singing-specific measurements—things like vibrato, spectral qualities, and how the throat is positioned—to identify emotions in vocals. They use explainability tools to show which acoustic features drive each emotion prediction. They found that vibrato and pharyngeal technique (throat positioning) are particularly important emotional cues, and that vibrato's role depends on how quickly syllables are articulated.",
+    "why": "For musicians and producers, this reveals which technical vocal choices communicate emotion most effectively. Understanding that vibrato and throat technique are key emotional markers could inform vocal performance and production decisions. It also bridges the gap between singing technique and emotional expression in a measurable way.",
+    "terms": [
+     {
+      "term": "SHAP",
+      "meaning": "A tool that explains which input features (like vibrato or pitch) most influenced a model's prediction, showing their relative importance."
+     },
+     {
+      "term": "Prosody",
+      "meaning": "The rhythm, timing, and intonation patterns of speech or singing—how pitch and duration shape expression."
+     },
+     {
+      "term": "Pharyngeal technique",
+      "meaning": "How a singer positions and uses their throat and pharynx (back of the throat) to shape vocal tone and resonance."
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.32495",
+   "title": "MusicTwins: Training Audio-Language Models to Listen like Their Persona",
+   "authors": [
+    "Milan Liessens Dujardin",
+    "Kevin Miao"
+   ],
+   "published": "2026-10-23",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "rep"
+   ],
+   "summary": "People differ in how they perceive music, what associations they make with it, what they like about it, and how they respond to it. Computational models intended to simulate people in environments that include music should account for these differences. Although LLMs have been shown to reproduce aspects of human behavior, whether audio-language models (ALMs) can reproduce a specific person's responses to textual and musical stimuli remains underexplored. We introduce MusicTwins, a framework that combines persona summaries, personal memory, and post-training to generate person-specific responses. We construct persona representations from human writings, capturing background, views, personality, writing style, and a musical profile, and post-train Audio Flamingo Next through supervised fine-tuning and reinforcement learning. Evaluation on ten held-out personas shows notable improvements for Audio Flamingo Next in persona fidelity, including personality, writing style, and responses to music, supporting MusicTwins as a foundation for training audio-language models to listen like their persona.",
+   "url": "https://arxiv.org/abs/2610.32495",
+   "pdf": "https://arxiv.org/pdf/2610.32495",
+   "explain": {
+    "tldr": "Train AI models to respond to music like specific people by capturing their personality and musical taste.",
+    "plain": "Different people hear and feel music differently based on their background, personality, and preferences. This paper asks whether AI models can learn to respond to music the way a particular person would. The researchers created MusicTwins, which builds a digital profile of someone from their writings and musical history, then fine-tunes an AI model to match that person's style and taste. Testing on ten different personas showed the model could better capture how each person would actually respond to music.",
+    "why": "This matters for creating AI tools that understand music in human-centered ways—whether for personalized recommendations, interactive composition tools, or AI collaborators that match your listening perspective rather than treating all listeners the same.",
+    "terms": [
+     {
+      "term": "audio-language model (ALM)",
+      "meaning": "An AI system trained to understand both music/sound and text, so it can discuss or respond to audio"
+     },
+     {
+      "term": "persona",
+      "meaning": "A digital representation of a person's characteristics—their personality, background, taste, and how they express themselves"
+     },
+     {
+      "term": "fine-tuning",
+      "meaning": "Adjusting a pre-trained AI model with additional training on specific examples to make it behave differently or better at a particular task"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.32325",
+   "title": "ChoreoStudio: Planning What, When, and Who in Music-Driven Group Choreography",
+   "authors": [
+    "Jing Xu",
+    "Cunjian Chen",
+    "Qiuhong Ke"
+   ],
+   "published": "2026-10-23",
+   "category": "cs.SD",
+   "topics": [
+    "gen"
+   ],
+   "summary": "Music-driven group dance generation must decide not only how each dancer moves, but also what formation the group should form, when it should change, and who should execute each transition. Existing methods can generate orderly and rhythmically synchronized group motion, but remain limited in formation evolution and inter-dancer interaction. In human choreography, formation transitions often align with changes in high-level musical structure, such as the progression from an introduction to a chorus or from a chorus to a climax. We present ChoreoStudio, which makes choreography planning explicit. A music disentangler first decomposes the audio into frame-level rhythmic features and segment-level structural features. Given the segment-level features and sparse labels, a frozen omni-modal model acts as a scriptwriter, producing a global semantic description that guides the Director's choreography planning. Based on this context, the Director produces three coupled interaction decisions: a centroid-relative point set specifies what formation to produce, a transition gate determines when it should change, and a mobility allocation indicates who should execute the transition. The transition gate and mobility allocation are further conditioned on the planned geometric change, coupling formation targets with their temporal and dancer-specific execution. At a finer temporal scale, frame-aligned music features condition the diffusion generator to control detailed body motion and preserve beat-level alignment. The segment-level interaction plan is injected in parallel through frame-aligned instruction tokens and cross-dancer attention biases, coordinating how the generator realizes each transition. Experiments on AIOZ-GDance demonstrate that ChoreoStudio follows the planned interactions while achieving state-of-the-art performance in motion quality, group organization, and formation dynamics.",
+   "url": "https://arxiv.org/abs/2610.32325",
+   "pdf": "https://arxiv.org/pdf/2610.32325",
+   "explain": {
+    "tldr": "System that generates group dance by planning formations, timing, and which dancers move based on music structure.",
+    "plain": "Creating realistic group dances that match music is hard because you need to decide not just how each person moves, but also what shape the group forms, when formations change, and who does what. This paper presents ChoreoStudio, which breaks the problem into stages: first it analyzes the music to find rhythm patterns and larger structural sections (like verse-to-chorus changes), then it plans what formation to use, when to switch formations, and which dancers should lead each transition. Finally, it generates the detailed body movements frame-by-frame while keeping everything synchronized to the beat and coordinated across dancers.",
+    "why": "For choreographers and dance studios using AI tools, this means generated group dances could feel more intentional and structured—formations would evolve with the music's narrative arc rather than seeming random, and transitions would feel purposeful rather than chaotic.",
+    "terms": [
+     {
+      "term": "diffusion generator",
+      "meaning": "A machine learning model that creates detailed motion by gradually refining random noise into realistic movement, guided by music and planning instructions."
+     },
+     {
+      "term": "formation transitions",
+      "meaning": "The process of dancers moving from one spatial arrangement (like a line) to another (like a circle), often timed to musical changes."
+     },
+     {
+      "term": "cross-dancer attention",
+      "meaning": "A mechanism that lets the system consider how each dancer's movement should relate to and coordinate with other dancers' movements."
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.32310",
+   "title": "Supervised Source Separation of Electric Vehicle Interior Noise Using a Hybrid Transformer Architecture",
+   "authors": [
+    "Philipp Diel",
+    "Zhuo Cao",
+    "Arne Hildenbrand",
+    "Marco Günther",
+    "Stefan Pischinger",
+    "Hanno Scharr",
+    "Steffen Marburg"
+   ],
+   "published": "2026-10-23",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "sep",
+    "syn",
+    "spa"
+   ],
+   "summary": "The interior sound of an electric vehicle is a superposition of several distinct noise contributions - wind noise, tire noise, powertrain (electric drive unit and inverter) noise, and auxiliary-drive noise - whose relative balance governs both the overall loudness and the perceived sound quality in the vehicle interior. Decomposing a recorded vehicle interior signal into these source contributions is a prerequisite for targeted acoustic engineering, but requires effortful measurement campaigns as well as expertise in the field of transfer path analysis. This work formulates the decomposition as a supervised, binaural source-separation problem with four target source contributions and adapts a hybrid time-spectrogram transformer architecture, originally developed for music demixing, to the domain of sound source separation for technical systems. To disambiguate source contributions, conditioning is introduced in the form of operating-state information, including electric drive speed, electric drive load, vehicle speed, and auxiliary-drive speed. Since isolated real-world reference stems are costly to obtain, the model is trained on a physics-based parametric data generator that synthesizes labeled component sounds from randomized virtual-vehicle hardware configurations and driving scenarios, so that the ground-truth contribution of each source is known by construction. Validation on both synthetic and measured vehicle interior sounds probes the achieved separation performance and underscores the feasibility of applying the proposed method for acoustic contribution analysis in technical systems.",
+   "url": "https://arxiv.org/abs/2610.32310",
+   "pdf": "https://arxiv.org/pdf/2610.32310",
+   "explain": {
+    "tldr": "A machine learning system separates electric vehicle interior noise into four distinct sources using a transformer architecture trained on synthetic data.",
+    "plain": "Electric vehicle cabins contain mixed noise from wind, tires, the electric motor, and auxiliary systems. Engineers need to isolate these individual sounds to improve cabin acoustics, but this is normally expensive and time-consuming. This paper adapts a neural network architecture (originally designed to separate instruments in music) to split vehicle noise into its components. They trained it on computer-generated synthetic sounds rather than real recordings, then tested whether it could identify the sources in both simulated and actual vehicle recordings.",
+    "why": "While focused on vehicles, this approach demonstrates how music-demixing technology can be adapted to separate complex real-world sound mixtures in technical systems. It shows a practical way to use synthetic training data when real isolated sources are hard to obtain—a challenge relevant to music production and instrument design.",
+    "terms": [
+     {
+      "term": "source separation",
+      "meaning": "splitting a mixed audio recording into individual sound sources (like isolating vocals from instruments)"
+     },
+     {
+      "term": "transformer architecture",
+      "meaning": "a type of neural network that processes audio by analyzing relationships across time and frequency simultaneously"
+     },
+     {
+      "term": "binaural",
+      "meaning": "audio recorded or processed using two channels to capture spatial information, like stereo"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.32211",
+   "title": "Melody Guidance for Audio Diffusion Models Without Retraining",
+   "authors": [
+    "Cristobal Andrade",
+    "Sebastian J. Schlecht",
+    "Ben Maman",
+    "Meinard Müller"
+   ],
+   "published": "2026-10-23",
+   "category": "eess.AS",
+   "topics": [
+    "gen",
+    "syn"
+   ],
+   "summary": "Controlling melody in audio generation normally requires training a conditional generative model on audio paired with pitch curves or MIDI notes. We instead guide an existing unconditional diffusion model, originally trained without melody inputs, to follow a target melody without retraining or modifying it. During inference, a differentiable pitch detector steers the sampled audio toward the desired pitches, while the diffusion model keeps it close to the distribution of realistic audio learned during training. Our main contribution is a sampling method that balances these two directions, providing melody control while preserving audio quality. To improve stability, we initialize sampling with a simple synthesized version of the target melody rather than pure noise. Experiments on piano, guitar, and singing voice show melody accuracy comparable to conditional models trained specifically for melody control. Our method therefore adds melody control to existing audio diffusion models without requiring paired melody data or task-specific retraining.",
+   "url": "https://arxiv.org/abs/2610.32211",
+   "pdf": "https://arxiv.org/pdf/2610.32211",
+   "explain": {
+    "tldr": "Guide existing audio generators to follow melodies without retraining them.",
+    "plain": "Audio diffusion models can generate realistic music, but controlling what melody they produce normally requires training them from scratch with melody examples. This paper shows you can steer an already-trained model toward a target melody during generation by using a pitch detector that nudges the audio toward the right notes, while keeping the model's natural sound quality intact. They tested it on piano, guitar, and voice, and got melody accuracy similar to models specifically trained for melody control—all without retraining or modifying the original model.",
+    "why": "This matters because it lets producers and musicians add melody control to existing audio generation tools without expensive retraining. It's a practical way to guide AI music generation toward specific melodies while keeping the generated audio sounding natural.",
+    "terms": [
+     {
+      "term": "diffusion model",
+      "meaning": "A type of AI that generates audio or images by gradually removing noise from random sound, learning patterns from training data"
+     },
+     {
+      "term": "pitch detector",
+      "meaning": "A tool that identifies the musical note or frequency being played in audio"
+     },
+     {
+      "term": "inference",
+      "meaning": "The process of using a trained model to generate new outputs, as opposed to training it"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.32042",
+   "title": "X-Dubbing: Speech-to-Speech Translation under Temporal and Visual Constraints",
+   "authors": [
+    "Jeongsoo Choi",
+    "Ji-Hoon Kim",
+    "Junseok Ahn",
+    "Joon Son Chung"
+   ],
+   "published": "2026-10-23",
+   "category": "cs.CL",
+   "topics": [
+    "gen",
+    "syn"
+   ],
+   "summary": "Cross-lingual dubbing aims to convert source speech into target-language speech that remains synchronized with the original video. The key to this task is to produce a faithful translation that is naturally speakable within the source timing, which is non-trivial because languages differ in duration, rhythm, and articulation. In this paper, we propose X-Dubbing, which formulates the task as a joint problem of time-aware speech-to-text translation and video-aware text-to-speech. Specifically, our method consists of a Dubbing Translator that generates temporally structured scripts and a Voice Actor that renders them in synchrony with the source video, both grounded in a language-agnostic timing budget. We further refine the translator with dubbing-aware feedback from the synthesized speech, encouraging scripts that yield well-synchronized dubbing. This design requires no paired dubbing data, as the two components are trained on speech-text and monolingual audio-visual data respectively. Extensive experiments show that X-Dubbing outperforms recent baselines across diverse metrics, including isochrony and audio-visual correspondence.",
+   "url": "https://arxiv.org/abs/2610.32042",
+   "pdf": "https://arxiv.org/pdf/2610.32042",
+   "explain": {
+    "tldr": "A system that translates speech into another language while keeping it synchronized with video, using timing constraints.",
+    "plain": "When you dub a movie into another language, the translated speech must match the original timing and lip movements—but languages have different rhythms and speeds. This paper presents X-Dubbing, which tackles this by splitting the problem into two parts: first, translating speech to text while respecting time limits, and second, converting that text back to speech that syncs with the video. The system learns from existing speech-translation and audio-visual data separately, then improves itself by checking how well the final dubbed speech actually matches the video. Tests show it works better than previous approaches at staying synchronized.",
+    "why": "This matters if you work with international music, film, or content—it could make dubbing and localization faster and more natural-sounding by automatically handling the tricky timing problems that usually require manual adjustment.",
+    "terms": [
+     {
+      "term": "isochrony",
+      "meaning": "the quality of matching the duration of the original speech—keeping pauses and rhythm aligned"
+     },
+     {
+      "term": "audio-visual correspondence",
+      "meaning": "how well the sound matches what you see on screen, like lip-sync accuracy"
+     },
+     {
+      "term": "language-agnostic timing budget",
+      "meaning": "a time limit that works across different languages, regardless of how fast or slow each one naturally speaks"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.32007",
+   "title": "MI-MIDI 2: From Observation to Control with Sparse Autoencoders in Text-to-MIDI Generation",
+   "authors": [
+    "Jakub Poćwiardowski",
+    "Mateusz Modrzejewski"
+   ],
+   "published": "2026-10-23",
+   "category": "cs.SD",
+   "topics": [
+    "gen"
+   ],
+   "summary": "Sparse autoencoders (SAEs) can expose features of a generative model without predefined labels, but in language models the evidence used to interpret these features has proven an unreliable guide to which of them steer the output. Whether interpretations of SAE features predict control in music generators has not, to our knowledge, been tested. We develop an end-to-end protocol for discovering and evaluating SAE features in text-to-MIDI generation and apply it to text2midi and MIDI-LLM. The protocol characterizes features through correlations with musical metrics, shared instrument programs, and automated descriptions, each with its own control: note-density adjustment, matched inactive excerpts, and permutation calibration. It then tests candidates by intervention, measured directly in the generated MIDI against unmodified generation and a matched random direction, ranks them in screens, and confirms selected features on new prompts. Evidence that survives these controls points to features that steer the output. Descriptions exceed permutation controls for instrumentation, and a feature whose description names a synth-lead program introduces that program in a prespecified confirmation and in a replication on disjoint prompts and reappears in independently trained dictionaries. Features selected by density-adjusted correlations show a small positive shift of their target metric as a family, whereas features selected by raw correlations show none. An atlas provides MIDI, piano-roll, and audio examples for every feature of the targeted screen.",
+   "url": "https://arxiv.org/abs/2610.32007",
+   "pdf": "https://arxiv.org/pdf/2610.32007",
+   "explain": {
+    "tldr": "Tests whether sparse autoencoders can reliably identify and control specific musical features in AI text-to-MIDI generators.",
+    "plain": "When AI models generate music from text descriptions, it's hard to know which internal components control which musical qualities. This paper develops a rigorous testing method to find these components (called features) and verify they actually steer the output. They tested their approach on two text-to-MIDI systems and found that some features—like those controlling which instruments appear—can reliably be identified and used to influence generation, while others don't hold up under careful testing.",
+    "why": "If musicians and producers can reliably identify and control specific aspects of AI music generation (like instrumentation or note density), they gain real creative power over these tools rather than just getting random results from text prompts.",
+    "terms": [
+     {
+      "term": "sparse autoencoders (SAEs)",
+      "meaning": "Machine learning tools that break down what a model has learned into individual interpretable features, like finding that one component represents 'drums' or 'fast tempo'"
+     },
+     {
+      "term": "text-to-MIDI generation",
+      "meaning": "AI systems that create musical note sequences (MIDI format) based on written descriptions or prompts"
+     },
+     {
+      "term": "permutation calibration",
+      "meaning": "A control test that randomly shuffles data to check whether an observed effect is real or just coincidence"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
   {
    "id": "2610.31596",
    "title": "Signed Wasserstein distance for room impulse response comparison",
