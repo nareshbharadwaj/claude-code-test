@@ -1,6 +1,436 @@
 {
- "updated": "2026-10-26T14:22:36Z",
+ "updated": "2026-10-27T13:20:27Z",
  "papers": [
+  {
+   "id": "2610.35816",
+   "title": "Multimodal Concert Video Editing: System Design and Exploratory Evaluation",
+   "authors": [
+    "Lennart Schiweck",
+    "Adrian Kempf",
+    "Michelle Retig",
+    "Moritz Feucht",
+    "Tim Mangliers",
+    "Benjamin Himpel"
+   ],
+   "published": "2026-10-26",
+   "category": "cs.MM",
+   "topics": [
+    "syn"
+   ],
+   "summary": "Editing multi-camera concerts requires coordinated decisions about musical relevance, visual quality and cut timing. We present a modular framework that combines instrument activity from multitrack audio, visible instruments and image sharpness with beat-based timing and probabilistic camera selection. An interpretable scoring model links these components to the choice of views over complete shot intervals. Component tests and an exploratory expert study on a four-camera concert yield mixed assessments across the editing variants. The findings motivate extending local audiovisual relevance with contextual and sequence-level criteria. The architecture provides a basis for testing these extensions and studying how component behaviour affects the quality of complete edits.",
+   "url": "https://arxiv.org/abs/2610.35816",
+   "pdf": "https://arxiv.org/pdf/2610.35816",
+   "explain": {
+    "tldr": "A system that automatically chooses camera angles for concert videos using audio, visual, and timing information.",
+    "plain": "Editing multi-camera concert footage is complex—you need to decide which camera to show based on what instruments are playing, how clear the video looks, and where the musical beats fall. This paper presents a framework that combines information from the audio tracks, what's visible on screen, image quality, and beat timing to automatically suggest which camera angle to use at each moment. When tested with experts on a real four-camera concert, the results were mixed, suggesting the system needs to consider broader context and how shots flow together, not just individual moments.",
+    "why": "This could eventually help concert filmmakers and live-streaming producers save time on editing decisions, or give them a starting point to refine. It shows how musical and visual information can work together to make smarter editing choices.",
+    "terms": [
+     {
+      "term": "multitrack audio",
+      "meaning": "separate audio recordings of each instrument or section, rather than one mixed stereo file"
+     },
+     {
+      "term": "probabilistic camera selection",
+      "meaning": "using mathematical probability to rank which camera is most likely the best choice, rather than picking one definite answer"
+     },
+     {
+      "term": "interpretable scoring model",
+      "meaning": "a system that ranks options by combining different factors in a way you can understand and explain"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.35641",
+   "title": "Dolphin broadband transient vocalization detection in impulsive ambient noise",
+   "authors": [
+    "Hari Vishnu",
+    "Jin Xinhui",
+    "Mandar Chitre",
+    "Simen Hexeberg",
+    "Koay Teong Beng"
+   ],
+   "published": "2026-10-26",
+   "category": "cs.SD",
+   "topics": [
+    "gen"
+   ],
+   "summary": "Passive acoustic monitoring in tropical waters such as those in Southeast Asia is hampered by the persistent, high-level impulsive noise of snapping shrimp. This is a particularly daunting challenge for detecting broadband transient vocalizations of dolphins - clicks, buzzes and burst-pulses. These vocalizations, unlike frequency-modulated whistles, share the broadband, impulsive character of the shrimp snaps and cannot be easily separated from them by frequency-localized or energy-based means. We develop TRIDENT, a lightweight waveform-based detector for these vocalizations, and apply it to 54.2 recorder-months of data from ten island sites around Singapore. We show that the training-data pipeline and the architecture are both important: controlled signal-to-noise-ratio based mixing to generate training data, appropriate normalization and hard negative mining, together steer the detector toward learning transient temporal structure rather than energy shortcuts. A single joint detector handles all three signal types better than specialized models for each, and outperforms established baselines. Applied to long-term recordings, it reveals tightly clustered, predominantly daytime activity, motivating days-with-detections as a robust indicator of cetacean presence.",
+   "url": "https://arxiv.org/abs/2610.35641",
+   "pdf": "https://arxiv.org/pdf/2610.35641",
+   "explain": {
+    "tldr": "A detector identifies dolphin clicks and buzzes in noisy tropical waters by learning their temporal patterns.",
+    "plain": "Monitoring dolphins underwater using sound is difficult in Southeast Asian waters because snapping shrimp make constant loud noise that sounds similar to dolphin vocalizations. Researchers built TRIDENT, a detector that learns to recognize the specific temporal patterns of dolphin clicks, buzzes, and burst-pulses rather than just looking for energy or frequency signatures. They trained it on carefully mixed synthetic data and tested it on over four years of recordings from Singapore, showing it works better than existing methods and reveals dolphins are most active during the day.",
+    "why": "This work demonstrates how machine learning can isolate specific animal sounds from complex natural soundscapes—a technique relevant to anyone recording or analyzing acoustic environments, from field recordists to sound designers interested in bioacoustics.",
+    "terms": [
+     {
+      "term": "broadband transient vocalization",
+      "meaning": "A short, sudden sound that spreads across many frequencies at once, like a click or burst"
+     },
+     {
+      "term": "hard negative mining",
+      "meaning": "A training technique where you focus on the hardest examples the detector gets wrong to make it smarter"
+     },
+     {
+      "term": "signal-to-noise-ratio",
+      "meaning": "The relative loudness of the sound you want to detect compared to unwanted background noise"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.34694",
+   "title": "Gangqinpu: A Multi-Genre, Multi-Task Piano Dataset with Aligned Audio, MIDI, and Musical Scores",
+   "authors": [
+    "Wei Zeng",
+    "Anvay Mathur",
+    "Ye Wang"
+   ],
+   "published": "2026-10-26",
+   "category": "cs.SD",
+   "topics": [
+    "mir"
+   ],
+   "summary": "Aligned audio, performance MIDI, and musical scores provide valuable supervision for music analysis and performance modeling, yet datasets that jointly align all three modalities remain scarce and limited in scale and genre diversity. We introduce Gangqinpu, a multi-genre piano dataset containing 18,786 score-performance pairs and 1,007.1 hours of source audio, with automatic note-level alignments and derived beat/downbeat annotations. It spans diverse genres, including pop, classical, jazz, folk/traditional, rock, and blues. Our automated pipeline transcribes piano audio, aligns the resulting MIDI with musical scores, assigns genre labels, and filters out non-expressive performances with a score-informed binary classifier. We further construct joint splits with ASAP using conservative score-similarity grouping to reduce data leakage. We evaluate Gangqinpu on performance MIDI-to-score transcription, expressive performance rendering, and beat tracking. Downstream experiments demonstrate the value of Gangqinpu as complementary training data, with cross-dataset gains in beat tracking and primarily in-domain benefits for transcription and expressive performance rendering. The code and dataset are publicly available at https://github.com/wei-zeng98/gangqinpu.",
+   "url": "https://arxiv.org/abs/2610.34694",
+   "pdf": "https://arxiv.org/pdf/2610.34694",
+   "explain": {
+    "tldr": "A large piano dataset with aligned audio, sheet music, and MIDI across multiple genres for training music AI systems.",
+    "plain": "Musicians and researchers need datasets where recordings, sheet music, and MIDI files are all connected together—this helps train AI systems to understand how performances relate to written music. The authors created Gangqinpu, a collection of nearly 19,000 piano performances spanning genres like classical, jazz, pop, and blues, with automatic tools to align all three formats and filter out less expressive recordings. They tested it on tasks like transcribing performances to sheet music, adding expression to plain MIDI, and detecting beats, showing it helps train better models, especially when combined with other datasets.",
+    "why": "This dataset could help develop tools that better transcribe piano performances, suggest expressive playing techniques, or analyze how different genres approach the same piece—useful for producers, composers, and anyone building music software.",
+    "terms": [
+     {
+      "term": "MIDI",
+      "meaning": "A digital format that records which notes were played, when, and how hard—like sheet music for computers, but without the exact timing details of a real performance."
+     },
+     {
+      "term": "alignment",
+      "meaning": "Matching up corresponding parts across different formats—like connecting a specific moment in a recording to the same moment in sheet music and MIDI."
+     },
+     {
+      "term": "transcription",
+      "meaning": "Converting audio (what you hear) into a written or digital representation (like sheet music or MIDI) that shows which notes were played."
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.34477",
+   "title": "Finite-Sample Sensitivity of Kernel Metrics for Generative Evaluation",
+   "authors": [
+    "Tomasz Radzikowski",
+    "Mateusz Modrzejewski"
+   ],
+   "published": "2026-10-25",
+   "category": "cs.LG",
+   "topics": [
+    "gen",
+    "rep"
+   ],
+   "summary": "Kernel distances such as the Kernel Inception Distance (KID) and the Kernel Audio Distance (KAD) compare generated and reference samples in an embedding space, and model comparisons rest on their values. Each ships with one fixed kernel, and a reported value does not say which changes that kernel detects at the sample size used. We run each default as a permutation two-sample test on real embeddings of symbolic music, audio and images, comparing a sample with an independent sample changed by a mean shift, an isotropic contraction, or a rotation that keeps the mean and the covariance trace and is matched to the shift in transport distance. At 780 samples per side, both defaults rarely detect the rotations in five evaluation spaces, while they detect the shifts in every run. The median-bandwidth Gaussian kernel of KAD detects the contraction and regains power against rotations on image embeddings with an order of magnitude more samples. The cubic kernel of KID contains second- and third-moment information but misses the contraction in most runs, and our experiments do not establish a high-power rotation regime for it over the tested sample sizes. Narrower Gaussian bandwidths restore sensitivity in music and audio, an $\\ell_1$ Laplace kernel does so for images, and aggregated tests combine both at nominal level. We recommend that a reported kernel distance state its sample budget and the changes its configuration detects at that budget.",
+   "url": "https://arxiv.org/abs/2610.34477",
+   "pdf": "https://arxiv.org/pdf/2610.34477",
+   "explain": {
+    "tldr": "Tests show that popular kernel metrics for evaluating generated music and audio have blind spots depending on sample size and kernel choice.",
+    "plain": "Researchers evaluated KID and KAD—tools that compare generated samples (like music or audio) to real ones by measuring distances in a mathematical space. They tested whether these metrics could detect different types of changes: shifts in average values, size contractions, and rotations. At typical sample sizes, both metrics missed rotations but caught shifts. The findings suggest that which changes a metric detects depends heavily on its kernel (the mathematical function it uses) and how many samples you have, so researchers should report both when publishing results.",
+    "why": "If you're developing generative AI for music or audio, these metrics help judge if your model is working well. This paper shows you need to know their limitations—they might miss certain types of problems in your generated output, so you should choose your evaluation metric carefully and be transparent about what it actually measures.",
+    "terms": [
+     {
+      "term": "kernel distance",
+      "meaning": "a mathematical way to measure how different two sets of samples are by comparing them in a transformed space"
+     },
+     {
+      "term": "embedding space",
+      "meaning": "a mathematical representation where complex things like audio or images are converted into points that can be compared numerically"
+     },
+     {
+      "term": "permutation two-sample test",
+      "meaning": "a statistical test that checks if two groups of data are genuinely different by randomly shuffling them and seeing if the original grouping was special"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.34415",
+   "title": "Spatial Audio Generation and Editing with Executable Plans and Self-Distilling Transfusion",
+   "authors": [
+    "Kam Man Wu",
+    "Yu Zhang",
+    "Pengjun Fang",
+    "Mingfei Chen",
+    "Weijia Chen",
+    "Zeyue Tian",
+    "Qifeng Chen"
+   ],
+   "published": "2026-10-25",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "syn",
+    "spa",
+    "rep"
+   ],
+   "summary": "Spatial audio authoring coordinates source decisions with soundfield synthesis. For editing, plans specify what to change and retain, while reference audio supplies further acoustic detail. We present AMBIT, a unified framework for native First-Order Ambisonics (FOA) generation and editing with three connected contributions. First, a shared Transfusion backbone couples autoregressive planning with rectified-flow rendering through executable ScenePlans that specify source content, activity, and 3D trajectories. For editing, the plan describes the full target scene, including retained sources; contrastive features ground the requested change, while full reference latents supply residual acoustic detail for preservation. Second, an FOA-aware continuous VAE combines shared-decoder omnidirectional recovery, asymmetric grouped KL, and spatial covariance matching to preserve content and inter-channel structure. Third, joint Transfusion on-policy self-distillation (OPSD) refines planning on student-generated prefixes and rendering at sampling states reached under student plans, with target-conditioned teachers supervising both modes of the shared student. Evaluations across speech, music, and sound show improved generation content and spatial quality, acoustic fidelity during instruction-guided editing, and unedited-source preservation over the compared baselines. Project page: https://wjm-george.github.io/AMBIT/",
+   "url": "https://arxiv.org/abs/2610.34415",
+   "pdf": "https://arxiv.org/pdf/2610.34415",
+   "explain": {
+    "tldr": "A system for generating and editing spatial audio by planning what sounds to include and where they move in 3D space.",
+    "plain": "Making spatial audio (sound that seems to come from different directions around you) usually requires many separate decisions about individual sound sources and how they fill the space. This paper presents AMBIT, which lets you specify a plan—what sounds you want, when they're active, and how they move in 3D—and then generates or edits the full spatial audio from that plan. When editing, you can change parts of a scene while keeping other sounds intact, using a reference recording to preserve acoustic details. The system was tested on speech, music, and sound effects, and showed better quality and more accurate spatial properties than existing approaches.",
+    "why": "For producers and sound designers working with spatial audio (like for VR, immersive music, or object-based audio), this offers a more intuitive way to author and modify scenes by thinking in terms of 'what's happening where' rather than manually tweaking individual channels. It could speed up spatial mixing and make it easier to iterate on spatial arrangements.",
+    "terms": [
+     {
+      "term": "First-Order Ambisonics (FOA)",
+      "meaning": "A standard format for recording and representing spatial audio that captures sound direction and space using four channels instead of stereo's two"
+     },
+     {
+      "term": "Transfusion",
+      "meaning": "A hybrid generation method that combines autoregressive planning (deciding things step-by-step) with flow-based rendering (smoothly transforming noise into audio)"
+     },
+     {
+      "term": "VAE (Variational Autoencoder)",
+      "meaning": "A neural network tool that compresses audio into a compact representation and can reconstruct it, useful for preserving quality during editing"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.34408",
+   "title": "LeanTTS: Efficient Full-Stack Bilingual TTS for Zero-Shot Cloning and Voice Customization",
+   "authors": [
+    "Yuheng Lu",
+    "Qiulin Li",
+    "Xi Wang",
+    "Yang Wang",
+    "Shengpei Jiang",
+    "Liyin Liang",
+    "Yifeng Qian",
+    "Longbiao Wang"
+   ],
+   "published": "2026-10-25",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "syn"
+   ],
+   "summary": "While recent advances in text-to-speech (TTS) synthesis have substantially improved speech quality and modeling flexibility, the development of lightweight and computationally efficient systems remains comparatively underexplored. We present LeanTTS, a bilingual complete synthesis stack that supports two complementary regimes: reference-prompt zero-shot cloning for unseen speakers and token-conditioned customization for recurring voices. LeanTTS combines a compact Mandarin polyphone front end, a structurally compressed flow-matching acoustic model, and a lightweight Vocos decoder with four-step MeanFlow generation. The resulting system contains 18.9M learned parameters, 86.12% fewer than the 136.2M-parameter ZipVoice-Vocos pipeline. On Seed-TTS-Eval, its zero-shot mode obtains 2.02 CER/62.3 SIM on Mandarin and 2.32 WER/48.3 SIM on English, exposing the quality-size trade-off under aggressive compression. With token-conditioned customized voices, the same system reaches 1.57 CER/77.2 SIM on Mandarin and 1.93 WER/76.6 SIM on English, with UTMOS scores of 3.03 and 4.33, respectively. It further achieves mean/P90 CPU RTFs of 0.049/0.061, establishing a sub-20M operating point for bilingual personalization and real-time CPU deployment. Audio demos are available at https://github.com/notlu/leantts.",
+   "url": "https://arxiv.org/abs/2610.34408",
+   "pdf": "https://arxiv.org/pdf/2610.34408",
+   "explain": {
+    "tldr": "A lightweight text-to-speech system that clones voices and customizes them, using 86% fewer parameters than comparable systems.",
+    "plain": "Creating realistic synthetic speech usually requires large, computationally expensive models. This paper presents LeanTTS, a streamlined system that can do two things: clone a speaker's voice from a short audio sample (zero-shot cloning) and customize voices for repeated use. The system is much smaller than existing alternatives—about 19 million learned parameters versus 136 million in a comparable system—yet still produces good quality speech in both Mandarin and English, and runs efficiently on regular computer processors.",
+    "why": "For musicians and producers, this matters because smaller, faster TTS systems could enable real-time voice synthesis and customization on personal computers or mobile devices, opening up new creative possibilities for vocal production, songwriting, and experimentation without needing expensive hardware or cloud services.",
+    "terms": [
+     {
+      "term": "zero-shot cloning",
+      "meaning": "Creating a synthetic voice that sounds like a specific person based on just a short audio sample, without needing to train the system on that person's voice beforehand"
+     },
+     {
+      "term": "flow-matching acoustic model",
+      "meaning": "A machine learning component that converts text into the acoustic properties (pitch, timing, loudness) needed to synthesize speech"
+     },
+     {
+      "term": "RTF (Real-Time Factor)",
+      "meaning": "A measure of how fast the system runs; an RTF of 0.049 means it generates one second of speech in about 49 milliseconds"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.34401",
+   "title": "AV-QTSS: Class-Query Target Sound Spatialization in Multi-Source 360$^\\circ$ Videos",
+   "authors": [
+    "Qingyu Luo",
+    "Peng Zhang",
+    "Wenwu Wang",
+    "Philip J. B. Jackson"
+   ],
+   "published": "2026-10-25",
+   "category": "eess.AS",
+   "topics": [
+    "gen",
+    "spa"
+   ],
+   "summary": "Spatial audio is central to immersive 360$^\\circ$ media, yet existing audio-visual spatialization renders the scene as a whole, leaving no control over an individual source. We introduce Audio-Visual Query-conditioned Target Sound Spatialization (AV-QTSS): given a monaural multi-source mixture, a 360$^\\circ$ video and a class query from the 13-class DCASE sound-event ontology, it generates the first-order Ambisonics (FOA) signal of the queried source alone. The omnidirectional mixture contains no explicit spatial cues, so direction has to be inferred from the video, where several objects may sound at once. We propose a query-conditioned dense binding localizer that predicts a spherical probability map over the whole scene, coupled to the renderer so both are optimized jointly. Experiments with one to four concurrent sources show improved localization and spatial accuracy relative to established methods and ablated variants, and the localizer transfers to real 360$^\\circ$ recordings after adaptation.",
+   "url": "https://arxiv.org/abs/2610.34401",
+   "pdf": "https://arxiv.org/pdf/2610.34401",
+   "explain": {
+    "tldr": "Extract and spatialize individual sounds from 360° video by querying which source you want, using visual and audio cues.",
+    "plain": "When recording 360° immersive video, spatial audio is important but current methods treat all sounds together. This paper lets you pick a specific sound source you care about—like \"speech\" or \"dog barking\"—and isolates just that source in spatial audio format. The system watches the video to figure out where each sound is coming from, then renders only your chosen source in a format that works with immersive headphones. Tests show it works better than existing approaches, even on real recordings it hasn't seen before.",
+    "why": "For producers working with immersive 360° content, this means you could control individual sound sources in post-production rather than being stuck with everything mixed together spatially. It opens up creative mixing possibilities and fixes problems where unwanted sounds are in the wrong place.",
+    "terms": [
+     {
+      "term": "First-order Ambisonics (FOA)",
+      "meaning": "A spatial audio format that captures sound direction and space around a listener, commonly used for VR and immersive audio"
+     },
+     {
+      "term": "Query-conditioned",
+      "meaning": "A system that changes its behavior based on a specific instruction or question you give it—here, which sound class you want to extract"
+     },
+     {
+      "term": "DCASE sound-event ontology",
+      "meaning": "A standardized list of 13 sound categories (like speech, music, dog barking) used by researchers to label and classify sounds"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.34247",
+   "title": "Does Notation Matter? MusicXML Tokenisation for Symbolic Music Generation and Understanding",
+   "authors": [
+    "Andrea Poltronieri",
+    "Matteo Spanio",
+    "Simone Chieppa",
+    "Xavier Serra",
+    "Martín Rocamora"
+   ],
+   "published": "2026-10-25",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "rep"
+   ],
+   "summary": "Symbolic music representations encode musical content at varying levels of completeness, from performance-oriented formats such as MIDI to fully notated scores such as MusicXML. Yet the impact of this representational richness on deep learning models remains poorly understood. While tokenisation has been extensively studied for MIDI, score-based formats have received considerably less attention, and MusicXML in particular remains largely unexplored despite being the de-facto standard for score interchange. In this paper, we introduce the first general-purpose tokenisation framework for MusicXML, and conduct a systematic empirical study to determine whether notational richness confers a measurable advantage for deep learning on symbolic music. We train 26 autoregressive and masked language models, comparing MusicXML tokenisation against MIDI and ABC-based representations, probing the effect of different tokenisation strategies within MusicXML, and testing whether music-grammar-aware tokenisation outperforms treating scores as plain text. We evaluate music understanding tasks using linear probing across composer classification, difficulty estimation, and accompaniment suggestion, and generative tasks using objective statistical metrics and a human pairwise preference study. Our results show that MusicXML-tokenised models outperform MIDI and text-based counterparts on understanding and generative tasks.",
+   "url": "https://arxiv.org/abs/2610.34247",
+   "pdf": "https://arxiv.org/pdf/2610.34247",
+   "explain": {
+    "tldr": "MusicXML tokenization improves deep learning models for music generation and understanding compared to simpler formats.",
+    "plain": "When training AI models on music, researchers need to convert sheet music or MIDI files into a format the model can process—this conversion is called tokenization. This paper creates the first general framework for converting MusicXML (the standard digital sheet music format) into tokens, then tests whether using richer notation information helps AI models learn better. They trained dozens of models and tested them on tasks like identifying composers and suggesting accompaniments. They found that models trained on MusicXML tokens performed better than those using simpler MIDI or text-based formats.",
+    "why": "If you're working with AI for music composition, arrangement, or analysis, knowing that notation-rich formats like MusicXML give better results could guide your choice of tools and training data. This matters for anyone building or using AI systems that need to understand or generate music at a notational level.",
+    "terms": [
+     {
+      "term": "tokenization",
+      "meaning": "Converting music data into a sequence of discrete symbols that an AI model can process, similar to how text is split into words"
+     },
+     {
+      "term": "autoregressive and masked language models",
+      "meaning": "Two types of AI models: autoregressive predicts the next token one at a time (like autocomplete), while masked models predict missing tokens in context (like a fill-in-the-blank puzzle)"
+     },
+     {
+      "term": "linear probing",
+      "meaning": "A test where you freeze a trained model and add a simple classifier on top to see what musical knowledge it learned"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.33974",
+   "title": "Music of the Deep: An acoustic blueprint of sperm whale codas",
+   "authors": [
+    "Mudit Sinha",
+    "Sanika Chavan"
+   ],
+   "published": "2026-10-25",
+   "category": "cs.SD",
+   "topics": [],
+   "summary": "Sperm-whale codas are usually described by the number and timing of their clicks. Earlier acoustic studies showed that individual clicks and longer coda sequences contain additional organization. We ask how that organization compares with music, whose smaller sounds also form larger units and ordered sequences. We compare codas with performed violin music, drum grooves, and sung melodies. Their sequences resemble music in some measures of predictability, yet codas show a different relationship between the smaller sounds within a unit and the order of units across a sequence. This combination was not observed in the musical references tested. Coda timing also varies coherently and carries information about individual callers. The recordings show another striking property: broad, reproducible variation along acoustic dimensions associated with human ratings of emotion, with a range comparable to human audio in most eligible tests. These findings motivate an acoustic blueprint that describes natural codas beyond their click timing. Its importance is apparent in synthetic audio: WhAM produces recognizable coda-like recordings, yet the tested clips remain distinguishable from natural codas in five of six acoustic comparisons after strict matching. The blueprint provides a fuller way to study natural codas and to evaluate how faithfully synthetic recordings represent them.",
+   "url": "https://arxiv.org/abs/2610.33974",
+   "pdf": "https://arxiv.org/pdf/2610.33974",
+   "explain": {
+    "tldr": "Sperm whale codas have acoustic structure resembling music but with unique patterns; researchers create a detailed acoustic blueprint to describe and synthesize them.",
+    "plain": "Sperm whales produce sequences of clicks called codas that scientists usually describe just by counting clicks and timing. This study found that codas have deeper acoustic organization—similar in some ways to how music builds small sounds into larger patterns, but different in how those patterns connect. The researchers also discovered that coda timing varies in ways that seem to carry emotional qualities comparable to human music. They created an acoustic blueprint (a detailed description of what makes a coda sound like a coda) and tested it by generating synthetic whale sounds; the synthetic versions sounded coda-like but were still distinguishable from real recordings.",
+    "why": "This work shows how detailed acoustic analysis can reveal hidden structure in natural sounds. For musicians and producers, it demonstrates methods for analyzing what makes sequences of sounds feel organized or expressive—techniques that could apply to understanding rhythm, timbre variation, and emotional content in human music.",
+    "terms": [
+     {
+      "term": "predictability",
+      "meaning": "how much you can guess what comes next in a sequence based on what came before"
+     },
+     {
+      "term": "acoustic dimensions",
+      "meaning": "measurable properties of sound (like brightness, roughness, or loudness) that vary along a scale"
+     },
+     {
+      "term": "synthetic audio",
+      "meaning": "sounds created artificially by computer rather than recorded from nature"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.33434",
+   "title": "DJustify: Reason-and-Verify DJ Planning for Pop Transitions and Story-Driven Sets",
+   "authors": [
+    "Wei-Han Hsu",
+    "Li-Jie Lin",
+    "Po-Hsuan Lai",
+    "Po-Hsiang Huang",
+    "Jeng-Yue Liu",
+    "Li Su",
+    "Yi-Hsuan Yang"
+   ],
+   "published": "2026-10-24",
+   "category": "cs.SD",
+   "topics": [],
+   "summary": "Automatic DJ systems mostly target electronic dance music, whose regular structure makes rule-based mixing relatively easier. Vocal-rich popular music is harder: which track to play next, where to cue it, and which transition to use are tied together, so fixed rules handle them poorly. We present DJustify, a pop AI-DJ that puts an LLM in a reason--propose--verify--repair loop and lets it choose the next track, cue points, and mixing technique together. The LLM samples several transition plans; an external acoustic checker then scores the rendered audio and triggers repair when a check fails. Sampling keeps several candidate transitions per track pair instead of one fixed mix. In blind listening tests our transitions beat Mosaikbox, a reimplemented crossfade, and a cue baseline that reuses the crossfade's cues; that last comparison shows most of the margin comes from cue placement. The same planner also picks and orders a set along an emotion arc: this improves story coherence over a no-story ablation, and within a set story and transition ratings show no measurable gap from a human DJ. The checker mainly adds reliability, not higher average quality: it repairs rare but audible errors such as cut vocals, while the planner stays non-deterministic.",
+   "url": "https://arxiv.org/abs/2610.33434",
+   "pdf": "https://arxiv.org/pdf/2610.33434",
+   "explain": {
+    "tldr": "AI system that plans DJ sets for pop music by choosing tracks, cue points, and transitions together while checking audio quality.",
+    "plain": "DJing pop music is tricky because you need to decide what song plays next, where to start it, and how to mix it all at once—rules that work for electronic dance music don't work here. This system uses an AI language model to propose several transition options, then checks the actual audio to catch problems like cutting off vocals. It can also arrange a whole set to follow an emotional arc, making the set feel more like a story. In tests, people preferred its transitions over simpler methods, and its emotional storytelling matched human DJs.",
+    "why": "For producers and DJs interested in AI tools, this shows how AI can handle the creative complexity of pop mixing rather than just electronic music. It demonstrates that checking the actual sound quality matters more than just having a smart plan, which could influence how music-AI tools are designed.",
+    "terms": [
+     {
+      "term": "LLM",
+      "meaning": "Large language model—an AI trained on text that can reason about and generate sequences of decisions."
+     },
+     {
+      "term": "cue points",
+      "meaning": "The exact moment in a song where you start playing it, which affects how smoothly it blends with the previous track."
+     },
+     {
+      "term": "acoustic checker",
+      "meaning": "A tool that listens to the rendered audio mix and scores whether it sounds good or has problems."
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.33194",
+   "title": "Support-guided OOD Removal with Diffusion",
+   "authors": [
+    "Alireza Kheirandish",
+    "Sara Fridovich-Keil"
+   ],
+   "published": "2026-10-23",
+   "category": "cs.CV",
+   "topics": [
+    "gen",
+    "sep",
+    "rep"
+   ],
+   "summary": "Many real-world signals are corrupted by localized, structured perturbations whose distribution is unknown: an intermittent background noise in a music recording, a watermark stamped on a photograph, a cast shadow. We study the task of recovering a clean signal $x$ from an observation $y$ containing such a localized out-of-distribution (OOD) corruption. We propose Support-guided OOD Removal with Diffusion, SORD, an iterative algorithm to recover $x$ using only two ingredients: a binary map of the corruption support and a single diffusion model pretrained on clean signals. SORD does not require any paired data or any statistical model of the corruption. We evaluate SORD on natural images and human faces with spatially localized corruptions including handwritten digits, other images, watermarks, and shadows, as well as audio recordings of different musical instruments with temporally localized corruptions including other instruments and human speech. SORD is competitive with, and often outperforms, posterior-sampling inpainting given the same diffusion prior and the same mask, source-separation baselines that require a separate diffusion model for each source, and, on several benchmarks, supervised networks trained on paired clean and corrupted signals. The code is released here: \\href{https://github.com/voilalab/SORD}{https://github.com/voilalab/SORD}.",
+   "url": "https://arxiv.org/abs/2610.33194",
+   "pdf": "https://arxiv.org/pdf/2610.33194",
+   "explain": {
+    "tldr": "A method to remove unwanted sounds or artifacts from audio by using a mask and a pre-trained AI model.",
+    "plain": "Sometimes recordings get corrupted by things like background noise, interference, or other sounds mixed in—and you don't know the statistical pattern of that corruption. This paper proposes SORD, a technique that can clean up these problems if you can mark where the corruption happens (a binary mask) and have access to a diffusion model trained on clean audio. The method works iteratively and doesn't need paired examples of corrupted and clean recordings. They tested it on music with added instruments or speech, and it performed comparably to or better than existing methods.",
+    "why": "For musicians and producers, this could help remove unwanted sounds from recordings without needing specialized training data for each type of noise or artifact. It's practical because you only need to identify where the problem is, not model what it is.",
+    "terms": [
+     {
+      "term": "diffusion model",
+      "meaning": "An AI model trained on clean signals that can gradually reconstruct or generate audio by reversing a noise-adding process."
+     },
+     {
+      "term": "out-of-distribution (OOD) corruption",
+      "meaning": "Unwanted artifacts or noise in a recording that don't follow the statistical patterns of the clean signal."
+     },
+     {
+      "term": "support (binary mask)",
+      "meaning": "A map showing which parts of the audio contain the corruption—marked as 1 where corruption exists and 0 where it doesn't."
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
   {
    "id": "2610.32981",
    "title": "SEMAC: Spherical Energy Matching Ambisonics Codec for Efficient Higher-Order Ambisonics Compression",
