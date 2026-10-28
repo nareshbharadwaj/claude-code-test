@@ -1,6 +1,119 @@
 {
- "updated": "2026-10-27T13:20:27Z",
+ "updated": "2026-10-28T14:05:26Z",
  "papers": [
+  {
+   "id": "2610.37148",
+   "title": "EEG-Based Decoding of Musical Mode and Melodic Direction Using Empirical Mode Decomposition",
+   "authors": [
+    "Sergio Guillén",
+    "Lorenzo J. Tardón",
+    "Ana M. Barbancho",
+    "Isabel Barbancho"
+   ],
+   "published": "2026-10-27",
+   "category": "cs.SD",
+   "topics": [
+    "mir"
+   ],
+   "summary": "Electroencephalography (EEG) has proven to be a powerful tool for decoding neural activity in real-life scenarios, including the perception and processing of emotions elicited by music. Among the various musical features that modulate these responses, musical mode and melodic direction (or contour) play a central role. This work proposes a novel EEG feature extraction framework based on Empirical Mode Decomposition (EMD) to decompose EEG signals recorded during active piano performance for the detection of these two musical features. Energy-based descriptors were computed from the first four Intrinsic Mode Functions (IMFs) obtained through EMD and used to train a Wide Neural Network classifier. The model performance was benchmarked against several standard classifiers commonly employed in EEG classification tasks. Two experimental scenarios were explored: intra-subject and intersubject. In the former case, the proposed framework achieved average accuracies of 84%, whereas in the inter-subject case, accuracies reached 81% on average using the first IMF, with AUC-ROC values of 0.9 on average in both cases. A frequency-domain analysis revealed a strong correspondence between the IMFs and conventional EEG sub-bands, except for certain specific frequency components that were not fully represented. Predominant activations were observed over the frontal, temporal, and parietooccipital regions, areas consistently associated with music processing. Furthermore, the proposed method demonstrated robustness to handedness, successfully classifying EEG data across participants regardless of their dominant hand. These findings highlight the potential of EMD-based feature extraction for identifying music-related neural patterns and contribute to advancing research in Music Information Retrieval (MIR), affective neuroscience, and the broader understanding of the neural encoding of musical structure.",
+   "url": "https://arxiv.org/abs/2610.37148",
+   "pdf": "https://arxiv.org/pdf/2610.37148",
+   "explain": {
+    "tldr": "Uses brain signals to detect whether music is in major/minor mode and whether melodies go up or down during piano playing.",
+    "plain": "When you listen to or play music, your brain responds differently to different musical features like whether a piece is in a major or minor key, or whether a melody rises or falls. This paper recorded brain activity (EEG) from pianists and used a technique called Empirical Mode Decomposition to extract useful patterns from those signals. They trained a neural network to recognize musical mode and melodic direction from the brain data, achieving around 84% accuracy when testing on the same person and 81% when testing across different people.",
+    "why": "This research could help develop brain-computer interfaces for musicians, improve understanding of how we perceive musical structure, and potentially inform music therapy or music recommendation systems based on neural responses.",
+    "terms": [
+     {
+      "term": "Empirical Mode Decomposition (EMD)",
+      "meaning": "A method to break down complex signals (like brain waves) into simpler, meaningful components without assuming a fixed frequency structure"
+     },
+     {
+      "term": "Intrinsic Mode Functions (IMFs)",
+      "meaning": "The individual wave-like components that EMD extracts from a signal, ordered from fastest to slowest oscillations"
+     },
+     {
+      "term": "AUC-ROC",
+      "meaning": "A score measuring how well a classifier distinguishes between two categories, where 1.0 is perfect and 0.5 is random guessing"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.36786",
+   "title": "Expressive Guitar Synthesis via Controllable Latent Flow Matching",
+   "authors": [
+    "Hsueh-Wei Fu",
+    "Yen-Tung Yeh",
+    "Yi-Hsuan Yang"
+   ],
+   "published": "2026-10-27",
+   "category": "cs.SD",
+   "topics": [
+    "syn"
+   ],
+   "summary": "Realistic guitar synthesis requires both audio fidelity and interpretable control over how notes are performed. The input timed MIDI events decide what is played but not how, leaving the continuous within-note decisions of guitar performance--such as pitch inflection and per-string articulation--unspecified. A model that directly maps MIDI to audio must therefore realize the performance implicitly, and users are left with limited control over the synthesized performance. We therefore propose a two-stage guitar synthesis pipeline that predicts editable, per-string $f_0$ and amplitude trajectories from timed note events and note-level dynamics, and renders them into audio using latent flow matching. Experimental results show that the proposed system outperforms a matched single-stage counterpart and DDSP-Guitar in control fidelity and perceived quality, while keeping the controls editable. Sound examples can be found online.",
+   "url": "https://arxiv.org/abs/2610.36786",
+   "pdf": "https://arxiv.org/pdf/2610.36786",
+   "explain": {
+    "tldr": "A system that synthesizes realistic guitar sounds with editable control over how notes are performed, not just what notes play.",
+    "plain": "When you write MIDI notes, they tell a synthesizer *what* to play but not *how*—like whether a note bends, how it's articulated, or which string it uses. This paper proposes a two-stage approach: first, predict the detailed performance details (pitch curves and volume changes for each string) from the MIDI and dynamics, then convert those into audio. The system lets you edit these performance details after generation, giving you more control than existing methods while keeping the sound quality high.",
+    "why": "For musicians and producers, this means synthesized guitar can sound more natural and expressive, and you can tweak *how* notes are played—not just accept whatever the AI generates. This bridges the gap between the control you'd have recording a real guitarist and the convenience of synthesis.",
+    "terms": [
+     {
+      "term": "f0",
+      "meaning": "The fundamental frequency—the pitch of a note, measured in Hz. Tracking it over time shows how a note bends or slides."
+     },
+     {
+      "term": "latent flow matching",
+      "meaning": "A machine learning technique that generates audio by learning smooth paths through a compressed representation of sound, then converting back to audio."
+     },
+     {
+      "term": "DDSP",
+      "meaning": "Differentiable Digital Signal Processing—a method that synthesizes audio by combining learned controls with traditional audio processing techniques."
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.36715",
+   "title": "SMEBENCH: Benchmarking Neural Music Editing with Synthetized MIDI Edits",
+   "authors": [
+    "Matthieu Cervera",
+    "Francesco Paissan",
+    "Micael Antunes",
+    "Mirco Ravanelli",
+    "Ricard Marxer",
+    "Cem Subakan"
+   ],
+   "published": "2026-10-27",
+   "category": "cs.SD",
+   "topics": [],
+   "summary": "Neural music editing requires a system to perform a requested change while preserving the musical content that should remain unchanged. Existing evaluations often lack a paired target edit, making these requirements difficult to measure separately. We introduce SMEBench, a large-scale benchmark of controlled music edits constructed by modifying symbolic MIDI performances and rendering matched source and target audio. Each example contains a source, an instruction, a paired target, edit metadata, and complementary descriptions. The benchmark covers twelve instrumentation, articulation, dynamics, and pitch operations and includes a balanced 3,600-example test set together with a smaller real-audio complement derived from multitrack recordings. The paired targets allow source preservation, target agreement, and textual compatibility to be evaluated independently. We use these references to diagnose common audio-editing metrics and benchmark six representative editing systems, showing that the metric used to rank a system can materially change the conclusion. The dataset is available at our repository.",
+   "url": "https://arxiv.org/abs/2610.36715",
+   "pdf": "https://arxiv.org/pdf/2610.36715",
+   "explain": {
+    "tldr": "A benchmark dataset for testing AI music editing systems with paired before-and-after examples.",
+    "plain": "Music editing AI systems need to make specific changes while keeping everything else the same, but it's hard to measure how well they do this. The researchers created SMEBench, a large collection of music examples where they intentionally made controlled changes to MIDI files (digital music notation), then converted them to audio. Each example includes the original music, instructions for what to change, the target result, and descriptions. They tested six different AI editing systems using this benchmark and found that different ways of measuring success can lead to different conclusions about which system works best.",
+    "why": "If you're using or developing AI tools for music production, this benchmark helps you understand whether an editing system actually preserves the parts you want to keep while making the changes you requested—critical for practical music-making workflows.",
+    "terms": [
+     {
+      "term": "MIDI",
+      "meaning": "A digital format that represents music as note data (pitch, timing, velocity) rather than audio waveforms, commonly used in music production software."
+     },
+     {
+      "term": "symbolic",
+      "meaning": "Music represented as abstract symbols and instructions (like sheet music or MIDI) rather than as recorded sound waves."
+     },
+     {
+      "term": "benchmark",
+      "meaning": "A standardized test dataset used to fairly compare how well different systems or algorithms perform on the same task."
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
   {
    "id": "2610.35816",
    "title": "Multimodal Concert Video Editing: System Design and Exploratory Evaluation",
