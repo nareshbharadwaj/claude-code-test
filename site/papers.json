@@ -1,6 +1,587 @@
 {
- "updated": "2026-10-29T14:27:20Z",
+ "updated": "2026-10-30T14:18:14Z",
  "papers": [
+  {
+   "id": "2610.40640",
+   "title": "SonoWorld4D: From One Video to a 4D Audio-Visual Scene via Diffusion Synchronization",
+   "authors": [
+    "Derong Jin",
+    "Xiyi Chen",
+    "Ming C. Lin",
+    "Ruohan Gao"
+   ],
+   "published": "2026-10-29",
+   "category": "cs.CV",
+   "topics": [
+    "gen",
+    "syn",
+    "spa",
+    "hci"
+   ],
+   "summary": "Recent progress in visual scene generation has extended beyond static 3D scenes toward the more challenging problem of generating dynamic 4D scenes from minimal input. However, sound, despite being intrinsically coupled with dynamic objects and events, remains largely unmodeled in prior work. We introduce Video-to-4DAVScene, a new task that turns a video into an explorable, time-varying 4D audio-visual scene, and present the SonoWorld4D framework for this task. Given a monocular video, our method generates a 360 static background, reconstructs explicit motion trajectories of dynamic, sound-emitting foreground objects, and synthesizes a physically-grounded sound field consistent across multiple sources through dual-space audio diffusion synchronization. The resulting 4D scene supports real-time novel-view visual and spatial audio rendering. Evaluation on real-world dynamic scenes and a user study demonstrates SonoWorld4D generates 4D audio-visual scenes with perceptually realistic, physically grounded spatial audio consistent with scene geometry and visual content.",
+   "url": "https://arxiv.org/abs/2610.40640",
+   "pdf": "https://arxiv.org/pdf/2610.40640",
+   "explain": {
+    "tldr": "A system that converts a single video into an interactive 4D scene with synchronized visuals and spatial sound from multiple sources.",
+    "plain": "When you watch a video, you see movement and hear sound, but they're usually treated separately. This paper tackles a new problem: taking just one video and turning it into something you can explore from different angles while hearing realistic spatial audio that matches what's happening visually. The system figures out what objects are moving and making sound, reconstructs their paths through the scene, and generates audio that sounds like it's coming from the right places in 3D space—all synchronized together. They tested it on real videos and found people perceived the resulting audio-visual scenes as realistic and physically believable.",
+    "why": "For musicians and producers, this suggests new possibilities for creating immersive soundscapes from video content, or understanding how to design sound that feels spatially coherent with visual movement. It could also inform how to think about audio-visual synchronization in interactive or VR music experiences.",
+    "terms": [
+     {
+      "term": "spatial audio",
+      "meaning": "sound that appears to come from specific locations in 3D space around the listener, rather than just left and right stereo"
+     },
+     {
+      "term": "diffusion synchronization",
+      "meaning": "a technique using AI models that generate content step-by-step while keeping audio and visual elements aligned with each other"
+     },
+     {
+      "term": "4D scene",
+      "meaning": "a 3D environment that also changes over time (the fourth dimension), rather than staying static"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.40414",
+   "title": "Bridging Neural Representations and Symbolic Semantics in Audio Classification",
+   "authors": [
+    "Avishek Das",
+    "Pascal Hitzler"
+   ],
+   "published": "2026-10-29",
+   "category": "cs.SD",
+   "topics": [
+    "mir",
+    "rep"
+   ],
+   "summary": "Deep audio classifiers can achieve strong predictive performance, but their hidden representations remain difficult to interpret. Existing audio explainability methods often focus on input-level attribution, such as waveform segments, spectrogram regions, or acoustic features, and provide limited insight into what hidden neurons encode. Interpreting hidden neurons at the concept level can provide a more meaningful view of what an audio model learns internally. This paper investigates whether hidden neurons in audio classifiers can be associated with human-understandable symbolic acoustic concepts. A model-agnostic neurosymbolic framework is presented for analyzing the final hidden layer of audio classifiers, containing 32 neurons, through symbolic concept induction. The framework is evaluated on two audio classification settings: music genre classification using GTZAN dataset and musical instrument classification using IRMAS dataset. Results show that several hidden neurons can be associated with meaningful induced concepts, and most confirmed neuron-concept pairs are statistically supported using the Mann-Whitney U test. These findings suggest that symbolic concept induction is a promising direction for explaining latent audio representations beyond input-level attribution.",
+   "url": "https://arxiv.org/abs/2610.40414",
+   "pdf": "https://arxiv.org/pdf/2610.40414",
+   "explain": {
+    "tldr": "A method to understand what hidden neurons in audio classifiers learn by connecting them to human-readable musical concepts.",
+    "plain": "Deep learning models for audio classification work well but are like black boxes—we don't know what's happening inside. This paper proposes a way to peek inside by checking if the hidden neurons (the model's internal processing units) correspond to recognizable musical concepts like timbre or rhythm. They tested this on music genre and instrument classification tasks, and found that many neurons do indeed align with meaningful acoustic concepts that humans can understand.",
+    "why": "If you're developing music AI tools or trying to understand how models make decisions about your music, knowing what the model actually 'thinks' about—rather than just trusting its output—helps you debug problems, improve designs, and build more trustworthy systems.",
+    "terms": [
+     {
+      "term": "hidden layer",
+      "meaning": "The internal processing stage of a neural network between input and output, where the model builds up its understanding before making a decision."
+     },
+     {
+      "term": "neurosymbolic",
+      "meaning": "An approach combining neural networks (which learn patterns from data) with symbolic reasoning (which uses human-readable concepts and rules)."
+     },
+     {
+      "term": "concept induction",
+      "meaning": "Automatically discovering meaningful, interpretable ideas or categories that explain what a model has learned."
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.40303",
+   "title": "Symmetric Structure and Motivic Transformation in Melodies, Phrases, and Themes",
+   "authors": [
+    "Alfredo González-Espinoza"
+   ],
+   "published": "2026-10-29",
+   "category": "physics.soc-ph",
+   "topics": [
+    "gen"
+   ],
+   "summary": "Transposition, inversion, and retrograde are fundamental operations in music theory, from Schoenberg's twelve-tone technique to Forte's set classes and Lewin's transformational theory, yet their use in melodies has rarely been quantified. We read a melodic line through the orbits and stabilizers of its windows of $m = 3-6$ notes under the group generated by these operations and cyclic shift. The window entropy splits into an orbit entropy (motivic vocabulary) and a within-orbit entropy normalized by orbit size (deployment), and the group elements relating windows of one orbit give the motivic transformations. In 852 keyboard pieces spanning four centuries, at least 97% of melodies have lower orbit entropy than surrogates preserving their pitch content, spectrum, or one-step transitions ($m \\geq 4$). Periods differ in vocabulary and symmetry types; musical forms differ in deployment. Recurring motifs are transposed 1.6 times more often than in random permutations of their forms, and transposed by a fifth or fourth 2.8 times more often, a preference that weakens from the Baroque to the 20th century and from Bach's fugues to Shostakovich's. Folk phrases and instrumental themes are rarely symmetric (2-10%), but are 1.6-5 times more often symmetric than note rearrangements. The framework extends to any symbolic sequence with a symmetry group.",
+   "url": "https://arxiv.org/abs/2610.40303",
+   "pdf": "https://arxiv.org/pdf/2610.40303",
+   "explain": {
+    "tldr": "A mathematical framework quantifies how composers use transposition, inversion, and retrograde to organize melodic motifs across centuries of keyboard music.",
+    "plain": "Composers have long used transformations like transposition (shifting a melody up or down) and inversion (flipping it upside down) to develop musical ideas, but this has never been systematically measured. The researchers analyzed 852 keyboard pieces to see how often these transformations actually appear in melodies compared to random chance. They found that real melodies use these symmetry operations far more deliberately than would happen by accident, with preferences that shift across musical periods—for example, Bach favors transposing motifs by a fifth or fourth much more than later composers do.",
+    "why": "This research gives composers and theorists a quantitative way to understand motivic development—how themes evolve and recur in music. It could help producers and arrangers recognize and apply these principles more consciously, and might inform music analysis tools that identify when a melody is a transformed version of an earlier idea.",
+    "terms": [
+     {
+      "term": "transposition",
+      "meaning": "shifting a melody to a higher or lower pitch while keeping its shape the same"
+     },
+     {
+      "term": "inversion",
+      "meaning": "flipping a melody upside down so intervals go in the opposite direction"
+     },
+     {
+      "term": "orbit entropy",
+      "meaning": "a measure of how many different versions of a musical motif appear in a piece"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.39898",
+   "title": "Ambisonics: Introducing an Accessible, Distributed Approach",
+   "authors": [
+    "Thomas A Rushton",
+    "Romain Michon",
+    "Tanguy Risset",
+    "Clemens Wegener",
+    "Pierre Lecomte"
+   ],
+   "published": "2026-10-29",
+   "category": "cs.SD",
+   "topics": [
+    "syn",
+    "spa",
+    "hci"
+   ],
+   "summary": "This paper presents an accessible, distributed approach to higher order ambisonics using a network of low-cost microcontroller-based devices. Leveraging recent advances in embedded computing, networked audio, and precise time synchronization, the system offers an alternative to conventional centralized architectures that typically require expensive multichannel interfaces and high-performance digital signal processing hardware. The proposed architecture combines an audio plugin for soundfield design with a modular network of ambisonics processing units, which, exploiting the parallelisable nature of ambisonics decoding, are each responsible for a subset of loudspeaker outputs. Synchronization is achieved through the IEEE 1588 Precision Time Protocol, complemented by adaptive clock correction to maintain sub-microsecond alignment between devices. A third-order ambisonics implementation demonstrates the viability of the approach, with potential scalability to higher orders and larger arrays. Overall, this work contributes to the development of frugal, distributed solutions for immersive audio, expanding access to ambisonics-based systems for a wide range of applications.",
+   "url": "https://arxiv.org/abs/2610.39898",
+   "pdf": "https://arxiv.org/pdf/2610.39898",
+   "explain": {
+    "tldr": "A cheaper way to create immersive spatial audio using networked small computers instead of expensive centralized equipment.",
+    "plain": "Higher-order ambisonics is a technique for recording and playing back immersive 3D sound, but it traditionally requires expensive hardware and interfaces. This paper proposes splitting the work across multiple affordable microcontroller devices connected over a network, each handling part of the loudspeaker outputs. They keep the devices synchronized using precise timing protocols so the audio stays aligned, and demonstrate this works with third-order ambisonics, suggesting it could scale to even more complex setups.",
+    "why": "This makes immersive spatial audio production and playback more affordable and accessible to musicians, studios, and venues that couldn't previously afford traditional ambisonics systems. It could democratize 3D audio creation for music, VR, and interactive installations.",
+    "terms": [
+     {
+      "term": "Higher-order ambisonics",
+      "meaning": "A method for capturing and reproducing 3D spatial sound around a listener using multiple microphones or loudspeakers arranged in a sphere"
+     },
+     {
+      "term": "IEEE 1588 Precision Time Protocol",
+      "meaning": "A standard for synchronizing clocks across networked devices with extremely high accuracy, keeping them aligned to microsecond precision"
+     },
+     {
+      "term": "Microcontroller",
+      "meaning": "A small, low-cost computer chip designed to control devices; much cheaper and simpler than full computers"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.39566",
+   "title": "Conformal Prediction-Aware DOA Tracking",
+   "authors": [
+    "Maya Veisman Barness",
+    "Sharon Gannot",
+    "Bracha Laufer Goldshtein"
+   ],
+   "published": "2026-10-29",
+   "category": "eess.AS",
+   "topics": [
+    "syn"
+   ],
+   "summary": "We introduce an uncertainty-aware DOA-tracking framework combining deep posterior estimation, conformal-prediction calibration, and temporal smoothing. The approach enhances stability against reverberation and burst-like directional noise, yielding more reliable trajectories and greater robustness than conventional DOA-tracking methods.",
+   "url": "https://arxiv.org/abs/2610.39566",
+   "pdf": "https://arxiv.org/pdf/2610.39566",
+   "explain": {
+    "tldr": "A system that tracks where sound comes from while measuring and managing its own uncertainty.",
+    "plain": "When recording audio in rooms with echoes or sudden noise, figuring out where sound is coming from gets tricky. This paper combines three techniques: a neural network that estimates direction plus confidence levels, a calibration method that makes those confidence estimates trustworthy, and smoothing that connects estimates over time. The result tracks sound direction more reliably in messy real-world conditions than older methods.",
+    "why": "For musicians and producers, this matters for spatial audio recording, live sound reinforcement, and immersive music production—situations where you need to know reliably where sounds are coming from, especially in imperfect acoustic spaces.",
+    "terms": [
+     {
+      "term": "DOA",
+      "meaning": "Direction of Arrival—figuring out which direction a sound is coming from"
+     },
+     {
+      "term": "conformal prediction",
+      "meaning": "A technique that provides confidence bounds around predictions, with mathematical guarantees they're accurate"
+     },
+     {
+      "term": "reverberation",
+      "meaning": "Echoes and reflections that bounce around a room and muddy the original sound"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.39255",
+   "title": "A learning-based method of automatic music transcription",
+   "authors": [
+    "Phu-Anh-Tai Do",
+    "Huu-Hoang Nguyen",
+    "Duc-Hoang Nguyen",
+    "Thanh-Hai Le"
+   ],
+   "published": "2026-10-29",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "mir",
+    "rep"
+   ],
+   "summary": "Automatic Music Transcription (AMT) seeks to convert acoustic music recordings into symbolic musical notation, a process that remains remarkably difficult for polyphonic piano due to concurrent polyphony, harmonic partial interference, expressive timing, and severe pitch activation sparsity. In this paper, we formulate polyphonic piano transcription as a frame-level multi-label classification problem across the standard 88 piano pitches (MIDI notes 21 to 108). Raw audio waveforms are processed using the Constant-Q Transform (CQT) to construct a geometrically spaced log-frequency time-frequency representation that aligns with the chromatic musical scale across seven octaves (252 frequency bins per frame). We systematically investigate recurrent sequence models, contrasting unidirectional Long Short-Term Memory (LSTM) with Bidirectional LSTM (BiLSTM) backbones, and propose two architectural adaptations tailored to recurrent temporal representations: a modified additive attention module and a modified multihead attention mechanism equipped with hyperbolic tangent activation and head-wise summation. Furthermore, to mitigate the severe class imbalance between inactive and active notes (approximately 41:1), we evaluate Weighted Binary Cross-Entropy (WBCE) alongside standard Binary Cross-Entropy (BCE). Rigorous empirical evaluations on the MAPS and MAESTRO datasets demonstrate steady, compounding gains from bidirectionality and attention mechanisms. Our proposed Multihead Attention-BiLSTM architecture attains an F1-score of 88.20%, an accuracy of 78.90%, a precision of 0.89, and a recall of 0.86, substantially outperforming the baseline unidirectional LSTM (F1-score of 71.20%) while maintaining a compact parameter budget of 4.43M. Qualitative piano-roll visualizations confirm that our model generates faithful transcriptions even in complex harmonic passages.",
+   "url": "https://arxiv.org/abs/2610.39255",
+   "pdf": "https://arxiv.org/pdf/2610.39255",
+   "explain": {
+    "tldr": "A machine learning system that converts piano recordings into sheet music notation using neural networks with attention mechanisms.",
+    "plain": "Converting recorded piano music into written notation is hard because multiple notes play simultaneously and interfere with each other. The researchers built a system that listens to raw audio, converts it into a special frequency representation that matches how we think about musical pitch, then uses neural networks to figure out which of the 88 piano keys were pressed at each moment. They tested different network designs and found that using bidirectional processing (looking at past and future context) plus attention mechanisms (letting the model focus on important parts) worked best, achieving 88% accuracy on standard test datasets.",
+    "why": "This matters because automatic transcription could save musicians hours of manual work when learning songs by ear or archiving recordings. It could also help music producers and researchers analyze piano performances more easily, though the paper shows it works best on clean piano recordings rather than real-world messy audio.",
+    "terms": [
+     {
+      "term": "Constant-Q Transform (CQT)",
+      "meaning": "A way to convert audio into a frequency representation where the spacing between frequencies matches musical intervals, making it easier for the system to recognize pitches"
+     },
+     {
+      "term": "BiLSTM (Bidirectional LSTM)",
+      "meaning": "A neural network that processes audio sequences in both directions (forward and backward in time) to better understand context"
+     },
+     {
+      "term": "F1-score",
+      "meaning": "A measure of accuracy that balances precision (avoiding false alarms) and recall (catching all the real notes)"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.39185",
+   "title": "Array-Agnostic High-Order Ambisonics Encoding via Diffusion Posterior Sampling",
+   "authors": [
+    "Amit Milstein",
+    "Nir Shlezinger",
+    "Boaz Rafaely"
+   ],
+   "published": "2026-10-29",
+   "category": "eess.AS",
+   "topics": [
+    "gen",
+    "spa",
+    "rep"
+   ],
+   "summary": "Ambisonics provides a device-independent representation of three-dimensional sound fields; however, extracting these coefficients from practical microphone array recordings remains strongly dependent on array geometry, acoustic transfer functions, and spatial sampling resolution. This pipeline is typically divided into two distinct tasks: encoding, which entails reconstructing the physically resolvable spatial components, and upscaling, which requires generating higher-order coefficients. Model-based approaches often fail on irregular arrays due to ill-conditioned transfer matrices, whereas conventional neural encoders remain strictly tied to the specific acquisition setup seen during training. Furthermore, existing upscaling methods usually assume ideal low-order inputs, ignoring device-specific array artifacts. We present ADEUPS, a unified framework that couples an array-independent Ambisonic diffusion prior with an explicit physical acquisition model during inference, enabling zero-shot encoding and upscaling across diverse array configurations. We train our prior using an order-masking strategy and perform inference via score blending, which we demonstrate to be crucial for solving the underlying inverse problem. Through extensive numerical evaluations across various array geometries, we show that ADEUPS consistently outperforms task- and array-specific baselines. Finally, we conduct subjective listening tests to confirm the perceptual effectiveness of our approach.",
+   "url": "https://arxiv.org/abs/2610.39185",
+   "pdf": "https://arxiv.org/pdf/2610.39185",
+   "explain": {
+    "tldr": "A method to convert microphone array recordings into high-quality 3D spatial audio formats regardless of microphone setup.",
+    "plain": "Ambisonics is a standard way to represent 3D sound fields that works with any playback system, but extracting it from real microphone arrays is tricky because different microphone arrangements need different processing. Existing methods either fail with irregular arrays or only work with the exact setup they were trained on. This paper presents ADEUPS, which uses a machine learning approach that works with any microphone configuration without needing retraining. The method handles both extracting basic spatial information and generating higher-quality spatial details, even when the microphone array isn't ideal.",
+    "why": "This matters because it could make spatial audio recording more flexible and accessible—you could use whatever microphones you have available and still get professional-quality 3D audio, rather than being locked into specific expensive microphone arrays or complex calibration procedures.",
+    "terms": [
+     {
+      "term": "Ambisonics",
+      "meaning": "A format for recording and playing back 3D spatial sound that works independently of the speaker or microphone setup"
+     },
+     {
+      "term": "Diffusion prior",
+      "meaning": "A machine learning model trained to understand what realistic spatial audio should look like, used to guide the reconstruction process"
+     },
+     {
+      "term": "Zero-shot",
+      "meaning": "Working on new situations without any training examples of those specific situations"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.38960",
+   "title": "Efficient Agentic Audio-Visual Question Answering through Toolset Pruning and Modality Consolidation",
+   "authors": [
+    "Yi Wang",
+    "Tianzi Wang",
+    "Peter Bell"
+   ],
+   "published": "2026-10-28",
+   "category": "cs.AI",
+   "topics": [],
+   "summary": "Fine-grained audio-visual question answering (AVQA) requires models to resolve complex cross-modal correspondences and temporally grounding from sparsely distributed evidence. Omni-modal agents, which autonomously orchestrate perception tools to actively collect evidence, achieve strong performance, but it remains unclear whether active perception from both audio and visual modalities depends on broad specialized toolsets, especially audio or visual modality-specific tools. Such systems may also introduce long execution trajectories and substantial inference cost. We investigate whether comparable performance can be retained with a compact workflow exposing only essential perceptual capabilities. Starting from the specialized-tool OmniAgent, we conduct staged controlled experiments that prune the toolset and progressively consolidate modality-specific tools into omni-modal tools, motivating a two-tool agent comprising only Omni-modal captioning and Omni-modal QA. Across three widely used AVQA benchmarks, our compact agent achieves comparable or better accuracy than the specialized-tool agent while reducing inference cost by around 70%.",
+   "url": "https://arxiv.org/abs/2610.38960",
+   "pdf": "https://arxiv.org/pdf/2610.38960",
+   "explain": {
+    "tldr": "A simpler AI agent answers questions about audio-visual content using fewer, more general tools while cutting computing costs by 70%.",
+    "plain": "Audio-visual question answering means answering questions about videos by understanding both sound and image together. Current systems use many specialized tools (some just for audio, some just for video), which makes them slow and expensive to run. This paper tests whether you can get similar accuracy with just two general-purpose tools that handle both audio and video. They found you can—the simpler system actually performs as well or better while using much less computing power.",
+    "why": "For musicians and producers, this matters because audio-visual tools are increasingly used in music production, video scoring, and interactive media. More efficient systems mean these capabilities could run on regular computers or in real-time applications rather than requiring expensive servers, making them more accessible.",
+    "terms": [
+     {
+      "term": "omni-modal",
+      "meaning": "able to work with multiple types of input (like both audio and video) together, rather than handling each separately"
+     },
+     {
+      "term": "toolset pruning",
+      "meaning": "removing unnecessary specialized tools from a system to make it simpler and faster"
+     },
+     {
+      "term": "inference cost",
+      "meaning": "the computing power and time needed to run a trained model and get results"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.38768",
+   "title": "Structured Pruning of Feedback Delay Networks",
+   "authors": [
+    "Facundo Franchino",
+    "Karolina Prawda"
+   ],
+   "published": "2026-10-28",
+   "category": "eess.AS",
+   "topics": [
+    "syn"
+   ],
+   "summary": "Feedback delay networks (FDNs) are recursive filter structures used to synthesise artificial reverberation. Their feedback matrix governs both energy exchange between delay lines and the computation required at every sample, making its design central to balancing an FDN's acoustic performance and implementation efficiency. In this work, we develop an FDN-specific structured pruning method that connects these acoustic and computational concerns, allowing high-order dense orthogonal designs to be fitted to efficient implementations. The feedback matrix is replaced by stages of fixed permutations and small orthogonal blocks. We characterise connectivity growth with the network depth and derive exact conditional block updates for matrix fitting, followed by refinement against the reference FDN magnitude response. The resulting factors admit direct vectorised evaluation, with arithmetic cost and coefficient storage scaling linearly with network size for fixed block size and depth. On an Apple M2, the selected staged kernels achieve feedback-multiplication speedups over dense BLAS ranging from approximately threefold to over twentyfold across the tested network sizes, while substantially reducing coefficient storage. Objective metrics and listening tests indicate that the proposed staged approximations closely preserve the spectral and temporal character of their dense references. An analysis of processor utilisation and register reuse explains why execution time depends on more than the operation count. Finally, block size and depth provide practical control over response fidelity, storage, and real-time cost, allowing acoustic design to precede the choice of an efficient implementation.",
+   "url": "https://arxiv.org/abs/2610.38768",
+   "pdf": "https://arxiv.org/pdf/2610.38768",
+   "explain": {
+    "tldr": "A method to make reverb algorithms faster and smaller while keeping their sound quality.",
+    "plain": "Feedback delay networks are algorithms that create artificial reverb by bouncing sound between delay lines. They sound good but can be computationally expensive. This paper proposes replacing the core mathematical matrix with a simpler structure made of permutations and small blocks, which preserves the reverb's acoustic character while running 3 to 20 times faster and using much less memory. The authors tested this on real hardware and confirmed listeners couldn't easily tell the difference.",
+    "why": "For musicians and producers, this means reverb plugins could run more efficiently on devices with limited processing power, or free up CPU for other effects. For instrument makers and plugin developers, it offers a way to deliver high-quality reverb on mobile devices or embedded systems without sacrificing sound.",
+    "terms": [
+     {
+      "term": "Feedback delay networks (FDNs)",
+      "meaning": "A reverb algorithm that uses multiple delay lines feeding back into each other to create complex reflections and decay"
+     },
+     {
+      "term": "Structured pruning",
+      "meaning": "Simplifying a mathematical structure by removing or replacing parts while keeping the important behavior intact"
+     },
+     {
+      "term": "Orthogonal",
+      "meaning": "A mathematical property where a matrix preserves energy and doesn't distort the overall loudness of the signal"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.38740",
+   "title": "Automated Parameter Sensitivity Ranking in Audio Synthesis",
+   "authors": [
+    "Ogulcan Kibar",
+    "Baris Ozcan"
+   ],
+   "published": "2026-10-28",
+   "category": "cs.SD",
+   "topics": [
+    "syn"
+   ],
+   "summary": "Software synthesizers expose dozens of coupled controls, many of them redundant or perceptually inert at typical operating points. This paper presents a two-stage, measure-and-validate framework that ranks parameters by their influence on the audio output and then checks that ranking against an independent, variance-based experiment. Every rendered clip is normalized to -23 LUFS and described by five spectral fingerprints, so that gain shifts cannot masquerade as timbral change. The Sweep Test scores each parameter by spectral deviation over a 101-step sweep; the Sobol Test scores it by summed per-cell variance over a 128-point Sobol excitation. Across five architecturally distinct synthesizers (TorchSynth, Pyo, Pedalboard, Csound, and FluidSynth) spanning 48 to 76 parameters, the two tests agree at Spearman ρ= 0.82-0.96 (p-values \\le 7.2 \\times 10^{-15}) on the four engines that render deterministically, and at ρ= 0.32 on the one with process-level render noise--a diagnostic of that engine rather than of the method. The strong correlations survive reducing the Sobol budget from 128 to 32 points, and the complete analysis costs a one-time offline budget of about 66,000 renders.",
+   "url": "https://arxiv.org/abs/2610.38740",
+   "pdf": "https://arxiv.org/pdf/2610.38740",
+   "explain": {
+    "tldr": "A method to automatically rank which knobs matter most on software synthesizers by measuring how they change the sound.",
+    "plain": "Software synthesizers have many controls, but not all of them actually change the sound in meaningful ways. This paper presents a two-stage approach: first, they systematically sweep each parameter and measure how much the audio spectrum changes; second, they independently test each parameter using random variations and measure the variance in the output. They tested this on five different synthesizers and found the two methods agree strongly with each other, meaning the rankings are reliable. The analysis requires about 66,000 audio renders but only needs to be done once per synthesizer.",
+    "why": "For musicians and producers, this helps identify which parameters on a synth are actually worth tweaking and which ones do nothing perceptible. For synth designers, it reveals which controls are redundant and could be simplified or removed, making instruments easier to learn and use.",
+    "terms": [
+     {
+      "term": "LUFS",
+      "meaning": "A loudness measurement standard; normalizing to -23 LUFS ensures all audio clips are equally loud so changes in sound are about timbre, not volume"
+     },
+     {
+      "term": "Sobol excitation",
+      "meaning": "A mathematical method for testing parameters by sampling them in a structured, space-filling way rather than randomly"
+     },
+     {
+      "term": "Spearman ρ",
+      "meaning": "A statistical measure of how well two ranked lists agree (1.0 means perfect agreement, 0 means no agreement)"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.38696",
+   "title": "Personalising Parametric Audio Effect Recommendation for Vocals from Parameter-only Style Priors",
+   "authors": [
+    "Soumya Sai Vanka",
+    "Hayato Yamakawa",
+    "Kazunobu Kondo",
+    "Yu Takahashi",
+    "György Fazekas"
+   ],
+   "published": "2026-10-28",
+   "category": "eess.AS",
+   "topics": [
+    "syn"
+   ],
+   "summary": "Audio effect recommendation has mostly modelled style through reference audio and audio-domain losses. Because the parameter-to-audio map of parametric effects is many-to-one, such systems can match a reference without reflecting how a given engineer works. We instead model an engineer's style as a distribution over effect-chain parameters, which matches the data engineers can realistically share: console recalls store parameters without the audio they were applied to. Under a label-shift assumption, a personalised recommendation follows in closed form from a generic content model, a parameter population model and an engineer prior, with no paired engineer audio and no tuned weights. For vocal chains, the content signal is small but real, and concentrated in high-frequency EQ, dynamics and reverb. A forced-choice test with $14$ listeners found that the style-prior and content-only recommendations were distinguishable (89.3%), with results consistent with prior width affecting the balance between style and content, while parameter-space cosine does not predict perceived difference.",
+   "url": "https://arxiv.org/abs/2610.38696",
+   "pdf": "https://arxiv.org/pdf/2610.38696",
+   "explain": {
+    "tldr": "A system recommends audio effects for vocals by learning an engineer's personal style from their past parameter settings rather than audio recordings.",
+    "plain": "When engineers apply effects to vocals, they develop personal preferences for which settings they use. This paper proposes a new way to recommend effects that captures an engineer's individual style by analyzing the parameters they've chosen before, rather than trying to match reference audio. The key insight is that engineers can easily share their past settings (stored in console recalls) but not always the original audio. The system combines knowledge of what works generally with an engineer's personal parameter preferences to make recommendations, and tests show listeners can hear the difference between personalized and generic recommendations.",
+    "why": "This matters because it could help producers and engineers work faster by automating effect suggestions that match their own sonic taste. Rather than starting from scratch or copying someone else's style, a tool could learn your preferences and suggest settings you'd likely choose.",
+    "terms": [
+     {
+      "term": "parametric effects",
+      "meaning": "audio tools (like EQ or reverb) where you control the sound by adjusting numerical parameters rather than just turning a knob"
+     },
+     {
+      "term": "console recalls",
+      "meaning": "saved snapshots of all the knob and button settings on a mixing console, storing the parameters without the audio they were applied to"
+     },
+     {
+      "term": "many-to-one map",
+      "meaning": "when different combinations of settings can produce the same final sound, making it hard to know which settings an engineer actually preferred"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.38619",
+   "title": "MiDiff: MIDI-Conditioned Diffusion Models for Drum Audio Enhancement",
+   "authors": [
+    "Elad Aspis",
+    "Sharon Gannot"
+   ],
+   "published": "2026-10-28",
+   "category": "eess.AS",
+   "topics": [
+    "gen",
+    "mir",
+    "syn",
+    "hci",
+    "rep"
+   ],
+   "summary": "Bridging the semantic gap between perfect symbolic musical structure and severely degraded acoustic signals offers a powerful paradigm for high-fidelity audio restoration. We introduce MiDiff, a diffusion-based generative model for drum audio enhancement that conditions the reverse process on temporally aligned Musical Instrument Digital Interface (MIDI) piano rolls. We extend the Score-Based Generative Models for Speech Enhancement (SGMSE) framework in the complex Short-Time Fourier Transform (STFT) domain by integrating a pretrained MIDI encoder, multi-scale temporal alignment, and three complementary conditioning strategies: early injection, Feature-wise Linear Modulation (FiLM), and cross-attention. We further show that providing the same piano roll only through classifier guidance, driven by an Automatic Drum Transcription (ADT) model on the audio-only score, yields no measurable gain: the symbolic prior is effective when it conditions the score network. To relax the requirement for ground-truth MIDI at inference, we further propose a hybrid reverse schedule that transcribes the diffusion state online with the same noise-aware ADT network and hands over from the audio-only score to MiDiff at a tunable switch time, cutting test FAD by 47% relative to the audio-only baseline without any symbolic input (switch time selected on the test set). We train our model on the StemGMD dataset using a non-additive degradation pipeline that simulates room reverberation with echo, electret capsule frequency response, and soft-clipping saturation with noise. MiDiff substantially outperforms the SGMSE baseline in terms of Fréchet Audio Distance (FAD) on both the validation and held-out test sets. Ablation studies demonstrate that combining all three conditioning strategies yields superior performance and that authentic MIDI velocity dynamics are critical for effective symbolic conditioning.",
+   "url": "https://arxiv.org/abs/2610.38619",
+   "pdf": "https://arxiv.org/pdf/2610.38619",
+   "explain": {
+    "tldr": "A system that enhances degraded drum recordings by using MIDI data to guide the restoration process.",
+    "plain": "When drum recordings are damaged or recorded in poor conditions, it's hard to restore them because the audio is severely degraded. This paper presents MiDiff, which uses MIDI piano rolls (the symbolic representation of what notes were played and when) to guide a generative model that reconstructs clean drum audio. The key insight is that MIDI provides a structural blueprint of what the drums should sound like, which helps the model fill in missing details. They also show a practical version that can work without perfect MIDI by transcribing the audio as it's being restored.",
+    "why": "For producers and engineers, this matters because drum recordings are often the foundation of a mix, and restoring damaged or poorly-recorded drums is a common problem. Having a tool that can use MIDI information to intelligently enhance drum audio could save time in restoration work and improve the quality of archival recordings or live recordings made in challenging conditions.",
+    "terms": [
+     {
+      "term": "diffusion model",
+      "meaning": "A generative AI system that creates audio by gradually removing noise from random sound, guided by conditioning information"
+     },
+     {
+      "term": "MIDI piano roll",
+      "meaning": "A visual and data representation of musical notes showing which notes play, when they start, and how long they last"
+     },
+     {
+      "term": "Fréchet Audio Distance (FAD)",
+      "meaning": "A metric that measures how similar generated audio is to real audio by comparing their learned features"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.38276",
+   "title": "MixCards: Evaluating Structured Descriptions of Multi-Source Sound Scenes",
+   "authors": [
+    "Sripathi Sridhar",
+    "Yujin Kim",
+    "Giovana Morais",
+    "Liang-Yuan Wu",
+    "Mehmet Atilay Kucukoglu",
+    "Prem Seetharaman",
+    "Lloyd May",
+    "Mark Cartwright",
+    "Magdalena Fuentes"
+   ],
+   "published": "2026-10-28",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "syn"
+   ],
+   "summary": "Audio captioning benchmarks typically evaluate a single unstructured free-text description of an audio scene, providing limited insight into how a model fails to understand polyphonic audio. A plausible caption may omit a source, or conflate multiple sources into one, or assign an attribute of one source to another, and conventional captioning evaluation cannot locate these errors. We introduce MixCardBench, a benchmark for structured captioning of polyphonic audio, which evaluates models in two stages: first, identifying and temporally localizing the sources in a scene, and second, generating a structured MixCard describing the semantic, temporal, and acoustic properties of each source. The benchmark contains 4884 ecologically plausible synthetic soundscapes with up to nine overlapping speech, music and sound effects sources built from high-quality recordings and source-level annotations, where each source has a reference MixCard. We evaluate six state-of-the-art large audio language models and find substantial limitations in current models, which struggle considerably with speech and sound effects timing and detection, with the strongest model reaching only around 60% mean card-field score. Performance varies significantly across attributes, exposing capability differences that are hidden by aggregate caption scores. We assess the quality and ecological validity of MixCardBench through human validation, distribution matching and a listening study, and show that human corrections have little effect on model rankings, and our synthesized soundscapes are closer to in-the-wild YouTube videos than source guided but otherwise random synthesis. The benchmark dataset and code are publicly available, and demo examples are at https://mixcards-anon.github.io/mixcards-demo/",
+   "url": "https://arxiv.org/abs/2610.38276",
+   "pdf": "https://arxiv.org/pdf/2610.38276",
+   "explain": {
+    "tldr": "A new benchmark tests how well AI models describe complex audio with multiple overlapping sounds using structured descriptions.",
+    "plain": "When AI models describe audio scenes with multiple sound sources playing together, traditional evaluation methods can't pinpoint specific mistakes—like missing a sound, mixing up two sources, or getting timing wrong. This paper introduces MixCardBench, which breaks down audio description into two steps: first identifying what sounds are present and when they occur, then generating detailed structured descriptions of each sound's properties. They tested six advanced AI audio models on nearly 5,000 realistic multi-source soundscapes and found all models struggle significantly, especially with timing and detecting speech or sound effects, with the best reaching only about 60% accuracy on detailed descriptions.",
+    "why": "For musicians and producers working with multi-track audio or AI-assisted tools, this reveals how current AI models actually perform on complex listening tasks. Understanding these limitations helps you know when to trust AI descriptions of your mixes and where it might miss important details.",
+    "terms": [
+     {
+      "term": "polyphonic audio",
+      "meaning": "Sound with multiple independent sources playing at the same time, like a full band or a scene with speech, music, and background noise together"
+     },
+     {
+      "term": "audio captioning",
+      "meaning": "Automatically generating text descriptions of what sounds are in an audio recording"
+     },
+     {
+      "term": "temporal localization",
+      "meaning": "Identifying exactly when something happens in time—for audio, pinpointing the start and end moments of each sound"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.38252",
+   "title": "A Tutorial on Generative Models for Music Audio",
+   "authors": [
+    "Mateusz Modrzejewski",
+    "Joanna Kurkowska",
+    "Dorien Herremans"
+   ],
+   "published": "2026-10-28",
+   "category": "eess.AS",
+   "topics": [
+    "gen",
+    "hci",
+    "rep"
+   ],
+   "summary": "Music audio generation spans instrumental clips, full songs with vocals, edits of existing recordings, and systems that play alongside a musician in real time. This monograph explains the methods behind these systems for readers familiar with neural-network training who are new to music generation. It introduces neural audio codecs and autoencoders, autoregressive and masked token models, diffusion and flow matching, sampling acceleration, and preference optimization in a shared notation. Worked examples connect training objectives and sampling procedures to published systems. The application sections relate the musical requirements of instrumental generation, songs, editing, and live performance to model design. Comparison tables record representations, methods, inputs, tasks, and release information documented in papers and official sources. Symbolic composition, speech, and sound effects are included where they connect to music audio. We explain how to interpret automatic metrics and learned judges, design and report listening tests, and assess evidence about data provenance, memorization, attribution, and output detection. Selected legal decisions and disputes illustrate the implications for training and release. The reviewed systems combine established generative paradigms with new representations, planning stages, and post-training procedures. Differences in data, scale, and evaluation limit what cross-system comparisons can establish about the sources of reported gains.",
+   "url": "https://arxiv.org/abs/2610.38252",
+   "pdf": "https://arxiv.org/pdf/2610.38252",
+   "explain": {
+    "tldr": "A guide explaining how neural networks generate music audio, from short clips to real-time performance systems.",
+    "plain": "This is a tutorial for people who understand neural networks but are new to music generation. It covers the main techniques used in modern music AI systems—like autoencoders, diffusion models, and token-based approaches—and explains how they're applied to different tasks: making instrumental music, generating full songs with vocals, editing recordings, and creating systems that play along with live musicians. The tutorial also addresses practical concerns like how to test these systems fairly, understand their limitations, and think through questions about training data and copyright.",
+    "why": "If you're curious how AI music tools actually work under the hood, or you're building music software and want to understand the latest generation methods, this explains the core techniques and their trade-offs in a way that connects to real released systems.",
+    "terms": [
+     {
+      "term": "neural audio codec",
+      "meaning": "A neural network that compresses audio into a compact digital representation, then reconstructs it—used as a foundation for many music generation systems"
+     },
+     {
+      "term": "diffusion model",
+      "meaning": "A generative method that starts with random noise and gradually refines it into audio by learning to reverse a noise-adding process"
+     },
+     {
+      "term": "autoregressive model",
+      "meaning": "A system that generates audio one piece at a time, where each new piece depends on everything generated before it"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.37959",
+   "title": "ODAQ-Collection: Expanding the Open Dataset of Audio Quality with a Focus on Spatial Distortions",
+   "authors": [
+    "Chih-Wei Wu",
+    "Matteo Torcoli",
+    "Mhd Modar Halimeh",
+    "Pablo M. Delgado",
+    "Sascha Dick",
+    "Christoph Thompson",
+    "Phillip A. Williams",
+    "Emanuël A. P. Habets"
+   ],
+   "published": "2026-10-27",
+   "category": "eess.AS",
+   "topics": [
+    "spa"
+   ],
+   "summary": "The Open Dataset of Audio Quality (ODAQ) is an expanding resource that addresses the scarcity of openly available data in audio quality assessment research. While previous contributions focused mainly on timbral distortions, with spatial processing limited to basic mid-side and left-right stereo conditions, we present a new contribution featuring high-quality music and speech recordings with diverse stereo images, controlled spatial distortions, and subjective listening test results from trained listeners in a laboratory setting. With 148 pairs of stereo audio samples processed by three different method classes, two applying controlled binaural cue distortions and one applying dialogue enhancement, this addition expands the collection to 688 pairs of processed and unprocessed audio signals spanning 17 processing method classes, along with 18,984 raw subjective ratings from listeners. All associated data and code are released as open resources to facilitate future expansions and research on objective audio quality metrics.",
+   "url": "https://arxiv.org/abs/2610.37959",
+   "pdf": "https://arxiv.org/pdf/2610.37959",
+   "explain": {
+    "tldr": "A new open dataset of audio recordings with spatial distortions and listener ratings to improve audio quality research.",
+    "plain": "Audio quality assessment research lacks publicly available test data, especially for spatial effects like stereo imaging problems. This paper expands an existing open dataset (ODAQ) by adding high-quality music and speech recordings that have been deliberately processed with different types of spatial distortions—like problems with how sound is positioned between left and right channels. They had trained listeners rate these processed recordings in a controlled lab setting, creating nearly 19,000 ratings across 688 audio pairs. The researchers are releasing all this data publicly so other researchers can develop and test better automated tools for measuring audio quality.",
+    "why": "If you're working on music production tools, spatial audio plugins, or anything that processes stereo sound, having reliable data about how distortions affect perceived quality helps validate your work. This dataset lets developers test whether their tools are actually maintaining audio quality or introducing problems listeners can hear.",
+    "terms": [
+     {
+      "term": "binaural cue distortions",
+      "meaning": "problems introduced into the stereo information that affects how listeners perceive the location and width of sounds in the stereo field"
+     },
+     {
+      "term": "objective audio quality metrics",
+      "meaning": "automated measurements that try to predict how good audio sounds without needing human listeners to rate it"
+     },
+     {
+      "term": "subjective listening test",
+      "meaning": "having real people listen to audio and rate its quality, rather than using automated measurements"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
   {
    "id": "2610.37148",
    "title": "EEG-Based Decoding of Musical Mode and Melodic Direction Using Empirical Mode Decomposition",
