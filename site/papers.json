@@ -1,6 +1,159 @@
 {
- "updated": "2026-11-01T14:20:38Z",
+ "updated": "2026-11-02T17:11:25Z",
  "papers": [
+  {
+   "id": "2610.42095",
+   "title": "A General Theoretical Framework for Transformed Geometric Pattern Matching in Music",
+   "authors": [
+    "David Meredith"
+   ],
+   "published": "2026-10-30",
+   "category": "cs.SD",
+   "topics": [],
+   "summary": "In this paper, we present a framework of concepts, terminology and notation for geometric pattern matching, centred around the idea of a {\\em transformation class}. After formally defining the concept of a transformation class, we provide detailed definitions of a number of specific transformation classes that are particularly relevant to pattern matching and pattern discovery in music, which is the primary application domain within which the framework has been developed. We then provide formal definitions of the notions of {\\em match}, {\\em occurrence}, {\\em maximal match\\/} and {\\em maximal occurrence\\/} and prove some results relating to these concepts. We then define and explore in detail the idea of an {\\em occurrence set\\/} and the more general notion of a {\\em heterogeneous occurrence set}. Finally, we explore in detail the concept of {\\em transformational equivalence}, including a consideration of {\\em transformation groups}, along with the group-theoretic and transformational equivalence properties of selected transformation classes.",
+   "url": "https://arxiv.org/abs/2610.42095",
+   "pdf": "https://arxiv.org/pdf/2610.42095",
+   "explain": {
+    "tldr": "A formal framework for finding musical patterns that sound similar even when transformed (transposed, inverted, etc.).",
+    "plain": "When musicians look for patterns in music, they often find the same melodic or harmonic idea appearing in different forms—shifted to a different key, flipped upside down, or otherwise altered. This paper creates a precise mathematical language for describing these transformations and what it means for patterns to match across them. The authors define key concepts like what counts as a match, when matches are maximal (complete), and how to group patterns that are equivalent under transformation. This gives music researchers a formal toolkit for pattern discovery.",
+    "why": "Musicians and music analysts intuitively recognize transformed patterns all the time—a composer's motif reappearing in a new key, or a theme inverted. Having rigorous definitions helps music software and analysis tools find these patterns automatically and consistently, which matters for composition tools, musicology research, and music information retrieval systems.",
+    "terms": [
+     {
+      "term": "transformation class",
+      "meaning": "A set of specific ways a musical pattern can be altered (like transposition or inversion) that you want to treat as equivalent"
+     },
+     {
+      "term": "maximal match",
+      "meaning": "A pattern match that is as long or complete as possible—you can't extend it further without breaking the match"
+     },
+     {
+      "term": "transformational equivalence",
+      "meaning": "The idea that two patterns are essentially the same if one can be turned into the other through allowed transformations"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.41547",
+   "title": "Self-Localization of Distributed Microphone Arrays Using One Source and Acoustic Reflections",
+   "authors": [
+    "Thomas Guffroy",
+    "Jean-Daniel Pascal Prieto",
+    "Cédric Foy",
+    "Antoine Deleforge"
+   ],
+   "published": "2026-10-30",
+   "category": "cs.SD",
+   "topics": [
+    "spa"
+   ],
+   "summary": "We present a method to estimate the relative position and orientation of two non-coplanar microphone arrays using a room impulse response (RIR) from a single source. The approach exploits early acoustic reflections, retrieved by each array in the form of a 3D image-source point cloud, using a recently-proposed image-source localization technique. The task is then reduced to aligning the two unlabeled point clouds, which is made difficult by their inherent symmetries and by spurious, missing and noisy estimates. To this aim we introduce ARCTIC, a point-cloud registration algorithm that performs a ranked search over congruent triangles anchored on the true source. Simulated and real experiments show that ARCTIC strongly outperforms two baselines, achieving mean angular and radial self-localization errors below 5 and 10 cm across 36 real RIRs measured in 6 different rooms.",
+   "url": "https://arxiv.org/abs/2610.41547",
+   "pdf": "https://arxiv.org/pdf/2610.41547",
+   "explain": {
+    "tldr": "A method to figure out where two microphone arrays are positioned relative to each other using room reflections from a single sound source.",
+    "plain": "When you have two separate microphone arrays in a room, it's hard to know their exact positions and orientations relative to each other. This paper uses the reflections that bounce around the room—captured by both arrays—to solve that problem. They convert the reflections into point clouds and match them together using a new algorithm called ARCTIC. Tests in real rooms show the method can pinpoint array positions quite accurately.",
+    "why": "This matters for spatial audio recording and live sound setups where multiple microphone arrays need to work together. If you're capturing surround sound or doing immersive audio, knowing exactly where your mics are positioned helps you get the spatial information right without manual calibration.",
+    "terms": [
+     {
+      "term": "room impulse response (RIR)",
+      "meaning": "A recording of how sound bounces and reflects in a specific room, capturing all the early and late reflections that color the acoustics"
+     },
+     {
+      "term": "image-source point cloud",
+      "meaning": "A 3D map of virtual sound reflections in a room, showing where sound bounces came from based on the reflections detected by a microphone"
+     },
+     {
+      "term": "point-cloud registration",
+      "meaning": "The process of aligning two sets of 3D points in space to find how they match up or overlap"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.41512",
+   "title": "Parameter-Efficient Fine-Tuning of Transformer Encoders for Audio-Image-Symbolic Music Retrieval",
+   "authors": [
+    "Eliseo Fuentes-Martinez",
+    "Antonio Hidalgo-Centeno",
+    "Jorge Calvo-Zaragoza",
+    "Antonio Javier Gallego"
+   ],
+   "published": "2026-10-30",
+   "category": "cs.CV",
+   "topics": [
+    "rep"
+   ],
+   "summary": "Score-based multimodal music retrieval requires representations that are both discriminative within each modality and compatible across audio recordings, sheet music images, and symbolic scores. This paper investigates the effectiveness of parameter-efficient fine-tuning (PEFT) for adapting pretrained music encoders and examines whether modality-specific improvements translate into better multimodal representations. We compare full fine-tuning, LoRA, and QLoRA across nine pretrained audio, image, and symbolic score encoders on TriScore and the Musical Theme Dataset. Encoders are first evaluated and selected through supervised unimodal classification, using frozen-encoder linear probing as a reference. We then introduce a controlled 2x2 design crossing encoder adaptation with task-specific shared projection, comparing frozen and adapted representations before and after projection. LoRA or QLoRA is selected in 14 of 18 modality-target combinations, frequently matching or outperforming full fine-tuning while optimizing substantially fewer parameters. However, these unimodal gains do not transfer uniformly to multimodal classification. Adaptation and projection are complementary for composer classification on TriScore, largely redundant for TriScore instrument and the Musical Theme Dataset instrument and ensemble tasks, and partially interfering for composer classification on the Musical Theme Dataset. The final adapted-and-projected title representation on TriScore supports piece-level retrieval, reaching average Top-5 and Top-10 accuracies of 55.32 and 64.68, respectively. Cross-modal exclusion and neighborhood analyses further reveal strong modality-specific local structure in the projected spaces. Overall, PEFT provides an effective and computationally efficient alternative to full fine-tuning, but improved unimodal discrimination alone does not guarantee better multimodal organization.",
+   "url": "https://arxiv.org/abs/2610.41512",
+   "pdf": "https://arxiv.org/pdf/2610.41512",
+   "explain": {
+    "tldr": "Parameter-efficient fine-tuning improves individual music representations but doesn't always help when combining audio, sheet music, and symbolic scores.",
+    "plain": "Music retrieval systems need to understand recordings, sheet music images, and digital scores—ideally finding the same piece across all three formats. This paper tests efficient ways to adapt pretrained AI models for this task, comparing methods that update fewer parameters (LoRA, QLoRA) against updating everything. They found these efficient methods often work as well as full updates while using far less computation, but surprisingly, getting better at understanding one format individually doesn't automatically make the system better at matching across formats.",
+    "why": "For musicians and producers, this matters because better cross-modal retrieval could enable tools that find a piece whether you hum it, show a photo of sheet music, or upload a MIDI file. Understanding what works and what doesn't helps build more practical music search and organization systems.",
+    "terms": [
+     {
+      "term": "parameter-efficient fine-tuning (PEFT)",
+      "meaning": "Methods to adapt pretrained AI models by updating only a small fraction of their internal settings, saving computation and memory"
+     },
+     {
+      "term": "LoRA and QLoRA",
+      "meaning": "Specific parameter-efficient techniques that add small trainable layers rather than modifying the entire model"
+     },
+     {
+      "term": "multimodal representation",
+      "meaning": "A unified way of encoding information from different sources (audio, images, text) so they can be compared or matched"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2610.40759",
+   "title": "TAPE: Learning General Audio Effect Representations",
+   "authors": [
+    "Phillip Long",
+    "Yongyi Zang",
+    "Qihui Yang",
+    "Christodoulos Benetatos",
+    "Junfei Liu",
+    "Randal Leistikow",
+    "Julian McAuley",
+    "Perry R. Cook"
+   ],
+   "published": "2026-10-29",
+   "category": "cs.SD",
+   "topics": [
+    "syn",
+    "hci",
+    "rep"
+   ],
+   "summary": "Musicians and mixing engineers often can decipher the signal processing chain they hear on a reference recording, then adapt it to new material. We present TAPE (Transformations of Audio Parameter Embeddings), which estimates this processing from the processed reference audio alone. An encoder trained to identify processors in eight major effect families maps the reference to an embedding. A differentiable digital signal processing (DSP) chain decodes the embedding into editable parameters in one forward pass and applies them to a different unprocessed recording. Its modules are equalization, compression, waveshaping, a small residual network, and reverberation. TAPE achieves lower spectral error than DeepAFx-ST, the previous state of the art for single-step regression, and lower spectral error than per-example search over a chain approximating ST-ITO's, while running 275$\\times$ faster than that search. Because the decoder outputs DSP parameters, its chain can also run causally: a C++ implementation with the trained weights processed 128-sample buffers 1.8$\\times$ faster than real time, with no missed deadlines.",
+   "url": "https://arxiv.org/abs/2610.40759",
+   "pdf": "https://arxiv.org/pdf/2610.40759",
+   "explain": {
+    "tldr": "A system that listens to processed audio and figures out what effects were used, then applies them to new recordings.",
+    "plain": "When you hear a song with great effects, you might try to recreate that sound on your own music—but it's hard to know exactly what processors were used. TAPE solves this by analyzing a processed reference recording and estimating which effects (like EQ, compression, reverb) were applied and with what settings. It then applies those same settings to a different, unprocessed recording. The system works faster and more accurately than previous methods, and can even run in real-time on a computer during live recording.",
+    "why": "This could help producers and engineers speed up their workflow by automatically matching the sonic character of reference tracks. Instead of manually tweaking knobs to recreate a sound, you could let the system suggest the processing chain, then refine from there.",
+    "terms": [
+     {
+      "term": "embedding",
+      "meaning": "a compact numerical representation of audio that captures its key characteristics, learned by a neural network"
+     },
+     {
+      "term": "differentiable DSP chain",
+      "meaning": "a series of audio processors (EQ, compression, etc.) built so that a computer can automatically adjust their settings to match a target sound"
+     },
+     {
+      "term": "spectral error",
+      "meaning": "a measure of how different two sounds are, based on comparing their frequency content"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
   {
    "id": "2610.40640",
    "title": "SonoWorld4D: From One Video to a 4D Audio-Visual Scene via Diffusion Synchronization",
@@ -941,6 +1094,7 @@
    "authors": [
     "Qingyu Luo",
     "Peng Zhang",
+    "Davide Berghi",
     "Wenwu Wang",
     "Philip J. B. Jackson"
    ],
