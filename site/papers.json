@@ -1,6 +1,474 @@
 {
- "updated": "2026-11-02T17:11:25Z",
+ "updated": "2026-11-03T15:17:15Z",
  "papers": [
+  {
+   "id": "2611.03077",
+   "title": "Ananas: A Networked Audio System for Distributed Spatial Audio Applications",
+   "authors": [
+    "Thomas Rushton",
+    "Romain Michon",
+    "Tanguy Risset"
+   ],
+   "published": "2026-11-02",
+   "category": "cs.SD",
+   "topics": [
+    "syn",
+    "spa"
+   ],
+   "summary": "Spatial audio has an accessibility problem. Largescale spatial and immersive audio installations remain costly and exclusive, with high barriers to entry. We propose ''Ananas,'' a networked audio system consisting of network protocols, control software and microcontroller firmware, with the aim of rendering spatial audio applications accessible to a broad cohort of potential users. Based on a network of low-cost microcontroller development boards programmed in the Faust programming language, synchronised to nanosecond order via IEEE 1588 Precision Time Protocol, and controlled by approachable, digital audio workstation-based tooling, Ananas represents an opportunity to disrupt and democratise the spatial audio landscape. In this paper we demonstrate Ananas's protocols for audio and control data transmission and device discovery, its methods for media clock and presentation time recovery, and its applications to wave field synthesis and higher order ambisonics in a modular, scalable form.",
+   "url": "https://arxiv.org/abs/2611.03077",
+   "pdf": "https://arxiv.org/pdf/2611.03077",
+   "explain": {
+    "tldr": "Ananas is an affordable networked system for creating spatial audio using cheap microcontrollers and standard music software.",
+    "plain": "Spatial audio installations—where sound comes from multiple directions around you—are usually expensive and hard to set up. Ananas solves this by using inexpensive microcontroller boards networked together and controlled through familiar DAW software. The system keeps all the speakers perfectly synchronized and can handle different spatial audio techniques, making immersive sound accessible to more people.",
+    "why": "If you want to create immersive, multi-speaker audio experiences but can't afford expensive professional systems, Ananas could let you build spatial audio installations with affordable hardware and tools you might already know.",
+    "terms": [
+     {
+      "term": "Wave field synthesis",
+      "meaning": "A technique for recreating sound as if it's coming from specific locations by carefully controlling many speakers"
+     },
+     {
+      "term": "Higher order ambisonics",
+      "meaning": "A method for recording and playing back spatial audio that captures sound direction from all around, with more detail at higher orders"
+     },
+     {
+      "term": "IEEE 1588 Precision Time Protocol",
+      "meaning": "A network standard that synchronizes devices to extremely precise timing, ensuring speakers stay perfectly coordinated"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.02927",
+   "title": "A Compact Statistical View of Musical-Instrument Directivity",
+   "authors": [
+    "Gioele Greco",
+    "Mirco Pezzoli",
+    "Raffaele Malvermi",
+    "Gian Marco Ricci",
+    "Fabio Antonacci"
+   ],
+   "published": "2026-11-02",
+   "category": "eess.AS",
+   "topics": [
+    "spa",
+    "rep"
+   ],
+   "summary": "Directivity is a defining feature of musical-instrument radiation and is known to vary strongly with frequency. With the growing availability of measured directivity datasets and their use in sound-field simulation and spatial audio, there is a practical need for representations that are both compact and comparable across sources. This work addresses that need by proposing a statistically grounded description of frequency-dependent directivity that reduces complex radiation patterns to a small set of meaningful descriptors. The approach enables directivity patterns to be summarized in an interpretable way and compared consistently across frequency bands, even when the radiation is not well described by a single dominant direction. The resulting representation supports tasks such as analysis, categorization, and model building, providing a bridge between detailed measurements and higher-level descriptors useful for musical acoustics and audio rendering. Experiments on a corpus of 41 orchestral instruments show that the proposed method preserves the distance geometry well while reducing the full order-4, 30-band corpus from about 492~kB to about 100~kB in double-precision storage.",
+   "url": "https://arxiv.org/abs/2611.02927",
+   "pdf": "https://arxiv.org/pdf/2611.02927",
+   "explain": {
+    "tldr": "A method to summarize how musical instruments radiate sound in different directions across frequencies using fewer numbers.",
+    "plain": "Musical instruments don't radiate sound equally in all directions—they're louder in some directions than others, and this changes with frequency. When researchers measure these radiation patterns, they get huge datasets that are hard to work with and compare. This paper proposes a statistical way to describe these patterns using just a few meaningful numbers instead of storing all the raw data, making it easier to analyze instruments, categorize them, and use them in audio simulations.",
+    "why": "If you're working with spatial audio, virtual instruments, or trying to understand how different instruments project sound in a room, having a compact but accurate way to describe directivity helps you model and render instruments more faithfully without needing massive datasets.",
+    "terms": [
+     {
+      "term": "directivity",
+      "meaning": "how sound radiation from an instrument varies depending on the direction you listen from"
+     },
+     {
+      "term": "distance geometry",
+      "meaning": "the mathematical relationships between how different measurements relate to each other in space"
+     },
+     {
+      "term": "order-4",
+      "meaning": "a level of mathematical detail used to describe complex directional patterns"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.02680",
+   "title": "VioTech: Frame-Level Violin Playing Technique Detection with Multi-Scale Mixture-of-Experts",
+   "authors": [
+    "Ting-Kang Wang",
+    "Vincent K. M. Cheung",
+    "Nan-Tien Lai",
+    "Li Su"
+   ],
+   "published": "2026-11-02",
+   "category": "cs.SD",
+   "topics": [
+    "mir",
+    "hci"
+   ],
+   "summary": "Playing technique is crucial for expressive violin performance, yet few violin technique detection models exist. Current systems mainly rely on note-level pipelines that first estimate note boundaries and then classify techniques. This is especially problematic for bowed string instruments such as the violin, where soft onsets and continuous bow-string interaction render note segmentation unreliable. Here, we propose VioTech, a frame-level violin technique detection framework that predicts techniques directly at 10 ms resolution without explicit note segmentation. To handle the large temporal-scale variation among techniques, VioTech combines a frozen MERT encoder with a multi-scale Mixture-of-Experts (MoE) architecture and task-specific routing for tonal, articulation, and legato-related predictions. We also introduce VioTech120, the first manually annotated dataset of violin playing techniques constructed from real solo performance recordings, as well as an accompanying note-labeling user interface. Results demonstrate that VioTech achieved consistent improvements over prior methods and significantly enhanced cross-dataset generalization, establishing a new state-of-the-art in violin technique-aware transcription.",
+   "url": "https://arxiv.org/abs/2611.02680",
+   "pdf": "https://arxiv.org/pdf/2611.02680",
+   "explain": {
+    "tldr": "A system that detects violin playing techniques directly from audio without needing to identify individual notes first.",
+    "plain": "Violin playing techniques—like different bowing styles or articulation methods—are essential for expressive performance, but detecting them automatically is hard. Most existing systems try to find note boundaries first, then classify techniques, which doesn't work well for violin because bows create soft, continuous sounds that are hard to segment. VioTech instead analyzes the audio at very short time intervals (10 milliseconds) and predicts techniques directly, using a specialized neural network architecture designed to handle techniques that happen at different time scales. The researchers also created VioTech120, a new dataset of real violin recordings with hand-labeled techniques, and showed their system outperforms previous approaches.",
+    "why": "For musicians and producers, this could enable better automatic transcription and analysis of violin performances, capturing not just what notes were played but *how* they were played. For instrument makers or music educators, it could provide tools to analyze and give feedback on playing technique.",
+    "terms": [
+     {
+      "term": "frame-level",
+      "meaning": "analyzing audio in very short, fixed time chunks (here, 10 milliseconds each) rather than longer segments"
+     },
+     {
+      "term": "Mixture-of-Experts",
+      "meaning": "a neural network design where multiple specialized sub-networks each handle different types of patterns, and a routing system decides which to use"
+     },
+     {
+      "term": "MERT encoder",
+      "meaning": "a pre-trained neural network component that converts raw audio into a useful intermediate representation for music analysis"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.02408",
+   "title": "Deployment-constrained key estimation with a DSP-guided transformer reranker",
+   "authors": [
+    "Pardis Noorzad"
+   ],
+   "published": "2026-11-02",
+   "category": "cs.SD",
+   "topics": [
+    "mir",
+    "syn"
+   ],
+   "summary": "Local music applications estimate key during library import and benefit from an analyzer that is small, fast, and runs in-process. We start from a compact chroma-template key analyzer that fits this budget but lags behind learned references. Learned systems reach higher accuracy, but their installed model and runtime dependencies can occupy tens to hundreds of megabytes. We present key lime, a 21.5k-parameter DSP-guided transformer reranker with a 115 KB model artifact and a 76.7 MB installed footprint, including the extracted ONNX Runtime. It adds 0.32 ms per track to deterministic DSP scoring. Trained from labels on 4,040 FMAK tracks, with 449 tracks for validation and 1,000 disjoint FMAKv2 tracks held out for evaluation, it improves MIREX from 61.08 to 73.55 +/- 0.46 and exact accuracy from 52.30 to 67.07 +/- 0.65 over three seeds (mean +/- population SD). It approaches a same-manifest local madmom KeyCNN reference at 74.16 MIREX. A 12-parameter circular input stage matches the accuracy range of a 468-parameter linear input projection.",
+   "url": "https://arxiv.org/abs/2611.02408",
+   "pdf": "https://arxiv.org/pdf/2611.02408",
+   "explain": {
+    "tldr": "A tiny AI model that identifies musical key quickly on your computer without needing heavy software.",
+    "plain": "Music apps need to automatically detect what key a song is in when you import files, but they're limited by storage and processing power. The researchers built a small neural network that improves on traditional key-detection methods while staying lightweight enough to run locally. Their system is 115 KB and adds almost no processing time, yet it significantly improved accuracy compared to simpler methods and nearly matches larger reference systems.",
+    "why": "For musicians and producers using music software, this means faster, more accurate key detection during library imports without slowing down your computer or requiring large downloads. It's especially useful for music apps that work offline or on devices with limited resources.",
+    "terms": [
+     {
+      "term": "transformer reranker",
+      "meaning": "A neural network that takes existing predictions and improves them by learning patterns in the data"
+     },
+     {
+      "term": "chroma-template",
+      "meaning": "A traditional method that identifies key by analyzing which musical notes are present in a song"
+     },
+     {
+      "term": "MIREX",
+      "meaning": "A standard accuracy metric for music information retrieval tasks, where higher scores mean better performance"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.02330",
+   "title": "Spatial Transfusion: From Structured Spatial Scene Understanding to Generation and Editing",
+   "authors": [
+    "Jaeyeon Kim",
+    "Sebastian Braun",
+    "Hannes Gamper"
+   ],
+   "published": "2026-11-02",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "spa",
+    "hci",
+    "rep"
+   ],
+   "summary": "Spatial audio conveys not only what sounds are present, but where they originate and how they interact with the environment. Recent audio-language models increasingly understand and reason about such scenes, yet spatial audio understanding, generation, and editing remain largely separate. We present Spatial Transfusion, a unified first-order ambisonics (FOA) framework that extends a pretrained spatial audio understanding model to generation and editing through flow matching over VAE latents. We formulate editing as a structured scene transformation over a taxonomy of atomic edits. Keeping the pretrained backbone frozen, we introduce modality-based LoRA routing and a curriculum that progressively adds generation, editing, and natural-language interaction. Experiments show that Spatial Transfusion largely preserves spatial understanding while outperforming full fine-tuning in generation and editing. The resulting model supports controllable FOA generation and editing through both structured and natural-language interfaces. Audio samples are available at https://microsoft.github.io/spatial-transfusion/",
+   "url": "https://arxiv.org/abs/2611.02330",
+   "pdf": "https://arxiv.org/pdf/2611.02330",
+   "explain": {
+    "tldr": "A system that understands, generates, and edits spatial audio using a unified framework based on ambisonics.",
+    "plain": "Spatial audio tells you not just what sounds are playing, but where they're coming from in 3D space. Most AI tools handle understanding, generation, and editing as separate tasks. This paper presents a single model that does all three by building on an existing audio-understanding system and adding generation and editing capabilities. You can control the results either by describing what you want in words or by specifying exact changes to the spatial scene.",
+    "why": "For producers and sound designers, this means potential tools for creating immersive spatial mixes, repositioning sounds in 3D space, or generating spatial audio scenes from descriptions—all in one workflow rather than juggling separate systems.",
+    "terms": [
+     {
+      "term": "first-order ambisonics (FOA)",
+      "meaning": "A standard format for recording and representing 3D spatial audio that captures sound direction and space around a listener"
+     },
+     {
+      "term": "VAE latents",
+      "meaning": "Compressed numerical representations of audio learned by a neural network, used as a compact space for generation and editing"
+     },
+     {
+      "term": "LoRA routing",
+      "meaning": "A technique that uses lightweight adapter modules to steer a frozen pretrained model toward different tasks without retraining it"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.02083",
+   "title": "Count-Density Networks for Modal Plate Parameter Estimation",
+   "authors": [
+    "Rodrigo Diaz",
+    "Pablo Tablas De Paula",
+    "David Marttila",
+    "Ilias Ibnyahya",
+    "Chin-Yun Yu"
+   ],
+   "published": "2026-11-01",
+   "category": "eess.AS",
+   "topics": [
+    "gen",
+    "syn"
+   ],
+   "summary": "We describe two submissions to Task B of the 1st DAFx Parameter Estimation Challenge, which estimates an unknown number of modal frequency, decay, and gain triples from a synthetic plate-reverb impulse response. The first method combines pooled spectral features with time-domain and absolute-scale conditioning in a real-valued convolutional count-density network, while the second uses a complex-valued Transformer count-density network. Both methods jointly infer the modal count and per-mode attributes directly from the IR. On an independently generated 100-IR comparison set, the two neural estimators achieve lower overall challenge error than the evaluated classical baselines, with frequency and decay estimation substantially more accurate than gain estimation.",
+   "url": "https://arxiv.org/abs/2611.02083",
+   "pdf": "https://arxiv.org/pdf/2611.02083",
+   "explain": {
+    "tldr": "Neural networks estimate the hidden vibration modes in plate reverb from audio recordings.",
+    "plain": "Plate reverb is a classic effect that works by exciting a metal plate and recording its vibrations. These vibrations have distinct frequencies, how quickly they fade, and loudness levels—called modes. The challenge is figuring out these hidden modes from just listening to the reverb tail. The researchers built two AI systems (one using convolutional networks, one using Transformers) that can automatically detect how many modes exist and measure their properties. Both worked better than traditional methods, though they were more accurate at finding frequencies and decay rates than measuring loudness.",
+    "why": "Understanding plate reverb modes helps recreate this classic sound digitally or design better reverb plugins. Accurate parameter estimation could let producers model real plate reverbs more faithfully or help instrument makers understand how physical plates behave.",
+    "terms": [
+     {
+      "term": "modal frequency",
+      "meaning": "the pitch at which a vibrating object naturally resonates; each mode vibrates at its own frequency"
+     },
+     {
+      "term": "impulse response",
+      "meaning": "the audio captured when you excite a reverb (like hitting a plate) and record how it rings out"
+     },
+     {
+      "term": "count-density network",
+      "meaning": "a neural network designed to both count how many things exist and estimate their properties simultaneously"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.01843",
+   "title": "MEX: The Musical Expectation Benchmark Suite",
+   "authors": [
+    "Mathias Rose Bjare",
+    "Augustin Bouquillard",
+    "Giorgia Cantisani",
+    "Seung-Goo Kim",
+    "Stefan Lattner",
+    "Gerhard Widmer"
+   ],
+   "published": "2026-11-01",
+   "category": "cs.SD",
+   "topics": [
+    "mir"
+   ],
+   "summary": "We propose the Musical Expectation (MEX) benchmark suite for perceptually validating computational models of musical expectation, i.e., models that estimate music information dynamics (MID) measures of perceived musical expectations, such as surprisal or uncertainty from symbolic music or musical audio. MEX collects and extends tasks for evaluating such models previously proposed in music information retrieval and cognitive sciences using standard datasets, and evaluates whether: (1) proposed MID measures decrease with repetition due to in-context learning of the computational model, (2) peaks in such measures align with boundaries of music segments, (3) pitch surprisal and uncertainty estimated from audio are consistent with those modeled in event-based symbolic music, (4) proposed MID measures can predict electrophysiological responses to music. We stress that this benchmark suite does not provide an exhaustive computational characterization of music expectation. Rather, we envision this as an active, interdisciplinary initiative, with benchmarks evolving as our understanding of the underlying perceptual processes deepens. We provide open-access code https://github.com/musicperceptmodeling/mex to estimate surprisal and uncertainty from audio using baseline models, run the tasks on standard datasets, and include utilities for running the tasks with users' own data.",
+   "url": "https://arxiv.org/abs/2611.01843",
+   "pdf": "https://arxiv.org/pdf/2611.01843",
+   "explain": {
+    "tldr": "A benchmark suite to test whether computational models accurately capture how listeners perceive musical expectations.",
+    "plain": "Musicians and listeners develop expectations about what comes next in music—some moments feel surprising, others predictable. Researchers have built computational models to estimate these expectations by measuring things like surprisal (how unexpected a moment is) and uncertainty. This paper proposes MEX, a set of standardized tests to check whether these models actually work. The tests verify that models learn from repetition, detect where musical sections begin and end, and match how listeners' brains respond to music.",
+    "why": "Understanding musical expectation computationally could help producers and composers understand listener engagement, inform music generation tools, and deepen our scientific understanding of why certain musical moments feel impactful or boring.",
+    "terms": [
+     {
+      "term": "surprisal",
+      "meaning": "a measure of how unexpected or shocking a musical event feels based on what came before"
+     },
+     {
+      "term": "music information dynamics (MID)",
+      "meaning": "computational measures that track how musical properties like surprise or uncertainty change moment-to-moment through a piece"
+     },
+     {
+      "term": "electrophysiological responses",
+      "meaning": "electrical signals from the brain (like EEG) that show how the nervous system reacts to music"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.01147",
+   "title": "Rel2Traj: Inter-Source Relation-Aware Trajectory Generation for Text-To-Spatial-Audio",
+   "authors": [
+    "Yihang Bao",
+    "Lingfeng Yao",
+    "Shengyao Wang",
+    "Junpei Xun",
+    "Miao Pan",
+    "Jiang Liu"
+   ],
+   "published": "2026-10-31",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "spa",
+    "rep"
+   ],
+   "summary": "\"A car drives from front left to front right while a dog follows it.\" Such a description specifies no particular trajectory, yet imposes a constraint on the joint motion of both sources that must hold at every frame. Existing text-to-spatial-audio methods can position and move each sound source according to its description, but none of them ensures or verifies that such inter-source relations hold. We therefore propose Rel2Traj, which parses the description into sources, relations, and anchors, jointly generates the trajectories of all sources using a relation-conditioned diffusion model, and finally renders sounds from a pretrained text-to-audio model along these trajectories to produce binaural audio. For training and evaluation, we construct a synthetic dataset from a controlled language of source motions and inter-source relations. A single frame-wise relational geometry defines both our evaluation metric, the Relation Satisfaction Rate (RSR), and an auxiliary training loss. On motion-relation combinations held out from training, Rel2Traj maintains all relation types, whereas every baseline fails on at least one. A listening test further confirms that listeners recognize the described relations. To our knowledge, this is the first text-to-spatial-audio work to model relations among moving sources as explicit geometric constraints.",
+   "url": "https://arxiv.org/abs/2611.01147",
+   "pdf": "https://arxiv.org/pdf/2611.01147",
+   "explain": {
+    "tldr": "A system that generates spatial audio from text descriptions while maintaining relationships between moving sound sources.",
+    "plain": "When you describe spatial audio scenes with multiple moving sounds—like \"a car drives left while a dog follows\"—existing systems position each sound independently and miss the relationship between them. This paper proposes Rel2Traj, which understands these relationships as geometric constraints and generates coordinated movements for all sources together. They built a dataset to test this and found their approach successfully maintains the described relationships between sources, while other methods fail on at least some relationship types.",
+    "why": "For producers and sound designers creating immersive spatial audio, this means you could describe complex scenes with moving objects that interact spatially, and the system would respect those interactions automatically rather than requiring manual adjustment of each sound's path.",
+    "terms": [
+     {
+      "term": "diffusion model",
+      "meaning": "A machine learning approach that generates content by gradually refining random noise into structured output, guided by conditions like text descriptions"
+     },
+     {
+      "term": "binaural audio",
+      "meaning": "Spatial audio designed for headphones that creates the illusion of sounds coming from different directions around the listener"
+     },
+     {
+      "term": "inter-source relations",
+      "meaning": "The spatial and temporal relationships between multiple sound sources, like one sound following another or maintaining a specific distance"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.01047",
+   "title": "How Close to the Theme? Similarity-Label Conditioning for Game Music Generation",
+   "authors": [
+    "Shangxuan Luo",
+    "Zixun Guo",
+    "Jinjie Shi",
+    "Joshua Reiss"
+   ],
+   "published": "2026-10-31",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "rep"
+   ],
+   "summary": "Composers develop music from an original idea, controlling how similar each new section is to it, from near repetition to new material. Game music needs this often, as its material repeats over long play. Music models, however, rarely learn to control similarity from real pieces. We further train a pretrained MIDI model on section pairs from Super Mario pieces. A label states each pair's similarity, and a context vector summarises the given section, or context. For 157 test contexts, the model generates six outputs per label. Twelve measures score the outputs; one main measure each covers melody, pitch content, rhythm and note length. On average, outputs requested as similar are more similar to their context than those requested as dissimilar, and not to other pieces. All twelve measures favour them; each main measure stays significant after correction for multiple tests. On melody, the gap comes mainly from more frequent restatement of the context's melody. Against an otherwise identical model without a label, only the request for high similarity makes outputs more similar. In a listening test, ratings followed melodic overlap with the context most closely of all measures.",
+   "url": "https://arxiv.org/abs/2611.01047",
+   "pdf": "https://arxiv.org/pdf/2611.01047",
+   "explain": {
+    "tldr": "Train a music model to control how similar generated game music sections are to an original theme.",
+    "plain": "Game composers often repeat and vary a musical idea across long pieces. Most AI music models don't learn to do this deliberately. The researchers took a pretrained music model and retrained it on pairs of Super Mario music sections, labeling how similar each pair was. When they asked the model to generate music at different similarity levels, it succeeded: pieces labeled as similar actually matched the original theme better than those labeled as dissimilar, especially by repeating the original melody more often.",
+    "why": "If you're making game music or interactive music that needs to evolve while staying recognizable, this shows a way to control that balance automatically. It could help composers or tools manage repetition and variation across long play sessions.",
+    "terms": [
+     {
+      "term": "pretrained MIDI model",
+      "meaning": "A machine learning model already trained on lots of music data, ready to be adapted for a specific task"
+     },
+     {
+      "term": "context vector",
+      "meaning": "A compressed summary of a musical section that the model uses as a reference point"
+     },
+     {
+      "term": "similarity label",
+      "meaning": "A tag or number you give the model to tell it how much the new music should resemble the original"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.00746",
+   "title": "ResMamba: A Dual-Path Convolution-Mamba Model for Music Genre Classification",
+   "authors": [
+    "Yingyu Zhang",
+    "Pu Qu"
+   ],
+   "published": "2026-10-31",
+   "category": "cs.SD",
+   "topics": [
+    "mir",
+    "rep"
+   ],
+   "summary": "Music genre classification remains a fundamental yet challenging task in music information retrieval, requiring models that capture local time--frequency patterns and long-range temporal dependencies. To address this, we propose ResMamba, a hybrid architecture that augments a ResNet-style four-stage backbone with Mamba blocks. Building upon the selective structured state space sequence model, ResMamba first adapts the selective SSM into a 4D-compatible residual Mamba block that captures global dependencies at linear complexity. We then design the ConvMamba dual-path block, which combines this adapted Mamba branch with a parallel convolutional branch through a learned $1\\times1$ fusion, jointly modeling global sequential context and local spectro-temporal patterns. Furthermore, we adopt a multi-scale fusion head that aggregates hierarchical representations across all four stages. Experiments on the GTZAN dataset demonstrate that our full ResMamba model achieves a 5-fold cross-validation accuracy of $88.99\\% \\pm 1.58\\%$, surpassing the strongest published method in our comparison (88.64\\%). All models are trained from scratch without any pretraining, external data, or data augmentation. Beyond GTZAN, ResMamba also generalizes to the larger FMA benchmarks under the same training protocol, attaining $64.52\\% \\pm 1.88\\%$ on FMA-Small under 10-fold cross-validation --- the best published from-scratch result --- and $65.75\\%$ on FMA-Medium under the official artist-level split, surpassing the widely cited SVM baseline of Defferrard \\textit{et al.} (63\\%).",
+   "url": "https://arxiv.org/abs/2611.00746",
+   "pdf": "https://arxiv.org/pdf/2611.00746",
+   "explain": {
+    "tldr": "A hybrid neural network combining convolution and Mamba blocks classifies music genres by capturing both local and long-range patterns.",
+    "plain": "Music genre classification needs to recognize both immediate sound patterns (like a drum hit) and longer musical structures (like a song's overall flow). Most existing models struggle to do both efficiently. ResMamba combines two parallel processing paths: one using convolution for local details and one using Mamba blocks for long-range dependencies. When tested on standard music datasets, this hybrid approach achieved higher accuracy than previous methods, even without using pre-trained models or extra training data.",
+    "why": "Better genre classification helps music platforms organize libraries, recommend songs, and understand music collections. For producers and musicians, it could improve how music software tags and organizes their work automatically.",
+    "terms": [
+     {
+      "term": "Mamba blocks",
+      "meaning": "A type of neural network component designed to efficiently process long sequences by selectively focusing on important information"
+     },
+     {
+      "term": "spectro-temporal patterns",
+      "meaning": "Features that combine frequency content (what pitches are present) and time (how they change over moments)"
+     },
+     {
+      "term": "ResNet-style backbone",
+      "meaning": "A layered neural network structure that processes information through multiple stages, with shortcuts that help training"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.00685",
+   "title": "Text-to-music Generation via Structured Captions AND Interpretable Evaluation",
+   "authors": [
+    "Junkai Wu",
+    "Zhepei Wang",
+    "Ge Zhu",
+    "Sarah Hye-yeon Lee",
+    "Mari Ostendorf",
+    "Nicholas J. Bryan"
+   ],
+   "published": "2026-10-31",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "rep"
+   ],
+   "summary": "Text descriptions of music are central to the performance of text-to-music generation (TTM) methods, but creation of paired text information for music generation is relatively under explored. Here, we propose training latent diffusion/flow-based music generation models conditioned on structured captions (SCAPs) and compare with typical free-form captions via a set of controlled ablations. We compare free-form vs. structured captions, partial vs. full information coverage, and global vs. temporal text information during training, by fine-tuning different configurations of a pretrained flow-based diffusion transformer (DiT) and using a multi-stage inference-time prompt rewriter. Further, we introduce a new text-alignment evaluation protocol inspired by Davidsonian Scene Graphs (DSGs) for a fine-grained, interpretable measure of faithfulness of TTM methods. With multiple metrics, we show 1) that fine-tuning our DiT on SCAPs significantly improves text-alignment on music generation outputs while also improving quality, and 2) our proposed Music DSG metric better correlates with human preference than CLAP.",
+   "url": "https://arxiv.org/abs/2611.00685",
+   "pdf": "https://arxiv.org/pdf/2611.00685",
+   "explain": {
+    "tldr": "Using structured text descriptions improves AI music generation and introduces a better way to evaluate how well generated music matches descriptions.",
+    "plain": "Text-to-music systems generate music from written descriptions, but most research hasn't carefully studied what kind of text descriptions work best. This paper tests whether organized, structured descriptions (like listing instruments, tempo, and mood separately) work better than casual free-form text. They trained a music AI model on both types and found that structured descriptions produced better results. They also created a new evaluation method—inspired by scene graphs—that measures how faithfully the generated music matches what the text asked for, and found it predicts human preference better than existing metrics.",
+    "why": "For musicians and producers, this matters because it could make AI music generation tools more reliable and controllable. Better evaluation methods also help developers build systems that actually do what you ask them to do, rather than just sounding okay.",
+    "terms": [
+     {
+      "term": "latent diffusion/flow-based models",
+      "meaning": "AI systems that generate music by gradually refining random noise into structured sound, guided by text descriptions"
+     },
+     {
+      "term": "text-alignment",
+      "meaning": "how well the generated music actually matches what the text description asked for"
+     },
+     {
+      "term": "Davidsonian Scene Graphs",
+      "meaning": "a structured way to represent and compare the detailed elements (objects, actions, relationships) in a scene or description"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.00657",
+   "title": "Spatial DJ: Spatial Audio Control for Arbitrary Loudspeaker Layouts",
+   "authors": [
+    "Anastasia Geleta",
+    "Margarita Geleta"
+   ],
+   "published": "2026-10-31",
+   "category": "cs.SD",
+   "topics": [
+    "spa"
+   ],
+   "summary": "Object-based spatial audio promises render-anywhere playback, yet deploying it in a new venue still requires two tasks that are rarely addressed together: acquiring the physical loudspeaker geometry and enabling creators manipulate spatial audio while listening through the target loudspeaker system rather than a headphone proxy. We present Spatial DJ, a system for on-site loudspeaker layout acquisition and real-time spatial audio rendering and control, using head-worn AR in a coordinate frame aligned to the physical loudspeakers. In an 18-loudspeaker room, we evaluate calibration accuracy, repeatability, and control latency, and conduct an 18-participant listener study comparing diffuse and orbiting point-source rendering configurations applied to vocal and instrumental layers. Orbiting point-source conditions received higher ratings of perceived immersion, energy, and novelty than the diffuse baseline. Beyond this controlled setting, four representative deployments illustrate reuse of the same system across heterogeneous loudspeaker venues.",
+   "url": "https://arxiv.org/abs/2611.00657",
+   "pdf": "https://arxiv.org/pdf/2611.00657",
+   "explain": {
+    "tldr": "A system using AR headsets to set up spatial audio in any room and let creators control sound placement in real-time.",
+    "plain": "When you want to play spatial audio (sound moving around a room) in a new venue, you need to know where all the speakers are and be able to hear what you're creating through those actual speakers, not just headphones. Spatial DJ solves this by using AR glasses to map the speaker positions and then lets you control and hear spatial audio effects in real-time through the room's speakers. In tests, people preferred hearing sounds orbit around them rather than stay diffuse, and the system worked across different venue setups.",
+    "why": "This matters because it makes spatial audio production practical for live venues and installations. Instead of mixing in headphones and hoping it works in the actual space, you can now hear and adjust your spatial mix through the real speakers before the show.",
+    "terms": [
+     {
+      "term": "object-based spatial audio",
+      "meaning": "Audio where individual sounds (like vocals or instruments) are positioned as separate objects in 3D space, rather than being mixed into fixed stereo or surround channels"
+     },
+     {
+      "term": "AR (augmented reality)",
+      "meaning": "Technology that overlays digital information onto your view of the real world, typically through glasses or a headset"
+     },
+     {
+      "term": "diffuse rendering",
+      "meaning": "Playing sound in a way that makes it seem to come from all around equally, rather than from a specific location"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
   {
    "id": "2610.42095",
    "title": "A General Theoretical Framework for Transformed Geometric Pattern Matching in Music",
