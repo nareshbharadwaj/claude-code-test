@@ -1,6 +1,79 @@
 {
- "updated": "2026-11-03T15:17:15Z",
+ "updated": "2026-11-04T15:31:32Z",
  "papers": [
+  {
+   "id": "2611.03900",
+   "title": "Clean-anchored excess-emission control for CTC adaptation under competing speech",
+   "authors": [
+    "Yuanbo Zhou",
+    "Junjie Xiong"
+   ],
+   "published": "2026-11-02",
+   "category": "cs.SD",
+   "topics": [],
+   "summary": "Competing speech can cause excess emissions in a connectionist temporal classification (CTC) recognizer. We penalize the amount by which the noisy student's expected collapsed token count exceeds a frozen teacher's count on the paired clean utterance. The one-sided objective caches one scalar per utterance and adds no inference module. With 147,456 trainable parameters in wav2vec 2.0, it improves competing-speech word error rate (WER) over matched CTC-only adaptation across three development seeds. On a locked LibriSpeech test, speech-interference WER falls from 45.198% to 44.323%, while clean WER changes by 0.004 percentage points. Unseen VCTK interferers yield a 0.307-point improvement. Ablations favor collapsed-count control over frame-mass regularization. Longer training increases the speech gain but worsens noise and music performance, identifying an insertion-deletion tradeoff rather than uniform robustness.",
+   "url": "https://arxiv.org/abs/2611.03900",
+   "pdf": "https://arxiv.org/pdf/2611.03900",
+   "explain": {
+    "tldr": "A training method that helps speech recognition handle competing voices by comparing token counts between clean and noisy versions.",
+    "plain": "When speech recognition systems try to understand someone speaking over background voices, they sometimes make extra mistakes. This paper proposes a simple fix: during training, they compare how many speech units (tokens) the system predicts for a noisy recording versus a clean version of the same speech, and penalize when the noisy version produces too many. The method improved recognition accuracy on competing speech without hurting performance on clean audio, though it revealed a tradeoff—longer training helped with competing speech but made the system slightly worse at handling noise and music.",
+    "why": "For musicians and producers working with voice recordings or building voice-controlled systems, this matters because it shows how to make speech recognition more robust to background noise and competing voices—a common real-world problem in studios, live settings, and music production workflows.",
+    "terms": [
+     {
+      "term": "CTC (Connectionist Temporal Classification)",
+      "meaning": "A neural network approach that learns to recognize sequences like speech without needing frame-by-frame labels; it outputs tokens (units of sound) that can be collapsed into final predictions."
+     },
+     {
+      "term": "collapsed token count",
+      "meaning": "The number of distinct speech units the system predicts after removing consecutive duplicates—a way to measure what the model actually 'decided' to recognize."
+     },
+     {
+      "term": "wav2vec 2.0",
+      "meaning": "A pre-trained neural network model for speech that learns from unlabeled audio; used here as the base system being improved."
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.03839",
+   "title": "PianoBench: Evaluating Musical Perception and Reasoning in Language Models",
+   "authors": [
+    "Louis Bradshaw",
+    "Irmak Bukey",
+    "Daniel Chenyu Lin",
+    "John Thickstun",
+    "Chris Donahue"
+   ],
+   "published": "2026-11-02",
+   "category": "cs.SD",
+   "topics": [
+    "rep"
+   ],
+   "summary": "Multimodal language models continue to improve on broad music understanding benchmarks, but which musical features can they perceive and reason about? We investigate this question by introducing PianoBench, a benchmark that tasks language models with reasoning about musical performances across congruent acoustic and symbolic input representations. PianoBench is derived from our new multimodal, training-scale dataset comprising more than 20,000 hours of interleaved transcripts of music and spoken musical commentary from instructional piano videos. Open-weight audio-language models achieve at most 52.8% accuracy on PianoBench, and at best only modestly outperform their accuracy on a no-audio control. In contrast, frontier models using chain of thought achieve up to 93.2% accuracy when provided transcripts of music as text, exposing a gap between perceiving musical features from audio and reasoning about musical events when they are given explicitly. We then test whether mid-training on interleaved musical instruction can improve question answering without chain of thought, raising Qwen 3.5 9B Base's zero-shot accuracy on PianoBench with music transcripts from 42.8% to 56.0% after instruction tuning. These experiments suggest that instructional videos may represent an overlooked source of multimodal supervision for music. Available: https://gclef-cmu.org/pianobench.",
+   "url": "https://arxiv.org/abs/2611.03839",
+   "pdf": "https://arxiv.org/pdf/2611.03839",
+   "explain": {
+    "tldr": "A benchmark tests whether AI language models can understand and reason about piano music from audio versus written descriptions.",
+    "plain": "Researchers created PianoBench, a test with over 20,000 hours of piano instruction videos to see how well AI models understand music. They found that current audio-based models struggle—getting only about 53% accuracy—but when given written descriptions of the same music, advanced models reach 93% accuracy. This gap shows that AI can reason about music when it's spelled out in text, but has trouble extracting musical information directly from audio. Training models on instructional videos improved their performance, suggesting these videos are a valuable resource for teaching AI about music.",
+    "why": "This matters because it reveals what AI systems can and can't perceive in music, which affects how useful they'll be for music production, education, and analysis tools. Understanding these limitations helps developers build better music AI that actually listens to audio rather than just reading about it.",
+    "terms": [
+     {
+      "term": "multimodal language models",
+      "meaning": "AI systems that process multiple types of input (like audio, text, and images) together to understand information"
+     },
+     {
+      "term": "chain of thought",
+      "meaning": "a technique where AI explains its reasoning step-by-step before giving a final answer, often improving accuracy"
+     },
+     {
+      "term": "symbolic representation",
+      "meaning": "music written as notation or data (like sheet music or MIDI) rather than as sound waves"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
   {
    "id": "2611.03077",
    "title": "Ananas: A Networked Audio System for Distributed Spatial Audio Applications",
