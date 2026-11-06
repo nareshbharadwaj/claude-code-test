@@ -1,6 +1,408 @@
 {
- "updated": "2026-11-04T15:31:32Z",
+ "updated": "2026-11-06T15:09:47Z",
  "papers": [
+  {
+   "id": "2611.08130",
+   "title": "SubRoformer: Subband Time-Domain Representation for Music Source Separation",
+   "authors": [
+    "Chunyat Wu",
+    "Chuang Ding",
+    "Paris Smaragdis",
+    "Qiuqiang Kong"
+   ],
+   "published": "2026-11-05",
+   "category": "eess.AS",
+   "topics": [
+    "sep",
+    "syn",
+    "rep"
+   ],
+   "summary": "Music source separation extracts vocals and instruments from a mixed recording, enabling remixing, content production, and music analysis. Existing systems commonly operate on waveforms or full-band spectrograms. Waveform inputs contain many samples even in short segments, whereas a single spectrogram resolution imposes a shared time-frequency resolution trade-off across frequency ranges. We propose SubRoFormer, a Transformer-based system comprising a subband module and a residual RoFormer module. The subband module decomposes the mixture into frequency-localized, lower-rate signals for separation. It then reconstructs the target waveforms from the estimated subbands. The residual RoFormer module models temporal and cross-band relationships on temporally compressed features. It combines this context with fine-rate features through gated residual fusion to estimate source-specific complex masks. On the MUSDB18-HQ test set, training only on MUSDB18-HQ yields an average signal-to-distortion ratio (SDR) of 10.63 dB across four stems using target-specific models, achieving state-of-the-art performance among the compared systems without extra training data. With 500 additional training songs, a single model jointly separating all four stems achieves an average SDR of 11.59 dB, establishing state-of-the-art performance among the compared single-model multi-stem systems trained with extra data. Code and checkpoints are released at https://github.com/ArchiMickey/SubRoformer.",
+   "url": "https://arxiv.org/abs/2611.08130",
+   "pdf": "https://arxiv.org/pdf/2611.08130",
+   "explain": {
+    "tldr": "A Transformer system that separates music into vocals and instruments by processing frequency subbands separately.",
+    "plain": "Music source separation—extracting individual instruments and vocals from a mixed recording—is useful for remixing and production. Current systems struggle with a trade-off: they either process raw audio (which has too many samples to handle efficiently) or use spectrograms that force the same time-frequency resolution everywhere, even though different frequencies need different resolutions. SubRoFormer splits the audio into frequency subbands first, processes each at a lower rate, then uses a Transformer to model relationships across time and between subbands. On a standard test set, it achieved better separation quality than previous systems, especially when trained on extra data.",
+    "why": "Better source separation means producers and musicians can more easily isolate and remix individual tracks from mixed recordings, opening up new possibilities for remixing, sampling, and music analysis without needing the original multitrack files.",
+    "terms": [
+     {
+      "term": "subband",
+      "meaning": "A slice of the audio frequency spectrum—for example, all frequencies between 1 kHz and 2 kHz. Processing subbands separately lets the system handle different frequency ranges differently."
+     },
+     {
+      "term": "complex mask",
+      "meaning": "A mathematical filter that the system learns to apply to audio data to isolate one source (like vocals) from a mixture. 'Complex' means it works with both amplitude and phase information."
+     },
+     {
+      "term": "SDR (signal-to-distortion ratio)",
+      "meaning": "A measurement in decibels (dB) of how clean the separated audio is—higher numbers mean less unwanted artifacts and interference from other sources."
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.07975",
+   "title": "Joint Higher-Order Low-Rank Tensor Decompositions for Multichannel Acoustic System Compression",
+   "authors": [
+    "Matthias Blochberger",
+    "Filip Elvander",
+    "Jan Østergaard",
+    "Toon van Waterschoot"
+   ],
+   "published": "2026-11-05",
+   "category": "eess.AS",
+   "topics": [
+    "syn",
+    "spa"
+   ],
+   "summary": "Multichannel room impulse responses (RIRs) in acoustics are often long and therefore the sample count becomes large if seen as finite impulse response (FIR) filters, making storage and real-time convolution costly. Pole-zero (PZ) models are an established way to represent RIRs compactly as infinite impulse response (IIR) transfer functions. We show that a PZ model implies a low-rank canonical polyadic decomposition (CPD) of tensorized RIRs: the early reflections form a sparse rank-1 sum, while the late reverberation admits a CPD with factors determined by the poles. This motivates higher-order-tensor-based compression of RIRs via the block term decomposition (BTD), a generalization of the CPD. We propose two multichannel compression schemes: (i) a stacked multichannel block term decomposition (SMCBTD) applied to a (D+1)-mode tensor of RIRs, and (ii) a joint multichannel block term decomposition (JMCBTD) that shares subsets of factors across channels discovered by spectral clustering on factor-subspace affinity graphs. Both are optimized by an alternating higher-order orthogonal iteration (HOOI) procedure. On simulated rooms as well as measured datasets, the proposed methods achieve consistently lower reconstruction error at equal compression ratios compared to separate single-channel decompositions and a generalized low-rank approximation of matrices (GLRAM) baseline. The largest gains occur with scalar cores (i.e., CPD), supporting the PZ-to-CPD modelling link. We also find D = 3 to be a practical sweet spot, offering most of the achievable gain at moderate compute/memory cost. The compressed models enable efficient downstream multichannel convolution.",
+   "url": "https://arxiv.org/abs/2611.07975",
+   "pdf": "https://arxiv.org/pdf/2611.07975",
+   "explain": {
+    "tldr": "Compress multichannel room acoustics using tensor decomposition for efficient storage and real-time processing.",
+    "plain": "When you record how sound bounces around a room (room impulse responses), the data gets huge and expensive to use in real-time effects or simulations. This paper shows you can represent that acoustic data much more compactly using a mathematical technique called tensor decomposition—essentially breaking the data into smaller, reusable pieces. They tested two approaches that work across multiple microphone channels simultaneously, and found they compress the data better than existing methods while keeping the sound quality high.",
+    "why": "For musicians and producers, this means room simulation plugins and convolution reverbs could run faster and use less memory, making high-quality spatial audio effects more accessible in real-time production and live performance.",
+    "terms": [
+     {
+      "term": "room impulse response (RIR)",
+      "meaning": "A recording of how a specific room's acoustics affect sound—captures all the reflections and reverberations that make a room sound like itself"
+     },
+     {
+      "term": "tensor decomposition",
+      "meaning": "A mathematical way to break down multidimensional data (like audio across multiple channels and time) into simpler, smaller components that are easier to store and process"
+     },
+     {
+      "term": "convolution",
+      "meaning": "The mathematical operation used to apply a room's acoustic character to a sound, creating the effect of that sound being played in that space"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.07612",
+   "title": "Auditory and Visual Virtualization in 6DoF XR: Effects on Plausibility and Dynamic Auditory Distance Perception",
+   "authors": [
+    "Johannes M. Arend",
+    "Christian Scheer",
+    "Melissa Ramírez",
+    "Stefan Weinzierl",
+    "Fabian Brinkmann"
+   ],
+   "published": "2026-11-05",
+   "category": "eess.AS",
+   "topics": [
+    "spa",
+    "hci"
+   ],
+   "summary": "Extended reality (XR) enables controlled yet naturalistic multisensory experiments, but its validity depends on whether virtualized cues are perceptually plausible and lead to behavior comparable to the real world. To the best of our knowledge, this is the first study to perceptually evaluate a six-degree-of-freedom (6DoF) XR system that combines real-time room acoustic simulation, binaural rendering, and an audio-visually matched virtual replica of a large laboratory room in terms of both plausibility and behavior. In two experiments with 45 participants, we investigated how auditory and visual virtualization affect plausibility and dynamic auditory distance perception (ADP). A plausibility experiment compared real and virtual sound sources in audio-augmented reality (AAR) and virtual reality (VR), while a locomotion-based ADP experiment assessed distance-judgment accuracy, signed error, and task effort across four virtualization conditions. The system produced plausible binaural rendering in both AAR and VR, with higher plausibility in VR, indicating that perceptual requirements for XR audio depend on the visual reference frame. In the ADP task, any form of virtualization reduced accuracy and increased effort, although performance remained high overall. Virtual audio produced a bias toward nearer perceived source distances, whereas visual-only virtualization reduced accuracy without a significant directional bias. These effects did not add up in full VR. Overall, the findings demonstrate the strong potential of current 6DoF XR systems for interactive perceptual research, while revealing that task-specific behavioral validation may be necessary.",
+   "url": "https://arxiv.org/abs/2611.07612",
+   "pdf": "https://arxiv.org/pdf/2611.07612",
+   "explain": {
+    "tldr": "Study tests whether virtual sound and visuals in XR feel realistic and affect how people judge sound distance.",
+    "plain": "Researchers created a virtual replica of a real room with simulated acoustics and 3D spatial audio to test if it feels convincing. They compared how people perceived sound sources and judged their distance in real environments versus virtual ones, using both augmented reality (where virtual audio plays in the real room) and full virtual reality. They found the virtual audio sounded plausible, but people were less accurate at judging distance when audio or visuals were virtualized—though they still performed reasonably well overall.",
+    "why": "This matters because musicians and producers increasingly work in virtual spaces and spatial audio environments. Understanding how convincingly XR can simulate real acoustic spaces helps creators know when virtual tools are reliable for mixing, spatial composition, or interactive music experiences.",
+    "terms": [
+     {
+      "term": "binaural rendering",
+      "meaning": "Creating 3D spatial audio by processing sound to simulate how it reaches each ear, making it sound like it's coming from a specific location in space"
+     },
+     {
+      "term": "6DoF (six-degree-of-freedom)",
+      "meaning": "Tracking movement in all directions: forward/back, left/right, up/down, plus rotation around three axes, allowing full 3D navigation"
+     },
+     {
+      "term": "plausibility",
+      "meaning": "Whether something feels convincing and realistic to a person's senses, not necessarily identical to reality but believable enough"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.07562",
+   "title": "FUSEMOS: Perceptual Evaluation of Text-to-Music Generation with Dual-Encoder Fusion and Ranking-Aware Composite Loss",
+   "authors": [
+    "Jing Yang",
+    "Haoyu Wang",
+    "Ningning Pan",
+    "Zhao Wang",
+    "Jianxuan Yang",
+    "Gongping Huang"
+   ],
+   "published": "2026-11-05",
+   "category": "eess.AS",
+   "topics": [
+    "gen",
+    "rep"
+   ],
+   "summary": "Perceptual evaluation of generated music is essential for developing text-to-music (TTM) generation systems. Existing automatic music perceptual evaluation methods rely solely on the contrastive language audio pretraining (CLAP) model to extract both audio and text features for predicting human-annotated mean opinion scores (MOS), particularly for overall musical impression (OMI) and textual alignment (TA). However, CLAP is limited in capturing fine-grained musical attributes such as timbre and expressiveness \\emph{etc}. To address this, we propose FUSEMOS, a dual-encoder fusion framework that integrates CLAP with MERT, a self-supervised model pretrained on large scale music audio, to better capture both high level semantic alignment and detailed musical characteristics for more accurate OMI and TA estimation. Furthermore, to overcome the limitations of conventional regression losses in measuring human preferred relative ranking of music segments, we design a novel ranking-aware composite loss function. Experiments conducted on the MusicEval benchmark demonstrate that our approach outperforms the existing SOTA methods in both mean squared error and rank correlation metrics by a large margin.",
+   "url": "https://arxiv.org/abs/2611.07562",
+   "pdf": "https://arxiv.org/pdf/2611.07562",
+   "explain": {
+    "tldr": "A new system evaluates AI-generated music by combining two models to better match human judgments of quality and text-alignment.",
+    "plain": "When AI systems generate music from text descriptions, we need ways to automatically score how good the results are. Current methods use only one model (CLAP) to judge both how well the music matches the description and its overall quality, but this misses musical details like timbre. This paper combines CLAP with another model (MERT) trained specifically on music audio, plus a new scoring method that better captures how humans rank different pieces. Tests show this approach predicts human ratings more accurately than existing methods.",
+    "why": "As text-to-music AI tools become more common, having reliable automatic evaluation helps developers improve them faster. Better evaluation metrics mean the systems can be tuned to produce music that actually sounds good and matches what users ask for.",
+    "terms": [
+     {
+      "term": "CLAP model",
+      "meaning": "A pre-trained AI model that understands both audio and text descriptions by learning from large amounts of paired data"
+     },
+     {
+      "term": "MERT",
+      "meaning": "A self-supervised AI model trained on large amounts of music audio to understand musical characteristics and details"
+     },
+     {
+      "term": "Mean opinion score (MOS)",
+      "meaning": "An average rating given by human listeners to judge the quality of generated audio"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.07485",
+   "title": "A Unified Multi-Encoder Framework for Music Lyric Intelligibility Assessment: Bridging Invasive and Non-Invasive Paradigms",
+   "authors": [
+    "Jing Yang",
+    "Shenghao Liao",
+    "Shuqing Zhang",
+    "Yongyi Deng",
+    "Pan Li",
+    "Zerui Han",
+    "Gongping Huang"
+   ],
+   "published": "2026-11-05",
+   "category": "eess.AS",
+   "topics": [],
+   "summary": "Lyric intelligibility significantly impacts music engagement and comprehension, especially for hearing-impaired individuals. Existing speech intelligibility metrics perform poorly in musical contexts due to differences in prosody, timing, and spectral dynamics. We propose a unified multi-encoder framework that supports both invasive and non-invasive modeling for robust lyric intelligibility prediction. By capturing complementary local acoustic-semantic alignments, global musical semantics, and ASR-derived textual cues, our method achieves superior performance over baselines on the ICASSP 2026 Cadenza dataset, with the best model achieving 26.61 RMSE, a $9.2$\\% improvement over the baseline, demonstrating its flexibility and robustness.",
+   "url": "https://arxiv.org/abs/2611.07485",
+   "pdf": "https://arxiv.org/pdf/2611.07485",
+   "explain": {
+    "tldr": "A system that predicts how well listeners can understand sung lyrics using multiple AI models working together.",
+    "plain": "When you listen to music, understanding the lyrics matters—especially for people with hearing difficulties. The problem is that tools designed to measure how clear speech is don't work well for singing, because music has different rhythm, timing, and sound qualities than spoken speech. This paper proposes a system that combines several different AI models to better predict lyric intelligibility. It does this by analyzing the relationship between the words and the music, the overall musical meaning, and text from automatic speech recognition, achieving better results than previous methods.",
+    "why": "This matters for musicians and producers who want to ensure their vocals are clear and engaging for all listeners, including those with hearing loss. It could also help with mixing decisions and vocal production choices.",
+    "terms": [
+     {
+      "term": "invasive and non-invasive modeling",
+      "meaning": "invasive means the system has access to the original vocal recording separately; non-invasive means it only hears the final mixed music"
+     },
+     {
+      "term": "ASR-derived textual cues",
+      "meaning": "information about what words were sung, extracted using automatic speech recognition (a technology that converts speech to text)"
+     },
+     {
+      "term": "prosody",
+      "meaning": "the rhythm, stress, and intonation patterns of how words are spoken or sung"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.07423",
+   "title": "ProCraft: Instruction-Driven Music Production from Free-Form Text",
+   "authors": [
+    "Yuan-Chiao Cheng",
+    "Yi-Hsuan Yang",
+    "Vincent K. M. Cheung"
+   ],
+   "published": "2026-11-05",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "syn",
+    "hci",
+    "rep"
+   ],
+   "summary": "Music production typically involves multiple editing operations that each require specialized tools and expertise. Existing text-guided music editing systems support few operations or instruments, operate on short clips, or handle only one operation per instruction, unlike real workflows where several changes are requested at once. Here, we present ProCraft, a lightweight 0.5B-parameter autoregressive codec language model that edits 30s music excerpts end-to-end from free-form instructions, including compound requests. ProCraft supports seven operations across eight instruments, from tasks with a unique target (e.g., track removal) to creative ones (e.g., accompaniment generation). We align intermediate representations with pretrained music embeddings and pitch and instrument targets to preserve content outside the edit, and gated cross-attention in every decoder layer to keep generation tied to the instruction. To train on compound requests, we introduce On-the-fly Editing-pair Synthesis, which generates paired instructions and audio combining track-level operations with effect changes. ProCraft performs competitively against task-specific systems on single-task editing, and outperforms four free-text editors on compound instructions for track removal, extraction and denoising on real (MoisesDB) and synthetic (Slakh) recordings. In a user study (16 listeners), ProCraft was rated highest on removal and denoising and on-par with a 16-times larger model on extraction and instrument transfer. Ablations further show that representation alignment and cross-attention reduce leakage from unwanted tracks and raise editing success rates, especially on out-of-domain data.",
+   "url": "https://arxiv.org/abs/2611.07423",
+   "pdf": "https://arxiv.org/pdf/2611.07423",
+   "explain": {
+    "tldr": "ProCraft is an AI model that edits 30-second music clips based on written instructions, handling multiple editing tasks at once.",
+    "plain": "Music production usually requires switching between different specialized tools to make changes like removing instruments or adding effects. Most AI systems that edit music from text instructions can only do one simple task at a time on short clips. ProCraft is a lightweight AI model that can handle multiple editing requests in a single instruction—like \"remove vocals and add reverb\"—across seven different editing operations and eight instruments. The researchers tested it against other systems and found it performed well, especially when users asked for several changes together.",
+    "why": "This matters to producers and musicians because it could speed up workflow by letting you describe multiple edits in plain language rather than manually adjusting individual tracks and effects. It suggests a future where production tools understand compound requests the way real workflows actually work.",
+    "terms": [
+     {
+      "term": "autoregressive codec language model",
+      "meaning": "An AI that generates music one piece at a time, similar to how language models generate text word-by-word, using a compressed audio format"
+     },
+     {
+      "term": "gated cross-attention",
+      "meaning": "A mechanism that helps the AI stay focused on following your specific instructions while generating the edited audio"
+     },
+     {
+      "term": "representation alignment",
+      "meaning": "Matching the AI's internal understanding of music with existing music analysis tools to preserve parts of the song you don't want to change"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.07384",
+   "title": "FFMT: Frequency-Factorized Multi-Rate Tokenization for Music-to-Dance Generation",
+   "authors": [
+    "Qirong Guo",
+    "Ruijie Li",
+    "Zeyan Li",
+    "Sicheng Shu",
+    "Guanzhi Ding",
+    "Weihang Ding"
+   ],
+   "published": "2026-11-05",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "rep"
+   ],
+   "summary": "Dance motion combines slowly varying body configurations with rapid local movements. We investigate how explicit temporal-frequency decomposition can guide the temporal resolution and codebook capacity of discrete motion representations. We introduce frequency-factorized motion tokenization (FFMT), which separates root-relative motion into a low-frequency choreographic scaffold and a complementary high-frequency residual. FFMT uses a lower token rate and a smaller codebook for the low-frequency component, and a higher token rate and a larger codebook for the high-frequency residual. This representation further induces a plan-then-articulate autoregressive factorization: low-frequency tokens establish coarse choreography, while high-frequency tokens realize local motion details conditioned on the generated plan and music. Experiments on AIST++ and FineDance show strong distributional fidelity while preserving realistic diversity and music--motion synchronization. Ablations consistently support frequency factorization, asymmetric temporal allocation, and low-to-high conditioning.",
+   "url": "https://arxiv.org/abs/2611.07384",
+   "pdf": "https://arxiv.org/pdf/2611.07384",
+   "explain": {
+    "tldr": "A method that represents dance motion by separating slow body movements from fast details, improving AI-generated dance synchronized to music.",
+    "plain": "When generating dance from music, the challenge is capturing both the overall choreographic flow and the quick, detailed movements that make dance look natural. This paper proposes splitting dance motion into two layers: a low-frequency component (slow body positioning) and a high-frequency component (rapid local movements). They use fewer, simpler tokens for the slow layer and more detailed tokens for the fast layer. The system generates dance by first planning the overall choreography, then filling in the detailed movements—like sketching before adding details. Tests show this produces realistic, diverse dances that stay synchronized with music.",
+    "why": "For musicians and producers working with dance or motion capture, this could improve how AI choreography tools understand and respond to music. It might lead to more natural-looking generated dance that respects both the musical structure and the physical realities of how bodies move.",
+    "terms": [
+     {
+      "term": "tokenization",
+      "meaning": "Breaking continuous motion data into discrete, manageable pieces (tokens) that a machine learning model can process"
+     },
+     {
+      "term": "codebook",
+      "meaning": "A collection of pre-defined motion patterns or codes that the model can choose from to represent movement"
+     },
+     {
+      "term": "autoregressive",
+      "meaning": "Generating motion step-by-step, where each new piece depends on what was generated before"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.07210",
+   "title": "Latent Terrain: Adapting Neural Audio Autoencoders as Design Materials in NIME",
+   "authors": [
+    "Shuoyang Jasper Zheng",
+    "Keigo Yoshida",
+    "Nico García-Peguinho",
+    "Jiatong Liu",
+    "Dan Hearn",
+    "Anna Xambó Sedó",
+    "Nick Bryan-Kinns"
+   ],
+   "published": "2026-11-04",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "syn",
+    "hci"
+   ],
+   "summary": "Neural audio autoencoders, a deep learning method for sound synthesis, are increasingly popular in AI-enhanced NIMEs. It is timely to explore as a community how this technological opportunity has opened a domain of design in NIME. This paper focuses on one compelling technique of using autoencoders for sound synthesis: navigating their latent space as a generative sound space. We introduce Latent Terrain, a Max/MSP tool package designed to tailor latent spaces into corpus-based sound spaces for NIMEs. We describe the rationale and development process of Latent Terrain to offer insights into the use of autoencoders in a material-oriented crafting space of musical interface design. We deliver an annotated portfolio resulting from a collaborative artistic exploration of Latent Terrain with four NIME makers, to showcase the design possibilities opened by autoencoders. We reflect on our practice-based account to discuss the challenges and opportunities of enabling neural audio autoencoders as design materials for AI-enhanced NIMEs.",
+   "url": "https://arxiv.org/abs/2611.07210",
+   "pdf": "https://arxiv.org/pdf/2611.07210",
+   "explain": {
+    "tldr": "A tool for musicians to shape neural audio autoencoders into playable sound spaces for custom musical instruments.",
+    "plain": "Neural audio autoencoders are AI systems that can generate sounds, and they work by learning a compressed 'map' of sound characteristics. This paper presents Latent Terrain, a Max/MSP tool that lets instrument makers explore and customize this map to create new sound palettes for their instruments. The authors worked with four NIME designers to show what's possible, documenting both the creative opportunities and practical challenges of using these AI systems as a design material.",
+    "why": "If you build custom instruments or want to design new sound-generation tools, this work shows how to use AI-powered sound synthesis in a hands-on, creative way—treating the AI system more like a musical instrument you can shape rather than a black box.",
+    "terms": [
+     {
+      "term": "autoencoder",
+      "meaning": "An AI system that learns to compress sounds into a simplified representation, then reconstruct them—useful for generating new sounds based on patterns it learned"
+     },
+     {
+      "term": "latent space",
+      "meaning": "The compressed map of sound characteristics that an autoencoder creates; navigating it means exploring different points on this map to generate different sounds"
+     },
+     {
+      "term": "NIME",
+      "meaning": "New Interfaces for Musical Expression—custom-built instruments or controllers that musicians design for unique playing experiences"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.06262",
+   "title": "SonoDyno: A Sonic Dynamometer for Engine Speed and Load Estimation from Audio",
+   "authors": [
+    "Robin Doerfler",
+    "Beat Rossmy"
+   ],
+   "published": "2026-11-04",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "syn"
+   ],
+   "summary": "Controllable engine sound synthesis, Active Sound Design and engine order analysis all build on the relationship between the sound of an engine and its momentary operating state: its speed and its load. Recordings of engine sound are abundant in archives, sample packs and online video, yet they rarely carry time-aligned annotations of that state, which limits their applicability to controllable engine sound generation. We present SonoDyno, which estimates the engine speed, the cylinder count and an engine-normalized load intensity from a microphone signal alone, with no tachometer, no bus access and no prior knowledge of the engine configuration. A convolutional scorer of 124,302 parameters reads the harmonic order energy of each frame at three time-frequency resolutions to jointly score cylinder count and speed, and a decoder imposes the rotational dynamics of the engine on the speed trajectory. A second head estimates the load intensity, the position of the torque between the engine's drag floor at 0 and its full-load ceiling at 1, from the order levels at the decoded speed. On recordings of engines it has never heard, with microphone position, engine type and cylinder count unknown, SonoDyno places 93 to 97% of the frames within 2% of the true speed, identifies the cylinder count with 80% accuracy and confuses the octave on fewer than 2% of the frames. On an unseen engine of a known type, the load intensity has a mean absolute error of 0.12, and the sign of the torque, driving or braking, is right on 91% of the frames. General pitch trackers fall behind even when the harmonic order of each engine is supplied: on our validation recordings and at a tolerance of 5%, the best of them places 62% of the frames within the tolerance, against 96% for SonoDyno.",
+   "url": "https://arxiv.org/abs/2611.06262",
+   "pdf": "https://arxiv.org/pdf/2611.06262",
+   "explain": {
+    "tldr": "A system that listens to engine sound and figures out the engine's speed, cylinder count, and how hard it's working.",
+    "plain": "Engine sounds contain information about how fast an engine is running and how much load it's under, but recordings rarely have this data labeled. The researchers built SonoDyno, an AI system that listens to engine audio alone and estimates the engine speed, number of cylinders, and load intensity (how hard the engine is working). It works on unfamiliar engines and microphone positions without needing any direct measurements from the engine itself. The system outperforms general pitch-tracking tools at this task.",
+    "why": "For musicians and producers working with engine sounds—whether for sound design, sample libraries, or synthesizing realistic engine audio—this means you could automatically extract the engine's operating state from any recording, making it easier to organize, manipulate, and recreate engine sounds with accurate dynamics.",
+    "terms": [
+     {
+      "term": "harmonic order energy",
+      "meaning": "the strength of different frequency components that are multiples of the engine's fundamental vibration frequency"
+     },
+     {
+      "term": "convolutional scorer",
+      "meaning": "a neural network that analyzes patterns in audio data to make predictions about what it hears"
+     },
+     {
+      "term": "load intensity",
+      "meaning": "how hard the engine is working, measured as a value between 0 (idling) and 1 (maximum power)"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.06074",
+   "title": "Which One Is Sounding? Binaural Sounding Instance Disambiguation for Audio-Visual Segmentation",
+   "authors": [
+    "Haoze Ma",
+    "Yidi Li",
+    "Yu Ma",
+    "Pengyuan Zhao",
+    "Yi Shi",
+    "Bin Ren",
+    "Yanwen Guo",
+    "Dimitrios Kanoulas"
+   ],
+   "published": "2026-11-04",
+   "category": "cs.AI",
+   "topics": [
+    "spa"
+   ],
+   "summary": "Existing audio-visual segmentation methods mainly predict sound-related regions or category masks and often fail to identify the sounding instance when multiple same-class candidates coexist. Recent audio-visual instance segmentation methods address instance-level prediction but rely largely on motion and cross-frame association, which may become unreliable under sparse observations or inconspicuous motion. To this end, we introduce binaural audio, whose interaural differences encode source-direction information, to provide spatial constraints for distinguishing the sounding instance among same-class visual candidates. We propose Binaural Sounding Instance Disambiguation for Audio-Visual Segmentation (BiSID-AVS), which progressively refines category-level candidate responses into a mask of the true sounding instance. BiSID-AVS first grounds category-consistent candidate regions through audio prompting, then projects binaural cues into an image-plane spatial response map, and finally refines the true sounding instance through dual-level spatial conditioning at the feature and decoder levels. Experiments on the binaurally extended AVS-Synthetic benchmark and Habitat-AVS dataset for robotic indoor perception show that BiSID-AVS achieves the best performance on the multi-candidate subsets, improving instance-level mIoU by 35.19 and 41.21 percentage points, respectively, while substantially reducing false activation on non-sounding same-class regions.",
+   "url": "https://arxiv.org/abs/2611.06074",
+   "pdf": "https://arxiv.org/pdf/2611.06074",
+   "explain": {
+    "tldr": "Uses binaural audio spatial cues to identify which specific sound source is making noise when multiple identical objects appear in a video.",
+    "plain": "When you see multiple identical objects in a video—say three guitars—it's hard to tell which one is actually playing. Existing methods struggle with this because they rely on motion, which might be subtle or absent. This paper uses binaural audio (stereo recording that captures direction information) to add spatial clues about where the sound is coming from. By combining these directional audio cues with visual information, the system can pinpoint the actual sounding object and create a precise mask around it, even when multiple candidates look the same.",
+    "why": "For musicians and producers working with video, this matters for automatic audio-visual editing, music video analysis, or any system that needs to know which instrument or performer is actually producing the sound at any moment. It could improve tools for isolating specific sound sources in multi-performer recordings.",
+    "terms": [
+     {
+      "term": "binaural audio",
+      "meaning": "stereo recording that captures differences between left and right ears, encoding information about where a sound is coming from in space"
+     },
+     {
+      "term": "instance segmentation",
+      "meaning": "identifying and outlining individual separate objects of the same type (like three guitars) rather than just detecting that guitars are present"
+     },
+     {
+      "term": "interaural differences",
+      "meaning": "the subtle timing and volume differences between what each ear hears, which your brain uses to locate sounds in space"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
   {
    "id": "2611.03900",
    "title": "Clean-anchored excess-emission control for CTC adaptation under competing speech",
