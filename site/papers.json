@@ -1,6 +1,125 @@
 {
- "updated": "2026-11-08T14:21:55Z",
+ "updated": "2026-11-09T17:37:31Z",
  "papers": [
+  {
+   "id": "2611.09275",
+   "title": "AudioSphere: Towards Self-Supervised Spatial Audio Representation Models",
+   "authors": [
+    "Goksenin Yuksel",
+    "Marcel van Gerven",
+    "Kiki van der Heijden"
+   ],
+   "published": "2026-11-06",
+   "category": "cs.SD",
+   "topics": [
+    "spa",
+    "rep"
+   ],
+   "summary": "Recent audio embedding models learn representations that transfer across clip- and frame-level tasks, yet they operate almost exclusively on single-channel signals and are blind to spatial structure. Spatial audio models capture that structure but rely on clip-level supervision or contrastive objectives, yielding embeddings unsuitable for frame-level tasks like sound event detection and localization (SELD). We argue this dichotomy is not fundamental: patch-level spatial self-supervision can jointly learn acoustic and spatial features at both temporal granularities. We introduce AudioSphere, a multi-channel masked autoencoder trained on Ambisonics recordings that reconstructs both spectral content and directional cues via a joint spatiotemporal masking strategy that masks both time-frequency patches and intensity vectors. AudioSphere supports frame-level predictions while producing strong clip-level representations via aggregation. Alongside the model, we release RealSELD, a standardized benchmark for evaluating frozen backbones on real-world multi-channel SELD. AudioSphere enables, for the first time, SELD with a frozen self-supervised backbone, while matching or exceeding prior self-supervised audio embedding models on clip-level classification tasks spanning environmental sound, speech, and music, and on frame-level sound event detection. All code and data are available at https://github.com/labhamlet/AudioSphere and https://huggingface.co/labhamlet.",
+   "url": "https://arxiv.org/abs/2611.09275",
+   "pdf": "https://arxiv.org/pdf/2611.09275",
+   "explain": {
+    "tldr": "Self-supervised model learns spatial audio features useful for both clip-level and frame-level sound tasks.",
+    "plain": "Most audio AI models work on single-channel recordings and miss spatial information about where sounds come from. AudioSphere trains on multi-channel spatial audio (Ambisonics) by masking and reconstructing both the sound content and directional cues. This approach creates embeddings that work well for both quick classification tasks and detailed frame-by-frame sound localization, which hasn't been possible before with self-supervised models.",
+    "why": "For producers and sound designers working with spatial audio, immersive music, or spatial recording formats, this means AI tools that understand where sounds are positioned—useful for mixing, object-based audio, and automated sound localization in recordings.",
+    "terms": [
+     {
+      "term": "Ambisonics",
+      "meaning": "A multi-channel spatial audio format that captures sound direction and position, not just left-right stereo"
+     },
+     {
+      "term": "masked autoencoder",
+      "meaning": "A learning method where parts of the input are hidden, and the model learns by trying to predict what was masked"
+     },
+     {
+      "term": "SELD",
+      "meaning": "Sound Event Detection and Localization—identifying what sounds are present and where they're coming from"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.09140",
+   "title": "SPDMX: Large-Scale Open Stem Audio From Symbolic Music",
+   "authors": [
+    "Phillip Long",
+    "Eduardo Escoto",
+    "Julian McAuley",
+    "Zachary Novack"
+   ],
+   "published": "2026-11-06",
+   "category": "cs.SD",
+   "topics": [
+    "sep",
+    "mir",
+    "syn"
+   ],
+   "summary": "Large public datasets have driven recent progress in machine learning, from text and vision to speech and general audio. Music remains an outlier, as copyright blocks redistribution of training audio, while many modern tasks need individual stems rather than mixtures. Existing multitrack resources trade off realism, scale, and licensing, while synthetic alternatives rely on proprietary VSTs or naive open rendering that yields weak stems. We introduce SPDMX, a listening-guided rendering of public-domain PDMX scores into an openly-licensed stem corpus with aligned scores and an open render pipeline: $253{,}982$ songs, $490{,}159$ mono stems, and $5{,}469$ song-hours at $44.1$ kHz under CC BY 4.0, with paired MIDI and identifiers linking to PDMX metadata. $88{,}403$ songs ($34.8\\%$; $2{,}734$ song-hours) provide multitrack supervision. To our knowledge, this is the largest openly-licensed synthetic multitrack subset by song-hours, enabling source separation, stem-conditioned synthesis, MIDI-to-audio, transcription, and joint symbolic-audio modeling. We release the corpus, metadata, and open pipeline for reuse on other symbolic collections. Demos and experimental notes are on the project page.",
+   "url": "https://arxiv.org/abs/2611.09140",
+   "pdf": "https://arxiv.org/pdf/2611.09140",
+   "explain": {
+    "tldr": "A large open dataset of individual instrument tracks rendered from public-domain sheet music for training music AI models.",
+    "plain": "Most music datasets can't be shared publicly due to copyright, and many AI tasks need individual instrument tracks rather than mixed recordings. This paper creates SPDMX by converting public-domain sheet music into realistic individual stems (separate instrument recordings) using an open rendering process. They produced nearly 254,000 songs with almost 490,000 individual tracks, all freely licensed, along with the sheet music and code to recreate it.",
+    "why": "Musicians and producers can now use this data to train AI tools for tasks like isolating vocals from a mix, generating new instrument parts, or converting sheet music to audio—without legal concerns about copyright. The open pipeline also means researchers can apply the same approach to other sheet music collections.",
+    "terms": [
+     {
+      "term": "stems",
+      "meaning": "individual instrument or vocal tracks that make up a song, as opposed to a final mixed recording"
+     },
+     {
+      "term": "source separation",
+      "meaning": "the task of splitting a mixed recording into its individual instrument or vocal components"
+     },
+     {
+      "term": "MIDI",
+      "meaning": "a digital format that represents musical notes and timing, often used in sheet music and music software"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.08966",
+   "title": "Concordance-Optimal Continuous Music Emotion Estimation: Variance Decomposition, Dual-Branch Temporal Fusion, and Conformal Prediction Intervals",
+   "authors": [
+    "Mohammad Faraz Akhtar",
+    "Aditya Parashar",
+    "Ayush Jain",
+    "Madhur Gupta",
+    "Ritesh Kumar",
+    "Soubhik Chakraborty"
+   ],
+   "published": "2026-11-06",
+   "category": "cs.SD",
+   "topics": [
+    "mir",
+    "rep"
+   ],
+   "summary": "Continuous music emotion recognition (MER) estimates how Arousal and Valence evolve within a song, yet the field's standard metric, pooled frame-level correlation, is dominated by between-song differences and cannot distinguish a model that tracks emotional dynamics from one that only ranks songs by their average level. We decompose annotation variance into between- and within-song components and show that mean squared error (MSE) targets the former, while windowed Lin's concordance correlation coefficient (CCC = $r \\cdot C_b$) targets the latter by penalising the variance compression MSE induces. A single weight $λ$ controls the trade-off: on 1,764 DEAM songs, raising $λ$ from 0 to 1 lowers pooled Arousal $r$ from 0.843 to 0.810 while raising mean within-song $r$ from 0.204 to 0.368. Building on this objective, we present MMAS (Multimodal Music Analysis System), an open-source model that predicts Arousal and Valence every 0.5 s from raw audio. It fuses frozen MERT-v1-95M embeddings with ten symbolic features from automatic transcription through a dual-branch temporal convolutional network with cross-modal attention. Because both branches are audio-derived, one model trains jointly on DEAM and PMEmo without domain conditioning. Under song-grouped 5-fold cross-validation (2,531 songs), pooled $r$ reaches 0.801/0.685 (Arousal/Valence) on DEAM and 0.742/0.746 on PMEmo. Against a ridge baseline on identical features, within-song Arousal $r$ roughly triples (0.344 vs. 0.125; $n = 353$ songs, Wilcoxon $p = 1.7 \\times 10^{-21}$, $d = 0.56$). Complete transcription failure costs at most 0.04 pooled $r$. Split-conformal intervals attain 93.7% (Arousal) and 90.0% (Valence) marginal coverage at a 95% target, with the shortfall traced to within-song dependence. MMAS is released as a pip-installable package.",
+   "url": "https://arxiv.org/abs/2611.08966",
+   "pdf": "https://arxiv.org/pdf/2611.08966",
+   "explain": {
+    "tldr": "A system that tracks how a song's emotional energy and positivity change moment-by-moment, using a better measurement method.",
+    "plain": "Music emotion recognition usually measures how 'energetic' (Arousal) and 'positive' (Valence) a song feels overall, but this misses whether a model actually tracks emotional changes within the song or just ranks songs by their average mood. The researchers split the measurement problem into two parts: between-song differences and within-song dynamics. They built MMAS, a model that predicts Arousal and Valence every half-second from audio, combining learned audio features with musical information from automatic transcription. Testing on thousands of songs, the model tracks emotional changes three times better than simpler methods, and it works across different datasets without retraining.",
+    "why": "If you're studying how emotions evolve in your compositions or analyzing emotional arcs in music, this work matters because it measures what actually happens during a song rather than just averaging it. The open-source tool lets you see moment-by-moment emotional trajectories in any audio.",
+    "terms": [
+     {
+      "term": "Arousal and Valence",
+      "meaning": "Two dimensions of emotion: Arousal is energy level (calm to excited), Valence is positivity (sad to happy)."
+     },
+     {
+      "term": "concordance correlation coefficient (CCC)",
+      "meaning": "A measurement that checks if two things agree in both their average level and their ups and downs, not just their ranking."
+     },
+     {
+      "term": "temporal convolutional network",
+      "meaning": "A neural network architecture that processes sequences of data (like audio over time) by looking at patterns across short time windows."
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
   {
    "id": "2611.08130",
    "title": "SubRoformer: Subband Time-Domain Representation for Music Source Separation",
