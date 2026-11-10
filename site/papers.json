@@ -1,6 +1,227 @@
 {
- "updated": "2026-11-09T17:37:31Z",
+ "updated": "2026-11-10T15:39:00Z",
  "papers": [
+  {
+   "id": "2611.12061",
+   "title": "BARS: Beat-Adaptive Rap Synthesis via Flow Matching",
+   "authors": [
+    "Taemin Cho",
+    "Hector Martel",
+    "Enyan Koh"
+   ],
+   "published": "2026-11-09",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "syn",
+    "rep"
+   ],
+   "summary": "We present BARS (Beat-Adaptive Rap Synthesis), a non-autoregressive rapping voice generation model based on Flow Matching, conditioned on a beat track (instrumental backing), lyrics, and a short reference voice for zero-shot timbre control. Unlike prior autoregressive rap synthesis, where rap pace and output duration are strictly determined by the beat, BARS enables independent control over the rap tempo, allowing flexible-length generation without explicit duration prediction or phoneme-level alignment. We encode lyrics using a pretrained ByT5 encoder with a lightweight Transformer adapter trained jointly with the model, without relying on speech-pretrained text encoders, enabling natural handling of non-standard orthography (e.g., slang, abbreviations) and numerals common in rap lyrics. To address alignment instabilities, such as token skipping or repetition, under strong beat conditioning, we propose Asymmetric Scaled RoPE for cross-attention, which introduces a positional structure to facilitate sequential lyric-audio alignment learning. Furthermore, the model supports partial re-generation via span masking, enabling lyric-level editing while preserving the surrounding vocal style. Experiments demonstrate that the proposed model achieves high lyric fidelity, natural rap flow that is rhythmically coherent with the beat, and robust tempo control across a wide range of rapping styles and speeds.",
+   "url": "https://arxiv.org/abs/2611.12061",
+   "pdf": "https://arxiv.org/pdf/2611.12061",
+   "explain": {
+    "tldr": "A system that generates rap vocals with independent tempo control, matching lyrics to beats while preserving a singer's voice style.",
+    "plain": "Rapping is tricky to generate because the lyrics need to stay synchronized with the beat while sounding natural. This paper presents BARS, which generates rap vocals from lyrics, a beat track, and a short sample of someone's voice. Unlike previous systems that lock the rap speed to the beat, BARS lets you control the tempo independently. The model handles rap's unique language (slang, abbreviations, numbers) well and can re-generate just parts of the rap while keeping the surrounding style consistent.",
+    "why": "For producers and musicians, this could enable new creative workflows—generating rap vocals that fit your beat at any speed you want, or editing specific lines while maintaining vocal consistency. It also respects rap's linguistic style rather than treating it like standard speech.",
+    "terms": [
+     {
+      "term": "Flow Matching",
+      "meaning": "A machine learning technique that generates audio by learning to transform random noise into realistic sound, similar in purpose to other generative models but using a different mathematical approach."
+     },
+     {
+      "term": "Zero-shot timbre control",
+      "meaning": "The ability to make generated vocals sound like a specific person's voice after hearing just a short sample, without needing to train the system on that person beforehand."
+     },
+     {
+      "term": "Span masking",
+      "meaning": "A technique that lets you hide certain parts of the input during generation, allowing you to regenerate just those sections while keeping everything else unchanged."
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.12006",
+   "title": "Constraining Evidence Strength in Bayesian Tonal-State Inference: A Posterior-Continuity Diagnostic",
+   "authors": [
+    "Chen-Gia Tsai"
+   ],
+   "published": "2026-11-09",
+   "category": "cs.SD",
+   "topics": [],
+   "summary": "Effective pitch-evidence strength governs the concentration of tonal-state posteriors. Expert local-key annotations cannot calibrate this strength because they do not specify the posterior distribution over the 24 candidate keys. This study constrains evidence strength through tonal continuity, quantified by a measure $λ$ derived from adjacent-window posterior overlap. Passages with $λ$ > 0.50 exhibit relatively strong tonal continuity. At $λ$ = 0.50, carrying forward the preceding tonal belief is predictively equivalent to starting afresh with a uniform, key-neutral prior. Across 26 subcorpora of the Distant Listening Corpus, median $λ$ remains above 0.50 for changes from major keys to IV, V, and vi throughout the examined range of evidence strengths, whereas changes to i, ii, and iii cross this threshold as evidence strength increases. Because these latter three keys share the departed key's tonic or differ from it by a single key-signature accidental, such changes are expected to retain $λ$ > 0.50 in a substantial proportion of cases. An event share G therefore assesses how often this expectation holds as tonal selectivity increases in 4-bar windows. The resulting high-G region identifies evidence-strength settings that may be appropriate for tonal-state inference. When $λ$ is extended to cross-scale compatibility, the Presto finale of Mozart's Piano Sonata K. 310 shows that, within this region, a 4-bar C-minor interpretation remains compatible with its 16-bar C-major context. The findings establish tonal continuity as a music-theoretical constraint on evidence strength and illustrate how local and prevailing-key interpretations can coexist when pitch evidence is integrated over nested spans.",
+   "url": "https://arxiv.org/abs/2611.12006",
+   "pdf": "https://arxiv.org/pdf/2611.12006",
+   "explain": {
+    "tldr": "A method to calibrate how strongly pitch evidence should influence key-detection algorithms using musical continuity.",
+    "plain": "When music-analysis software tries to identify what key a passage is in, it needs to decide how much to trust the pitch information it sees. This paper proposes using tonal continuity—how smoothly the key changes from one moment to the next—as a guide for setting this trust level. They measure continuity by comparing how similar the key probabilities are in adjacent sections of music. They tested this on many pieces and found that some key changes (like moving to the dominant) naturally stay continuous even with strong pitch evidence, while others (like moving to the relative minor) need weaker evidence to maintain continuity. This helps identify which settings work best for key-detection systems.",
+    "why": "Musicians and producers working with music-analysis tools need those tools to correctly identify keys and key changes. This research provides a principled way to tune key-detection algorithms so they respect how keys actually change in real music, rather than guessing at settings arbitrarily.",
+    "terms": [
+     {
+      "term": "posterior",
+      "meaning": "a probability distribution updated after observing evidence; here, the algorithm's belief about which key is most likely given the music it has heard"
+     },
+     {
+      "term": "tonal continuity",
+      "meaning": "how smoothly and predictably the musical key changes from one section to the next"
+     },
+     {
+      "term": "evidence strength",
+      "meaning": "how much the algorithm trusts the pitch information when deciding what key the music is in"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.11522",
+   "title": "Music Inpainting With Similarity-Guided Latent Diffusion",
+   "authors": [
+    "Sean Turland",
+    "Eloi Moliner",
+    "Vesa Välimäki"
+   ],
+   "published": "2026-11-08",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "mir",
+    "rep"
+   ],
+   "summary": "We propose a music inpainting technique combining similarity matching and a diffusion-based generative model to replace large segments of audio recordings with suitable alternatives. The proposed hybrid method, Similarity-Guided Diffusion Posterior Sampling (SimDPS), retrieves candidate replacement segments from the wider signal based on contextual similarity and uses them to guide the diffusion process toward coherent reconstructions. Being model-agnostic, the framework is compatible with any pre-trained diffusion model operating in either the waveform or latent domain. Objective evaluations demonstrate that SimDPS outperforms widely adopted RePaint and DPS methods across acoustic features and neural-embedding distance metrics. Subjective evaluations on multi-genre music datasets confirm that SimDPS enhances perceptual plausibility compared to previous diffusion-based methods and demonstrates robustness to poorly matched similarity candidates. These findings pave the way for improved music restoration and context-aware audio editing.",
+   "url": "https://arxiv.org/abs/2611.11522",
+   "pdf": "https://arxiv.org/pdf/2611.11522",
+   "explain": {
+    "tldr": "A method to fill in missing or damaged sections of music by finding similar parts and using AI to generate coherent replacements.",
+    "plain": "Sometimes recordings have damaged or unwanted sections that need to be replaced. This paper presents a technique that finds similar-sounding parts elsewhere in the same recording, then uses those as guides while an AI model generates new audio to fill the gap. Tests show it produces more natural-sounding results than previous methods, and it works even when the similar parts aren't perfect matches.",
+    "why": "This could help musicians and producers repair damaged recordings, remove mistakes or unwanted sections, or creatively edit music while keeping the surrounding context intact—all while maintaining musical coherence.",
+    "terms": [
+     {
+      "term": "diffusion model",
+      "meaning": "An AI system that generates new content by gradually refining random noise into structured audio, guided by the information you give it"
+     },
+     {
+      "term": "latent domain",
+      "meaning": "A compressed, abstract representation of audio that's easier for AI to work with than raw sound waves"
+     },
+     {
+      "term": "inpainting",
+      "meaning": "Intelligently filling in missing or masked sections of audio or images based on surrounding context"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.11282",
+   "title": "Real-Time Arbitrary Resampling for Phase-Continuous Microtuning in Audio Streams",
+   "authors": [
+    "Andreas Falkenberg"
+   ],
+   "published": "2026-11-08",
+   "category": "cs.SD",
+   "topics": [
+    "syn",
+    "rep"
+   ],
+   "summary": "This paper develops an output-driven resampling formulation for fine pitch adjustment of recorded signals. A fractional input-position increment combines the desired frequency ratio with independently specified input and output sample rates. Each output sample is evaluated from neighboring input samples, and gradual rate changes preserve the current input position. Musical interval mapping and direct sine synthesis are treated as distinct layers. The formulation separates tuning resolution, numerical accuracy, interpolation quality, and streaming correctness. Optional rational-factor representations use freely chosen approximation parameters; numerical illustrations do not define constants required by the algorithm. Linear interpolation provides a low-cost evaluation kernel but does not establish a universal signal-quality or frequency-accuracy guarantee.",
+   "url": "https://arxiv.org/abs/2611.11282",
+   "pdf": "https://arxiv.org/pdf/2611.11282",
+   "explain": {
+    "tldr": "A method to smoothly change pitch in real-time audio while keeping the sound phase-continuous and artifact-free.",
+    "plain": "When you want to shift the pitch of a recorded sound in real-time—like retuning a vocal or instrument to a different key—you need to resample the audio carefully. This paper presents a way to do that by calculating each new audio sample from nearby original samples, using a fractional position that combines your desired pitch shift with the input and output sample rates. The approach lets you change pitch gradually without clicks or phase jumps, and it separates concerns like tuning precision, interpolation quality, and streaming stability so you can tune each one independently.",
+    "why": "Musicians and producers working with microtuning, live pitch correction, or real-time audio effects need methods that preserve audio quality and don't introduce artifacts. This gives them a flexible framework to implement smooth pitch shifting that works in streaming contexts.",
+    "terms": [
+     {
+      "term": "resampling",
+      "meaning": "converting audio from one sample rate to another, or in this case, reading audio at a different speed to change pitch"
+     },
+     {
+      "term": "phase-continuous",
+      "meaning": "maintaining smooth, unbroken continuity in the waveform so no clicks or discontinuities appear"
+     },
+     {
+      "term": "interpolation",
+      "meaning": "estimating values between known data points; here, estimating audio samples between the original recorded ones"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.11137",
+   "title": "GlobalTap: Globally Diverse Beat Tracking Benchmark via Crowdsourced Tapping",
+   "authors": [
+    "William T. Botticelli-Wells",
+    "Manuel Anglada-Tort",
+    "Elif Celen",
+    "Rena Far",
+    "Harin Lee",
+    "Peter M. C. Harrison",
+    "Nori Jacoby"
+   ],
+   "published": "2026-11-08",
+   "category": "cs.SD",
+   "topics": [
+    "mir"
+   ],
+   "summary": "Existing beat-tracking benchmarks draw from a narrow range of musical cultures, predominantly Western, and are difficult to scale due to reliance on expert annotation. We address both limits with GlobalTap, a benchmark of 200 popular-music excerpts spanning 59 countries, annotated by 746 participants recruited across ten countries. The benchmark is created using a scalable online tapping pipeline that records taps via audio for high temporal precision, aggregates pooled tap times into consensus beat annotations, and computes intrinsic quality measures that flag perceptually difficult excerpts without requiring a reference. In a separate study on a different 240-excerpt validation set, tapped by an additional 733 participants, an independent group of 130 listeners rated how well the resulting beat tracks lined up with the music, and we detected no overall difference between our annotations and existing reference annotations. Crowd-derived annotations occasionally diverged from the references in phase and metrical interpretation, yet listeners did not consistently prefer the reference versions, suggesting that crowd-derived and existing reference annotations can reflect different perceptual or structural interpretations. The disagreements were often systematic rather than random, and metrical-level choices differed across the ten recruitment countries. We release GlobalTap together with open-source pipeline code as a listener-derived resource for evaluating beat-tracking systems on culturally diverse music.",
+   "url": "https://arxiv.org/abs/2611.11137",
+   "pdf": "https://arxiv.org/pdf/2611.11137",
+   "explain": {
+    "tldr": "A new beat-tracking benchmark with music from 59 countries, created by crowdsourced tapping instead of expert annotation.",
+    "plain": "Beat tracking—finding the steady pulse in music—is usually tested on datasets that focus on Western music and require music experts to mark the beat by hand. This paper creates a larger, more diverse benchmark by having regular listeners tap along to 200 songs from around the world, then combines their taps to find consensus beat positions. They validate this approach by having other listeners rate whether the crowd-derived beats sound right, and find the results are just as good as traditional expert annotations. Interestingly, people from different countries sometimes tapped different beat interpretations, suggesting there's no single \"correct\" beat.",
+    "why": "If you're building or testing beat-detection software, you need diverse training data that reflects how music is actually perceived globally, not just Western pop. This benchmark lets you evaluate whether your system works across different musical styles and cultural contexts, and the open-source tapping method means researchers can keep expanding it.",
+    "terms": [
+     {
+      "term": "beat-tracking benchmark",
+      "meaning": "a standardized collection of songs with marked beat positions, used to test how well software can find the pulse in music"
+     },
+     {
+      "term": "consensus beat annotations",
+      "meaning": "beat positions determined by combining many people's taps and finding where they mostly agree"
+     },
+     {
+      "term": "metrical interpretation",
+      "meaning": "which beat level someone perceives as the main pulse (like tapping on quarter notes versus eighth notes)"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.10973",
+   "title": "Patchbay: a block model for the sonification of ADS-B aircraft data",
+   "authors": [
+    "Arquimedes Canedo"
+   ],
+   "published": "2026-11-07",
+   "category": "cs.SD",
+   "topics": [],
+   "summary": "Patchbay is a design for turning the data that an ADS-B receiver collects into sound by wiring typed blocks together. ADS-B reports are the position and altitude messages that aircraft broadcast and that a small ground receiver can collect. We first describe what such a receiver reports: signals that differ in shape (continuous, stepped, circular, categorical), in resolution, in who produces them, and in how long they stay put, which runs from about ten seconds to the whole time an aircraft is in view. From this we derive a small model. Four kinds of connection carry an aircraft set, a value, an event or audio, and 27 blocks select aircraft, read fields, decide when a note starts, shape values and make sound. One of these blocks makes the receiver act as a radar: scanning by bearing it is a line that rotates about the receiver, and scanning by range it is a ring that grows from the centre or shrinks inward. Each aircraft sounds at the moment the scan reaches it, and the scan's period is set in bars of a beat clock. The model does not depend on a browser. Our reference implementation is a browser editor, contained in one HTML file, that replays two recorded captures and records both an audio take and a MIDI take, a file of the notes played rather than of the sound. We say what is not built and place the work beside the closest systems we found, among them a radar-sweep sequencer for tangible objects from 2006 and a range-ring sonification of ADS-B aircraft published in 2026. Sweeps that trigger sound, and typed connections, both exist in earlier systems. To our knowledge, none of the sources we reached carries the aircraft in view, with every field attached, as one kind of connection in an editor.",
+   "url": "https://arxiv.org/abs/2611.10973",
+   "pdf": "https://arxiv.org/pdf/2611.10973",
+   "explain": {
+    "tldr": "A system that converts aircraft tracking data into sound by connecting modular blocks that map flight information to musical events.",
+    "plain": "Aircraft broadcast position and altitude data that ground receivers can pick up. This paper presents Patchbay, a tool for turning that data into sound. You wire together different types of blocks—some select which aircraft to listen to, others convert their data (like altitude or speed) into musical parameters, and others decide when notes should play. A key feature is a 'radar sweep' mode where sound triggers as an imaginary rotating line or expanding ring passes over each aircraft, synced to a musical beat.",
+    "why": "This opens a new way to explore and understand aircraft movement through sound rather than just visuals. It could inspire new compositional techniques, live performance systems, or ways to sonify real-world data streams in music production.",
+    "terms": [
+     {
+      "term": "ADS-B",
+      "meaning": "Automatic Dependent Surveillance-Broadcast: a system where aircraft automatically transmit their position and altitude to ground receivers"
+     },
+     {
+      "term": "sonification",
+      "meaning": "Converting data into sound so you can hear patterns instead of seeing them on a screen"
+     },
+     {
+      "term": "typed blocks",
+      "meaning": "Modular components in the editor that only connect to other blocks in compatible ways, like how audio cables only fit certain ports"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
   {
    "id": "2611.09275",
    "title": "AudioSphere: Towards Self-Supervised Spatial Audio Representation Models",
