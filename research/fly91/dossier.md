@@ -362,3 +362,88 @@ Working title: ***"The turboprop dividend: why FLY91's next growth engine is a s
 8. IdeaWorks 2024 press release and 2026 yearbook
 9. Goa Tourism 2025 arrivals release
 10. IOCL ATF price page (1 Nov 2026)
+11. AAI list of UDAN routes started, with the operating airline for each (latest version; needs `aai.aero` allowed)
+12. IndiGo FY26 annual report, revenue notes (what "special service requests" includes)
+
+---
+
+## 12. Follow-up answers (added 10 Nov 2026)
+
+### 12.1 What "ancillary revenue" means, and where the headroom really is
+
+**Definition.** Ancillary revenue is everything an airline earns beyond the base fare for the seat. IdeaWorks, the industry tracker, uses four buckets:
+
+| Bucket | Examples |
+| --- | --- |
+| À la carte extras | checked bags, seat selection, meals, priority boarding, change fees |
+| Bundled fares | a fare plus a package of extras (IndiGo Flex, FLY91 Smart Ticket) |
+| Loyalty and co-branded cards | miles sold to banks and partners. About 55% of ancillary income at the top 10 airlines in one IdeaWorks study (B) |
+| Commissions and other | hotels, car hire, insurance, holidays, advertising |
+
+Sources: [PhocusWire on IdeaWorks](https://www.phocuswire.com/article/ancillary-revenue-IdeaWorks/), [Business Travel News Europe](https://www.businesstravelnewseurope.com/Analysis/Where-are-air-ancillary-revenues-coming-from).
+
+**Why US ultra-low-cost carriers reach about 60%** (Frontier 60.2%, Spirit 59.8%, Allegiant 59.6% in 2025):
+
+- **Partly a labelling effect.** The fare is cut down to a bare seat, and everything else, even a cabin bag, is sold separately. Money a full-service airline books as "fare" appears as "ancillary".
+- **Low headline fares win the price-comparison search**; the margin comes from the extras.
+- **Loyalty is a small part of their mix.** Their share comes mostly from à la carte fees (B, IdeaWorks 2026 yearbook).
+- **A high share is not proof of health.** Spirit tops the ranking yet filed for bankruptcy again in 2025. IdeaWorks has suggested these carriers may be near a ceiling.
+
+**Better benchmark for the artefact:** ancillary revenue per passenger, alongside total revenue per passenger. Ryanair earns about €24 per passenger on a fare of about €50. IndiGo earns about ₹900 per passenger, roughly 11% of revenue (D).
+
+**Where FLY91's headroom is (our argument, for discussion):**
+
+- **Not in aggressive unbundling.** Many of FLY91's customers are price-sensitive and flying for the first time; nickel-and-diming them burns the goodwill a new airline needs.
+- **Commerce that makes the trip possible:** Lakshadweep permits, stays and packages (already started with MakeMyTrip); getting from small airports to the town (Sindhudurg airport is a long drive from Malvan).
+- **Flexibility products:** Smart Ticket already shows demand.
+- **Loyalty plus a fintech or UPI partner:** where a candidate from outside travel adds most.
+- **Island cargo and corporate or SME travel.**
+
+Scale it with the calculator (D13): every ₹100 of extra revenue per passenger ≈ ₹9.7 cr a year at the winter schedule.
+
+### 12.2 UDAN routes: how many, how many active, and who flies them
+
+Note: UDAN is run by the Ministry of Civil Aviation. AAI awards and tracks the routes; DGCA does not identify them.
+
+| Measure | Figure | Grade | Source |
+| --- | --- | --- | --- |
+| Routes awarded (all rounds) | about **923–925** | B | [Network Thoughts (Rajya Sabha, late 2025)](https://networkthoughts.com/2025/12/08/only-71-of-all-awarded-routes-started-operations-in-udan-19-did-not-last-full-three-years/), [Business Standard (Feb 2026)](https://www.business-standard.com/industry/aviation/cabinet-clears-modified-udan-scheme-with-rs-28840-crore-outlay-126032501023_1.html) |
+| Ever started | **679** (15 Jul 2026) | A | [PIB (PDF)](https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/jul/doc2026717924201.pdf) |
+| Stopped before the 3-year subsidy period ended | **165** | A/B | [Daily Excelsior (Rajya Sabha, 27 Jul 2026)](https://www.dailyexcelsior.com/?p=1923657) |
+| Flying today | **348** (51% of those started) | A/B | same |
+| Ran the 3 years, then stopped when the subsidy ended | about **166** | D | 679 − 165 − 348 |
+| Share of awarded routes flying today | about **38%** | D | 348 ÷ ~924 |
+
+**Government's stated reasons for failure:** low demand, no airport slots, too few aircraft, weather, and the subsidy ending. [National Herald](https://www.nationalheraldindia.com/national/udan-airports-shut-due-to-low-passenger-loads-operational-hurdles-govt)
+
+**Who flies them:** no current official airline-by-airline breakdown was found.
+
+- IndiGo flies about 26% of UDAN flights and Alliance Air about 24% (C, unsourced blog: [ISPP](https://www.ispp.org.in/udan-scheme-regional-connectivity-analysis-india/)).
+- Other operators: Star Air, FLY91, SpiceJet, Flybig, IndiaOne Air, and helicopter operators such as Pawan Hans and Heritage Aviation (C).
+- **FLY91's UDAN routes (round 5.0):** Jalgaon–Pune, Jalgaon–Goa, Jalgaon–Hyderabad, Sindhudurg–Pune, Sindhudurg–Bengaluru, plus Agatti (B, [ch-aviation](https://www.ch-aviation.com/news/130218-indias-fly91-secures-udan-route-allocations)).
+
+**To do:** AAI's route list ([Nov 2024 version, 609 routes, PDF](https://www.aai.aero/sites/default/files/rcs_news_notifications/609%20RCS%20Routes%20Operationalised_06.11.2024.pdf)) names the airline for each route. With `aai.aero` allowed, we can build a table by airline and status for the "graveyard" panel.
+
+### 12.3 IndiGo's ancillary components vs FLY91's
+
+**What IndiGo reports.** Its FY26 annual report defines ancillary revenue as six items: cargo, excess baggage, convenience fees, ticket changes and cancellations, special service requests, and in-flight sales. FY26 total: **₹9,092 cr** (+14.5% from ₹7,944 cr). **A** — [IndiGo FY26 annual report (NSE)](https://nsearchives.nseindia.com/corporate/Indigo1_28072026215606_Notice_of_23rd_AGM_and_Annual_Report.pdf)
+
+"Special service requests" is where paid seats, pre-booked meals and similar extras sit; the report doesn't break them out.
+
+**IndiGo's product range behind those lines** (from IndiGo's product pages, not checked this session; C): seat selection including extra-legroom XL seats, pre-booked meals (6E Eats), priority check-in and boarding (Fast Forward), 6E Flex and Lite fares, travel insurance, the BluChip loyalty programme and co-branded cards, the "Stretch" premium seat, and holidays and hotels.
+
+| IndiGo category | FLY91 today (from coverage) | Gap? |
+| --- | --- | --- |
+| Excess baggage | SmartBag91 (₹1,000–3,000) | Covered |
+| Changes and cancellations | Smart Ticket (₹599 / ₹1,991 add-on) | Covered, bundled more neatly |
+| Convenience fees | Waived on its website (Sept and Dec 2025) | Deliberate; pushes direct booking |
+| In-flight sales | UPI on board | Covered; pre-booking not seen |
+| Special service requests | Priority boarding only inside the ₹1,991 Smart Ticket | **Paid seats, pre-booked meals, standalone priority** |
+| Cargo | Nothing found | **Gap**; an opportunity for Lakshadweep supplies |
+| Loyalty and co-branded card | Nothing found | **Biggest gap**; where fintech experience fits |
+| Insurance, hotels, ground transport | Holiday packages only | **Gap in selling these with the ticket**, and in last-mile transport |
+| Fare tiers (Lite / Saver / Flex) | One fare plus add-ons | Possible; fits a 70-seat aircraft less well |
+
+**Caveat:** fly91.in could not be opened in this session, so "nothing found" means not seen in coverage, not proven absent. Check the site before the artefact claims a gap.
+
+**Implication for the storyline:** FLY91 has the basic transactional extras covered. What it lacks is everything that builds a relationship with the customer: loyalty, a card partner, and commerce around the trip. That gap is what a "Digital Entrepreneur" from e-commerce or fintech would build, and it gives the artefact its sharpest message.
