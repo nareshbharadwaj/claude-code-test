@@ -1,6 +1,243 @@
 {
- "updated": "2026-11-10T15:39:00Z",
+ "updated": "2026-11-11T15:22:40Z",
  "papers": [
+  {
+   "id": "2611.14443",
+   "title": "Assessing Alignment in Automatic Piano Transcription Datasets: A Benchmark for Scoring Methods",
+   "authors": [
+    "Lucas de Souza Brandão",
+    "Lucas Gris",
+    "Joaquim Cavalcante",
+    "Chukwuemeka Nkama",
+    "Andrea Poltronieri"
+   ],
+   "published": "2026-11-10",
+   "category": "cs.SD",
+   "topics": [
+    "mir"
+   ],
+   "summary": "Automatic Music Transcription (AMT) relies on paired audio--MIDI datasets, implicitly assuming near-perfect temporal alignment. However, widely used piano datasets have been shown to contain alignment errors that may bias model evaluation and training. We propose a framework for evaluating audio--MIDI alignment scoring methods through controlled temporal, pitch, and structural MIDI corruptions. We also introduce STI, a scoring method built on AMT models, and benchmark it against existing alignment scoring approaches. Our results show that STI, together with methods based on CENS and spectrograms, achieves the strongest overall performance, with STI exhibiting the highest sensitivity to fine-grained temporal misalignments, the main alignment error in AMT datasets. We then apply the best-performing methods to widely used piano AMT datasets and identify trends in their relative alignment quality. These results support more informed dataset curation, model training, and AMT evaluation.",
+   "url": "https://arxiv.org/abs/2611.14443",
+   "pdf": "https://arxiv.org/pdf/2611.14443",
+   "explain": {
+    "tldr": "A framework to measure how well audio and MIDI are time-aligned in piano datasets, plus a new scoring method.",
+    "plain": "Piano transcription datasets pair audio recordings with MIDI files, but they often have timing errors that can mess up training and testing. This paper creates a way to test different methods for measuring alignment quality by intentionally introducing errors into MIDI files. They introduce a new scoring method called STI and compare it against existing approaches. They found that STI and a couple other methods work best, especially at catching small timing mistakes—the most common problem in real datasets.",
+    "why": "If you're training or evaluating transcription software, knowing which datasets are well-aligned matters. Better alignment measurement helps ensure your models learn from clean data and get fairly evaluated, which ultimately leads to more accurate automatic transcription tools.",
+    "terms": [
+     {
+      "term": "audio-MIDI alignment",
+      "meaning": "how precisely the timing of a recorded audio file matches up with the note timings in a MIDI file"
+     },
+     {
+      "term": "CENS",
+      "meaning": "a music feature that captures harmonic content in a compact form, useful for comparing audio to MIDI"
+     },
+     {
+      "term": "spectrogram",
+      "meaning": "a visual representation of audio showing which frequencies are present at each moment in time"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.14415",
+   "title": "Exploring Post-Hoc Disentanglement of Audio Foundation Models for Music Similarity",
+   "authors": [
+    "Lucas de Souza Brandão",
+    "Gabriel da Costa Merlin",
+    "Diego Furtado Silva"
+   ],
+   "published": "2026-11-10",
+   "category": "cs.SD",
+   "topics": [
+    "rep"
+   ],
+   "summary": "Audio foundation models like CLAP, MuQ, and MERT excel at capturing general musical similarity. On the other hand, their entangled latent spaces limit interpretability and fine-grained attribute control. Conditional Similarity Networks (CSN) address this by pairing a backbone representation model with learned masks that gate the embedding space into attribute-specific subspaces. However, existing methods train the backbone from scratch, rather than leveraging pretrained foundation models. We instead present a systematic study of post-hoc disentanglement, adapting CSN to gate frozen pretrained embeddings. We evaluate adding trainable parameters to adapt the embedding under different masking and pooling regimes across two datasets. Our findings show that minimal adaptation capacity is sufficient for post-hoc gating to improve both attribute-specific disentanglement and overall retrieval performance, while pooling, masking, and depth choices yield limited additional gains.",
+   "url": "https://arxiv.org/abs/2611.14415",
+   "pdf": "https://arxiv.org/pdf/2611.14415",
+   "explain": {
+    "tldr": "Making pretrained music AI models more interpretable by learning to separate their outputs into specific musical attributes.",
+    "plain": "Large pretrained audio models like CLAP and MERT are good at finding similar songs, but their internal representations mix many musical qualities together, making it hard to understand or control what they're actually comparing. This paper takes those pretrained models and adds small learned filters that split their output into separate channels for different musical attributes—like timbre, tempo, or mood. They found you don't need much extra computation to make this work: simple adaptations can separate out specific attributes while actually improving how well the model finds similar music.",
+    "why": "If music search and recommendation tools can be made to work on specific attributes you care about—rather than vague overall similarity—producers and musicians could find sounds more precisely. Understanding what these AI models actually pay attention to also helps build more trustworthy and controllable music tools.",
+    "terms": [
+     {
+      "term": "foundation models",
+      "meaning": "Large pretrained AI models trained on broad data that can be adapted for many different tasks"
+     },
+     {
+      "term": "latent space",
+      "meaning": "The internal numerical representation a model uses to encode information about music"
+     },
+     {
+      "term": "disentanglement",
+      "meaning": "Separating mixed-together features so each one represents a single, interpretable musical quality"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.13834",
+   "title": "MusicFlux: Flexible Conditioning for Text-Guided Music Generation and Editing",
+   "authors": [
+    "Teysir Baoueb",
+    "Leonardo Boulitreau de Menezes Martins Marques",
+    "Paraskevas Stamatiadis",
+    "Ga{ë}l Richard"
+   ],
+   "published": "2026-11-10",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "rep"
+   ],
+   "summary": "Music editing transforms existing recordings while preserving their original attributes. Recent approaches adapt pretrained text-to-music models for tasks like inpainting, event insertion, or restoration by conditioning them with context audio. It was recently proposed for image editing to unify generation and editing by treating the source image as in-context information. However, applying this directly to music is computationally expensive due to long audio sequences. In this work, we develop MusicFlux, a text-guided music editor built on an efficient pretrained flow-matching text-to-audio model. We introduce two conditioning approaches that trade off editing performance and computational efficiency. Experiments show that both are competitive with strong baselines, with one achieving better editing quality and the other preserving the original sequence length and substantially improving computational efficiency.",
+   "url": "https://arxiv.org/abs/2611.13834",
+   "pdf": "https://arxiv.org/pdf/2611.13834",
+   "explain": {
+    "tldr": "MusicFlux edits music using text instructions while keeping original parts, balancing quality and speed.",
+    "plain": "Music editing usually destroys the original recording's character. Recent AI models can edit music by using the original audio as context, but this is slow for long songs. MusicFlux solves this by offering two different approaches: one that edits better but takes more computation, and another that's much faster while keeping the original song length intact. Both work competitively compared to existing methods.",
+    "why": "This matters to producers and musicians because it enables faster, more practical AI-assisted editing—you could rewrite parts of a song with text instructions without losing the feel of the original, and do it without waiting forever for processing.",
+    "terms": [
+     {
+      "term": "flow-matching",
+      "meaning": "A machine learning technique that gradually transforms random noise into structured audio by learning a smooth path between them"
+     },
+     {
+      "term": "inpainting",
+      "meaning": "Filling in missing or masked sections of audio (like replacing a drum break) while keeping the rest unchanged"
+     },
+     {
+      "term": "conditioning",
+      "meaning": "Giving the AI model extra information (like your original audio) to guide what it generates"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.13687",
+   "title": "AURA: Auditory Spatial Intelligence via a Unified Representation from a General-Audio Encoder through Complete Alignment",
+   "authors": [
+    "Boyan Han",
+    "Xiaoyan Wang",
+    "Zhe Sun",
+    "Ziqi Wang",
+    "Yujun Cai",
+    "Hongli Cao",
+    "Yiwei Wang",
+    "Ming-Hsuan Yang",
+    "Liang An"
+   ],
+   "published": "2026-11-10",
+   "category": "cs.SD",
+   "topics": [
+    "spa",
+    "rep"
+   ],
+   "summary": "Answering spatial questions about multi-source scenes requires a model both to identify each sound and to locate it. Existing spatial audio-language models obtain spatial information from a dedicated encoder, which separates spatial and semantic processing into distinct feature spaces. We study whether a general-audio codec trained without spatial supervision can serve both purposes. A controlled layer-wise analysis shows that the frozen codec retains spatial information, with lateral cues carried by the difference between the two ear channels. This information, however, is not readily accessible: in dual-source scenes, a model trained on these features predicts left/right at chance and, on the remaining axes, assigns the detected direction to the queried and the non-queried source equally often. We attribute this failure to an audio--text information asymmetry, in which the audio contains both sources while the answer describes only the queried one. A controlled $2\\times2$ experiment shows that either completing the scene description or exposing the inter-channel difference lifts left/right accuracy above chance, whereas binding directions to the queried source requires both. Building on these findings, AURA keeps the codec and the language model frozen and exceeds the strongest dedicated system on SpatialSoundQA by 10.31 points in dual-source direction accuracy, with about 40\\% of its trainable parameters.",
+   "url": "https://arxiv.org/abs/2611.13687",
+   "pdf": "https://arxiv.org/pdf/2611.13687",
+   "explain": {
+    "tldr": "A model answers spatial questions about sounds by using a general audio encoder without specialized spatial training.",
+    "plain": "When you hear multiple sound sources, understanding where each one is located requires both identifying what the sounds are and pinpointing their positions. Most existing systems use separate specialized components for these tasks. This research found that a general-purpose audio encoder—trained on regular audio without spatial information—actually preserves spatial cues naturally, particularly from differences between left and right ear channels. However, the model initially struggled to connect spatial information to specific sound sources when multiple sounds were present. By addressing how the audio description and the actual audio content misalign (the audio has all sources, but the description only mentions one), the researchers developed AURA, which achieves better results than specialized systems while using fewer trainable components.",
+    "why": "For spatial audio applications like immersive music production, 3D audio mixing, or interactive sound design, accurately identifying and locating multiple sound sources is essential. This work suggests that general audio tools might handle spatial reasoning better than previously thought, potentially simplifying how spatial audio systems are built.",
+    "terms": [
+     {
+      "term": "audio codec",
+      "meaning": "A system that compresses and represents audio in a compact form that preserves important information"
+     },
+     {
+      "term": "inter-channel difference",
+      "meaning": "The difference in sound between the left and right ear channels, which naturally encodes spatial location"
+     },
+     {
+      "term": "spatial audio-language model",
+      "meaning": "An AI system that understands both where sounds are located and can answer questions about them in words"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.13555",
+   "title": "Navigating relational agency in AI feedback musicianship: a diffractive dialogue",
+   "authors": [
+    "Yichen Wang",
+    "Charles Patrick Martin",
+    "David Gunawan",
+    "David Cooper"
+   ],
+   "published": "2026-11-10",
+   "category": "cs.SD",
+   "topics": [
+    "hci"
+   ],
+   "summary": "Musical AI systems behave in non-linear, dynamic ways that exceed the tool-oriented framings inherited from earlier instrument design. Existing frames of control and ensemble interaction do not articulate the entangled, relational agency that emerges when performers work with AI feedback instruments over time. We examine a duet practice with two AI-enabled feedback instruments, Sù and Agentier, in which feedback operates at the inner level of the AI's recurrent processes and the outer loop of musical interaction between performer, instrument, and co-performer. Our work draws on agential realism and a diffractive dialogue methodology to read our independent reflections through one another across five performances, examining how agency is enacted between performers and AI instruments. We find that control and agency are relational and shift across performances; musical textures enact feedback moments of control with performers; reaching a productive feedback environment is itself a shared exploratory act; and performers maintain their instruments through funnelling and injection, developing the skill of navigating agency along a continuous spectrum. Feedback musicianship with AI instruments demands navigation of this relational agency, displacing the leading-versus-responding binary that initially framed our reflections. This work contributes a materially-grounded vocabulary for AI feedback musicianship and a model of human-AI creative collaboration in which mutual agency is worked for through practice rather than designed in.",
+   "url": "https://arxiv.org/abs/2611.13555",
+   "pdf": "https://arxiv.org/pdf/2611.13555",
+   "explain": {
+    "tldr": "Study of how performers and AI instruments share control and agency through feedback-based musical interaction over time.",
+    "plain": "When musicians perform with AI instruments that respond to their playing, the relationship between performer and machine is more complex than traditional instrument control. This paper examines two performers working with AI feedback instruments across multiple performances, using a method called diffractive dialogue to understand how control and creative agency shift between human and machine. They found that performers don't simply lead or follow—instead, they develop skills to navigate a spectrum of shared agency, actively shaping how the AI responds through techniques like 'funnelling' and 'injection,' and that this collaborative relationship improves through practice.",
+    "why": "If you're making music with AI tools or designing them, this work offers a new way to think about the relationship: not as you controlling a tool, but as a genuine back-and-forth collaboration where both you and the system shape what happens. It suggests that the most interesting AI musicianship emerges through sustained practice rather than perfect initial design.",
+    "terms": [
+     {
+      "term": "recurrent processes",
+      "meaning": "The AI's internal feedback loops where its outputs influence its next decisions, similar to how memory works in neural networks"
+     },
+     {
+      "term": "agential realism",
+      "meaning": "A theoretical approach that treats agency (the ability to act and create change) as something that emerges from relationships between things, not something one thing possesses alone"
+     },
+     {
+      "term": "diffractive dialogue",
+      "meaning": "A research method where you examine your own reflections by comparing them with someone else's, looking for how they overlap and differ to reveal new insights"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.13503",
+   "title": "FaiSonic MMD: A popular music dataset with temporally aligned multidimensional annotations for multitask music analysis",
+   "authors": [
+    "Tieyao Zhang",
+    "Yuke Liu",
+    "Jiaxing Yu",
+    "Xinda Wu",
+    "Genfang Chen"
+   ],
+   "published": "2026-11-10",
+   "category": "cs.SD",
+   "topics": [
+    "mir",
+    "hci"
+   ],
+   "summary": "Temporal analysis in music information retrieval concerns the positions of musical events and structures within recordings. Joint modeling has demonstrated the value of combining musical descriptions, but existing resources differ in joint coverage and expert verification across dimensions, constraining detailed joint supervision and the analysis of relationships on the same recordings. To support multitask modeling and the study of relationships among musical dimensions in popular music, we introduce FaiSonic Multidimensional Music Dataset (FaiSonic MMD), containing 500 songs totaling approximately 32.86 hours, comprising 250 Chinese-language and 250 English-language songs. Professional musicians annotate phrases, sections, chords, and rhythm in real recordings, followed by independent review. Events and intervals across dimensions share a recording-based time reference while retaining their respective musical granularity and boundaries, allowing direct comparison across musical descriptions. We describe the annotations, collection procedure, and statistics, and establish a comprehensive multitask baseline for phrase boundaries, section boundaries, section functions, chords, beats, and downbeats. We report reference performance for all prediction targets. FaiSonic MMD provides shared expert annotations and accompanying benchmarks for temporal music analysis.",
+   "url": "https://arxiv.org/abs/2611.13503",
+   "pdf": "https://arxiv.org/pdf/2611.13503",
+   "explain": {
+    "tldr": "A dataset of 500 songs with expert annotations of phrases, sections, chords, and rhythm for training music analysis systems.",
+    "plain": "Music researchers need high-quality datasets where different musical elements—like where phrases start and stop, chord changes, and beat positions—are all marked at the same time points in the same recordings. This lets them study how these elements relate to each other. The FaiSonic MMD dataset provides exactly this: 500 popular songs (250 in Chinese, 250 in English) where professional musicians have carefully labeled phrases, sections, chords, and rhythmic elements, all verified independently. The researchers also tested several automated systems on this data to show what kinds of performance others can expect when building their own music analysis tools.",
+    "why": "For music producers and technologists, this dataset enables better AI tools for understanding song structure, detecting chord progressions, and identifying rhythmic patterns. Having reliable, professionally-verified annotations across multiple musical dimensions means developers can train systems that understand how these elements work together in real music.",
+    "terms": [
+     {
+      "term": "multitask modeling",
+      "meaning": "training a single system to predict multiple related things at once (like both chord and beat positions) rather than separate systems for each"
+     },
+     {
+      "term": "temporal analysis",
+      "meaning": "identifying when musical events happen and how they're positioned in time within a recording"
+     },
+     {
+      "term": "annotations",
+      "meaning": "expert labels or markers placed at specific moments in recordings to identify musical events or structures"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
   {
    "id": "2611.12061",
    "title": "BARS: Beat-Adaptive Rap Synthesis via Flow Matching",
