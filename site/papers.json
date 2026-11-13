@@ -1,6 +1,307 @@
 {
- "updated": "2026-11-12T16:01:47Z",
+ "updated": "2026-11-13T15:29:02Z",
  "papers": [
+  {
+   "id": "2611.17070",
+   "title": "Evaluation of Music Version Retrieval Methods for Setlist Identification in Live Concerts",
+   "authors": [
+    "Andres Ferraro",
+    "Albin Correya"
+   ],
+   "published": "2026-11-12",
+   "category": "cs.IR",
+   "topics": [
+    "rep"
+   ],
+   "summary": "Automatic setlist identification aims to identify the songs performed in live concert recordings by matching noisy and variable-quality audio against a database of reference tracks. This task presents challenges beyond conventional music version identification, including substantial arrangement differences, background noise, and the need to process continuous recordings efficiently at large scale. In this work, we evaluate modern music version retrieval methods for setlist identification using the ASID benchmark, comparing the established Re-MOVE system with CLEWS and NAVE, an internal neural audio version embedding model. Our results show that NAVE and CLEWS substantially outperform Re-MOVE. Notably, NAVE uses 256-dimensional embeddings, compared with 1024 dimensions for CLEWS, providing a four-fold reduction in embedding storage while achieving better retrieval performance. We further evaluate music/non-music gating and find modest improvements in detection and temporal coverage, while qualitative analysis suggests that such preprocessing can improve recognition boundaries beyond what the standard ASID metrics capture. Overall, the results demonstrate that segment-level audio embeddings provide a strong basis for scalable setlist identification and that compact representations can achieve strong accuracy under realistic live-concert conditions at much lower storage and serving cost.",
+   "url": "https://arxiv.org/abs/2611.17070",
+   "pdf": "https://arxiv.org/pdf/2611.17070",
+   "explain": {
+    "tldr": "Researchers compare methods for automatically identifying which songs were played at live concerts from noisy recordings.",
+    "plain": "When you record a live concert, identifying which songs were actually performed is tricky—the audio is noisy, arrangements differ from studio versions, and you need to search through huge databases quickly. The researchers tested three different systems that try to match live concert audio against reference recordings, using a standard benchmark dataset. They found that newer neural network-based methods (CLEWS and NAVE) work much better than an older system, and NAVE does this while using a much more compact digital representation of the audio, which saves storage space and computing power.",
+    "why": "This matters for concert documentation, streaming services that want to tag live performances, and anyone building tools to automatically catalog concert recordings. It shows that modern AI methods can handle the messy reality of live audio better than older approaches.",
+    "terms": [
+     {
+      "term": "audio embeddings",
+      "meaning": "A compact numerical representation of audio that captures its essential characteristics, used for fast comparison and searching"
+     },
+     {
+      "term": "music version retrieval",
+      "meaning": "Finding a specific recording of a song (like a live version) by matching it against a database of known recordings"
+     },
+     {
+      "term": "music/non-music gating",
+      "meaning": "A preprocessing step that filters out non-musical sounds (like crowd noise or talking) before trying to identify songs"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.16718",
+   "title": "MusicRWKV: A Multimodal RWKV Framework for Music Representation Learning",
+   "authors": [
+    "Terry Tan"
+   ],
+   "published": "2026-11-12",
+   "category": "cs.SD",
+   "topics": [
+    "mir",
+    "syn",
+    "rep"
+   ],
+   "summary": "Recent music foundation models have achieved remarkable progress in music representation learning, yet most existing approaches rely on Transformer architectures whose quadratic attention complexity introduces substantial computational and memory overhead when modeling long-duration music recordings. In this work, we propose MusicRWKV, a multimodal music representation learning framework built upon the RWKV architecture. MusicRWKV jointly models waveform, spectrogram, and metadata information within a unified self-supervised learning framework. To improve efficiency for long musical sequences, we introduce an invertible compression module that reduces sequence length while preserving reconstruction capability. A FiLM-based conditioning strategy is employed to facilitate modality-aware representation learning without introducing expensive cross-attention operations. We further investigate the integration of Soft ROSA as a differentiable retrieval mechanism for neural-symbolic interaction. Experimental evaluation across a diverse collection of Music Information Retrieval (MIR) benchmarks demonstrates that the proposed RWKV-based architecture can be effectively adapted to heterogeneous music understanding tasks. A controlled pretraining ablation shows that Soft ROSA improves validation performance, while layer-wise telemetry analysis reveals a progressive transition from distributed retrieval to selective retrieval in deeper network layers. These results suggest that RWKV provides a promising architectural alternative to Transformer-based models for multimodal music understanding.",
+   "url": "https://arxiv.org/abs/2611.16718",
+   "pdf": "https://arxiv.org/pdf/2611.16718",
+   "explain": {
+    "tldr": "A music AI model using RWKV architecture that processes audio and metadata efficiently for music understanding tasks.",
+    "plain": "Most music AI models use Transformers, which become slow and memory-hungry with long recordings. This paper proposes MusicRWKV, which uses a different architecture (RWKV) designed to handle longer sequences more efficiently. The model learns from waveforms, spectrograms, and metadata together, and includes a compression technique to further reduce computational load. Tests on music information retrieval tasks show the approach works well and suggests RWKV could be a practical alternative to Transformer-based music models.",
+    "why": "If this approach scales better to long recordings, it could make music AI tools faster and more accessible for producers and musicians working with full-length tracks, potentially enabling real-time or lower-latency music analysis and generation.",
+    "terms": [
+     {
+      "term": "RWKV architecture",
+      "meaning": "A neural network design that processes sequences more efficiently than Transformers by using a different attention mechanism that doesn't have quadratic complexity."
+     },
+     {
+      "term": "Spectrogram",
+      "meaning": "A visual representation of audio showing which frequencies are present over time, commonly used in music AI instead of raw waveforms."
+     },
+     {
+      "term": "Self-supervised learning",
+      "meaning": "Training an AI model on unlabeled data by having it predict parts of the data from other parts, without needing manual annotations."
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.15465",
+   "title": "On-Edge Acoustic Continual Anomaly Detection: A Cross-Platform Comparative Study",
+   "authors": [
+    "Rami Zewail",
+    "Yehia Ehab",
+    "Karim Ali",
+    "Ahmed Mahrous",
+    "Mohamed Awad",
+    "Bassem Mokhtar"
+   ],
+   "published": "2026-11-11",
+   "category": "cs.SD",
+   "topics": [
+    "rep"
+   ],
+   "summary": "Acoustic Anomaly Detection (AAD) serves as a non-contact approach for machine condition monitoring, yet much of the existing research is evaluated offline and rarely addresses embedded hardware constraints or microphone variations under operational drift. This paper presents a comparative evaluation of on-edge continual AAD across two embedded platforms the ESP32-S3 (with an external I2S digital microphone) and the Arduino Nicla Vision (with an onboard Pulse Density Modulation (PDM) microphone) using a shared detection model. The model utilizes a lightweight ShallowNet encoder and contrastive prototype learning to map spectrograms into a 32-dimensional embedding space. Both boards run an identical TensorFlow Lite for Microcontrollers (TFLM) encoder, performing on-device prototype learning updated via an exponential moving average. A cloud pipeline orchestrated through Firebase and MQTT enables remote data collection and retraining. Evaluated via a controlled speaker-replay protocol using standardized Detection and Classification of Acoustic Scenes and Events (DCASE) Challenge Task 2 machine sounds, the ESP32-S3 achieved 82.35% to 95.00% accuracy across five machine types, while the Nicla Vision achieved 79.41% to 95.00%. The two platforms demonstrated comparable performance, confirming that the lightweight prototypical architecture transfers reliably across distinct hardware and sensor tiers.",
+   "url": "https://arxiv.org/abs/2611.15465",
+   "pdf": "https://arxiv.org/pdf/2611.15465",
+   "explain": {
+    "tldr": "Researchers tested acoustic anomaly detection on two small embedded devices to see if it works reliably across different hardware.",
+    "plain": "Detecting unusual sounds from machines is useful for maintenance, but most research tests this offline without considering real hardware limitations. This study ran the same detection system on two different small computers (ESP32-S3 and Arduino Nicla Vision) with different microphones to see if it would work consistently. They tested it on recorded machine sounds and found both devices achieved similar accuracy (79-95%), suggesting the approach works across different hardware setups.",
+    "why": "For musicians and producers working with hardware or embedded systems, this shows that acoustic monitoring can run directly on small devices without needing to send data to the cloud, which matters for real-time applications, privacy, and systems with limited connectivity.",
+    "terms": [
+     {
+      "term": "TensorFlow Lite for Microcontrollers (TFLM)",
+      "meaning": "A lightweight version of machine learning software designed to run on tiny computers with limited memory and processing power"
+     },
+     {
+      "term": "Spectrogram",
+      "meaning": "A visual representation of sound that shows which frequencies are present over time, like a heat map of audio"
+     },
+     {
+      "term": "Contrastive prototype learning",
+      "meaning": "A technique that learns by comparing examples to representative patterns, helping the system recognize what's normal versus unusual"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.15242",
+   "title": "Computational Raga Recognition: A Theory-Driven Approach",
+   "authors": [
+    "Janay Sukheja",
+    "Shailaja D. Sharma"
+   ],
+   "published": "2026-11-11",
+   "category": "cs.SD",
+   "topics": [
+    "rep"
+   ],
+   "summary": "Raga recognition in Hindustani classical music is difficult because a raga is not defined only by the notes used in it. Its identity also depends on the way notes are emphasized, the movement between notes and characteristic phrases. In this work, we develop a computational approach to analyse these characteristics directly from audio recordings. The method uses pitch extracted from recordings and represents it using a 44-position note framework based on the 22-shruti system. From this representation, Raga features based on the Indian classical musicology are extracted.Each feature is compared with a reference representation of the raga and the resulting scores are combined to obtain an overall similarity score. The method is first studied using Raga Yaman and is then tested on recordings of other ragas. The computational results are also compared with the theoretical description of Yaman to identify which raga characteristics are captured well and where the method has limitations.",
+   "url": "https://arxiv.org/abs/2611.15242",
+   "pdf": "https://arxiv.org/pdf/2611.15242",
+   "explain": {
+    "tldr": "A computational system that identifies ragas by analyzing how notes are played, not just which notes appear.",
+    "plain": "Ragas in Hindustani classical music are hard to identify computationally because they're defined by more than just pitch—it's about how notes are emphasized, connected, and phrased. This work extracts the actual pitch from recordings and analyzes it using a 22-shruti framework (a traditional Indian system for dividing the octave). The system then measures specific musical characteristics based on Indian music theory and compares them to reference patterns to identify which raga is being performed. The researchers tested it on Raga Yaman and other ragas, checking where the method works well and where it struggles.",
+    "why": "For musicians and producers working with or studying Hindustani classical music, this could help with automatic raga identification, archiving, or analysis tools. It shows how traditional music theory can guide computational approaches rather than treating music as generic audio data.",
+    "terms": [
+     {
+      "term": "shruti",
+      "meaning": "In Indian classical music, one of 22 microtonal divisions of an octave, finer than the 12 Western semitones"
+     },
+     {
+      "term": "pitch extraction",
+      "meaning": "The computational process of detecting the fundamental frequency (note) being played at each moment in an audio recording"
+     },
+     {
+      "term": "raga",
+      "meaning": "A melodic framework in Indian classical music defined by specific notes, their relationships, and characteristic phrases and ornamentations"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.15101",
+   "title": "CFGComposer: Compositional Audio-Text-to-Motion Generation via Copula Score Correction",
+   "authors": [
+    "Pengyang Shi",
+    "Jinlu Zhang",
+    "Chunze Lin",
+    "Yizhou Wang",
+    "Li Yi"
+   ],
+   "published": "2026-11-11",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "hci"
+   ],
+   "summary": "Generating whole-body gestures that are simultaneously rhythmically synchronized with speech audio and semantically aligned with text descriptions is a fundamental challenge in embodied AI and social robotics. We tackle this Audio-Text-to-Motion (AT2M) problem by composing two independently-trained diffusion models at inference time and refine bias in joint inference by modeling the copula score $s_I$. A rigorous theoretical analysis reveals that naive epsilon blending corresponds to a Product-of-Experts formulation that omits the copula score $s_I$: the cross-modal interaction between audio and text that neither marginal model can capture. We propose CFGComposer: a jointly-trained AT2M diffusion model that estimates $s_I$ via a CFG analogy and injects it as an $ε$-space correction. Experiments on BEAT demonstrate best-in-class semantic fidelity (SRGR $0.9916$, FID $27.18$) with GT-level beat alignment (BA $0.1826$ vs. GT $0.1743$), and 76-83% win rate in blind pairwise human evaluation against all prior methods. Physical deployment on a Unitree G1 humanoid confirms direct sim-to-real transfer.",
+   "url": "https://arxiv.org/abs/2611.15101",
+   "pdf": "https://arxiv.org/pdf/2611.15101",
+   "explain": {
+    "tldr": "A method that generates synchronized body gestures matching both speech audio and text descriptions using AI models.",
+    "plain": "Creating realistic body movements that match both what someone is saying (audio) and what you want them to express (text) is hard. The researchers combined two separate AI models trained on audio and text separately, then added a correction step to capture how audio and text interact together. Their system produces gestures that stay rhythmically in sync with speech while matching the intended meaning, and they tested it on a real robot.",
+    "why": "This matters for creating realistic virtual performers, avatars, or robots that respond to both spoken and written instructions. Musicians and producers working with motion capture, animation, or interactive performances could use this to generate synchronized gesture data that matches their audio and creative intent.",
+    "terms": [
+     {
+      "term": "diffusion models",
+      "meaning": "AI systems that generate content by gradually refining random noise into structured output, often used for creating images, audio, or motion"
+     },
+     {
+      "term": "copula score",
+      "meaning": "a mathematical term capturing how two things (here, audio and text) depend on or influence each other, beyond what either one alone can explain"
+     },
+     {
+      "term": "sim-to-real transfer",
+      "meaning": "taking a system trained in simulation and having it work directly on a real physical robot without retraining"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.14971",
+   "title": "Can Music Generation Models Tap Along? Evaluating Generative Approaches to Beat Tracking",
+   "authors": [
+    "Kun Fang",
+    "Ziyu Wang",
+    "Ichiro Fujinaga"
+   ],
+   "published": "2026-11-11",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "mir",
+    "rep"
+   ],
+   "summary": "Existing studies have shown that music generative models can generate synchronized tracks that play alongside an input song. Can we extend this capability to develop a generative approach to beat tracking? To answer this question, we equip a pretrained MusicGen model with an audio-conditioning adapter to generate percussion tracks synchronized with the input music, from which we extract the beat positions. We train separate models with percussion targets of varying rhythmic complexity and compare them with two other generative models and conventional beat trackers. On GTZAN, our model achieves performance close to state-of-the-art beat trackers. Our model also demonstrates greater robustness: it shows the smallest drop in F-measure when drums are removed from the input at inference time. In certain genres, such as metal and disco, our model is also less likely to be misled by strong onsets or to miss beats with weak onsets. These results suggest that percussion generation has the potential to become a viable approach to beat tracking, and that its output is not merely a sequence of beat positions but an audible percussion track.",
+   "url": "https://arxiv.org/abs/2611.14971",
+   "pdf": "https://arxiv.org/pdf/2611.14971",
+   "explain": {
+    "tldr": "A music generation model can track beats by generating drum sounds synchronized with input music.",
+    "plain": "Beat tracking—finding the main pulse in music—is traditionally done with signal analysis tools. This paper takes a different approach: they modified a generative music model to create drum tracks that line up with any input song, then extract beat positions from those generated drums. Their method performs comparably to conventional beat trackers on standard tests, and interestingly, it's more robust when drums are missing from the input and handles tricky genres like metal and disco better than existing tools.",
+    "why": "This matters because it shows generative models might offer a new way to find beats that's more flexible and interpretable than black-box algorithms. For producers, it could mean beat tracking that's more musically aware and less fooled by misleading sounds in the mix.",
+    "terms": [
+     {
+      "term": "audio-conditioning adapter",
+      "meaning": "A component that lets a generative model take an input audio file and use it to guide what it generates"
+     },
+     {
+      "term": "beat tracking",
+      "meaning": "Automatically detecting the main rhythmic pulse or downbeats in a piece of music"
+     },
+     {
+      "term": "F-measure",
+      "meaning": "A standard metric that balances precision and recall to evaluate how well a system finds the correct beats"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.14724",
+   "title": "Harmony: Bridging Audio Understanding and Editing through Agentic Collaboration",
+   "authors": [
+    "Zhongyi Tong",
+    "Yapeng Tian"
+   ],
+   "published": "2026-11-10",
+   "category": "cs.SD",
+   "topics": [
+    "gen"
+   ],
+   "summary": "Natural-language audio editing requires connecting a user's intent to specific sounds and time regions while preserving surrounding content. Complex requests make this connection demanding: an edit may select one occurrence, depend on a temporal relation, or modify a source that overlaps with other sounds. We introduce Harmony, an agentic framework that bridges audio understanding and editing through collaboration among an LLM planner, an audio-language model, and external tools. Harmony combines two mechanisms. Edit-driven collaborative planning uses targeted questions and tool measurements to determine the target, timing, and operation parameters. Evidence-guided execution uses observations of the first separated or generated audio to trigger bounded corrections before final mixing. Together, these mechanisms connect semantic decisions to waveform operations throughout the editing process. Harmony supports addition, removal, replacement, and volume adjustment. On 420 MMAE examples spanning these operations, Harmony achieves an exact match rate of 22.62%, compared with 13.57% for the strongest baseline, and improves aggregate instruction following and context preservation.",
+   "url": "https://arxiv.org/abs/2611.14724",
+   "pdf": "https://arxiv.org/pdf/2611.14724",
+   "explain": {
+    "tldr": "A system that understands natural language commands to edit audio by coordinating AI planning, sound recognition, and editing tools.",
+    "plain": "When you want to edit audio using plain English—like \"make the drums quieter in the second verse\"—the system needs to figure out what you mean, find the right part of the audio, and make the change without messing up other sounds. Harmony does this by having an AI planner ask clarifying questions, use audio recognition to pinpoint sounds, and then check the results before finalizing the edit. The researchers tested it on 420 real editing tasks and found it succeeded about 23% of the time, better than previous approaches.",
+    "why": "This matters because it could make audio editing more accessible—instead of manually finding and adjusting waveforms, producers and musicians could describe edits in natural language and let the system handle the technical details.",
+    "terms": [
+     {
+      "term": "agentic framework",
+      "meaning": "a system where multiple AI tools work together, each with specific roles, to solve a complex task step-by-step"
+     },
+     {
+      "term": "audio-language model",
+      "meaning": "an AI trained to understand both sound and text, so it can recognize what's happening in audio when given descriptions"
+     },
+     {
+      "term": "waveform operations",
+      "meaning": "technical changes made directly to the digital audio signal, like adjusting volume or removing a section"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
+  {
+   "id": "2611.14634",
+   "title": "Evaluating AI Musical Creativity: Towards a Quantitative Multi-Dimensional Framework Based on Value, Novelty, and Surprise",
+   "authors": [
+    "Hindy Rossignol",
+    "Giorgio Franceschelli",
+    "Mirco Musolesi"
+   ],
+   "published": "2026-11-10",
+   "category": "cs.SD",
+   "topics": [
+    "gen"
+   ],
+   "summary": "Despite the increasing sophistication of generative Artificial Intelligence (AI), research on the evaluation of AI-generated musical creativity remains limited. To address this gap, this paper proposes a quantitative framework for the formalization and evaluation of AI musical creativity. Building on Margaret Boden's theory, which conceptualizes creativity in terms of value, novelty, and surprise, the framework adapts and operationalizes these three dimensions for the musical domain. On the hypothesis that certain aspects of musical creativity can be assessed with a degree of objectivity, a domain-specific set of quantitative metrics for evaluating the creativity of AI-generated music is introduced. Rather than reducing musical creativity to a single unifying measure, this article proposes an ensemble of complementary metrics that capture its different dimensions, recognizing the complexity of musical artifacts and the difficulty of defining meaningful multi-objective compositional criteria. The framework has two implications. First, it gives researchers and developers a principled methodology and quantitative tools for empirically evaluating creative outputs, enabling more informed model development and reducing unnecessary computational costs. Second, it lays the groundwork for future generative models to optimize directly for creativity by adopting these metrics as learning objectives.",
+   "url": "https://arxiv.org/abs/2611.14634",
+   "pdf": "https://arxiv.org/pdf/2611.14634",
+   "explain": {
+    "tldr": "A framework to measure AI-generated music's creativity using value, novelty, and surprise metrics.",
+    "plain": "Evaluating whether AI-generated music is actually creative is tricky—there's no standard way to measure it. This paper proposes a set of quantitative metrics (numerical measurements) based on three dimensions: whether the music is good (value), whether it's original (novelty), and whether it's unexpected (surprise). Rather than trying to reduce creativity to one number, they use multiple complementary metrics that work together, recognizing that musical creativity is complex. This gives developers a concrete way to test and improve their AI music systems.",
+    "why": "If AI music tools can be objectively evaluated for creativity, developers can build better generative models and potentially train them to be more creative. This matters for musicians and producers using AI as a creative partner—it means the tools could become more musically interesting and less likely to produce generic outputs.",
+    "terms": [
+     {
+      "term": "generative AI",
+      "meaning": "AI systems trained to create new content (like music) rather than analyze existing content"
+     },
+     {
+      "term": "operationalize",
+      "meaning": "convert an abstract concept into concrete, measurable steps or metrics"
+     },
+     {
+      "term": "learning objectives",
+      "meaning": "the specific goals or metrics that an AI model is trained to optimize for"
+     }
+    ],
+    "model": "anthropic/claude-haiku-4.5"
+   }
+  },
   {
    "id": "2611.14443",
    "title": "Assessing Alignment in Automatic Piano Transcription Datasets: A Benchmark for Scoring Methods",
@@ -914,7 +1215,7 @@
     "gen",
     "syn"
    ],
-   "summary": "Controllable engine sound synthesis, Active Sound Design and engine order analysis all build on the relationship between the sound of an engine and its momentary operating state: its speed and its load. Recordings of engine sound are abundant in archives, sample packs and online video, yet they rarely carry time-aligned annotations of that state, which limits their applicability to controllable engine sound generation. We present SonoDyno, which estimates the engine speed, the cylinder count and an engine-normalized load intensity from a microphone signal alone, with no tachometer, no bus access and no prior knowledge of the engine configuration. A convolutional scorer of 124,302 parameters reads the harmonic order energy of each frame at three time-frequency resolutions to jointly score cylinder count and speed, and a decoder imposes the rotational dynamics of the engine on the speed trajectory. A second head estimates the load intensity, the position of the torque between the engine's drag floor at 0 and its full-load ceiling at 1, from the order levels at the decoded speed. On recordings of engines it has never heard, with microphone position, engine type and cylinder count unknown, SonoDyno places 93 to 97% of the frames within 2% of the true speed, identifies the cylinder count with 80% accuracy and confuses the octave on fewer than 2% of the frames. On an unseen engine of a known type, the load intensity has a mean absolute error of 0.12, and the sign of the torque, driving or braking, is right on 91% of the frames. General pitch trackers fall behind even when the harmonic order of each engine is supplied: on our validation recordings and at a tolerance of 5%, the best of them places 62% of the frames within the tolerance, against 96% for SonoDyno.",
+   "summary": "Controllable engine sound synthesis, Active Sound Design and engine order analysis all build on the relationship between the sound of an engine and its momentary operating state: its speed and its load. Recordings of engine sound are abundant in archives, sample packs and online video, yet they rarely carry time-aligned annotations of that state, which limits their applicability to controllable engine sound generation. We present SonoDyno, which estimates the engine speed, the cylinder count and an engine-normalized load intensity from a microphone signal alone, with no tachometer, no bus access and no prior knowledge of the engine configuration. A convolutional scorer of 124,302 parameters reads the energy at the engine orders, the harmonics of half the rotation frequency, in each frame at three time-frequency resolutions to jointly score cylinder count and speed, and a decoder imposes the rotational dynamics of the engine on the speed trajectory. A second head estimates the load intensity, the position of the torque between the engine's drag floor at 0 and its full-load ceiling at 1, from the order levels at the decoded speed. On recordings of engines it has never heard, with microphone position, engine type and cylinder count unknown, SonoDyno places 93 to 97% of the frames within 2% of the true speed, identifies the cylinder count with 80% accuracy and confuses the octave on fewer than 2% of the frames. On an unseen engine of a known type, the load intensity has a mean absolute error of 0.12, and the sign of the torque, driving or braking, is right on 91% of the frames. General pitch trackers fall behind even when the harmonic order of each engine is supplied: on our validation recordings and at a tolerance of 5%, the best of them places 62% of the frames within the tolerance, against 96% for SonoDyno.",
    "url": "https://arxiv.org/abs/2611.06262",
    "pdf": "https://arxiv.org/pdf/2611.06262",
    "explain": {
