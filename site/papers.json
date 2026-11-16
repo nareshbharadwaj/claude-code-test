@@ -1,6 +1,44 @@
 {
- "updated": "2026-11-15T14:49:55Z",
+ "updated": "2026-11-16T17:08:16Z",
  "papers": [
+  {
+   "id": "2611.18112",
+   "title": "Any Channel Count, One Token Stream: Incorporating Spatial Audio Understanding and Reasoning into Large Audio-Language Models",
+   "authors": [
+    "Yuhuan You",
+    "Wenxiang Guo",
+    "Zhifang Guo",
+    "Yuxuan Wang",
+    "Jin Xu"
+   ],
+   "published": "2026-11-13",
+   "category": "cs.SD",
+   "topics": [
+    "spa",
+    "rep"
+   ],
+   "summary": "Audio phase relations encode source locations, yet existing large audio-language models (LALM) reduce audio to single-channel content to stabilise general audio understanding, leaving spatial information for direction, distance, and source-relation questions unused. We present SpheraAudio, which accepts recordings with any channel count -- mono, stereo, First-Order Ambisonics (FOA), or higher -- and maps them into a single token stream. A spatial encoder turns complex multichannel spectra into spatial tokens interleaved with audio tokens at corresponding temporal positions. Spatial Multimodal RoPE (SMRoPE) makes each token's modality identity and temporal slot visible to rotary attention without altering the language model's original RoPE. Training runs in three stages -- spatial-encoder pretraining, projector alignment, and joint supervised-and-reinforcement learning -- progressing from geometric supervision to language-based spatial decisions, with answers trained as explicit spatial chain-of-thought: step-by-step geometric reasoning over the heard scene. Current benchmarks tie questions to a fixed channel-count format and score answers without spatial reasoning evidence. We introduce SpheraQA, which spans mono, stereo, and FOA recordings and organises questions hierarchically from single-attribute perception through cross-source relations to multi-step reasoning, scored programmatically against simulated scene geometry and real-recording annotations with step-by-step solution references. Across SpheraQA and public spatial-audio benchmarks, SpheraAudio sets a new performance standard for spatial audio understanding. It supports high-precision localisation, tracking, and reasoning over static and moving sound sources while preserving strong general-audio capabilities. We will release code, SpheraQA, and evaluation metrics to support reproducibility.",
+   "url": "https://arxiv.org/abs/2611.18112",
+   "pdf": "https://arxiv.org/pdf/2611.18112"
+  },
+  {
+   "id": "2611.17768",
+   "title": "Activation Steering the Nan-Shan in Typhoon",
+   "authors": [
+    "Megan Wei",
+    "Damon Pham",
+    "John Cayley",
+    "Ellie Pavlick"
+   ],
+   "published": "2026-11-13",
+   "category": "cs.CL",
+   "topics": [
+    "gen"
+   ],
+   "summary": "Typhoon is an audiovisual installation based on Joseph Conrad's novella, in which Captain MacWhirr steers the steamer Nan-Shan directly into and through a catastrophic storm. The novella is a study of what happens when the scale of a phenomenon exceeds the practical and conceptual frameworks available to comprehend it and of the paralysis that sometimes follows a demand for action in such overwhelming circumstances. We chose the text of Typhoon to reflect on human culture's current AI moment. We prompt a large language model, seeded with Conrad's original language, to feed endlessly on its own output, and explore when and how the text becomes increasingly alien and unwieldy as time progresses, including deviations from the narrative, digressions into the model's own instructions and thinking, and long periods of incoherent rumination. We employ methods from activation steering, including a novel adaptive steering method we introduce, to control the rhythm of the narrative and the model's digressions over long stretches of generation. The simultaneous efficacy and unpredictability of this steering showcases the tension between the perceived interpretability of AI, and the reality of a system that remains outside our comprehension and control.",
+   "url": "https://arxiv.org/abs/2611.17768",
+   "pdf": "https://arxiv.org/pdf/2611.17768"
+  },
   {
    "id": "2611.17070",
    "title": "Evaluation of Music Version Retrieval Methods for Setlist Identification in Live Concerts",
