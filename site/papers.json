@@ -1,6 +1,67 @@
 {
- "updated": "2026-11-16T17:08:16Z",
+ "updated": "2026-11-17T16:56:16Z",
  "papers": [
+  {
+   "id": "2611.21083",
+   "title": "Think2Listen: Evidence-Centric Learning For Agentic Audio Understanding With LALMS",
+   "authors": [
+    "Jin Wang",
+    "Liang Lin",
+    "Kaiwen Luo",
+    "Weiliu Wang",
+    "Yuxuan Li",
+    "Zengxin Han",
+    "Gan Zhang",
+    "Jingtong Wu",
+    "Yufei Guo",
+    "Kun Wang"
+   ],
+   "published": "2026-11-16",
+   "category": "cs.SD",
+   "topics": [],
+   "summary": "Recent advances in large audio-language models (LALMs) have broadened audio understanding across speech, sound, and music, with tool-based agents further supporting these tasks by invoking predefined audio tools. However, a persistent gap remains between perceiving acoustic content and using it as evidence for reasoning: recognizing what is audible does not ensure that a model can identify which cues resolve an uncertain decision. To bridge this gap, we propose Think2Listen, an evidence-centric learning framework for agentic audio understanding. Guided by evidence before commitment, Think2Listen couples iterative reasoning with a targeted LALM interaction to actively seek acoustic cues that distinguish competing hypotheses and revise candidate judgments based on the observations returned. It learns what to ask, how to use evidence, and when to stop, using observation-induced changes in candidate-state to inform training credit. Extensive evaluations on two benchmarks spanning seven audio categories demonstrate that Think2Listen achieves (I) enhanced multi-step audio reasoning, with gains in overall accuracy of 5.08%--17.67% over competing audio agents; and (II) improved audio understanding and reasoning across speech, sound, and music, boosting overall accuracy by 2.29%--13.10% over the corresponding baselines. The source code is available at https://github.com/JinWang79/Think2Listen.",
+   "url": "https://arxiv.org/abs/2611.21083",
+   "pdf": "https://arxiv.org/pdf/2611.21083"
+  },
+  {
+   "id": "2611.19223",
+   "title": "ProSing: Zero-Shot Fine-Grained Singing Technique Conversion",
+   "authors": [
+    "Xinhao Guan",
+    "Jingyue Huang",
+    "Kangrui Chen",
+    "Julian McAuley",
+    "Zhong-Qiu Wang"
+   ],
+   "published": "2026-11-14",
+   "category": "cs.SD",
+   "topics": [
+    "syn",
+    "rep"
+   ],
+   "summary": "We study zero-shot fine-grained singing technique conversion (STC), which applies specified techniques to selected regions of an existing singing recording while preserving lyrics, melody, timing, and singer identity. Existing singing conversion and synthesis methods offer complementary strengths in source preservation and explicit technique control, but combining both in an audio-to-audio setting remains underexplored, especially with limited technique-annotated data. We propose ProSing, a zero-shot fine-grained STC framework that adapts a pretrained flow-matching acoustic model with frame-level technique conditioning. To mitigate conditioning shortcuts during adaptation, we introduce a paired training strategy to learn generalizable technique representations. We further incorporate continuous pitch trajectories for explicit and expressive control of pitch-related techniques. Subjective and objective evaluations on unseen singers and source recordings show that ProSing achieves accurate technique control while preserving singing naturalness and singer similarity.",
+   "url": "https://arxiv.org/abs/2611.19223",
+   "pdf": "https://arxiv.org/pdf/2611.19223"
+  },
+  {
+   "id": "2611.19118",
+   "title": "Latency, Speech Recognition and Turn-Taking in Voice Agents for Spanish Phone Negotiation: An Externally Measured Comparison of Pipecat, LiveKit and GPT-Live",
+   "authors": [
+    "Jovan Popoca Moran",
+    "Eduardo de Avila-Armenta",
+    "Raúl Alejandro Aquino-Ibarra",
+    "Jorge Octavio Nicolás-Díaz",
+    "Umberto Leon-Dominguez"
+   ],
+   "published": "2026-11-14",
+   "category": "cs.CL",
+   "topics": [
+    "syn"
+   ],
+   "summary": "A voice agent that negotiates by phone must answer quickly, understand spoken amounts and cope with a caller who talks over it. We compared three architectures for such an agent, negotiating freight rates in Spanish: two cascades (speech recognition, language model and speech synthesis) orchestrated by Pipecat and by LiveKit Agents, and GPT-Live, an OpenAI speech model that listens and speaks without separate stages. A program played the carrier with the same 47 recordings of one speaker for all agents, without the telephone network, in 77 calls per architecture over five negotiation scenarios, and measured latency on the listener's side with a validated instrument. Median latency to the content response was 2,616.0 ms (Pipecat), 3,090.0 ms (LiveKit) and 2,444.8 ms (GPT-Live); the confidence interval of GPT-Live's 171.2 ms advantage over Pipecat includes zero. According to its own timestamps, GPT-Live began to answer 800 ms after the end of the line, close to the 0.8 s published by OpenAI; most of the remaining wait, about 1,367 ms and nearly constant, is the audio's round trip through OpenAI's service. A tool call added 0.9-1.1 s in every architecture, more than any difference between them, and the frameworks' self-reported latency fell short of the listener's wait by 9% (Pipecat) and 22% (LiveKit). Word error rates were low (6.03, 4.93 and 1.47%), but the error on amounts was 13.01% and 12.61% in the cascades, against 2.86% in GPT-Live. With default settings, Pipecat and LiveKit stopped at almost every backchannel and often took it as the carrier's answer: an \"ok\" spoken over the agent ended in a registered agreement in 3 of 15 Pipecat calls, 2 of 15 LiveKit calls and no GPT-Live call (descriptive counts, not tested). Latency should therefore be measured on the listener's side, and a cascade needs safeguards for spoken amounts and backchannels.",
+   "url": "https://arxiv.org/abs/2611.19118",
+   "pdf": "https://arxiv.org/pdf/2611.19118"
+  },
   {
    "id": "2611.18112",
    "title": "Any Channel Count, One Token Stream: Incorporating Spatial Audio Understanding and Reasoning into Large Audio-Language Models",
@@ -852,7 +913,7 @@
     "mir",
     "syn"
    ],
-   "summary": "Large public datasets have driven recent progress in machine learning, from text and vision to speech and general audio. Music remains an outlier, as copyright blocks redistribution of training audio, while many modern tasks need individual stems rather than mixtures. Existing multitrack resources trade off realism, scale, and licensing, while synthetic alternatives rely on proprietary VSTs or naive open rendering that yields weak stems. We introduce SPDMX, a listening-guided rendering of public-domain PDMX scores into an openly-licensed stem corpus with aligned scores and an open render pipeline: $253{,}982$ songs, $490{,}159$ mono stems, and $5{,}469$ song-hours at $44.1$ kHz under CC BY 4.0, with paired MIDI and identifiers linking to PDMX metadata. $88{,}403$ songs ($34.8\\%$; $2{,}734$ song-hours) provide multitrack supervision. To our knowledge, this is the largest openly-licensed synthetic multitrack subset by song-hours, enabling source separation, stem-conditioned synthesis, MIDI-to-audio, transcription, and joint symbolic-audio modeling. We release the corpus, metadata, and open pipeline for reuse on other symbolic collections. Demos and experimental notes are on the project page.",
+   "summary": "Large public datasets have driven recent progress in machine learning, from text and vision to speech and general audio. Music remains an outlier, as copyright blocks redistribution of training audio, in particular for modern tasks that need individual stems rather than mixtures. Existing multitrack resources trade off realism, scale, and licensing, as synthetic alternatives rely on proprietary VSTs or naive open rendering that yields weak stems. We introduce SPDMX, an openly-licensed stem corpus rendered from the public-domain PDMX dataset. SPDMX comprises $5{,}469$ song-hours ($2{,}734$ song-hours, or $34.8\\%$, of which are multitrack scores) at $44.1$ kHz under CC BY 4.0, with paired MIDI and identifiers that link our dataset to PDMX's original metadata. To our knowledge, SPDMX's multitrack subset constitutes the largest openly-licensed synthetic multitrack subset by song-hours. We then demo SPDMX as a dataset for both source separation and transcription, showing how its increased scale can enable better training of models on synthetic data. We release SPDMX, as well as the open creation pipeline for reuse on other symbolic music datasets.",
    "url": "https://arxiv.org/abs/2611.09140",
    "pdf": "https://arxiv.org/pdf/2611.09140",
    "explain": {
@@ -8092,380 +8153,6 @@
      {
       "term": "Banach space",
       "meaning": "A mathematical structure that lets you measure distances and do calculations with complex objects like spectra."
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.06920",
-   "title": "Extending Music Annotation Schemas: Zero-Shot Prediction or Few-Shot Adaptation?",
-   "authors": [
-    "Christos Plachouras",
-    "Emmanouil Benetos",
-    "Johan Pauwels"
-   ],
-   "published": "2026-10-02",
-   "category": "cs.SD",
-   "topics": [
-    "rep"
-   ],
-   "summary": "Automatic music annotation is typically tackled under the assumption of a fixed annotation schema. In practice, commercial music catalogs often need to accommodate new musical attributes as needs evolve. Given that expert music annotation is expensive, it is not evident which methodological approach is most effective at accommodating new attributes and backfilling existing tracks; audio-language models promise zero-shot prediction, but at what annotation budget does supervised adaptation become more compelling? We propose a benchmark based on the MGPHot popular music annotation dataset for simulating music schema extension across different annotation budgets. We investigate zero-shot prediction with audio-language models, learning new attributes from pretrained representations, and adapting models trained on existing annotations. Our results suggest that supervised adaptation is more effective than zero-shot prediction even with small annotation budgets, while frozen representation reuse remains the most effective approach for modest budgets without the tuning required by deeper adaptation.",
-   "url": "https://arxiv.org/abs/2610.06920",
-   "pdf": "https://arxiv.org/pdf/2610.06920",
-   "explain": {
-    "tldr": "Compares methods for adding new musical attributes to existing annotation systems with limited labeled data.",
-    "plain": "Music databases need to add new descriptive tags (like 'lo-fi' or 'orchestral') as tastes change, but hiring experts to label everything is expensive. This paper tests three approaches: using AI models trained on general music-language data to guess new tags without examples, reusing features from existing annotations, and fine-tuning models with a small number of labeled examples. They found that even with just a few labeled examples, training models specifically for new tags works better than using general pre-trained models, though reusing existing features without modification was surprisingly effective for limited budgets.",
-    "why": "If you're building music software or managing a music catalog, this research shows the most practical way to add new musical descriptors without expensive re-annotation—useful for streaming services, DAWs, or music libraries that evolve their tagging systems.",
-    "terms": [
-     {
-      "term": "zero-shot prediction",
-      "meaning": "Making predictions on new tasks without any labeled examples, relying only on general knowledge the model already has"
-     },
-     {
-      "term": "audio-language models",
-      "meaning": "AI systems trained on both music audio and text descriptions, so they can understand music in human terms"
-     },
-     {
-      "term": "frozen representation reuse",
-      "meaning": "Using learned features from existing models without changing them, rather than updating the model with new data"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.03656",
-   "title": "Revisiting Input Time-frequency Representations in Multi-pitch Estimation for Vocal Ensembles",
-   "authors": [
-    "Junyoung Koh",
-    "Hao-Wen Dong"
-   ],
-   "published": "2026-10-02",
-   "category": "cs.SD",
-   "topics": [
-    "gen",
-    "mir",
-    "rep"
-   ],
-   "summary": "Multi-pitch estimation in vocal ensembles is challenging because singers occupy overlapping pitch ranges and often sing at closely spaced fundamental frequencies, causing their harmonics to overlap in time-frequency representations. Existing models commonly use harmonic constant-Q transform (HCQT)-based representations to provide frequency-adaptive resolution, at the cost of expensive feature extraction when training mixtures are generated on the fly. We revisit this design and compare HCQT with a linear short-time Fourier transform (STFT), whose frequency bins are directly provided as model inputs. Despite its fixed frequency resolution and the absence of a pitch-aligned input grid, the linear STFT outperforms HCQT while substantially reducing feature-extraction cost. Further analysis shows that a longer analysis window or broader spectral coverage provides no additional improvement, while restricting the input to the predicted pitch range reduces the advantage of the linear STFT. These results suggest that finer frequency resolution does not necessarily improve vocal-ensemble MPE, and that shorter analysis windows can be more effective for time-varying vocal pitches.",
-   "url": "https://arxiv.org/abs/2610.03656",
-   "pdf": "https://arxiv.org/pdf/2610.03656",
-   "explain": {
-    "tldr": "Linear STFT outperforms the more complex HCQT for detecting multiple overlapping vocal pitches while being faster to compute.",
-    "plain": "When multiple singers perform together, their pitches and overtones overlap, making it hard to identify each individual voice. Researchers compared two ways of converting audio into visual frequency patterns: a fancy adaptive method (HCQT) designed specifically for pitch detection, and a simpler standard method (STFT). Surprisingly, the simpler method worked better and ran faster. They found that having super-fine frequency detail doesn't help, but using shorter time windows does help capture singers' changing pitches.",
-    "why": "This matters because better multi-pitch detection could improve tools for transcribing vocal arrangements, separating individual singers from recordings, or analyzing ensemble performances—all useful for producers, arrangers, and music researchers.",
-    "terms": [
-     {
-      "term": "STFT (Short-Time Fourier Transform)",
-      "meaning": "A standard method that breaks audio into small time chunks and shows what frequencies are present in each chunk, like a musical spectrogram."
-     },
-     {
-      "term": "HCQT (Harmonic Constant-Q Transform)",
-      "meaning": "A specialized frequency analysis that uses wider frequency bins for low pitches and narrower bins for high pitches, mimicking how musical pitch perception works."
-     },
-     {
-      "term": "Multi-pitch estimation",
-      "meaning": "The task of automatically detecting all the different pitches being sung or played at the same time in a recording."
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.03589",
-   "title": "Rubric-Based Optimization for Text-to-Music Generation",
-   "authors": [
-    "Ping Wang",
-    "Guang Yang",
-    "Shao-Rong Su",
-    "Junkai Wu",
-    "Pang Wei Koh",
-    "Noah A. Smith"
-   ],
-   "published": "2026-10-02",
-   "category": "cs.SD",
-   "topics": [
-    "gen",
-    "rep"
-   ],
-   "summary": "Post-training text-to-music generation requires reward signals that capture multiple aspects of musical quality beyond what any single automatic metric can measure. We study structured, rubric-based rewards from pretrained audio-language models (ALMs) as training signals for both autoregressive and diffusion-based music generators. An ALM scores each generated clip against the rubric; we rank candidates generated for the same text prompt by their scores and convert these rankings into preference pairs for DPO on both MusicGen-small and ACE-Step v1, and additionally use the rubric scores directly as scalar rewards for DiffusionNFT on ACE-Step v1. On MusicCaps, rubric-based optimization improves CLAP, SongEval, and Audiobox-Aesthetics simultaneously, with the strongest gains obtained by DiffusionNFT on ACE-Step. By contrast, on MusicGen-small, building preferences from any one of these automatic evaluators produces clear cross-metric trade-offs: the targeted evaluator improves while other independent evaluators deteriorate. We further study tempo, key, and instrumentation, where precise objective rewards are available. Directly optimizing these specialized rewards reliably improves the target attributes, whereas ALM rubrics provide only partial transfer for tempo and instrumentation and no measurable improvement for key. Together, these results suggest a practical division of labor: ALM rubrics are effective for broad perceptual qualities that are difficult to formalize, while specialized objective rewards remain preferable when reliable measurements are available.",
-   "url": "https://arxiv.org/abs/2610.03589",
-   "pdf": "https://arxiv.org/pdf/2610.03589",
-   "explain": {
-    "tldr": "Using structured quality checklists from AI audio models improves music generation, but works better for some qualities than others.",
-    "plain": "When AI generates music from text descriptions, it's hard to know if the result is actually good—no single automatic measurement captures everything that matters musically. This paper tests using detailed quality rubrics (like checklists) from pretrained audio-language models to guide the training of music generators. They found that rubric-based optimization improved several quality measures simultaneously on one system, but created trade-offs on another where improving one metric made others worse. Interestingly, rubrics worked well for subjective qualities like overall musicality, but performed poorly for objective things like key or tempo where precise measurements exist.",
-    "why": "This matters because it shows a practical path toward better AI music generation: use AI-based quality rubrics for the fuzzy, human-judgment aspects of music (does it sound good?), while using precise technical measurements for concrete attributes (is it in the right key?). This could lead to AI tools that produce more musically satisfying results.",
-    "terms": [
-     {
-      "term": "diffusion-based music generators",
-      "meaning": "AI systems that create music by gradually refining random noise into coherent sound, similar to how some image generators work"
-     },
-     {
-      "term": "DPO (Direct Preference Optimization)",
-      "meaning": "A training method that teaches AI systems by showing them pairs of examples and indicating which one is better"
-     },
-     {
-      "term": "audio-language models (ALMs)",
-      "meaning": "AI systems trained to understand both sound and text, so they can describe or evaluate audio based on written descriptions"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.03428",
-   "title": "LayerIt: Towards a Framework for Time-Aligned, Composable Music Visualizations",
-   "authors": [
-    "Fernando Azeredo",
-    "António Sá Pinto"
-   ],
-   "published": "2026-10-02",
-   "category": "cs.SD",
-   "topics": [
-    "mir",
-    "rep"
-   ],
-   "summary": "Music information retrieval often relates signal-derived, algorithmic, and symbolic information across different coordinate systems. Existing visualizations typically leave notation separate from physical time, while composites that combine them are assembled by hand. We present LayerIt, an open-source Python library for composing independent representations with notation on a shared performance-time axis. Given a score warped into performance time and a note-level alignment, LayerIt emits a single SVG that preserves the score's MEI structure and keeps added components identifiable and restylable. We demonstrate this through a challenging beat-tracking analysis, in which tracker output, signal representations, and notation can be inspected together to locate metrical disagreement and other errors against both notated structure and performed time.",
-   "url": "https://arxiv.org/abs/2610.03428",
-   "pdf": "https://arxiv.org/pdf/2610.03428",
-   "explain": {
-    "tldr": "A tool for combining sheet music notation with audio analysis visualizations on a shared timeline.",
-    "plain": "When analyzing recorded music, researchers often work with different types of information—the written score, the actual timing of the performance, and analysis results from audio processing. These usually stay separate or get manually combined. LayerIt is a Python library that automatically aligns and layers these different representations together in one visual display, keeping everything synchronized to the actual performance time. The authors show how this helps find problems in beat-tracking analysis by letting you see where the detected beats disagree with the written notation.",
-    "why": "This matters for producers and musicians working with music analysis tools, since it makes it easier to understand what algorithms are actually detecting in your recordings and spot when they're making mistakes. It could also help music educators and researchers communicate complex timing issues more clearly.",
-    "terms": [
-     {
-      "term": "MEI structure",
-      "meaning": "A standard digital format for storing musical notation that preserves the score's organizational information"
-     },
-     {
-      "term": "beat-tracking",
-      "meaning": "An algorithm that automatically detects where the beats occur in a recorded audio file"
-     },
-     {
-      "term": "note-level alignment",
-      "meaning": "Matching each note in the written score to its exact moment in the recorded performance"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.03405",
-   "title": "PEACE: Joint Embeddings of DSP Effects Code and Audio",
-   "authors": [
-    "David Braun",
-    "Adam Finkelstein"
-   ],
-   "published": "2026-10-02",
-   "category": "cs.SD",
-   "topics": [
-    "gen",
-    "mir",
-    "syn",
-    "rep"
-   ],
-   "summary": "This paper introduces PEACE, the first joint embedding of audio effect code and output audio. Building on SLAP's multimodal objective, we pair an AFx-Rep audio encoder with two code encoders for Faust, a functional language for audio signal processing. First, we evaluate a fine-tuned T5 transformer over Faust source code. Second, we evaluate a message-passing graph neural network over an intermediate representation of the Faust compiler, capturing both topology and UI parameters. We evaluate on audio-to-code retrieval, where masking UI parameters at inference yields embeddings that encode effect chain topology alone. When parameters are visible, the two code encoders tie on retrieval of mixed-length chains but have tradeoffs on single-effect galleries. With parameters fully masked, PEACE recovers ordered chain topology far above chance without the limitations of supervised methods. PEACE outperforms pretrained models on an out-of-distribution reverb retrieval benchmark and can improve frozen audio-only representations. Its dual understanding of topology and parameters lays the groundwork for music information retrieval systems that search, generate, and condition on DSP code.",
-   "url": "https://arxiv.org/abs/2610.03405",
-   "pdf": "https://arxiv.org/pdf/2610.03405",
-   "explain": {
-    "tldr": "A system that learns to match audio effect code with its resulting sound, understanding both effect chain structure and settings.",
-    "plain": "When you use audio effects like reverb or distortion, they're often written in code. This paper creates a system called PEACE that learns to connect effect code with the audio it produces. They tested two different ways to understand the code: one reads it like text, another analyzes its structure as a graph. The system can figure out which effects are chained together just by listening, even when you hide the parameter settings, and it works better than previous methods.",
-    "why": "This matters because it could help producers search for effects by sound, automatically suggest effect chains, or help music software understand what code produces what audio—bridging the gap between how effects are written and how they sound.",
-    "terms": [
-     {
-      "term": "embedding",
-      "meaning": "A numerical representation that captures the meaning of something (code or audio) so similar things are close together mathematically"
-     },
-     {
-      "term": "Faust",
-      "meaning": "A programming language designed specifically for writing audio effects and signal processing"
-     },
-     {
-      "term": "graph neural network",
-      "meaning": "A machine learning model that understands how things connect to each other, useful for analyzing the structure of effect chains"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.03398",
-   "title": "Harmonic Eigenspace: A Web-based Application for Navigating and Composing Microtonal Harmony",
-   "authors": [
-    "David Dalmazzo",
-    "Ken Déguernel"
-   ],
-   "published": "2026-10-02",
-   "category": "cs.SD",
-   "topics": [
-    "hci"
-   ],
-   "summary": "This paper presents a web-based application for navigating and composing microtonal harmony, built on the Harmonic Eigenspace, a four-dimensional psychoacoustically grounded space in which tetrad chord types are located by their spectral dissonance profiles, computed with Sethares's roughness/dissonance model. The coordinate system is transposition-invariant: a coordinate triple (α, \\b{eta}, γ) locates the three upper notes in relation to the root, so a chord quality corresponds to a direction in the space, the invariant ray along which transposition acts, while the root frequency sets the scale. The dissonance field over these coordinates can be computed at any register; the locations of its local minima are register-invariant, as they arise from partial-coincidence ratio conditions. The dissonance volume contains 100 local minima that align with just-intonation intervals and act as landmarks, organising the space into basins around the most consonant tetrads. We embed tetrads from three tonal equal temperaments as discrete lattices within this continuous volume. The application presents this space through two components: the Harmonic Eigenspace as a navigable 3D visualisation of the dissonance volume in which all nodes are playable, and a Modal Studio that extends modal interchange logic to the ten-gradation interval vocabulary of 53-TET. The application also functions as a MIDI controller with MIDI Polyphonic Expression support, usable in any digital audio workstation that supports this format. A listening study with 31 participants used both scenes of the application: listeners first rated isolated 53-TET chords alongside chords familiar from Western practice, such as the maj7 and the m7; they then rated chord progressions composed in the Modal Studio, measuring their acceptance or rejection of microtonal progressions heard for the first time.",
-   "url": "https://arxiv.org/abs/2610.03398",
-   "pdf": "https://arxiv.org/pdf/2610.03398",
-   "explain": {
-    "tldr": "A web app for exploring and composing microtonal chords using a 4D space organized by consonance.",
-    "plain": "Microtonality—using notes between the standard 12 notes per octave—is hard to navigate intuitively. This tool maps microtonal chords into a 4D space where position reflects how consonant or dissonant they sound, based on how sound waves interact. The space is organized around the most consonant chords, which act as landmarks. The app lets you explore this space visually, compose chord progressions, and control synthesizers via MIDI. A study found that listeners could accept unfamiliar microtonal progressions when hearing them for the first time.",
-    "why": "If you're curious about microtonal music or want to explore harmony beyond 12-tone equal temperament, this gives you an intuitive interface grounded in how ears actually perceive consonance. It bridges the gap between abstract microtonal theory and practical composition and performance.",
-    "terms": [
-     {
-      "term": "microtonal",
-      "meaning": "Music using intervals smaller than the standard semitone, allowing notes between the usual 12 pitches per octave."
-     },
-     {
-      "term": "just intonation",
-      "meaning": "A tuning system where intervals are based on simple whole-number frequency ratios, often sounding very pure."
-     },
-     {
-      "term": "53-TET",
-      "meaning": "A tuning system dividing the octave into 53 equal steps instead of the standard 12, allowing finer pitch control."
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.02918",
-   "title": "Learning Jazz Pianist Style with Cross-Attention Conditioning",
-   "authors": [
-    "Drew Edwards",
-    "Akira Maezawa",
-    "Simon Dixon"
-   ],
-   "published": "2026-10-02",
-   "category": "cs.SD",
-   "topics": [
-    "gen",
-    "hci",
-    "rep"
-   ],
-   "summary": "Jazz pianists develop distinctive traits that experienced listeners can often identify within seconds, yet the features underlying this recognition resist formal description. We study jazz pianist style through the lens of a pretrained symbolic music transformer, showing that its learned representations already encode pianist identity well enough for highly accurate classification across two benchmarks. We then augment the transformer with cross-attention over learned pianist identity embeddings, enabling it to generate music conditioned on a specific artist's style. Two evaluation protocols confirm that the generator captures meaningful stylistic structure: a sliding-window classifier consistently attributes conditioned continuations to the correct artist, far above unconditioned baselines; and a classifier trained entirely on synthetic generations identifies real pianists across 12 classes with 87% chunk-level and 95% song-level accuracy. Finally, we repurpose the classifier to locate the most characteristic moments within a performance, surfacing the specific musical gestures that distinguish each pianist's voice.",
-   "url": "https://arxiv.org/abs/2610.02918",
-   "pdf": "https://arxiv.org/pdf/2610.02918",
-   "explain": {
-    "tldr": "A neural model learns to recognize and generate jazz piano in specific pianists' styles using learned identity patterns.",
-    "plain": "Jazz pianists have recognizable styles that listeners can identify quickly, but it's hard to describe what makes them unique. Researchers used a pretrained AI music model that already understood musical patterns and found it could identify which pianist played a piece very accurately. They then enhanced this model to generate new jazz piano music in the style of specific artists by conditioning it on learned representations of each pianist's identity. Tests showed the generated music genuinely captured each pianist's style—other classifiers could correctly attribute the AI-generated continuations to the right artist, and a model trained only on synthetic music could still identify real pianists with high accuracy.",
-    "why": "This work could help musicians understand what makes their playing distinctive, assist in style transfer or composition tools, and provide new ways to analyze and celebrate what makes different pianists unique. It bridges the gap between the intuitive recognition of style and formal computational understanding.",
-    "terms": [
-     {
-      "term": "cross-attention conditioning",
-      "meaning": "A technique where a neural network focuses on specific information (here, pianist identity) to guide what it generates, like telling an AI 'make this sound like artist X'"
-     },
-     {
-      "term": "symbolic music transformer",
-      "meaning": "An AI model trained on musical notation (notes, timing, etc.) rather than audio, similar to language models but for music structure"
-     },
-     {
-      "term": "embeddings",
-      "meaning": "Compact numerical representations that capture the essence of something (like a pianist's style) in a form the AI can work with"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.02837",
-   "title": "How Far Back Should a Transformer Look? Repetition and Copying in Music Sequence Models",
-   "authors": [
-    "Amir Fathi"
-   ],
-   "published": "2026-10-02",
-   "category": "cs.SD",
-   "topics": [
-    "rep"
-   ],
-   "summary": "We investigate how predictive performance depends on the maximum context available to an autoregressive model of symbolic music, and what information long-context models exploit. A small causal Transformer is trained separately at each context length T in {6, 18, 48, 96, 192, 336} and evaluated on the same target positions, both over raw tokens and over non-overlapping binary latent codes. On Nottingham folk tunes, the token predictor's test NLL decreases by 71% (0.986 bits per token) between 6 and 336 tokens, and by 71% on the O'Neill's tunes long enough for the same sweep (129 of 302 test tunes). Most of the long-context gain is explained by exact copying: the improvement appears when an earlier occurrence of the target's 16-token history enters the available context; overwriting that occurrence removes the gain, whereas equally large unrelated corruption does not; and a simple copy baseline recovers 94% of the reduction. A trained 336-token model likewise loses most of this gain when its history is restricted to recent tokens at test time. Because many repeats arise from written repeat signs expanded in the score, this result pertains specifically to these rendered score representations. By contrast, on MAESTRO performances and MusicNet scores, where exact repeats are substantially less frequent, the reduction is smaller (9% and 18%) and is largely attained by 96 tokens. Finally, an audit of an earlier draft that reported saturation at 16 tokens identified split leakage, overlapping latent receptive fields, an averaging predictor, and a per-file tempo grid; we present these as methodological checks for context-length measurements.",
-   "url": "https://arxiv.org/abs/2610.02837",
-   "pdf": "https://arxiv.org/pdf/2610.02837",
-   "explain": {
-    "tldr": "Transformer models for music prediction mainly improve by copying repeated sections, not learning deeper patterns.",
-    "plain": "Researchers tested how much musical context a Transformer model needs to predict the next notes. They found that on folk tune datasets, the model got much better as context length increased—but this improvement came almost entirely from the model simply copying exact sequences it had seen before in the same piece. When they removed those repeated sections, the improvement disappeared. However, on other datasets with fewer exact repeats (like piano performances), the model showed smaller gains and seemed to learn something beyond just copying.",
-    "why": "This matters because it shows current music models may not be learning musical structure as deeply as we'd hope—they're often just pattern-matching. Understanding what models actually learn helps producers and musicians know whether AI tools are capturing real musical knowledge or just doing sophisticated repetition.",
-    "terms": [
-     {
-      "term": "autoregressive model",
-      "meaning": "A model that predicts one note at a time, using all previous notes as context"
-     },
-     {
-      "term": "context length",
-      "meaning": "How many previous notes the model can see when making a prediction"
-     },
-     {
-      "term": "latent codes",
-      "meaning": "Compressed numerical representations of musical information learned by the model"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.02836",
-   "title": "Correlation-Based Distillation Yields More Mergeable Speech-Music Encoders",
-   "authors": [
-    "Fabian Ritter-Gutierrez"
-   ],
-   "published": "2026-10-02",
-   "category": "cs.SD",
-   "topics": [
-    "rep"
-   ],
-   "summary": "A single compact encoder for both speech and music removes the need to maintain a separate model per domain. A practical recipe distils a speech teacher and a music teacher into two small students, then merges them into one model. Two merging algorithms exist: interpolating the student weights from a shared initialisation, or permuting their channels into alignment before averaging. Prior work fixed the distillation loss in both, leaving open whether the loss itself affects how well the students merge. We show that it does. Holding architecture and evaluation fixed, we replace the DistilHuBERT loss \\Lkd{} with a correlation-based loss \\Lcl{}. Under weight interpolation, \\Lcl{} students stay closer to their own better endpoint in $17$ of $18$ comparisons and lead on the speech tasks at every interpolated weight. Under activation permutation, they need fewer channels rearranged at three layers, their matched channels correlate more strongly, and they again lead on speech. The two merging algorithms share no mechanism, yet both improve under the same loss substitution. This suggests that the gain lies in the representation \\Lcl{} produces rather than in either algorithm.",
-   "url": "https://arxiv.org/abs/2610.02836",
-   "pdf": "https://arxiv.org/pdf/2610.02836",
-   "explain": {
-    "tldr": "A correlation-based loss function helps create better merged speech-music encoders than the standard distillation approach.",
-    "plain": "Music and speech processing typically need separate AI models, which is wasteful. This paper describes a method to combine a speech model and a music model into one compact encoder. They tested whether changing the training loss function (the thing that guides learning) affects how well two smaller models can be merged together. Switching to a correlation-based loss improved results across different merging strategies, suggesting the improvement comes from better learned representations rather than from the merging technique itself.",
-    "why": "For musicians and producers, this means potentially lighter, faster software that handles both speech and music without maintaining multiple models. For instrument makers building AI-powered tools, it offers a practical way to reduce computational overhead while maintaining quality across different audio types.",
-    "terms": [
-     {
-      "term": "distillation",
-      "meaning": "training a small model to mimic a larger one, so it learns similar patterns with fewer parameters"
-     },
-     {
-      "term": "encoder",
-      "meaning": "a model that converts raw audio into a compact numerical representation that captures its essential features"
-     },
-     {
-      "term": "correlation-based loss",
-      "meaning": "a training objective that measures how similarly two models respond to the same input, rather than comparing their exact outputs"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.02823",
-   "title": "What Actually Makes Correlation-Based SSL Distillation Noise-Robust? A Mechanistic Correction",
-   "authors": [
-    "Fabian Ritter-Gutierrez",
-    "Nancy F. Chen",
-    "Eng Siong Chng"
-   ],
-   "published": "2026-10-02",
-   "category": "cs.SD",
-   "topics": [
-    "rep"
-   ],
-   "summary": "Self-supervised learning (SSL) speech models are accurate but large. Knowledge distillation compresses them, but the student loses the teacher's noise robustness. Correlation-based distillation addresses this with two terms: cross-correlation aligning student and teacher's representations, and self-correlation decorrelating the student's features. Both the original method and De'HuBERT credited the self-correlation term without isolating it. We show the opposite. On LibriSpeech-100 distillation with held-out CHiME-3 noise at 10\\,dB, an unbiased full-dimensional probe, a Pearson-variance decomposition, a same-noise causal control, and a per-dimension analysis identify the cross-correlation diagonal as the mechanism that encourages noise invariance, lowering noise-classification accuracy from 76.98\\% to 55.02\\%, whereas adding the self-correlation term back leaves it at 55.55\\%. The self-correlation term instead reorganises the feature space and improves accuracy on the clean downstream tasks, but removes essentially no noise. Across nine speech and music tasks this yields a concrete design rule for distillation: weight the cross-correlation term for noise robustness, tune the self-correlation term for better downstream performance, and sample teacher and student noise independently.",
-   "url": "https://arxiv.org/abs/2610.02823",
-   "pdf": "https://arxiv.org/pdf/2610.02823",
-   "explain": {
-    "tldr": "Cross-correlation, not self-correlation, makes compressed speech models robust to noise during knowledge distillation.",
-    "plain": "Speech models trained with self-supervised learning work well but are too large to deploy. Knowledge distillation shrinks them, but the smaller model loses the original's ability to handle noisy audio. This paper investigates why a popular distillation method works, discovering that the cross-correlation component (which aligns the student and teacher models) is what actually handles noise, while the self-correlation component (which decorrelates features) mainly helps with clean audio tasks. They tested this with multiple analysis methods and found the cross-correlation term reduced noise classification accuracy from 77% to 55%, whereas self-correlation barely helped with noise.",
-    "why": "If you're building speech recognition or music analysis tools that need to work in real-world noisy environments, this explains how to properly compress large models without losing noise robustness—useful for deploying on phones or embedded devices.",
-    "terms": [
-     {
-      "term": "Knowledge distillation",
-      "meaning": "Training a smaller model to copy a larger model's behavior, so you get similar performance in a compact package"
-     },
-     {
-      "term": "Self-supervised learning (SSL)",
-      "meaning": "Training a model on unlabeled data by having it predict parts of itself, rather than requiring labeled examples"
-     },
-     {
-      "term": "Cross-correlation",
-      "meaning": "A measure of how similar two signals or feature sets are at different alignments; here, it compares the student and teacher model's internal representations"
      }
     ],
     "model": "anthropic/claude-haiku-4.5"
