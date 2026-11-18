@@ -1,6 +1,46 @@
 {
- "updated": "2026-11-17T16:56:16Z",
+ "updated": "2026-11-18T16:32:11Z",
  "papers": [
+  {
+   "id": "2611.22857",
+   "title": "Beyond Co-Generation: Rethinking Jointness in Joint Audio-Video Generation",
+   "authors": [
+    "Jihoo Jung",
+    "Ji-Hoon Kim",
+    "Suyeon Lee",
+    "Gia Thinh Pham",
+    "Joon Son Chung"
+   ],
+   "published": "2026-11-17",
+   "category": "cs.CV",
+   "topics": [
+    "gen",
+    "sep",
+    "rep"
+   ],
+   "summary": "Our aim is to advance the understanding of genuine audio-visual coordination in joint text-to-audio-video (T2AV) generation, with particular emphasis on semantic consistency. Evaluating audio-visual consistency in T2AV generation is nontrivial, as detailed text prompts obscure whether such consistency stems from genuine cross-modal coordination or merely from independent text following. To isolate the former, we introduce intrinsic jointness: the ability of audio and video to produce the same realization for details left underspecified by the prompt. Using semantically underspecified prompts (e.g., \"musical instrument playing\" rather than \"electric guitar playing\"), we investigate four recent models and reveal their limited intrinsic jointness. To address this limitation, we propose JointREPA, a simple representation alignment-based post-training method to facilitate cross-modal coordination. Since existing benchmarks use semantically detailed prompts, we introduce UNSAIDBench, a benchmark designed to evaluate intrinsic jointness under semantic underspecification. Experiments across two distinct models and three benchmarks, including UNSAIDBench, demonstrate that JointREPA consistently improves semantic consistency.",
+   "url": "https://arxiv.org/abs/2611.22857",
+   "pdf": "https://arxiv.org/pdf/2611.22857"
+  },
+  {
+   "id": "2611.21809",
+   "title": "Evaluating the Evaluation of Music Generation Models with Generative Psychometrics",
+   "authors": [
+    "João Carlos Santana Silveira",
+    "Caio Von Rondow Morais",
+    "Frederico Pedrosa",
+    "Lucas N. Ferreira"
+   ],
+   "published": "2026-11-16",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "rep"
+   ],
+   "summary": "Subjective user studies are one of the major methods for evaluating music generation models. However, subjective evaluation protocols vary widely and are rarely specified in enough detail to be reproduced, hindering comparison across studies. In this paper, we map subjective evaluation methods in ISMIR music generation papers from 2020-2025 and apply generative psychometrics to assess the stability of their items. We extract 284 items from the papers' methodological descriptions, using an LLM and manual validation to standardize them. We represent these items as contextual embeddings and apply Unique Variable Analysis to remove redundant, locally dependent items and Bootstrap Exploratory Graph Analysis to estimate their latent dimensions. Results show the network converges onto a taxonomy of six stable quality dimensions: Rhythm, Melody, Audio, Composition, Structure, and Lyrics, pointing to a unified methodology for conducting user studies to evaluate music generation models.",
+   "url": "https://arxiv.org/abs/2611.21809",
+   "pdf": "https://arxiv.org/pdf/2611.21809"
+  },
   {
    "id": "2611.21083",
    "title": "Think2Listen: Evidence-Centric Learning For Agentic Audio Understanding With LALMS",
@@ -8041,118 +8081,6 @@
      {
       "term": "atonality",
       "meaning": "music that deliberately avoids organizing around a single home pitch or key"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.08850",
-   "title": "Unheard but Recognizable: Ultrasonic Signatures for Musical Instrument Recognition",
-   "authors": [
-    "Izhak Kapash",
-    "Uri Rom",
-    "Ram Zamir"
-   ],
-   "published": "2026-10-03",
-   "category": "eess.AS",
-   "topics": [
-    "sep",
-    "mir"
-   ],
-   "summary": "Musical-instrument recognition is a fundamental music information retrieval (MIR) task supporting transcription, source separation, and audio understanding. Despite significant algorithmic progress, there is still room for improvement in recognizing acoustically similar instruments, particularly in polyphonic mixtures. We examine the contribution of ultrasonic components, i.e., frequencies above the audible 0-20 kHz range. Although most of this content cannot be represented at conventional 44.1/48-kSPS sampling rates under the Nyquist criterion, it is available in high-quality 96-kSPS recordings. Using a 96-kSPS multitrack corpus covering 15 classes across performers, instruments, studios, and sessions, we compare full-band, low-pass, and ultrasonic-only inputs using classical machine-learning and deep-learning classifiers. Our results show that source-dependent ultrasonic extensions and broadband transients contain instrument-specific information that significantly improves isolated and polyphonic recognition and motivates wider-bandwidth studies of other MIR tasks.",
-   "url": "https://arxiv.org/abs/2610.08850",
-   "pdf": "https://arxiv.org/pdf/2610.08850",
-   "explain": {
-    "tldr": "Ultrasonic frequencies above human hearing improve machine recognition of musical instruments in recordings.",
-    "plain": "Identifying which instruments are playing in a recording is useful for music transcription and analysis, but it's harder when instruments sound similar or play together. This research discovered that frequencies too high for humans to hear—above 20 kHz—contain unique patterns that help distinguish instruments. By analyzing high-quality recordings sampled at 96 kHz (instead of the standard 44.1 kHz), they found that these ultrasonic signatures, especially in the sharp attack sounds of instruments, gave machine-learning models better accuracy at recognizing instruments, both when playing alone and in mixtures.",
-    "why": "If instrument recognition improves, it could make automatic music transcription, source separation (isolating individual instruments from a mix), and other music analysis tools more reliable—potentially useful for producers, composers, and music software developers.",
-    "terms": [
-     {
-      "term": "Nyquist criterion",
-      "meaning": "A rule stating that to capture frequencies up to a certain limit, you need to sample at least twice that frequency; e.g., 44.1 kHz sampling captures up to ~22 kHz."
-     },
-     {
-      "term": "polyphonic mixtures",
-      "meaning": "Audio where multiple instruments or voices play at the same time, rather than one at a time."
-     },
-     {
-      "term": "music information retrieval (MIR)",
-      "meaning": "The field of extracting useful information from music recordings, like identifying instruments, detecting beats, or transcribing notes."
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.06949",
-   "title": "AdaLoop: Adaptive-Depth Latent Reasoning for Audio Language Models",
-   "authors": [
-    "Lee Seung-woo",
-    "Bowen Qi"
-   ],
-   "published": "2026-10-03",
-   "category": "cs.SD",
-   "topics": [
-    "rep"
-   ],
-   "summary": "Large audio language models answer questions about speech, sound, and music, yet their accuracy drops sharply on tasks that need fine-grained acoustic analysis. Judging which of two speakers has the higher pitch demands iterative signal-level reasoning that a content question does not. Current models spend the same computational depth on both. We introduce AdaLoop, a lightweight recurrent module that learns how many latent refinement steps a given audio--question pair requires. A shared transformer block iterates over the audio representation, guided by the question, while a learned halting mechanism exits the loop once the representation is ready. AdaLoop adds fewer than 3\\% of the base model's parameters and plugs into any audio encoder--language model pair without modifying either component. Evaluated on three architecturally distinct models across MMSU, MMAU-Pro, and MMAR, AdaLoop raises the average accuracy by 2.9 to 3.8 points, with the largest gains on perception-heavy subtasks where the model learns to apply deeper reasoning.",
-   "url": "https://arxiv.org/abs/2610.06949",
-   "pdf": "https://arxiv.org/pdf/2610.06949",
-   "explain": {
-    "tldr": "AdaLoop adds adaptive reasoning loops to audio language models, spending more computation on hard acoustic tasks.",
-    "plain": "Audio language models—systems that answer questions about speech, sound, and music—struggle with tasks requiring careful listening, like comparing two speakers' pitches. The problem is that these models use the same amount of processing for every question, whether it's easy or hard. AdaLoop is a small add-on that learns how many times to refine its understanding of the audio for each specific question. It uses a learned stopping mechanism to exit when it has enough information, and tests show it improves accuracy by 2.9 to 3.8 percentage points, especially on perception-heavy tasks.",
-    "why": "For musicians and producers, this means AI tools for audio analysis could become more reliable at subtle acoustic judgments—like pitch comparison or timbre analysis—without slowing down simple tasks. It's also efficient: the add-on uses minimal extra parameters, so it could be deployed on existing systems.",
-    "terms": [
-     {
-      "term": "latent reasoning",
-      "meaning": "internal refinement steps where the model improves its understanding of audio without outputting intermediate answers"
-     },
-     {
-      "term": "halting mechanism",
-      "meaning": "a learned decision-maker that tells the model when it has processed the audio enough and can stop iterating"
-     },
-     {
-      "term": "audio encoder",
-      "meaning": "the part of a system that converts raw audio into a numerical representation the model can work with"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.04570",
-   "title": "\"Spectral Harmony\" Towards the Unification of Timbre and Speech: Resolution of the Young Mahler Schoenberg Dream",
-   "authors": [
-    "Yusei TAMURA",
-    "Shigekazu ISHIHARA",
-    "Ken ITO"
-   ],
-   "published": "2026-10-03",
-   "category": "cs.SD",
-   "topics": [
-    "gen",
-    "rep"
-   ],
-   "summary": "In this article, we present a method of spectral serialization envisioned by G. Mahler and A. Schoenberg between the late 19th and early 20th centuries that enables the selection of timbres rooted in musical structure. Based on information geometry, we evaluate the Wasserstein distance between polyphonic timbre spectra, as demonstrated in our previous paper, in terms of the second moment of spectral chords comprising three or more notes, expressed in squared hertz. By embedding these quantities in a Banach space, we analyze specific passages from works by R. Strauss, Mahler, A. Berg, and A. Webern from the perspective of timbre, showing how the same chord exhibits different affinities and divergences depending on orchestration. Taking the wah wah mute as an example, we propose a model that treats instrumental timbre and speech within the same Banach space, and we attempt to quantify the \"vowel triangle\" in Hz. These efforts constitute a partial but integrated solution to the historical three problems of Schoenberg. Serialism, Klangfarbenmelodie, and Sprechgesang which neither Mahler nor Schoenberg in their lifetimes, nor the postwar generation of composers including Nono, Boulez, and Stockhausen, was able to resolve fully. We aim to reconsider musical thought as a whole from the perspective of timbre and to open new possibilities for interpretation, performance, and composition. All tools are publicly available on GitHub, so that anyone can reproduce and extend these analyses.",
-   "url": "https://arxiv.org/abs/2610.04570",
-   "pdf": "https://arxiv.org/pdf/2610.04570",
-   "explain": {
-    "tldr": "A method to analyze how orchestration changes a chord's timbre using mathematical distance measurements.",
-    "plain": "Early 20th-century composers like Schoenberg wanted to treat timbre (the color of sound) as a core musical element, not just an afterthought. This paper proposes a mathematical framework using something called Wasserstein distance to measure how different instrument combinations change the same chord's sound. They analyze real orchestral pieces and show how the same notes sound different depending on which instruments play them—and they even explore connections between instrumental timbre and sung vowels.",
-    "why": "If this approach works, it could help composers and arrangers make more intentional choices about orchestration, understand historical compositional techniques better, and potentially create new tools for exploring how different instrument combinations affect the music you're writing.",
-    "terms": [
-     {
-      "term": "Wasserstein distance",
-      "meaning": "A mathematical way to measure how different two distributions of values are—in this case, how different two spectra (frequency content) are from each other."
-     },
-     {
-      "term": "Klangfarbenmelodie",
-      "meaning": "A German term meaning 'tone-color melody'—the idea of creating melody by changing the timbre of notes rather than just changing pitch."
-     },
-     {
-      "term": "Banach space",
-      "meaning": "A mathematical structure that lets you measure distances and do calculations with complex objects like spectra."
      }
     ],
     "model": "anthropic/claude-haiku-4.5"
