@@ -1,6 +1,38 @@
 {
- "updated": "2026-11-18T16:32:11Z",
+ "updated": "2026-11-19T16:38:28Z",
  "papers": [
+  {
+   "id": "2611.24453",
+   "title": "Harmonic Circuit: Chord Progression Lies in a Sparse Principal Information Flow in Symbolic Music Models",
+   "authors": [
+    "Ruiji Yu",
+    "Gus Xia"
+   ],
+   "published": "2026-11-18",
+   "category": "cs.SD",
+   "topics": [
+    "gen"
+   ],
+   "summary": "Mechanistic Interpretability (MI) seeks to decode neural network computations into human-understandable logic. A core methodology in MI is circuit discovery: identifying the information flow in sub-networks that drive specific model behaviors. While circuit discovery has matured within Natural Language Processing (NLP), the interpretable circuits in music models remain largely unexplored. In this work, we identify a music-functional circuit within two symbolic music generative models: ChatMusician and MuPT. The music function we consider is the prediction of the terminal tonic root in a classical harmonic progression pattern $I \\ldots V \\rightarrow I$. We use the Auto-Emergence algorithm to extract a principal sparse sub-network as the identified circuit. Validation via causal intervention confirms that this identified circuit is a primary driver of harmonic progression behaviors in the symbolic music models. To our knowledge, this represents the first systematic circuit-discovery study conducted within the music domain. Our demo page is available at: https://ukiyo23rui.github.io/auto-emergence-demo/.",
+   "url": "https://arxiv.org/abs/2611.24453",
+   "pdf": "https://arxiv.org/pdf/2611.24453"
+  },
+  {
+   "id": "2611.23847",
+   "title": "Great Listeners, Poor Decision-Makers: Rethinking Agentic Audio AI",
+   "authors": [
+    "Siddique Latif",
+    "Moid Sandu",
+    "Farrukh Pervez",
+    "Raja Jurdak"
+   ],
+   "published": "2026-11-18",
+   "category": "cs.SD",
+   "topics": [],
+   "summary": "Audio artificial intelligence (AI) now recognizes speech, sounds, and music remarkably well, yet voice agents still act when they should not: they execute commands addressed to others, act on misheard content, and commit before the user finishes speaking. This position article argues that the bottleneck in agentic audio AI has shifted from recognition to decision-making. We propose a reference architecture with an explicit decision layer, separate from perception and reasoning, that chooses whether to act, wait, ask, or remain silent from evidence on addressedness, speaker identity, content confidence, tool reliability, utterance completeness, and action risk. We motivate the design through six recurring decision failures and a decision-theoretic argument that transcript confidence alone is insufficient to justify an action. We implement the layer with fuzzy inference, evolutionary optimization, and sequential decision-making, and evaluate it through simulations, ablations, and recorded audio, including egocentric recordings. Addressedness and speaker evidence matter most, risk-aware gating suppresses costly errors, and well-tuned policies perform similarly, with fuzzy gates more robust to overconfident addressedness estimates. On recorded audio, explicit gating cuts executed side talk from 41\\% to 7--10\\% while serving 83--85\\% of valid requests under successful clarification, outperforming prompting-based baselines. These results support explicit action gating as an architectural requirement for reliable voice agents.",
+   "url": "https://arxiv.org/abs/2611.23847",
+   "pdf": "https://arxiv.org/pdf/2611.23847"
+  },
   {
    "id": "2611.22857",
    "title": "Beyond Co-Generation: Rethinking Jointness in Joint Audio-Video Generation",
@@ -7922,165 +7954,6 @@
      {
       "term": "retrieval-augmented generation (RAG)",
       "meaning": "An AI approach that finds relevant existing examples and uses them to help generate new content"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.05549",
-   "title": "Joint Estimation of Common-Slope Decay Rates and Spatial Amplitudes Using Parameterized Nonnegative Matrix Factorization",
-   "authors": [
-    "Jeremy B. Bai",
-    "Filip Elvander",
-    "Sebastian J. Schlecht"
-   ],
-   "published": "2026-10-04",
-   "category": "cs.LG",
-   "topics": [
-    "syn",
-    "spa"
-   ],
-   "summary": "We formulate joint estimation of common-slope decay rates and amplitudes from room impulse responses (RIRs) as parameterized nonnegative matrix factorization with the Itakura--Saito divergence as the loss function (IS-NMF). Estimation at each short-time Fourier transform frequency bin produces detailed reverberation time (RT) curves directly from RIR powers with no backward integration needed. Standard space-alternating generalized expectation-maximization (SAGE) algorithm yields closed-form amplitude updates and a convex subproblem for each decay rate update. To accelerate estimation, we introduce contribution-weighted SAGE, which emphasizes observations where each component contributes strongly to the modeled power. Experiments with synthetic data show accurate recovery of well-separated decays and faster loss reduction than standard SAGE. Application to measured coupled-room RIRs yields frequency-dependent RT curves and reveals complementary space-time contributions of the shared decay components.",
-   "url": "https://arxiv.org/abs/2610.05549",
-   "pdf": "https://arxiv.org/pdf/2610.05549",
-   "explain": {
-    "tldr": "A method to measure how sound decays in rooms by analyzing impulse responses using matrix factorization.",
-    "plain": "When sound bounces around a room, it decays at different rates depending on frequency and location. This paper presents a technique to estimate these decay rates and the strength of different sound paths directly from room impulse responses—the recordings that capture how a room affects sound. They use a mathematical approach called nonnegative matrix factorization, which breaks down complex data into simpler components. Their method produces detailed reverberation time curves at each frequency without needing extra processing steps, and they made it faster by focusing computation on the most important parts of the data.",
-    "why": "Understanding how sound decays in a room is fundamental for acoustic design, room correction, and realistic reverb simulation. This technique could help producers and acoustic engineers characterize spaces more precisely and model room acoustics more accurately in recordings or virtual environments.",
-    "terms": [
-     {
-      "term": "room impulse response (RIR)",
-      "meaning": "a recording that captures how a room affects sound by recording the echoes and reflections after a brief sound burst"
-     },
-     {
-      "term": "nonnegative matrix factorization",
-      "meaning": "a mathematical technique that breaks down a table of numbers into simpler components, where all values must be zero or positive"
-     },
-     {
-      "term": "reverberation time (RT)",
-      "meaning": "how long it takes for sound to decay to inaudible levels in a room, typically measured at different frequencies"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.05336",
-   "title": "SheetSage2: Coherent Lead-Sheet Transcription with Synthetic Supervision",
-   "authors": [
-    "Junyan Jiang",
-    "Ruibin Yuan",
-    "Jiahao Pan",
-    "Wei Xue",
-    "Yike Guo",
-    "Gus Xia",
-    "Yann LeCun"
-   ],
-   "published": "2026-10-04",
-   "category": "cs.SD",
-   "topics": [
-    "mir"
-   ],
-   "summary": "Transcribing music into a human-readable score requires a coherent understanding of rhythm, harmony, melody, and form. Two obstacles limit this goal: annotated recordings are scarce, and accurate local predictions can still produce inconsistent musical sequences. We present SheetSage2, a unified music transcription framework that combines synthetic data, task-specific structured decoding, and autoregressive distillation. Automatically annotated MIDI, rendered into audio, provides scalable supervision across music understanding tasks. Task-specific structured decoders integrate complementary musical cues and their temporal dependencies to produce musically coherent scores. Autoregressive distillation further retains transcription accuracy without task-specific dynamic programming at inference. Across eight benchmark collections, a single SheetSage2-AR model exceeds the listed prior systems on 12 of 15 benchmark--metric pairs in our evaluation, substantially improving over SheetSage1 and surpassing task-specific models on several benchmarks. Model weights and inference code are publicly available.",
-   "url": "https://arxiv.org/abs/2610.05336",
-   "pdf": "https://arxiv.org/pdf/2610.05336",
-   "explain": {
-    "tldr": "A system that automatically transcribes music recordings into readable sheet music by learning from synthetic data and ensuring musical coherence.",
-    "plain": "Converting audio recordings into written sheet music is hard because there's limited training data and because getting individual notes right doesn't guarantee the result sounds musically sensible. SheetSage2 solves this by training on artificially created music (MIDI converted to audio), using a decoder that understands how musical elements like rhythm and harmony connect over time, and then simplifying the process for actual use. The system outperformed previous approaches across multiple test datasets.",
-    "why": "This matters because accurate music transcription could save musicians and producers hours of manual work when converting recordings or sketches into scores, and it could help music software better understand what you're playing or producing.",
-    "terms": [
-     {
-      "term": "synthetic data",
-      "meaning": "artificially generated training examples (here, MIDI files converted to audio) rather than real recordings"
-     },
-     {
-      "term": "autoregressive distillation",
-      "meaning": "a technique where a simpler model learns to replicate a complex model's predictions, making it faster to use while keeping accuracy"
-     },
-     {
-      "term": "structured decoding",
-      "meaning": "a decoding method that enforces musical rules and relationships rather than predicting each element independently"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.05055",
-   "title": "Influence of Geometrical Acoustic Simulator Complexity on a Trained Multisource Localizer",
-   "authors": [
-    "Fabian Staub",
-    "Nils Meyer-Kahlen",
-    "Thomas Deppisch",
-    "Sergio de las Heras",
-    "Florian Klein",
-    "Stephan Werner",
-    "Johannes M. Arend"
-   ],
-   "published": "2026-10-04",
-   "category": "eess.AS",
-   "topics": [
-    "gen",
-    "syn"
-   ],
-   "summary": "Learning-based acoustic sound source localization and detection (SSLD) requires large labeled datasets covering diverse acoustic conditions. Since obtaining measured data is costly, training commonly uses simulated data, while practical devices must operate under real-world conditions. However, higher simulation complexity increases data-generation cost, and the complexity required for reliable generalization remains unclear. In practice, SSLD methods often rely on efficient geometrical acoustic simulation, typically the image-source method. This work investigates how geometrical acoustic simulation complexity affects the real-world performance of a common multi-source SSLD model. We train the model with simulators ranging from anechoic conditions to high-order image-source simulations, optionally including diffuse reverberation, array simulation, and randomized image-source positions, and evaluate them on three measurement-based test datasets. Results show that anechoic simulation is insufficient, while medium-complexity image-source simulations already provide strong real-world performance. Further increases in complexity yield only marginal gains, with the best performance obtained using the highest tested image-source order, array simulation, and randomized image-source positions. For this configuration, measured-domain performance approaches within-domain simulated performance, suggesting limited benefit from further increasing simulation complexity. These findings show how the complexity-performance trade-off can be exploited in future data-driven SSLD, and highlight image-source randomization as an efficient way to improve generalization.",
-   "url": "https://arxiv.org/abs/2610.05055",
-   "pdf": "https://arxiv.org/pdf/2610.05055",
-   "explain": {
-    "tldr": "Training sound localization AI with moderately complex simulations works nearly as well as highly complex ones for real-world use.",
-    "plain": "Sound source localization—figuring out where sounds come from—is hard to train because real recorded data is expensive to collect. Researchers instead use simulated acoustic environments to train AI models. This paper tests whether more realistic, complex simulations actually improve performance on real recordings. They found that simple anechoic (echo-free) simulation doesn't work, but medium-complexity simulations already perform nearly as well as the most complex ones tested, with only small improvements from adding more realism.",
-    "why": "For musicians and producers using spatial audio tools or microphone arrays, this means faster development of sound localization features. Simpler training simulations mean companies can develop these tools more cheaply and quickly without sacrificing real-world accuracy.",
-    "terms": [
-     {
-      "term": "image-source method",
-      "meaning": "A way to simulate how sound bounces around a room by mathematically modeling reflections off walls"
-     },
-     {
-      "term": "anechoic",
-      "meaning": "An environment with no echoes or reverberation, like a perfectly sound-absorbing room"
-     },
-     {
-      "term": "generalization",
-      "meaning": "How well an AI model trained on simulated data performs on real-world recordings it hasn't seen before"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.04871",
-   "title": "A Multidimensional Model for Quantifying Tonal Strength: A Continuous Framework of Analyzing Tonal Evolution Beyond Tonal-Atonal Binary Classification",
-   "authors": [
-    "Yuliang Li",
-    "Nan Nan",
-    "Meilian Gu",
-    "Xiaohong Guan"
-   ],
-   "published": "2026-10-04",
-   "category": "cs.SD",
-   "topics": [
-    "gen"
-   ],
-   "summary": "Tonality is a fundamental organizing principle of Western music. However, the gradual transition from common-practice tonality to atonality around the turn of the twentieth century cannot be captured by binary labels. To characterize intermediate tonal states and trace this evolution, we propose a multidimensional framework for quantifying tonal strength, grounded in tonal theory and mechanisms underlying tonal dissolution. This framework operationalizes the global statistical regularity, temporal coherence, and local perceptual alignment of tonal organization through three complementary features: pitch-class distribution uniformity, temporal stability of tonal centers, and local tonal clarity, respectively. To validate the model, we introduce two new datasets: a binary dataset comprising 196 tonal and atonal pieces, and a historical MIDI corpus of 1,561 compositions by 21 composers spanning the Baroque era to the early twentieth century. The proposed model achieves high discriminative performance on the binary classification task (F_1=0.985), and quantitatively reveals a continuous historical trajectory from established tonality through progressive weakening to eventual dissolution. Computational analysis of representative composers further confirms significant declines in tonal strength throughout the careers of late-Romantic and modernist figures. Additionally, analysis of EMOPIA dataset reveals a weak but statistically significant positive correlation between higher tonal strength values and positive emotional valence. This work establishes a unified quantitative model for analyzing tonal evolution and provides a continuous measure for future behavioral and neurophysiological investigations of the relationships among tonal organization, musical emotion, and cognition.",
-   "url": "https://arxiv.org/abs/2610.04871",
-   "pdf": "https://arxiv.org/pdf/2610.04871",
-   "explain": {
-    "tldr": "A framework that measures how tonal music is on a continuous scale rather than just tonal-or-atonal, tracking how tonality weakened over time.",
-    "plain": "Western music gradually moved from strongly tonal (like Bach) to atonal (like Schoenberg) around 1900, but this shift can't be captured by simply labeling pieces as one or the other. The researchers built a system that measures tonality across three dimensions: how evenly distributed the pitches are, how stable the tonal center stays over time, and how clear the tonality sounds locally. Testing on 1,561 historical compositions, they found their system accurately distinguishes tonal from atonal music and reveals a continuous weakening of tonality through composers' careers during the late 1800s and early 1900s.",
-    "why": "This gives musicians and musicologists a precise way to describe and study the gradual evolution of tonality in music history, rather than forcing pieces into rigid categories. It could help producers and composers understand what makes music sound more or less tonal, and connects tonal organization to emotional response.",
-    "terms": [
-     {
-      "term": "pitch-class distribution uniformity",
-      "meaning": "how evenly or unevenly the twelve musical pitches are used in a piece; tonal music favors certain pitches, atonal music spreads them more equally"
-     },
-     {
-      "term": "tonal center",
-      "meaning": "the home pitch or key that a piece feels anchored to; in C major, C is the tonal center"
-     },
-     {
-      "term": "atonality",
-      "meaning": "music that deliberately avoids organizing around a single home pitch or key"
      }
     ],
     "model": "anthropic/claude-haiku-4.5"
