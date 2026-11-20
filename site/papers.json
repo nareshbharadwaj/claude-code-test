@@ -1,6 +1,23 @@
 {
- "updated": "2026-11-19T16:38:28Z",
+ "updated": "2026-11-20T16:14:00Z",
  "papers": [
+  {
+   "id": "2611.25781",
+   "title": "Sonic Palette: Predicting Dynamic Color Themes from Music",
+   "authors": [
+    "Wen-Li Wei",
+    "Kenneth Yang",
+    "Jen-Chun Lin"
+   ],
+   "published": "2026-11-19",
+   "category": "cs.MM",
+   "topics": [
+    "gen"
+   ],
+   "summary": "We present Sonic Palette, a music-driven framework for predicting time-varying color themes from audio. Rather than treating music-to-palette generation as a static problem, our method formulates music--color correspondence as a cross-modal sequence prediction task that models how palette-level visual attributes evolve over time in response to music. Specifically, Sonic Palette uses a music-conditioned autoregressive Transformer to predict frame-wise color themes, each represented by five dominant colors, from input audio features. To support this task, we curate a dataset of paired audio--color sequences derived from 265 full-length official music videos. We further visualize the predicted color themes through a palette-guided recoloring process that preserves image structure while revealing temporally varying color appearance associated with the music. Quantitative results show that Sonic Palette predicts color themes that more closely match the ground truth, while subjective results indicate more natural temporal color transitions and stronger perceived music--color atmosphere alignment, highlighting its potential for music-driven visual design, computational art, and creative visual authoring.",
+   "url": "https://arxiv.org/abs/2611.25781",
+   "pdf": "https://arxiv.org/pdf/2611.25781"
+  },
   {
    "id": "2611.24453",
    "title": "Harmonic Circuit: Chord Progression Lies in a Sparse Principal Information Flow in Symbolic Music Models",
@@ -7799,161 +7816,6 @@
      {
       "term": "multi-task optimization",
       "meaning": "Training a model on multiple different tasks simultaneously, which can cause conflicts when improvements in one task hurt performance in another"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.07486",
-   "title": "Adapting a Latent Audio Diffusion Model to Historical Guqin Recordings: A Listening-Driven Case Study",
-   "authors": [
-    "Huanchen Cai"
-   ],
-   "published": "2026-10-05",
-   "category": "cs.SD",
-   "topics": [
-    "gen",
-    "rep"
-   ],
-   "summary": "We report a small-data case study in adapting a pretrained latent audio diffusion model to the guqin, the seven-string Chinese zither, aiming at an \"AI radio\" that plays guqin-style music without end. From a library of historical recordings we curate 412 solo performances (42.5 h, 61 performers) and split them by composition. We fine-tune a rank-16 DoRA adapter on Stable Audio 3 Medium using its continuous latents, masking weighted towards continuation, captions that combine researched notes on each piece with mood tags and an automatically estimated pentatonic mode, and random-length crops, stopping when held-out loss stops improving. Seven blind listening studies by one expert listener guided every decision. The final adapter was rated highest for continuing unseen pieces (3.9/5, against 3.4 for the best earlier adapter) and 4.6/5 for generating from free-written scene descriptions. Negative results are equally informative: a from-scratch autoregressive model over the same latents produced no recognisable timbre, a signal-level friction-noise measure correlated with the listener's complaints in the wrong direction, and a pentatonic-fit measure tracked ratings overall but barely within a group of candidates. Chaining continuations for long playback exposed a silent tail on every generated clip and a loudness feedback loop, both with simple fixes. With one listener and at most ten clips per condition, no paired difference is statistically significant; we present an exploratory record of what helped, what did not, and why.",
-   "url": "https://arxiv.org/abs/2610.07486",
-   "pdf": "https://arxiv.org/pdf/2610.07486",
-   "explain": {
-    "tldr": "Researchers adapted an AI music model to generate guqin music by fine-tuning it on historical recordings and using listening tests to guide improvements.",
-    "plain": "The guqin is a traditional Chinese instrument, and researchers wanted to create an AI system that could generate endless guqin-style music. They took a pretrained music generation model (Stable Audio) and adapted it using 412 historical guqin recordings, adding musical descriptions and mode information. They ran seven listening studies with an expert to test different approaches, finding that their adapted model could continue unseen pieces and generate music from written descriptions reasonably well. However, they also discovered what didn't work—like trying to build a model from scratch—and identified technical issues like silent gaps between generated clips.",
-    "why": "This shows how AI music tools can be customized for specific instruments and musical traditions, even with limited training data. For musicians and producers interested in AI, it demonstrates a practical, listening-focused approach to adapting general models to specialized sounds rather than relying only on automatic metrics.",
-    "terms": [
-     {
-      "term": "latent audio diffusion model",
-      "meaning": "An AI system that generates audio by learning patterns from training data, working in a compressed representation rather than raw sound waves"
-     },
-     {
-      "term": "DoRA adapter",
-      "meaning": "A lightweight technique for customizing a pretrained model for a new task without retraining the entire model from scratch"
-     },
-     {
-      "term": "pentatonic mode",
-      "meaning": "A musical scale with five notes per octave, common in many non-Western musical traditions including Chinese music"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.06478",
-   "title": "Smorph: Playable Sound Morphing with Diffusion Models",
-   "authors": [
-    "Annie Chu",
-    "Hugo Flores García",
-    "Johannes Imort",
-    "Oriol Nieto",
-    "Bryan Pardo",
-    "Jordan Rudess",
-    "Prem Seetharaman",
-    "Justin Salamon"
-   ],
-   "published": "2026-10-05",
-   "category": "cs.SD",
-   "topics": [
-    "gen",
-    "hci"
-   ],
-   "summary": "Sound morphing, generating intermediate sounds that transition from one sonic identity to another, can be a powerful tool for musical sound design. Existing diffusion-based morphing approaches entangle temporal structure and timbral identity, offering no mechanism to hold one fixed while transforming the other. We present smorph, a training-free guidance framework that preserves how a sound behaves over time while transforming what the sound is, allowing users to morph, for instance from brass to strings at a fixed pitch. We demonstrate across three morphing modes: prompt-to-prompt, audio-to-prompt, and audio-to-audio. Evaluations across diverse datasets show that smorph effectively produces smooth morph trajectories while substantially improving temporal-structure and source preservation over baselines, albeit with more conservative target-ward transformation in some settings. In an exploratory case study, musicians found smorph trajectories to be expressive and playable, suggesting structural anchoring can serve as a productive constraint for instrumental interaction.",
-   "url": "https://arxiv.org/abs/2610.06478",
-   "pdf": "https://arxiv.org/pdf/2610.06478",
-   "explain": {
-    "tldr": "A tool that smoothly transforms one sound into another while keeping its timing and rhythm fixed.",
-    "plain": "Sound morphing creates intermediate sounds that transition between two different sonic identities—like gradually changing brass to strings. The problem is that existing approaches blur together how a sound evolves over time with what the sound actually is, so you can't control them separately. Smorph solves this by using a guidance framework that preserves the temporal structure (the rhythm and timing) while transforming the timbral identity (the character or color). Musicians tested it and found the morphing transitions expressive and playable.",
-    "why": "This matters to producers and sound designers because it gives you fine-grained control over sound design—you can experiment with new timbres without losing the rhythmic or melodic shape you want. It could also make real-time sound morphing more practical for live performance or interactive music.",
-    "terms": [
-     {
-      "term": "diffusion models",
-      "meaning": "AI systems that generate new content by gradually refining noise into structured sound or images, often used for creative generation"
-     },
-     {
-      "term": "timbral identity",
-      "meaning": "the characteristic color or quality of a sound—what makes a trumpet sound different from a violin"
-     },
-     {
-      "term": "temporal structure",
-      "meaning": "how a sound evolves and changes over time, including its rhythm, timing, and dynamic shape"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.05932",
-   "title": "UltraDub: Towards Authentic Dubbing by Unifying Visually-Steered Flow Learning and Trajectory Guidance",
-   "authors": [
-    "Gaoxiang Cong",
-    "Liang Li",
-    "Jianwei Wen",
-    "Zhedong Zhang",
-    "Zheng-Jun Zha",
-    "Qingming Huang"
-   ],
-   "published": "2026-10-05",
-   "category": "cs.CV",
-   "topics": [],
-   "summary": "Visual voice cloning requires intelligible, speaker-consistent speech synchronized with visible articulation. However, sequential multimodal conditioning can disrupt previously established temporal and speaker cues, while imbalanced inference guidance can improve linguistic accuracy at the expense of lip synchronization. In this paper, we propose UltraDub, a Unifying Visually-Steered Flow learning and trajectory Guidance Dubbing framework that leverages vision in two ways: as continuous motion for multimodal context aggregation, and as structural rhythm for trajectory rectification. Specifically, we introduce the Motion-guided Dual-context Retrieving (MDR) module, which continually recalibrates linguistic and speaker-style retrieval through shared lip-motion query residuals, utilizing independent time-conditioned gates to regulate their contributions. Furthermore, we propose Rhythm-anchored Trajectory Guidance (RTG), a training-free mechanism that evaluates hierarchical multimodal corrections at a visual-only predictive midpoint, safely strengthening semantic conditioning while better preserving temporal alignment. Finally, we construct DiverseDub, a multi-scenario benchmark to evaluate video dubbing in the wild. Extensive experiments demonstrate that UltraDub achieves state-of-the-art performance across four datasets.",
-   "url": "https://arxiv.org/abs/2610.05932",
-   "pdf": "https://arxiv.org/pdf/2610.05932",
-   "explain": {
-    "tldr": "A system that creates dubbed speech matching actors' lip movements while keeping voices natural and consistent.",
-    "plain": "When dubbing videos (replacing dialogue with new speech), you need the new voice to match the actor's lip movements, sound like the same person, and remain intelligible. The challenge is that trying to improve one aspect—like making words clearer—often breaks another, like lip sync. UltraDub uses visual information from the actor's mouth movements in two ways: to help the system remember both what words to say and what the speaker sounds like, and to guide corrections that keep timing aligned with the video. They tested it on multiple datasets and report it outperforms existing approaches.",
-    "why": "This matters for musicians and producers working on film, TV, or game localization—dubbing into different languages while keeping performances authentic. Better dubbing tools could make international content more natural-sounding and reduce the uncanny feeling of mismatched lips and speech.",
-    "terms": [
-     {
-      "term": "multimodal conditioning",
-      "meaning": "using multiple types of input information (like both audio and video) to guide what a system generates"
-     },
-     {
-      "term": "lip synchronization",
-      "meaning": "matching the timing of spoken words to the visible movement of an actor's mouth"
-     },
-     {
-      "term": "trajectory guidance",
-      "meaning": "steering the system's output along a desired path by providing reference points or corrections during generation"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.05768",
-   "title": "Relational Synthesis: Structure-Mediated Concatenative Synthesis for Foley and Retrieval-Augmented Audio Generation",
-   "authors": [
-    "Keren Shao",
-    "Ayaka Kawano",
-    "Shlomo Dubnov"
-   ],
-   "published": "2026-10-05",
-   "category": "cs.SD",
-   "topics": [
-    "gen",
-    "syn"
-   ],
-   "summary": "We ask: given a retrieved source audio $S$ and a separate reference audio $R$, can we synthesize novel audio $Y$ out of this pair $(S,R)$ such that $Y$ remains acoustically consistent with $S$, while not persistently copying segments of $S$ or $R$? The first clause is a well-known goal in Foley audio production, and the second is a well-known issue in neural RAG when $S$ and $R$ are naively injected into neural generators. We show that both clauses can be addressed simultaneously using a method we coin relational synthesis, a variation of concatenative synthesis where target cost is replaced by a relational Gromov-like structural cost. Rather than imitating the content of $R$, relational synthesis exploits it from the \"other side of the hill\": it transfers the temporal structure and directed amplitude motion of $R$ to reorganize and concatenate the grains of $S$ in a novel manner that protects $S$'s acoustic information. Our experiments show that relational synthesis integrates naturally with neural RAG and produces Foley audio that performs well on metrics measuring temporal agreement, acoustic fidelity, and leakage persistence, while maintaining distribution-level quality and text alignment.",
-   "url": "https://arxiv.org/abs/2610.05768",
-   "pdf": "https://arxiv.org/pdf/2610.05768",
-   "explain": {
-    "tldr": "A method that combines two audio sources to create new Foley sounds while preserving acoustic character and avoiding direct copying.",
-    "plain": "When making sound effects (Foley), producers often want to transform one sound using the structure or rhythm of another. This paper addresses two problems: keeping the original sound recognizable while borrowing the timing pattern from a reference sound, and preventing AI systems from just copying chunks of either source. They use a technique called relational synthesis that rearranges small pieces of the source sound according to the reference sound's rhythm and amplitude changes, rather than trying to imitate the reference directly. Tests show this produces Foley that sounds natural, maintains the original acoustic quality, and doesn't leak recognizable copies of the source material.",
-    "why": "This could help Foley artists and sound designers create variations of sounds more efficiently by automatically adapting one sound's character to match another's timing or motion. It also addresses a real problem in AI-assisted audio generation where systems tend to copy their inputs rather than creatively transform them.",
-    "terms": [
-     {
-      "term": "concatenative synthesis",
-      "meaning": "Building new sounds by cutting up and reassembling small pieces (grains) from existing audio"
-     },
-     {
-      "term": "Foley",
-      "meaning": "Sound effects created by recording or synthesizing everyday sounds for film, games, or other media"
-     },
-     {
-      "term": "retrieval-augmented generation (RAG)",
-      "meaning": "An AI approach that finds relevant existing examples and uses them to help generate new content"
      }
     ],
     "model": "anthropic/claude-haiku-4.5"
