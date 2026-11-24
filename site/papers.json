@@ -1,6 +1,230 @@
 {
- "updated": "2026-11-23T19:18:40Z",
+ "updated": "2026-11-24T18:56:49Z",
  "papers": [
+  {
+   "id": "2611.31055",
+   "title": "CAST: A Deployed Speech-to-Text Cascade for Closed Captioning of Entertainment Television",
+   "authors": [
+    "Aditya Mishra",
+    "Thanish Bolla",
+    "Bidisha Sharma",
+    "Balaji Pitchaikannu",
+    "Surbhi Sinha",
+    "Anup Kotalwar"
+   ],
+   "published": "2026-11-23",
+   "category": "cs.SD",
+   "topics": [
+    "gen"
+   ],
+   "summary": "Despite rapid progress in automatic speech recognition (ASR), caption generation for long-form entertainment video remains challenging for content dense in music and effects, rich in accents, crosstalk, and noise. The transcript quality depends on segmentation and surrounding modules as much as the acoustic model. A single pass voice activity detection (VAD) can miss faint, low-energy voice while forwarding near-silent segments that induce hallucination and repetition in an autoregressive decoder. These competing errors motivate a hierarchical VAD that revisits rejected segments under semantic and acoustic retention checks. We present Captioning ASR Stack for Television (CAST), an integrated speech-to-text pipeline for closed captioning (CC) combining frozen Whisper large-v3 with segmentation, language identification, lyrics routing, and targeted hallucination detection and repair on a single NVIDIA L4 GPU. On 100 in-house assets spanning 60.46 hours, CAST reduces normalized WER from 6.99% to 5.36% and subtitle edit rate from 254.2 to 221.9 min/hour against the WhisperX pipeline, and improves deletion rate by 11% on public datasets. We also present the behavior of each stage in the pipeline. CAST entered the production speech-to-text (STT) stage of our CC pipeline in late August 2026; we report the evaluation evidence and path to full-scale operation.",
+   "url": "https://arxiv.org/abs/2611.31055",
+   "pdf": "https://arxiv.org/pdf/2611.31055"
+  },
+  {
+   "id": "2611.30241",
+   "title": "SonicRender: Structured and Time-Grounded Rendering of Multi-Event Audio Scene Generation",
+   "authors": [
+    "Yunrui Cai",
+    "Xu Li",
+    "Yan Rong",
+    "Dingdong Wang",
+    "Yucheng Zhou",
+    "Xixin Wu",
+    "Chen Zhang",
+    "Zhiyong Wu",
+    "Helen Meng"
+   ],
+   "published": "2026-11-23",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "syn"
+   ],
+   "summary": "While unified audio generators can synthesize speech, music, and sound effects within a single model, producing a plausible mixture is only part of the challenge: a complex scene request also specifies which events occur, who produces them, and when they are heard. To satisfy these compositional constraints in a single generation pass, we present SonicRender, a unified multi-event audio renderer. Its Temporal Audio Scene Graph (TASG) binds persistent source identities to localized speech, music, ambience, and sound-effect events, together with their content, acoustic roles, relations, and timestamped windows. We further introduce AbsTime, which supplies the audio latent stream with absolute-frame coordinates and valid-canvas duration. Through joint text-audio attention and conditional flow matching, the renderer learns to realize structured, timed scenes as coherent mixtures. On the MMAG timestamp benchmark, SonicRender achieves speech/sound F1 scores of 0.79/0.60, exceeding the strongest reported scores in our comparison. On our SceneMix evaluation, it attains 85.4% all-event recall, 83.9% window-hit rate, and 95.7% speaker accuracy. Subjective study further demonstrates significant improvements over all five comparison systems in both perceived audio quality and scene realization. Results across speech, general audio, music, multi-event load, and temporal-grounding analyses establish precise, composition-aware audio rendering within a unified generator. Demo page: https://caiyunrui.github.io/SonicRender.",
+   "url": "https://arxiv.org/abs/2611.30241",
+   "pdf": "https://arxiv.org/pdf/2611.30241"
+  },
+  {
+   "id": "2611.30049",
+   "title": "AIRPiano: Piano Score Following with Tabletop Hand Gestures",
+   "authors": [
+    "Jinxuan Zhu",
+    "Zhiyao Duan"
+   ],
+   "published": "2026-11-23",
+   "category": "cs.SD",
+   "topics": [
+    "hci",
+    "rep"
+   ],
+   "summary": "AIRPiano aims to bring sound to the common practice of rehearsing piano music on a tabletop. Guided by a known score, users make piano-like finger movements on a flat surface without reproducing absolute keyboard positions. The score supplies pitches, while hand motion determines which score events to play and when. We formulate this interaction as online alignment between tabletop hand motion and symbolic score events. To address the ambiguity of tabletop motion, its differences from piano-playing motion, and the scarcity of aligned motion-score data, we develop motion and score representations, build a data processing pipeline, and train a Transformer with supervised attention on existing piano performance recordings. We further design a streaming inference framework that combines local alignment predictions with sequence tracking for real-time interaction. We construct two evaluation sets, VSF-Piano and VSF-Tabletop, to assess alignment on piano and tabletop performances, respectively. After a post-hoc global timing adjustment, AIRPiano achieves a mean chord alignment rate of 74% within a 133 ms tolerance on the paired subset of VSF-Tabletop, compared with 79% on VSF-Piano.",
+   "url": "https://arxiv.org/abs/2611.30049",
+   "pdf": "https://arxiv.org/pdf/2611.30049"
+  },
+  {
+   "id": "2611.29871",
+   "title": "Which Layer to Trust? Layer Selection in Frozen Speech Encoders for Singing-Voice Deepfake Detection under Signal Corruption",
+   "authors": [
+    "Benjamin Hurt",
+    "Yefei Yang"
+   ],
+   "published": "2026-11-23",
+   "category": "eess.AS",
+   "topics": [
+    "syn",
+    "rep"
+   ],
+   "summary": "Frozen self-supervised speech encoders have been frequently used for audio deepfake detection. However, the layers are usually chosen from a development set. We examine this choice for singing-voice deepfake detection on CtrSVDD. We train one detection head per layer, plus a learned layer mix, on frozen XEUS (3-4 seeds) and XLS-R (2 seeds). We test on clean audio and under noise, reverberation and lossy coding. On clean audio, the middle layers beat the last layer in both encoders and the learned mix does not beat the best single layer. The layer chosen on the development set is 2.3 (XEUS) and 4.1 (XLS-R) percentage points of EER worse than the best test layer. Under noise and coding, XEUS's best layers stay in the middle, while under reverberation its upper layers catch up, whereas XLS-R's best layer moves shallower. In an exploratory analysis, XEUS detects a commercial synthesis attack best with an earlier layer, especially under noise. The layer therefore cannot be chosen reliably on an in-domain development set and clean audio alone.",
+   "url": "https://arxiv.org/abs/2611.29871",
+   "pdf": "https://arxiv.org/pdf/2611.29871"
+  },
+  {
+   "id": "2611.29475",
+   "title": "Music Circuit: Trace and Control Style Dynamics in Large Music Generation Model",
+   "authors": [
+    "Ruiji Yu",
+    "Wenye Ma",
+    "Gus Xia"
+   ],
+   "published": "2026-11-22",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "rep"
+   ],
+   "summary": "Musical style, a global attribute that functions throughout a whole piece, is a lever widely used by users in modern large music generation models. Yet how style is represented inside these models, and which components drive it, remains largely unexplored. In language models, circuit analysis traces a representation to a sparse sub-network of a few key components, namely attention heads and MLP neurons, and has been used successfully to explain and control global attributes such as emotion. In this work, we use circuit analysis to study the mechanisms behind musical style. Based on YuE2, we build a dataset that pairs the same lyrics with five styles and design a three-step framework. First, stage localization shows that the style forms mainly in the score-planning stage. Second, static observation across the positions of this stage further reveals that style is not a fixed vector but a dynamic representation across tokens. Third, we therefore merge the activation differences across positions into one direction per style, and trace the neurons and attention heads that drive this direction into a sparse circuit. Without any style text, steering this circuit successfully transfers one piece into the target style, matching and even exceeding the style prompt. To our knowledge, this is the first work to analyze and control musical style at the circuit level in a large music generation model. Audio and score examples are available at https://aristo233.github.io/Music_Circuit/.",
+   "url": "https://arxiv.org/abs/2611.29475",
+   "pdf": "https://arxiv.org/pdf/2611.29475"
+  },
+  {
+   "id": "2611.29411",
+   "title": "Who Plays What: Same-Instrument Music Separation from Video",
+   "authors": [
+    "Abhinaba Roy",
+    "Ambuj Mehrish",
+    "Sebastiano Vascon",
+    "Dorien Herremans"
+   ],
+   "published": "2026-11-22",
+   "category": "cs.SD",
+   "topics": [
+    "sep",
+    "hci",
+    "rep"
+   ],
+   "summary": "When two musicians in an ensemble play the same instrument, they sound alike and their instruments look alike. Audio-only separators, and audio-visual separators that rely on appearance, cannot tell them apart. What still differs is how each player moves, and when. We study same-instrument per-player separation: a user clicks one musician in a video and receives that musician's sound alone, even when other players in the video play the same instrument. Our model follows the clicked player and describes them with high level video features and the velocities of body and hand keypoints. A pretrained music separator attends to these tokens through cross-attention. Earlier motion-based separators were scored only on synthetic mixtures of solo videos. We give the first per-player evaluation of same-instrument separation on real ensemble recordings. On 58 players in URMP, each sharing an instrument with at least one other player in the piece, our model reaches a median SDR of 5.3 dB, while four released separators, audio-only and audio-visual, stay at or below 0.3 dB. The gap is wider on same-instrument duets, and our model also beats the audio-visual baselines on their own MUSIC benchmark. Tests show that the gain comes from movement: replacing the video with a still frame removes it, and so does shifting the video by a fraction of a second against the audio.",
+   "url": "https://arxiv.org/abs/2611.29411",
+   "pdf": "https://arxiv.org/pdf/2611.29411"
+  },
+  {
+   "id": "2611.29375",
+   "title": "MusicListenBench: Can Audio LLMs Hear the Difference Yet?",
+   "authors": [
+    "Abhinaba Roy",
+    "Ambuj Mehrish",
+    "Dorien Herremans"
+   ],
+   "published": "2026-11-22",
+   "category": "cs.SD",
+   "topics": [
+    "mir"
+   ],
+   "summary": "Audio large language models (LLMs) are typically evaluated on song genre, mood, and instrumentation. A more basic skill is telling whether two short clips play the same melody, chord or instrument. We introduce MusicListenBench, a benchmark of paired listening tests for melody, harmony, timbre, and tempo. Each test item comes with two variants. A FLIP variant changes the music, so the answer must change. A STAY variant changes only the sound, such as room echo or hiss, so the answer must stay the same. The two variants have opposite answers, so a model that ignores the audio scores 50%, whatever letter it prefers. The benchmark has a training split and two test sets, one rendered from symbolic music with exact labels and one built from real recordings. On the rendered test, seven of eight open audio LLMs score within 4 points of this floor. Of four commercial models, both GPT-Audio models are at chance, and the best, Gemini 2.5 Pro, reaches 74.2%, 12.8 points below human listeners (87.0%). Post-training with GRPO on 10k rendered clean pairs raises Qwen2.5-Omni from 61.2% to 99.0% on held-out clean pairs, and the gain transfers to a task left out of training. On FLIP/STAY, however, it only reaches the level of our listeners (86.0%). It now misses almost no change (1.9%, against 24.7% for Gemini 2.5 Pro), yet when only the sound changes, it turns a correct answer into a wrong one 25.7\\% of the time. More than half of its false flips come from a quiet background hiss. Models learn to hear a difference much faster than they learn which differences matter. On real recordings, open models again stay near chance, and the trained model calls 27 of 42 pairs of two strums of the same chord different. Adding sound-only pairs to training lowers false flips on both test sets, but no training run teaches relative pitch. We release the data, code, and an open leaderboard.",
+   "url": "https://arxiv.org/abs/2611.29375",
+   "pdf": "https://arxiv.org/pdf/2611.29375"
+  },
+  {
+   "id": "2611.29283",
+   "title": "ARRANGE: Agentic Skills for Layering Vocals",
+   "authors": [
+    "Henry Tan",
+    "Eidee Tan"
+   ],
+   "published": "2026-11-22",
+   "category": "cs.SD",
+   "topics": [
+    "rep"
+   ],
+   "summary": "Adding a singing voice to an existing piano recording requires decisions about melody, syllable placement, pronunciation, timing, and vocal register. ARRANGE organizes this work as a sequence of agent skills with readable intermediate artifacts and composer approval checkpoints. An LLM translates instructions in plain English, notes played on a keyboard, and vocal references into local edits; deterministic scripts validate and apply those edits before open audio models render the result. The Score Canvas makes note, syllable, and pronunciation decisions inspectable and editable. In a benchmark of 16 revision requests, three draws per request, and five LLMs, typed edits achieved exact-change correctness of 0.83-0.98, compared with 0.33-0.69 for whole-plan rewriting without ARRANGE instructions. A separate score-editing benchmark and a first-person worked example examine the interaction between representations and corrections. Author listening evaluations further explore voice transfer and register selection, including 185 listening presentations across eight copied voices. These evaluations support the value of constrained editing and expose limits of both model execution and listening measures. The contribution is an interaction architecture for retaining musical decisions through inspectable intermediate representations, rather than a new singing model or evidence of general usability.",
+   "url": "https://arxiv.org/abs/2611.29283",
+   "pdf": "https://arxiv.org/pdf/2611.29283"
+  },
+  {
+   "id": "2611.29225",
+   "title": "IteraSong: LLM-Guided Iterative Symbolic Music Creation in a Web DAW",
+   "authors": [
+    "Di Lu",
+    "Xinran Zhang",
+    "Yan Gao",
+    "Yuan Zhang",
+    "Xiaoqing Wang",
+    "Qingwen Zhou",
+    "Xiaobing Li",
+    "Maosong Sun"
+   ],
+   "published": "2026-11-22",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "hci"
+   ],
+   "summary": "Music creation is inherently iterative, yet many symbolic generation systems still center on producing or regenerating isolated outputs. We present IteraSong, an interactive web-based Digital Audio Workstation (DAW) for LLM-guided iterative symbolic music creation. Unlike one-shot generation systems, IteraSong supports a generate-audition-edit-refine loop over a persistent multi-track project. Users initialize a fully labeled pop draft, then progressively refine it through natural-language instructions. The LLM maps requests to a hierarchical action space of editing primitives exposed via Model Context Protocol (MCP) tools, spanning global, track, section, and bar/note scopes. The demo enables attendees to edit multi-track compositions in natural language, apply deterministic and generative edits, and undo/redo changes in real time.",
+   "url": "https://arxiv.org/abs/2611.29225",
+   "pdf": "https://arxiv.org/pdf/2611.29225"
+  },
+  {
+   "id": "2611.28765",
+   "title": "Beyond File-Level Splits: Rethinking Symbolic Music Evaluation via Multi-View Alignment",
+   "authors": [
+    "Kun Bai",
+    "Yinghan Wang",
+    "Canran Xiao",
+    "Jiachen Luo",
+    "Huy Phan",
+    "Yong Dai",
+    "Jiaqi Zhang",
+    "Yunwei Li",
+    "Lin Wang",
+    "Joshua Reiss",
+    "Björn W. Schuller"
+   ],
+   "published": "2026-11-21",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "rep"
+   ],
+   "summary": "Symbolic music generation often continues MIDI passages by predicting subsequent notes or events. Held-out prediction loss can overestimate generalization to unseen compositions when training contains another performance or arrangement of a test work. We introduce Multi-View Alignment-Aware Same-Work Identification, combining complementary musical representations with temporal alignment of shared passages to remove test-work versions from training while preserving unrelated material and fixing evaluation files. In a controlled cohort of 100 manually verified pairs selected for high embedding similarity, replacing 3.29% of training windows with test-work versions reduces mean per-group NLL by up to 30.16% relative to matched unrelated content. Across two datasets and two generators, our method brings test losses closest to a reference built from independent work labels. Compared with removing the same number of files at random, it leaves fewer test works exposed and retains more eligible content, including about 99% of eligible tokens on the piano-performance dataset. A separate study on that dataset matches training tokens and updates: no test works remain exposed under the dataset labels, and mean relative test loss is 2.15% higher than an independently selected reference. These findings support keeping all versions of each composition in one split when evaluating generalization to unseen works. The project is available at https://kunbai05-nb.github.io/.",
+   "url": "https://arxiv.org/abs/2611.28765",
+   "pdf": "https://arxiv.org/pdf/2611.28765"
+  },
+  {
+   "id": "2611.28686",
+   "title": "PopMelodyGen: A Copyright-Aware Platform for Controllable Pop-Melody Generation",
+   "authors": [
+    "Di Lu",
+    "Xinran Zhang",
+    "Qingwen Zhou",
+    "Yan Gao",
+    "Yuan Zhang",
+    "Xiaoqing Wang",
+    "Yuming Sun",
+    "Xiaobing Li",
+    "Maosong Sun"
+   ],
+   "published": "2026-11-21",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "syn",
+    "hci",
+    "rep"
+   ],
+   "summary": "Large-scale redistributable symbolic pop-melody data remain scarce due to copyright restrictions, creating a bottleneck for both practical deployment and reproducible research in music generation. We present PopMelodyGen, a copyright-aware platform for controllable pop-melody generation that combines rule-based synthesis with neural generation. Our approach first uses an expert synthesizer to produce large-scale labeled synthetic melodies from explicit musical knowledge and templates, providing scalable pretraining data with auditable provenance. A neural model is then pretrained on this corpus and adapted with a small licensed real-pop corpus to improve melodic naturalness while preserving controllability. The platform supports interactive melody creation with accompaniment playback and export for creators, as well as batch construction of annotated symbolic datasets for researchers. PopMelodyGen demonstrates a practical training and deployment paradigm for creative AI when large-scale reusable real-world data are limited.",
+   "url": "https://arxiv.org/abs/2611.28686",
+   "pdf": "https://arxiv.org/pdf/2611.28686"
+  },
   {
    "id": "2611.26958",
    "title": "A Novel Dataset and Framework for Schenkerian Optical Music Recognition",
@@ -86,6 +310,21 @@
    "summary": "Audio artificial intelligence (AI) now recognizes speech, sounds, and music remarkably well, yet voice agents still act when they should not: they execute commands addressed to others, act on misheard content, and commit before the user finishes speaking. This position article argues that the bottleneck in agentic audio AI has shifted from recognition to decision-making. We propose a reference architecture with an explicit decision layer, separate from perception and reasoning, that chooses whether to act, wait, ask, or remain silent from evidence on addressedness, speaker identity, content confidence, tool reliability, utterance completeness, and action risk. We motivate the design through six recurring decision failures and a decision-theoretic argument that transcript confidence alone is insufficient to justify an action. We implement the layer with fuzzy inference, evolutionary optimization, and sequential decision-making, and evaluate it through simulations, ablations, and recorded audio, including egocentric recordings. Addressedness and speaker evidence matter most, risk-aware gating suppresses costly errors, and well-tuned policies perform similarly, with fuzzy gates more robust to overconfident addressedness estimates. On recorded audio, explicit gating cuts executed side talk from 41\\% to 7--10\\% while serving 83--85\\% of valid requests under successful clarification, outperforming prompting-based baselines. These results support explicit action gating as an architectural requirement for reliable voice agents.",
    "url": "https://arxiv.org/abs/2611.23847",
    "pdf": "https://arxiv.org/pdf/2611.23847"
+  },
+  {
+   "id": "2611.28094",
+   "title": "LightOnOCR for AMNLT: Reading Chant Notation and Lyrics in One Pass, from Single Staves to Whole Pages",
+   "authors": [
+    "Robert Klugseder"
+   ],
+   "published": "2026-11-17",
+   "category": "cs.CV",
+   "topics": [
+    "mir"
+   ],
+   "summary": "Aligned music notation and lyrics transcription (AMNLT) asks for the notes of a chant, its sung text and the assignment of syllables to notes in one output. Fuentes-Martínez et al., who defined the task, found that the one vision-language model they tested fell far behind specialised recognisers. We fine-tune LightOnOCR-3-1B, a page OCR model with one billion parameters, end to end, vision encoder included, to write a staff as a GABC string whose letters denote staff positions. Trained on the published AMNLT training split alone, it more than halves the best published aligned music and lyrics error rate (AMLER) on Solesmes, the one directly comparable dataset (9.9 against 21.0 %); on Einsiedeln and Salzinnes, measured in a different encoding, its figures are also lower. The benchmark does not measure generalisation to unseen manuscripts: while the pitch error on AMNLT validation stays between 1.7 and 1.9 %, on 200 staves from five unseen manuscripts it falls from 24.9 to 1.3 % as we add chant aligned through CantusDB, Transkribus ground truth and silver staves kept only where two readers agree. Trained also on multi-staff images, it reads whole pages without staff detection (pitch error 3.3 to 3.8 % on validation and test pages, 1.9 % on pages of unseen manuscripts). Remaining errors include Gothic F clefs read as C clefs, notes dropped with abbreviated or illegible text and lower accuracy on pages with small notation. Controlled ablations are needed to explain the gains.",
+   "url": "https://arxiv.org/abs/2611.28094",
+   "pdf": "https://arxiv.org/pdf/2611.28094"
   },
   {
    "id": "2611.22857",
@@ -1383,6 +1622,22 @@
     ],
     "model": "anthropic/claude-haiku-4.5"
    }
+  },
+  {
+   "id": "2611.28056",
+   "title": "NAVIQUAL-XR: Finding the Sweet Spot of a Live Music Environment in Augmented Reality",
+   "authors": [
+    "Carl Timothy Tolentino",
+    "Andrew Hines"
+   ],
+   "published": "2026-11-04",
+   "category": "eess.AS",
+   "topics": [
+    "spa"
+   ],
+   "summary": "Augmented Reality (AR) enables immersive spatial audio experiences that extend conventional stereo and head-tracked listening to six degrees-of-freedom (6-DoF) navigation. However, evaluating listener Quality of Experience (QoE) remains a key challenge due to the real-time and dynamic adaptations of the content in AR environments. To address this challenge, we propose NAVIQUAL-XR, an objective model to find the \"sweet spot\" in AR live music environments validated by subjective tests. We recruited 25 listeners who navigated 12 AR environments of various scene set ups under auditory and audio-visual modalities. We analyzed their navigation trajectories and recorded their final locations and directions as their subjective sweet spots. We then produced subjective maps that identified the location and direction with the optimal QoE in an AR environment. Furthermore, we benchmarked key objective metrics that predict these sweet spots through similarity metrics with the subjective maps. We found that localization quality derived from BINAQUAL, an objective metric designed for binaural audio, outperformed signal-to-noise ratio in closely predicting the sweet spot. This suggests that phase-based cues play a more important role on perceived QoE in AR environments than intensity-based cues. NAVIQUAL-XR provides new insights into listener behavior and preferences in AR environments, demonstrating the potential of objective metrics to predict the subjective experience, and guiding the design of future immersive audio systems.",
+   "url": "https://arxiv.org/abs/2611.28056",
+   "pdf": "https://arxiv.org/pdf/2611.28056"
   },
   {
    "id": "2611.07210",
@@ -6607,201 +6862,6 @@
      {
       "term": "Aesthetic Consistency Score (ACS)",
       "meaning": "a measurement of how well the generated music matches the target listener's taste"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.14232",
-   "title": "Speech event detector: Timestamped detection of non-verbal vocalizations and background sounds for rich speech transcription",
-   "authors": [
-    "Ayush Kumar Bar",
-    "Promila Ghosh"
-   ],
-   "published": "2026-10-09",
-   "category": "cs.SD",
-   "topics": [
-    "mir"
-   ],
-   "summary": "Automatic speech recognition produces words but drops the non-verbal content of a recording: the breaths, coughs, sighs and laughter of the speaker, and the horns, music or barking around them. We describe Speech Event Detector, a 5.8-million-parameter convolutional-Transformer model that outputs probabilities every 40 ms for 54 event classes (20 speaker vocalizations and 34 background sounds), together with post-processing that converts these probabilities into timestamped events and a procedure for merging the events into a Whisper transcript. The model is trained on material drawn from seven public datasets whose labels come in incompatible forms: single detected regions, free-text tags with timestamps, temporally strong ontology labels, symbols embedded in transcripts, isolated recordings and environmental recordings. We unify them using rule-based label mapping, recover timestamps for transcript-embedded labels through CTC forced alignment, locating 6,360 of 8,620 sounds, and combine about 168 hours of real annotated training recordings with synthetic mixtures and augmentation using real background noise. Per-class thresholds for two operating profiles are tuned on real held-out recordings, and performance is estimated using two-fold cross-validation. On whole held-out recordings from four datasets, considering the 48 classes with at least ten held-out events, the sensitive profile detects an average of 49 percent of a class's events, covering 67 percent of all 9,367 events, at a macro precision of 0.30. The balanced profile achieves a macro recall of 0.37 at a precision of 0.36, with macro event F1 scores of 0.32 and 0.33, respectively. The detector runs about 39 times faster than real time on eight CPU threads.",
-   "url": "https://arxiv.org/abs/2610.14232",
-   "pdf": "https://arxiv.org/pdf/2610.14232",
-   "explain": {
-    "tldr": "A model that detects and timestamps non-verbal sounds in speech recordings like breaths, coughs, and background noise.",
-    "plain": "Speech-to-text systems capture words but lose everything else: the speaker's breaths, laughs, and coughs, plus background sounds like music or traffic. This paper describes a neural network model that listens to audio and identifies 54 different types of these sounds, pinpointing exactly when each one happens. The researchers trained it on seven different datasets with mismatched labeling systems, unified the labels, and combined real recordings with synthetic ones. The model catches about half of these events accurately and runs fast enough to process audio much quicker than real time.",
-    "why": "For musicians and producers, this matters because it could preserve the expressive, human details in recordings—breaths, timing, room tone—that usually get lost when speech is transcribed. It could also help with podcast editing, music production with vocal samples, or any workflow where you need to know exactly when non-musical sounds occur in a track.",
-    "terms": [
-     {
-      "term": "convolutional-Transformer model",
-      "meaning": "A neural network that combines two types of pattern-recognition layers: one that looks at local details and one that understands relationships across longer stretches of audio."
-     },
-     {
-      "term": "CTC forced alignment",
-      "meaning": "A technique that matches a known transcript to an audio file to figure out exactly when each word (or in this case, sound) occurs."
-     },
-     {
-      "term": "macro precision and recall",
-      "meaning": "Measures of accuracy that treat each sound type equally rather than favoring common ones; precision is how often the model is right when it makes a detection, recall is how many actual sounds it finds."
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.13300",
-   "title": "Sonic-AMG: Streaming Human Motion Generation from Spatial Audio",
-   "authors": [
-    "Jingcheng Ni",
-    "Zekun Li",
-    "Zhiyang Dou",
-    "Xiaoyan Cong",
-    "Ziyao Zeng",
-    "Hongyang Du",
-    "Randall Balestriero",
-    "Taku Komura",
-    "Srinath Sridhar"
-   ],
-   "published": "2026-10-09",
-   "category": "cs.CV",
-   "topics": [
-    "gen",
-    "spa"
-   ],
-   "summary": "Modeling human reactions to spatial audio requires understanding both what is heard and where it comes from. Prior work generates motion offline from complete acoustic and spatial input sequences. Humans, however, react to sounds without knowing what they will hear next. We present Sonic-AMG, to our knowledge the first framework for streaming human motion generation from spatial audio. The model encodes acoustic content and body-relative source geometry as separate tokens. Conditioned on these tokens, a causal transformer with a flow head generates continuous motion latents, from which a causal decoder reconstructs motion segments. Standard teacher-forced training derives motion histories and body-relative source locations from ground-truth motion, whereas streaming inference relies on generated motion for both, resulting in a training-inference mismatch. To reduce this history discrepancy, we introduce rehearsal training, which combines full-sequence teacher-forced supervision with supervised prediction along short autoregressive self-rollouts. To keep spatial conditioning consistent with generated motion, we propose spatial feedback, which recomputes body-relative source locations from generated root poses during both rehearsal training and inference. On SAM, Sonic-AMG achieves state-of-the-art FID and R-precision. It further supports real-time online generation of coherent reactions across sound events and source locations. Project page: https://jingchengni.com/sonic-amg/.",
-   "url": "https://arxiv.org/abs/2610.13300",
-   "pdf": "https://arxiv.org/pdf/2610.13300",
-   "explain": {
-    "tldr": "A system that generates realistic human body movements in real-time while reacting to spatial audio from any direction.",
-    "plain": "When you hear a sound, you naturally react with body movements—turning toward it, swaying, gesturing. This paper tackles a tricky problem: generating these reactions as audio plays, without knowing what sound comes next. They built Sonic-AMG, which processes both what you hear (acoustic content) and where the sound comes from (spatial location), then predicts body motion continuously. The key innovation is 'rehearsal training'—a technique that helps the system learn to generate motion smoothly even when it's predicting its own movements rather than copying real ones, plus 'spatial feedback' that keeps the sound direction consistent with the generated body position.",
-    "why": "This matters for interactive music experiences, VR/AR applications, and avatar animation in music videos or games. It could help create more believable virtual performers or dancers that respond naturally to spatial audio in real-time, rather than pre-recorded choreography.",
-    "terms": [
-     {
-      "term": "spatial audio",
-      "meaning": "sound that has a sense of direction and location around you, not just left-right stereo but full 3D positioning"
-     },
-     {
-      "term": "causal transformer",
-      "meaning": "a neural network that processes information in order, only looking at past data (not future), suitable for real-time streaming"
-     },
-     {
-      "term": "FID and R-precision",
-      "meaning": "metrics that measure how realistic and accurate the generated movements are compared to real human motion"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.13247",
-   "title": "What Do Audio-Language Judges of Generated Music Listen For? Four Probes with Controls from Expert Ratings",
-   "authors": [
-    "Mateusz Modrzejewski",
-    "Tomasz Radzikowski"
-   ],
-   "published": "2026-10-09",
-   "category": "cs.SD",
-   "topics": [
-    "gen"
-   ],
-   "summary": "Open audio-language models are used as judges of generated music: given a clip and its text prompt, the model rates the clip, and the judge is validated by how well its ratings correlate with expert ratings. The correlation does not show what the judge responds to: the music, the text prompt, or the way the question is asked. We propose four probes that test each of these, three of them read against a control computed from the human ratings: removing the audio, replacing the clip with another model's clip for the same prompt, swapping the order of two clips in pairwise judging, and rewording the instruction. We apply them to five open judges on all 2,748 clips of MusicEval, and the last two to the SongEval songs. Without audio, no judge exceeds what the prompt alone predicts from the human ratings, and for prompt alignment every judge falls below it. With audio, every judge follows the clip it hears when rating prompt alignment, two do when rating musical quality, and the strongest judge's quality score tracks the experts' alignment rating more than their quality rating. The pairwise verdicts of the four smaller judges follow the position of a clip in the pair (its slot) rather than its quality on both rating sets. For musical quality, rewording the instruction moves the correlation of most judges as much as changing the judge. MusicEval's prompt assignment bounds any prompt-only judge at the model level. We recommend reporting the four probes with every music judge.",
-   "url": "https://arxiv.org/abs/2610.13247",
-   "pdf": "https://arxiv.org/pdf/2610.13247",
-   "explain": {
-    "tldr": "Researchers test what audio-language models actually listen to when rating generated music, finding they rely heavily on prompts and instructions rather than the audio itself.",
-    "plain": "When AI models judge generated music by comparing audio clips to text descriptions, we don't know if they're actually listening to the music or just reading the prompt. Researchers created four tests to figure this out: removing the audio entirely, swapping clips between prompts, changing the order of clips being compared, and rewording the instructions. They found that without audio, the models couldn't rate better than just reading the prompt alone, and most models were influenced more by how the question was asked than by what they actually heard.",
-    "why": "If you're using AI to evaluate your generated music or train music-generation systems, you need to know whether the AI is actually assessing your music or just pattern-matching on descriptions. This work shows current judges aren't reliable for that purpose, which matters for developing better music AI tools.",
-    "terms": [
-     {
-      "term": "audio-language models",
-      "meaning": "AI systems trained to understand both sound and text, so they can answer questions about audio"
-     },
-     {
-      "term": "prompt alignment",
-      "meaning": "how well a generated music clip matches what the text description asked for"
-     },
-     {
-      "term": "correlation",
-      "meaning": "a measure of how closely two sets of ratings match each other"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.13198",
-   "title": "QC-MI-OVSEL: Benchmarking Query-Conditioned Multi-Instance Open-Vocabulary Sound Event Localization",
-   "authors": [
-    "Yongqiang Chen",
-    "Peiwei Chang",
-    "Yuelan Cheng",
-    "Xiatian Zhu",
-    "Wenwu Wang"
-   ],
-   "published": "2026-10-09",
-   "category": "cs.SD",
-   "topics": [
-    "spa"
-   ],
-   "summary": "We study query-conditioned multi-instance open-vocabulary sound event localization (QC-MI-OVSEL), where a system must recover all active physical sources matching a natural-language category query, including when the queried category is absent. We introduce the QC-MI-OVSEL benchmark, a 40,000-scene first-order Ambisonics benchmark with 80,000 balanced present/absent query views over 83 classes, including 17 novel classes excluded from training and development. Each frame is annotated with the activity and 3-D direction of every query-matching source, with up to three simultaneous targets. We further propose Q-RSet, which uses query-conditioned source slots and responsibility-based evidence aggregation for source-set prediction. Experiments show improved source recovery, localization recall, cardinality estimation, exact-set recovery, and absent-query suppression over complementary baselines. Analysis indicates that novel categories, paraphrased queries, and higher source multiplicity mainly impair source discovery and set completion, while directional accuracy remains comparatively stable for successfully recovered sources.",
-   "url": "https://arxiv.org/abs/2610.13198",
-   "pdf": "https://arxiv.org/pdf/2610.13198",
-   "explain": {
-    "tldr": "A benchmark and method for finding and locating multiple sound sources in 3D space based on natural-language descriptions.",
-    "plain": "The paper tackles a specific audio challenge: given a text description (like \"dog barking\"), find all instances of that sound in a recording, pinpoint their 3D locations, and know when the sound isn't present at all. They created a large dataset with 40,000 audio scenes annotated with sound locations and directions, including sounds the system has never encountered before. They also built a system called Q-RSet that performs better than existing approaches at finding multiple sources, estimating how many are active, and correctly saying \"that sound isn't here\" when appropriate.",
-    "why": "This matters for spatial audio production, immersive recording, and audio post-production tools. Musicians and producers working with surround sound or spatial audio could use this to automatically detect and locate specific instruments or sounds in a mix, or to verify what's actually in a recording.",
-    "terms": [
-     {
-      "term": "Ambisonics",
-      "meaning": "A spatial audio format that captures sound from all directions around a point, allowing 3D localization of where sounds come from"
-     },
-     {
-      "term": "Open-vocabulary",
-      "meaning": "The system can recognize and work with sound categories it wasn't explicitly trained on, not just a fixed list"
-     },
-     {
-      "term": "Query-conditioned",
-      "meaning": "The system's behavior changes based on a text query or description you give it, rather than detecting everything at once"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.13054",
-   "title": "LiveSynth: A Streaming Neural Synthesizer for Instrument Cloning and Text-to-Instrument",
-   "authors": [
-    "Kyungsu Kim",
-    "Yejin Kim",
-    "Kyogu Lee"
-   ],
-   "published": "2026-10-09",
-   "category": "cs.SD",
-   "topics": [
-    "gen",
-    "syn",
-    "hci",
-    "rep"
-   ],
-   "summary": "Recently, generative neural synthesizers have enabled zero-shot instrument cloning from reference recordings and timbre generation from text prompts. However, existing systems generate complete audio segments offline, precluding their use as playable instruments. We present LiveSynth, a streaming neural synthesizer with flexible timbre control and interactive generation capabilities, including zero-shot instrument cloning and text-to-instrument synthesis. A feedback-free causal Transformer conditioned on MIDI events and a CLAP timbre embedding outputs continuous audio latents at 100 Hz, which a causal variational autoencoder decodes into audio. Frame-wise timbre conditioning enables continuous timbre morphing, while MIDI-conditioning dropout enables autonomous continuation from a performed prefix. On the NSynth and Slakh datasets, LiveSynth achieved timbre similarity and spectral reconstruction quality comparable to offline baselines. On an M3 MacBook Air, LiveSynth required 8.8 ms of computation per 10 ms audio frame (an RTF of 0.88) with 10 ms algorithmic latency, enabling real-time interaction with a performer.",
-   "url": "https://arxiv.org/abs/2610.13054",
-   "pdf": "https://arxiv.org/pdf/2610.13054",
-   "explain": {
-    "tldr": "A real-time neural synthesizer that clones instruments from audio or text and plays interactively like a traditional synth.",
-    "plain": "Existing AI synthesizers generate complete audio files offline, so you can't play them like an instrument. LiveSynth solves this by processing audio in small chunks as you play, using MIDI input to control a neural model that generates sound in real time. It can mimic an instrument from a recording you give it, or create new timbres from text descriptions. The system runs fast enough on a laptop to respond to your playing with minimal delay.",
-    "why": "This bridges the gap between AI sound generation and live performance. Instead of rendering offline, you could use this as an actual playable instrument in a DAW or live setup, with the ability to morph between timbres or clone acoustic instruments on the fly.",
-    "terms": [
-     {
-      "term": "streaming/causal",
-      "meaning": "Processing audio in real time, one chunk at a time, without waiting for future data—like how a live microphone works, not like editing a finished recording"
-     },
-     {
-      "term": "CLAP timbre embedding",
-      "meaning": "A learned representation of a sound's character (brightness, warmth, etc.) derived from text descriptions, allowing the model to understand timbre from language"
-     },
-     {
-      "term": "variational autoencoder (VAE)",
-      "meaning": "A neural network that compresses audio into a compact code and can reconstruct it back, useful for efficient real-time generation"
      }
     ],
     "model": "anthropic/claude-haiku-4.5"
