@@ -1,6 +1,99 @@
 {
- "updated": "2026-11-24T18:56:49Z",
+ "updated": "2026-11-25T18:00:40Z",
  "papers": [
+  {
+   "id": "2611.32641",
+   "title": "Lossless Re-Encoding of Vorbis and Opus Audio Files",
+   "authors": [
+    "Kamila Szewczyk"
+   ],
+   "published": "2026-11-24",
+   "category": "cs.SD",
+   "topics": [
+    "rep"
+   ],
+   "summary": "We present Balrogg, a lossless recompressor that replaces the entropy coding of Ogg Vorbis and Ogg Opus files with adaptive context mixing models. For Vorbis, we write each represent each codebook entry as a tuple of small signed integers (digits), binarized in five stages, and mixed with a direct context model, a bit-history model, and a match model, with weights selected by the neighboring digits and the previous residue pass. For Opus, each symbol is coded by an adaptive context model initialized with the codec's probability tables as priors, and the pyramid vector quantizer (PVQ) indices of the CELT layer are split recursively into pulse counts. At the default level, Balrogg reduces Vorbis music by 16.2\\%, Vorbis speech by 10.6%, and Opus speech by 5.4%; xz, zstd, ZPAQ, and bzip3 save at most 4.1% on the same files. Over 48 encoder configurations, files shrink to 66.5--96.1% of their size. Encoding and decoding are symmetric, run at 1.8--3.2~MB/s per core, and use less than 12~MiB of memory.",
+   "url": "https://arxiv.org/abs/2611.32641",
+   "pdf": "https://arxiv.org/pdf/2611.32641"
+  },
+  {
+   "id": "2611.32458",
+   "title": "VividAudio: Multi-Event Reference-Conditioned Video-to-Audio Generation",
+   "authors": [
+    "You Li",
+    "Dewei Zhou",
+    "Fan Ma",
+    "Dongliang He",
+    "Yi Yang"
+   ],
+   "published": "2026-11-24",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "syn"
+   ],
+   "summary": "Existing video-to-audio (V2A) methods have achieved promising results in synthesizing high-quality audios. However, as V2A advances toward more flexible user-directed creation, existing methods remain notably limited in controlling the distinct acoustic identities of multiple events within a video. We therefore formulate multi-event reference-conditioned V2A (Mr-V2A), where each event is assigned a specific audio reference and target time span. Mr-V2A presents three key challenges. First, event-level reference-target training pairs are scarce. We introduce Intra-Video Event Variation (IntraEvtVar), which constructs non-oracle pairs through four variation modes of events mined within each video. Second, we organize the references into a Time-Aligned COmposite Reference (TACO-Ref) and inject it through local and global pathways: the local pathway retains time-resolved event cues, while an Audio Q-Former provides a clip-level acoustic-context condition. Third, jointly conditioning on multiple references can cause acoustic-attribute leakage across events. Localized reference attention and the TACO-Ref Router (TRR) explicitly constrain event-to-reference correspondence to reduce such interference. Experiments on VGGSound-Ref and VividBench demonstrate stronger reference controllability than existing V2A and exemplar-based methods while maintaining competitive Foley generation quality.",
+   "url": "https://arxiv.org/abs/2611.32458",
+   "pdf": "https://arxiv.org/pdf/2611.32458"
+  },
+  {
+   "id": "2611.32311",
+   "title": "SynAVID: A Synthetic Audio-Visual Immersive Dataset of Dynamic Scenes",
+   "authors": [
+    "Jun Xu",
+    "Sujing Li",
+    "Chunhao Bi",
+    "Zhengxue Cheng",
+    "Ronghua Wu",
+    "Qunshan Gu",
+    "Li Song"
+   ],
+   "published": "2026-11-24",
+   "category": "cs.CV",
+   "topics": [
+    "syn",
+    "spa",
+    "rep"
+   ],
+   "summary": "Immersive scene modeling requires synchronized visual and auditory observations under changing viewpoints and scene conditions. Obtaining such observations and references for controlled scene changes remains challenging. We introduce SynAVID, a synthetic audio-visual immersive dataset comprising eight indoor and outdoor scenes. Each minute-scale episode combines fixed camera arrays and moving trajectories with synchronized, viewpoint-dependent binaural audio. Shared scene dynamics, sound-source events, and observer poses drive visual rendering and geometry-aware acoustic synthesis. We evaluate existing methods for visual reconstruction, binaural audio reconstruction, and audiovisual editing. Mixed-observation configurations generally improve visual reconstruction on fixed and moving test views, while transiently occupied and sparsely observed regions remain challenging. Methods rank differently on spectral, interaural, and perceptual audio metrics. Geometric and instance annotations expose uneven observation support and local Gaussian representations beyond aggregate scores. Paired references assess target edits and surrounding content, while controlled geometry changes produce listener-dependent acoustic responses. The project page is available at https://avery-xu.github.io/synavid-project/.",
+   "url": "https://arxiv.org/abs/2611.32311",
+   "pdf": "https://arxiv.org/pdf/2611.32311"
+  },
+  {
+   "id": "2611.32023",
+   "title": "IncrementDET: Continual AI-Generated Music Detection via Enrollment",
+   "authors": [
+    "Runbao Du",
+    "Wei Li",
+    "Qile He"
+   ],
+   "published": "2026-11-24",
+   "category": "cs.SD",
+   "topics": [
+    "gen"
+   ],
+   "summary": "AI-generated music has become common on music streaming platforms, and listeners often cannot distinguish it from music made by humans. AI-music detection is therefore needed, but detectors trained on a fixed set of generators often fail on unseen generators. As new generators emerge frequently, updating a universal detector, a single model for all generators, typically requires substantial training data and computation, while risking performance degradation on previously learned generators. We therefore introduce IncrementDET, a detector that learns each new generator by a process called enrollment. For each generator, IncrementDET trains one linear classifier, which we call a needle, to separate samples of that generator from a fixed set of human reference tracks. Enrolling a new generator adds one needle while the previously constructed needles remain unchanged. A Sidak correction keeps the overall false-positive rate at its target as needles are added. To compare detectors under these conditions, we define the task of continual AI-generated music detection and introduce a benchmark in which generators arrive one at a time. The benchmark measures the accuracy of a detector before and after each update and the cost of each update. For this benchmark, we also construct EvoMusicFake-17K, a dataset of instrumental music from six recent generators and four human music platforms. Compared with SpecTTTra, a state-of-the-art universal detector, IncrementDET learns a new generator more accurately from only a few samples, generalizes better to unseen generators and better preserves detection performance on previously learned generators, at a substantially lower update cost. The structure of IncrementDET can also be applied to the detection of generated images and video, where new generators are released just as frequently.",
+   "url": "https://arxiv.org/abs/2611.32023",
+   "pdf": "https://arxiv.org/pdf/2611.32023"
+  },
+  {
+   "id": "2611.31462",
+   "title": "MADlibs: Analyzing the Distribution of Generative Music",
+   "authors": [
+    "Matthew Keating",
+    "Noah Schaffer",
+    "Michael Casey",
+    "Nikhil Singh"
+   ],
+   "published": "2026-11-23",
+   "category": "cs.SD",
+   "topics": [
+    "gen"
+   ],
+   "summary": "What music can a text-to-music model actually make? The answer to this question has consequences for individual creators, communities, and musical culture more broadly. We introduce MADlibs, a framework to measure the expressive support of state-of-the-art music generators: the subset of musical behaviors they will actually produce across the space of prompts. We first develop strategies for generating musical prompts using natural language processing methods and existing caption corpora. Then, we use a set of MIR techniques to study the corresponding output spaces in terms of interpretable and qualitatively meaningful elements like key, beat, tempo, instrumentation, and dynamics. We find that text-to-music models are not interchangeable instruments for the same prompt space. Rather, each model has learned idiosyncratic properties that constrain the regime of music reachable via prompting it, for example, defaulting to certain tempi, failing to produce silences, or oversampling canonical band arrangements. Because users interact with these systems one prompt at a time, these biases are often invisible in practice yet cumulatively shape what AI-assisted music sounds like, risking the production of a new auditory monoculture hidden behind the promise of universal describability. We thus urge the MIR community to further study and responsibly steer population-level properties of music generation models.",
+   "url": "https://arxiv.org/abs/2611.31462",
+   "pdf": "https://arxiv.org/pdf/2611.31462"
+  },
   {
    "id": "2611.31055",
    "title": "CAST: A Deployed Speech-to-Text Cascade for Closed Captioning of Entertainment Television",
@@ -6743,125 +6836,6 @@
      {
       "term": "multi-band",
       "meaning": "Dividing audio into separate frequency ranges (like bass, mids, treble) and processing each range independently"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.14955",
-   "title": "Transfer Learning for Rhythm Game Chart Generation from Music Transcription and Across Games",
-   "authors": [
-    "Sojeong An",
-    "Nathan Pruyne",
-    "Chris Donahue",
-    "Dasaem Jeong"
-   ],
-   "published": "2026-10-10",
-   "category": "cs.SD",
-   "topics": [
-    "gen",
-    "mir",
-    "rep"
-   ],
-   "summary": "Rhythm games ask the player to act in time with a recording, following a chart: a sequence of actions, each with a time and, depending on the game, a lane, type, or playfield position. Charts are hand-written per recording and difficulty. Automatic generation from audio has been studied with pipeline and end-to-end approaches, and recent work reuses pre-trained audio encoders, but never compares them with one trained from scratch. None of these targets automatic music transcription (AMT), yet most chart times are note onsets, which AMT models locate. We freeze a pre-trained audio encoder, an AMT model in particular, and train only a linear projection and a Transformer decoder on charts. With MuScriptor, this fits human charts more closely than encoders trained from scratch and places more accurate note types than MERT, a music encoder pre-trained without transcription labels. Joint training on three osu! modes raises event F1 on the mode with the fewest charts from 0.492 to 0.506, while charts from Clone Hero, similar in layout, lower it to 0.482. Transfer between games thus appears to depend on charting style and the music covered.",
-   "url": "https://arxiv.org/abs/2610.14955",
-   "pdf": "https://arxiv.org/pdf/2610.14955",
-   "explain": {
-    "tldr": "Using pre-trained music transcription models improves automatic generation of rhythm game charts from audio.",
-    "plain": "Rhythm games like osu! require hand-written charts that tell players what to do and when. This paper tests whether using a music transcription model (which learns to find note onsets in audio) as a starting point helps automatically generate these charts. They froze a pre-trained transcription model and trained only a small additional layer on top of it. This approach matched human charts better than training from scratch, though transferring between different rhythm games had mixed results depending on how similar the games' charting styles were.",
-    "why": "This matters because chart creation is currently manual and time-consuming. Better automatic generation could let rhythm game communities create charts faster, or help music producers understand how their songs might be interpreted as playable patterns.",
-    "terms": [
-     {
-      "term": "transfer learning",
-      "meaning": "reusing a model trained on one task (like finding notes in music) as a starting point for a different but related task (like generating game charts)"
-     },
-     {
-      "term": "audio encoder",
-      "meaning": "a neural network that converts raw audio into a compact numerical representation that captures musical information"
-     },
-     {
-      "term": "note onsets",
-      "meaning": "the exact moments in time when musical notes begin"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.14817",
-   "title": "Explore This! Beat and Downbeat Tracking From a Learned Tatum Grid",
-   "authors": [
-    "Robert Kihlborg",
-    "André Holzapfel",
-    "Jan Schlüter"
-   ],
-   "published": "2026-10-10",
-   "category": "cs.SD",
-   "topics": [
-    "mir",
-    "syn"
-   ],
-   "summary": "State-of-the-art beat tracking is based on neural networks that model beats and downbeats as individual events, often followed by a separate Dynamic Bayesian Network (DBN) enforcing musical consistency. We propose a novel architecture that combines deep learning with differentiable theory-based modules: Specifically, we design a system that first predicts a tatum grid, then groups tatum events to beats and downbeats, explicitly modelling multiple options for the current tempo and time signature in a bar-pointer-like fashion. Our approach improves continuity metrics compared to existing DBN-free systems and is more versatile than the de-facto standard DBN, but still falls behind the best DBN-based methods on average. Given the many design choices and hyperparameters involved, we assume we have not yet explored the full potential of this idea and publish our code and invite others to explore this further.",
-   "url": "https://arxiv.org/abs/2610.14817",
-   "pdf": "https://arxiv.org/pdf/2610.14817",
-   "explain": {
-    "tldr": "A new system tracks musical beats by first finding a tatum grid, then grouping it into beats and downbeats.",
-    "plain": "Beat and downbeat tracking—figuring out where the pulse and measure boundaries are in music—is usually done by neural networks that treat beats as separate events, then add extra rules to keep them musically sensible. This paper tries a different approach: predict the underlying tatum grid first (a finer rhythmic subdivision), then intelligently group those grid points into beats and downbeats while considering different tempo and time signature possibilities. The results show better continuity than some existing methods, though not quite as good as the current best systems, but the authors think there's more room to improve with different design choices.",
-    "why": "Better beat and downbeat tracking helps music software stay locked to the right pulse, which matters for beat-synced effects, tempo detection, and tools that need to understand a song's rhythmic structure. This approach is also more interpretable—it builds in musical knowledge explicitly rather than leaving it hidden in a neural network.",
-    "terms": [
-     {
-      "term": "tatum grid",
-      "meaning": "A regular subdivision of time at the smallest rhythmic level a listener can perceive; a finer grid than individual beats"
-     },
-     {
-      "term": "Dynamic Bayesian Network (DBN)",
-      "meaning": "A mathematical model that enforces rules about how sequences should flow over time, used here to keep beat predictions musically consistent"
-     },
-     {
-      "term": "differentiable theory-based modules",
-      "meaning": "Components that encode musical rules in a way that neural networks can learn from, combining hand-designed knowledge with machine learning"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.14508",
-   "title": "PAG-Agent: Zero-Shot Personalized Music Album Generation via Aesthetic Profile Distillation",
-   "authors": [
-    "Yifeng Mao",
-    "Ziye Wang",
-    "Yutong Shen",
-    "Feiran Liu",
-    "Wenjuan Han"
-   ],
-   "published": "2026-10-10",
-   "category": "cs.MM",
-   "topics": [
-    "gen",
-    "syn",
-    "rep"
-   ],
-   "summary": "Large Music Models (LMMs) can synthesize high-fidelity audio and support increasingly flexible prompt control, yet modeling the subjective preferences of an individual listener remains underexplored. We present PAG-Agent, a zero-shot multimodal framework that uses an explicit Personal Aesthetic Profile to bridge user preference inference and music generation control. A multimodal LLM distills favorite-song audio and contextual user information into this structured representation, which a planning LLM translates into generation instructions for existing music synthesizers. We further introduce PA-Eval, which evaluates personalization through the Aesthetic Consistency Score (ACS) for target-user alignment and the Aesthetic Specificity Index (ASI) for cross-user specificity. Experiments with Personal-100 on multiple MLLM and music-generation backbones show consistent improvements over generic and direct conditioning. A 50-participant follow-up study further shows a correlation $r=0.64$ between ACS and subjective preference.",
-   "url": "https://arxiv.org/abs/2610.14508",
-   "pdf": "https://arxiv.org/pdf/2610.14508",
-   "explain": {
-    "tldr": "A system that learns your music taste from songs you like and generates personalized albums without needing training data.",
-    "plain": "Making music AI that sounds generic is easy—making it match what *you* specifically like is hard. This paper presents PAG-Agent, which listens to your favorite songs and learns your aesthetic preferences, then uses that understanding to guide a music generator to create albums tailored to you. They tested it with 50 people and found their preference scores correlated well with what listeners actually preferred.",
-    "why": "If you make or produce music, this matters because it shows a path toward AI tools that could adapt to your personal style rather than defaulting to average sounds. It also suggests ways to evaluate whether personalization is actually working.",
-    "terms": [
-     {
-      "term": "zero-shot",
-      "meaning": "the system works without being trained on examples of your specific taste—it figures you out from your existing favorite songs"
-     },
-     {
-      "term": "multimodal",
-      "meaning": "the system processes multiple types of information together, like audio files and text descriptions, not just one type"
-     },
-     {
-      "term": "Aesthetic Consistency Score (ACS)",
-      "meaning": "a measurement of how well the generated music matches the target listener's taste"
      }
     ],
     "model": "anthropic/claude-haiku-4.5"
