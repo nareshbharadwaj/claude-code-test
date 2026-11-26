@@ -1,6 +1,80 @@
 {
- "updated": "2026-11-25T18:00:40Z",
+ "updated": "2026-11-26T17:46:51Z",
  "papers": [
+  {
+   "id": "2611.34346",
+   "title": "Music Similarity Estimation from Jukebox Embeddings",
+   "authors": [
+    "Johannes Grafinger",
+    "Gerhard Widmer",
+    "Jan Schlüter"
+   ],
+   "published": "2026-11-25",
+   "category": "cs.SD",
+   "topics": [
+    "gen",
+    "rep"
+   ],
+   "summary": "Content-based music similarity estimation aims to provide a measure of similarity between music audio recordings, disregarding any associated metadata. This has potential applications in e.g. cold-start music recommendation scenarios, where there is no user interaction data. In this work, we propose JukeSim, a new approach to estimating musical similarity based on embeddings created by Jukebox, a generative music model. In evaluations on multiple datasets, we find that JukeSim performs on par with an existing learning-based approach, and both outperform the best hand-designed approaches, which had never been compared to recent work before. Even though the required compute for JukeSim is higher than for other measures, we demonstrate the viability of utilizing generative embeddings for this task, encouraging further research.",
+   "url": "https://arxiv.org/abs/2611.34346",
+   "pdf": "https://arxiv.org/pdf/2611.34346"
+  },
+  {
+   "id": "2611.34277",
+   "title": "Beat This! Live - Online Beat and Downbeat Tracking by Predicting the Future",
+   "authors": [
+    "Bánk Juhász",
+    "Gerhard Widmer",
+    "Jan Schlüter"
+   ],
+   "published": "2026-11-25",
+   "category": "cs.SD",
+   "topics": [
+    "mir"
+   ],
+   "summary": "Beat and downbeat tracking have seen multiple improvements through recent deep learning approaches, but most target an offline setting, precluding their use in real-time scenarios. We adapt a recent offline beat tracking model, Beat This, for online, low-latency operation and propose Beat This! Live, a causal variant designed for real-time beat and downbeat tracking. We present the architectural modifications required to obtain a causal system suitable for streaming inference and measure their impact on accuracy. By training our model with temporally shifted labels, it produces predictions slightly ahead of the current frame, which not only reduces latency, but enables much more effective peak-picking. Evaluation on the GTZAN dataset shows the F1-score improves from 80.6 to 86.7 for beats and 56.5 to 74.1 for downbeats compared to BeatNet+, the current state of the art in online beat tracking.",
+   "url": "https://arxiv.org/abs/2611.34277",
+   "pdf": "https://arxiv.org/pdf/2611.34277"
+  },
+  {
+   "id": "2611.33628",
+   "title": "Multi-Modal Causal Disentanglement for Multi-Domain Sequential Audio Recommendation",
+   "authors": [
+    "Yu Ren",
+    "Pengcheng Li",
+    "Weijun Xu",
+    "Hengzhong Zhou",
+    "Shufeng Ye",
+    "Qiang Xiao",
+    "Dongjing Wang",
+    "Chuanjiang Luo",
+    "Yong Li"
+   ],
+   "published": "2026-11-25",
+   "category": "cs.IR",
+   "topics": [
+    "rep"
+   ],
+   "summary": "Modern music platforms expose users to heterogeneous audio content domains such as songs, playlists, and podcasts. Multi-domain sequential recommendation (MDSR) seeks to exploit such cross-domain behavior, yet two obstacles persist in practice. First, joint optimization across heterogeneous domains is prone to negative transfer, with high-traffic domains dominating the shared parameter space and suppressing weaker domains. Second, conventional ID-based collaborative signals fail to bridge domains that are semantically related but exhibit little behavioral overlap. This paper presents CAMAR, a multi-modal causal disentanglement framework for multi-domain audio recommendation. From a causal perspective, user behavior is modeled as the joint outcome of a domain-invariant preference and domain-specific preferences. Guided by this view, CAMAR factorizes user representations into domain-invariant and domain-specific components and enforces domain adversarial invariance together with orthogonality, restricting cross-domain interaction to the invariant subspace and suppressing harmful transfer paths. To strengthen cross-domain semantic coupling, CAMAR derives trainable semantic-ID embeddings from pre-trained text, vision, and audio features through residual quantization, yielding an end-to-end multi-modal adaptation tailored to recommendation. A transfer network imputes user representations for inactive domains, mitigating cross-domain cold start. Experiments on both public and industrial datasets demonstrate consistent gains over strong baselines. In online A/B tests on NetEase Cloud Music, one of China's largest music streaming platforms, CAMAR delivers consistent gains across all three domains in their main traffic scenarios, validating its effectiveness in multi-domain audio recommendation at scale.",
+   "url": "https://arxiv.org/abs/2611.33628",
+   "pdf": "https://arxiv.org/pdf/2611.33628"
+  },
+  {
+   "id": "2611.33247",
+   "title": "Line-Level Singer Diarization in Multi-Member Pop Songs: A Benchmark, Lead-Vocal Isolation, and Song-Level Decoding",
+   "authors": [
+    "Allen Ng"
+   ],
+   "published": "2026-11-24",
+   "category": "cs.SD",
+   "topics": [
+    "sep",
+    "rep"
+   ],
+   "summary": "Fans of multi-member pop groups annotate songs line by line with the member who sings each line, but speech diarization does not transfer to this setting: a commercial diarizer finds one or two speakers in songs by groups of four to eight. We study line-level singer diarization: given a song and its lyric-line timings, group the lines by singer with no prior knowledge of the group. We release ColorCoded-SD, a benchmark of 43 K-pop songs (1,740 lines, 3-8 singers per song) built from crowd annotations verified by independent annotators, together with alignment and scoring tools, and we derive line labels for the IdolSongsJp corpus from its per-singer solo renditions for evaluation on unseen singers. Combining lead-vocal isolation with a karaoke separator, singing-adapted speaker embeddings, and two training-free song-level decoders (a sticky Viterbi pass over line order and unsupervised linking of a group's songs) improves B-cubed F1 over the standard pipeline (vocal separation, speaker embeddings, per-song clustering) by +0.058 on ColorCoded-SD (p=0.001) and by +0.066 on IdolSongsJp (p=0.003). Isolating the lead is the largest single factor wherever the separator leaves a lead voice (+0.04 to +0.06 on the same lines), and with the singers' dry studio takes two different encoders become indistinguishable; the remaining errors concentrate on short lines that carry too little audio for a voiceprint. We also report negative results (more or cleaner training data, weight editing, a song-context model, and target-singer extraction) that bound where further gains can come from.",
+   "url": "https://arxiv.org/abs/2611.33247",
+   "pdf": "https://arxiv.org/pdf/2611.33247"
+  },
   {
    "id": "2611.32641",
    "title": "Lossless Re-Encoding of Vorbis and Opus Audio Files",
@@ -6348,494 +6422,6 @@
      {
       "term": "cross-attention",
       "meaning": "A technique where the AI learns which parts of the input are most important for each output decision"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.15967",
-   "title": "Controllable Mono-to-Stereo Upmixing using Reward-tilted Flows",
-   "authors": [
-    "Sattwik Basu",
-    "Gautam Bhattacharya",
-    "Alan Seefeldt"
-   ],
-   "published": "2026-10-11",
-   "category": "eess.AS",
-   "topics": [
-    "gen",
-    "spa",
-    "rep"
-   ],
-   "summary": "We consider the problem of mono-to-stereo audio upmixing: generating a high-fidelity two-channel stereo signal from a single-channel recording. The task is fundamentally ill-posed i.e., many stereo signals are consistent with a given mono recording. An effective upmixer must therefore generate a realistic, musically coherent stereo image while preserving the underlying audio content. Previous approaches have relied on signal-processing driven decorrelation, ambience extraction and supervised learning, offering limited spatial control or requiring task-specific training. In response, we propose Aura (Audio Upmixing using Reward-tilted Flows), which reformulates upmixing as a generative inverse problem using a pretrained flow prior. To enable controllable spatial imaging, we design a reward-tilted posterior sampler whose reward penalizes divergences between generated and target distributions of inter-channel cues. Composing forward operators further enables joint restoration and upmixing without retraining or fine-tuning. Objective and subjective evaluations on real-world music recordings from MUSDB18-HQ demonstrate our method's effectiveness relative to several baselines.",
-   "url": "https://arxiv.org/abs/2610.15967",
-   "pdf": "https://arxiv.org/pdf/2610.15967",
-   "explain": {
-    "tldr": "A method to convert mono audio to stereo while letting users control the spatial width and positioning of sounds.",
-    "plain": "Converting a single-channel recording to stereo is tricky because many different stereo versions could match the original mono. The researchers built a system called Aura that uses a generative model to create realistic stereo from mono while giving you control over how sounds are positioned in the stereo field. They tested it on real music and compared it to other approaches, finding their method works better and offers more creative control than previous techniques.",
-    "why": "This matters to producers and engineers who work with older mono recordings or want to remix material. Instead of manually panning and adding effects, you could use an AI tool that understands music and lets you dial in exactly how wide or narrow you want the stereo image to be.",
-    "terms": [
-     {
-      "term": "flow prior",
-      "meaning": "a pretrained AI model that has learned what realistic audio sounds like, used as a foundation for generating new audio"
-     },
-     {
-      "term": "inter-channel cues",
-      "meaning": "the differences between left and right speakers that tell your brain where a sound is positioned in space"
-     },
-     {
-      "term": "inverse problem",
-      "meaning": "working backwards from a result (mono audio) to find possible causes (stereo versions) that could have produced it"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.15960",
-   "title": "TASTE: Taxonomy-Aware Symbolic Piano Generation from Textual Description",
-   "authors": [
-    "Mingyang Yao",
-    "Jingyue Huang",
-    "Ke Chen",
-    "Taylor Berg-Kirkpatrick",
-    "Shlomo Dubnov"
-   ],
-   "published": "2026-10-11",
-   "category": "cs.SD",
-   "topics": [
-    "gen",
-    "mir"
-   ],
-   "summary": "Text-conditioned symbolic music generation has attracted growing interest with the development of generative models. Yet two questions remain underexplored: what aspects of music the conditioning text should describe, and how the corresponding data should be collected and trained to improve controllability and text-music alignment. We address these challenges with TASTE, a taxonomy-aware framework for symbolic music generation with a main focus on piano pieces. First, we introduce a taxonomy of musical elements that specifies how a piece can be captured through textual description in a musically grounded way. The taxonomy comprises a set of metadata tags (genre, emotion, section plan, etc.) together with a free-form description of music imagery. This structure decomposes textual input to match the generation goal more coherently and precisely. Second, we build a data pipeline for collecting, annotating, and retrieving public symbolic piano resources, yielding a corpus of 432K MIDI files labeled at multiple levels of granularity. Finally, we design a staged training procedure that leverages this multi-granularity data across two model families: an autoregressive model and a non-autoregressive diffusion model. Both objective and subjective evaluations show that our models achieve superior musical-element control, text-description alignment, and overall music quality. We will release the full pipeline, all annotated datasets, and the model checkpoints.",
-   "url": "https://arxiv.org/abs/2610.15960",
-   "pdf": "https://arxiv.org/pdf/2610.15960",
-   "explain": {
-    "tldr": "A system that generates piano music from text descriptions using structured musical categories and multi-level training data.",
-    "plain": "Musicians want to create piano pieces by describing them in words, but it's unclear what details matter most and how to train systems to understand those descriptions well. This paper proposes TASTE, which breaks down musical descriptions into specific categories (like genre, emotion, and structure) plus free-form imagery, then trains two types of AI models on 432,000 labeled piano pieces. Tests show their approach produces music that better matches what people ask for and sounds higher quality.",
-    "why": "This matters to composers and producers exploring AI-assisted creation: it shows how to make text-to-music tools more musically intelligent and controllable, rather than treating music as generic data. The released datasets and models could help others build better tools for describing and generating the specific sounds they want.",
-    "terms": [
-     {
-      "term": "symbolic music generation",
-      "meaning": "Creating music as note sequences (like MIDI) rather than audio waveforms, focusing on what notes to play and when"
-     },
-     {
-      "term": "autoregressive model",
-      "meaning": "An AI that generates music one note or token at a time, using previously generated notes to predict the next one"
-     },
-     {
-      "term": "diffusion model",
-      "meaning": "An AI that generates music by gradually refining random noise into coherent sequences, working on all notes somewhat simultaneously"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.15957",
-   "title": "Harmonic Representations in Symbolic Music Transformers are Localized and Controllable",
-   "authors": [
-    "Adi Silberschein",
-    "Megan Wei",
-    "Tamar Rott Shaham"
-   ],
-   "published": "2026-10-11",
-   "category": "cs.SD",
-   "topics": [
-    "gen",
-    "rep"
-   ],
-   "summary": "Transformer models trained on symbolic music have become remarkably capable. However, it is yet unclear how they represent music structure, and whether understanding their internal representations can be used to unlock methods for model control. We examine this through a case study of harmonic analysis: when a music transformer navigates a cadence, what does it internally \"know\" about its harmonic context, and can that knowledge be used to affect the generation? Using Aria, a LLaMA-based symbolic music transformer evaluated on Bach chorales, we find that harmonic decisions are causally localized progressively from middle layers onward. Linear probes show that mode becomes decodable in the same layer range where patching identifies growing causal effect, while key identity emerges later. We then confirm these representations are actionable for music generation control: steering via latent directions corresponding to harmonic changes reliably produces a deceptive or minor resolution, while preserving structural coherence and generation quality. This demonstrates that, at inference time, the model's internal harmonic knowledge can be directly manipulated to control the harmonic output.",
-   "url": "https://arxiv.org/abs/2610.15957",
-   "pdf": "https://arxiv.org/pdf/2610.15957",
-   "explain": {
-    "tldr": "Researchers show that music transformers store harmonic knowledge in specific internal layers and can be steered to control chord progressions.",
-    "plain": "Music transformers are AI models trained on symbolic music notation that can generate new pieces. This study investigates how these models internally represent harmony—specifically, how they understand chord progressions and cadences. By analyzing a model trained on Bach chorales, the researchers found that harmonic decisions happen in middle layers of the model, and they discovered they could manipulate these internal representations to reliably change the output (for example, creating a deceptive cadence or shifting to minor) while keeping the music sounding coherent.",
-    "why": "This matters because it shows a path toward more controllable AI music generation. Instead of treating these models as black boxes, understanding where and how they make harmonic decisions lets musicians and producers guide the AI toward specific musical outcomes—like ensuring particular chord progressions or emotional qualities.",
-    "terms": [
-     {
-      "term": "symbolic music",
-      "meaning": "music represented as discrete symbols (like note names and durations) rather than audio waveforms; essentially sheet music in digital form"
-     },
-     {
-      "term": "transformer",
-      "meaning": "a type of AI architecture that processes sequences (like notes in a piece) by learning which parts are most relevant to each other"
-     },
-     {
-      "term": "latent directions",
-      "meaning": "abstract pathways within a model's internal representation that correspond to specific musical changes, which can be adjusted to steer generation"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.15802",
-   "title": "High-Fidelity Song Generation with Joint Discrete and Continuous Modeling",
-   "authors": [
-    "Zheqi Dai",
-    "Zhiyue Wu",
-    "Ruibin Yuan",
-    "Haolin He",
-    "Chunyat Wu",
-    "Xuerui Yang",
-    "Qiuqiang Kong",
-    "Chao Yan"
-   ],
-   "published": "2026-10-11",
-   "category": "eess.AS",
-   "topics": [
-    "gen",
-    "syn",
-    "rep"
-   ],
-   "summary": "Generating a full song from lyrics and a style description requires long-range musical planning without sacrificing vocal and instrumental detail. Low-rate discrete semantic tokens make this tractable, but quantization constrains the information available to acoustic rendering, while separately optimized stages prevent downstream generation objectives from shaping the planner. We propose joint discrete and continuous modeling for high-fidelity song generation. A VQ tokenizer supplies tokens for autoregressive planning, and a separately trained SSL-derived variational encoder supplies continuous semantic targets. Conditioned on the completed token plan and differentiable readouts of the planner's predictive states, a full-sequence flow model generates semantic features for acoustic rendering. Its flow-matching gradients reach the language model through the readouts, without differentiating through token sampling; the standard pathway keeps continuous features out of autoregressive feedback. On 192 shared prompts, its 48D configuration improves SongEval from 4.152 to 4.269 and reduces micro-PER from 20.26% to 14.47% relative to a discrete baseline, while receiving substantially higher expert listening scores. We further analyze the system through downstream semantic probes and conditioned reconstruction.",
-   "url": "https://arxiv.org/abs/2610.15802",
-   "pdf": "https://arxiv.org/pdf/2610.15802",
-   "explain": {
-    "tldr": "A system that generates complete songs from lyrics and style by combining discrete planning with continuous acoustic detail.",
-    "plain": "Making full songs from text requires balancing two competing needs: planning the overall structure and maintaining fine details in vocals and instruments. This paper proposes using two complementary approaches together—discrete tokens for high-level planning (like a musical outline) and continuous features for acoustic quality (like the detailed sound). The key innovation is letting information flow between these two pathways so they improve each other. The results show better vocal clarity and higher quality ratings compared to using only discrete tokens.",
-    "why": "If this approach works well, it could enable musicians and producers to generate complete, high-quality songs from text descriptions or lyrics, potentially speeding up composition and arrangement workflows.",
-    "terms": [
-     {
-      "term": "VQ tokenizer",
-      "meaning": "A tool that converts continuous audio information into discrete symbols (tokens), like translating a smooth sound into a sequence of codes"
-     },
-     {
-      "term": "flow model",
-      "meaning": "A machine learning model that generates detailed audio features by gradually transforming random noise into structured sound information"
-     },
-     {
-      "term": "autoregressive planning",
-      "meaning": "Generating a sequence one step at a time, where each new step depends on all previous steps, like predicting the next note based on the melody so far"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.15780",
-   "title": "FlowGRPO for Vocal Separation: From Reward Analysis to Reward Design",
-   "authors": [
-    "Lishi Zuo",
-    "Chong-Xin Gan",
-    "Zezhong Jin",
-    "Youzhi Tu",
-    "Man-Wai Mak",
-    "KongAik Lee"
-   ],
-   "published": "2026-10-11",
-   "category": "cs.SD",
-   "topics": [
-    "sep",
-    "syn",
-    "rep"
-   ],
-   "summary": "The Flow Matching objective supervises the velocity field at intermediate states, whereas waveform metrics are evaluated after decoding and may be non-differentiable. To align Flow Matching models with waveform-level and perceptual quality objectives during post-training, FlowGRPO optimizes their trajectories using endpoint rewards. In this work, we focus on music separation and use multi-resolution short-time Fourier transform (MRSTFT), scale-invariant signal-to-distortion ratio (SI-SDR), and Virtual Speech Quality Objective Listener (ViSQOL) as reward components. Before policy optimization, we analyze the relationship between data quality factors and the within-group gap between the maximum and mean rollout rewards for each component. This analysis motivates a revised ViSQOL reward that matches channel-wise root-mean-square (RMS) levels and evaluates the interval from the first to the last active frame, retaining inactive frames within that interval. We also apply a sample-quality filter based on predefined waveform checks. Together, the revised reward and quality filter enable FlowGRPO to improve the pretrained vocal separator in both separation performance and perceptual quality.",
-   "url": "https://arxiv.org/abs/2610.15780",
-   "pdf": "https://arxiv.org/pdf/2610.15780",
-   "explain": {
-    "tldr": "A method to improve vocal separation by tuning AI models using quality-based rewards that match human perception.",
-    "plain": "Vocal separation AI models learn to generate clean vocals and backing tracks, but they're typically trained in ways that don't directly optimize for how good the results sound to human ears. This paper proposes FlowGRPO, which fine-tunes a pretrained vocal separator by rewarding it for producing results that score well on perceptual quality metrics—essentially teaching it what sounds better. They tested different reward signals and found that carefully designed rewards, combined with filtering out low-quality training examples, improved both the technical separation quality and how natural the results sound.",
-    "why": "For musicians and producers, this means vocal separation tools could become more reliable at preserving vocal quality and natural sound. Understanding how to align AI models with perceptual goals is relevant to anyone developing or improving audio production tools.",
-    "terms": [
-     {
-      "term": "Flow Matching",
-      "meaning": "A machine learning approach that trains models by guiding them through intermediate steps, similar to gradually denoising a blurry image into a clear one."
-     },
-     {
-      "term": "SI-SDR (Scale-Invariant Signal-to-Distortion Ratio)",
-      "meaning": "A measurement of how similar a separated audio signal is to the original, ignoring differences in overall loudness."
-     },
-     {
-      "term": "ViSQOL (Virtual Speech Quality Objective Listener)",
-      "meaning": "An automated tool that predicts how natural and clear audio sounds to human listeners, based on perceptual characteristics."
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.15773",
-   "title": "HMU-Bench: Hierarchical Music Understanding Benchmark for Omni Models",
-   "authors": [
-    "Zheqi Dai",
-    "Boyang Wang",
-    "Zhiyue Wu",
-    "Yiyang Xu",
-    "Xinming Shi",
-    "Ruibin Yuan",
-    "Xuerui Yang",
-    "Chao Yan",
-    "Qiuqiang Kong"
-   ],
-   "published": "2026-10-11",
-   "category": "eess.AS",
-   "topics": [
-    "gen"
-   ],
-   "summary": "Music-understanding benchmarks should identify both the evidence available to a model and the operations a correct answer requires. We introduce HMU-Bench, a bilingual benchmark with notation and audio components. ABC Q&A contains 1,029 Chinese-English question pairs across six musical domains, labeled as extraction, single-step inference, or multi-step inference. Audio Q&A contains 460 question pairs on 92 recordings, spanning five scope-difficulty configurations. All music is Suno-generated, and questions and references are human-reviewed. Reference-based evaluation of seven omni models yields high notation scores for the strongest systems, but no model averages above 1.4 on the 0-4 audio scale. Notation and audio rankings show little correlation. A transposition case study also reveals octave errors missed by LLM grading. These findings motivate separate modality reporting and event-level checks for symbolic outputs. Data, annotations, evaluator prompts, and graded responses will be released at https://github.com/stepaudiollm/hmu-bench.",
-   "url": "https://arxiv.org/abs/2610.15773",
-   "pdf": "https://arxiv.org/pdf/2610.15773",
-   "explain": {
-    "tldr": "A benchmark tests how well AI models understand music from both sheet notation and audio recordings.",
-    "plain": "Music understanding involves both reading notation and listening to audio, but existing tests don't clearly separate these skills. The researchers created HMU-Bench, a bilingual test with two parts: questions about musical notation (with 1,029 question pairs) and questions about audio recordings (460 pairs). They tested seven AI models and found they perform well on notation questions but struggle significantly with audio—no model scored above 1.4 out of 4 on average for audio. Interestingly, models that did well on notation didn't necessarily do well on audio, suggesting these are different challenges.",
-    "why": "This work matters because it reveals that current AI systems don't truly understand music holistically—they handle notation and sound separately. For musicians and producers, this shows where AI music tools have real limitations and where they might fail, helping you know when to trust or distrust their musical judgments.",
-    "terms": [
-     {
-      "term": "omni models",
-      "meaning": "AI systems designed to handle multiple types of input (like both text and audio) in a single model"
-     },
-     {
-      "term": "symbolic outputs",
-      "meaning": "musical information represented as notation or structured data (like note names and durations) rather than sound waves"
-     },
-     {
-      "term": "modality",
-      "meaning": "a type of input or output, such as audio, text, or sheet music notation"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.15665",
-   "title": "AnyEdit: A Unified Framework for Speech and Singing Voice Editing with Real-World Environmental Consistency",
-   "authors": [
-    "Yunjia Zhang",
-    "Junan Zhang",
-    "Jing Yang",
-    "Xueyao Zhang",
-    "Fan Fan",
-    "Zhizheng Wu"
-   ],
-   "published": "2026-10-11",
-   "category": "cs.SD",
-   "topics": [
-    "gen",
-    "sep",
-    "syn",
-    "rep"
-   ],
-   "summary": "We present AnyEdit, a unified, separation-free framework for speech and singing voice editing that preserves real-world acoustic environments, including noise, reverberation, and background music. Recent unified generative models already achieve strong speech and singing generation in clean conditions, but real-world vocal editing remains challenging because the model must revise content while simultaneously preserving speaker identity, prosody, and the surrounding acoustic scene. Directly modeling noisy audio end-to-end entangles semantic editing with environmental acoustics, weakening the core vocal generation capability. We therefore adopt a two-stage design that preserves clean-domain editing ability while deferring acoustic rendering to a separate stage: an instruction-guided autoregressive editor first predicts clean prosody and content-style tokens, supported by a teacher-student noise-robust prosody tokenizer that distills clean prosodic tokens from degraded recordings; a flow-matching acoustic model then performs in-context rendering conditioned on the source acoustic context, so the edited segment inherits surrounding noise, reverberation, and background sound while maintaining consistent speaker timbre. To stabilize unedited regions, we introduce unmodified-area-aware supervision; after pre-training, we further apply direct preference optimization on mined real-to-real singing pairs. We also release AnyEditBench, a benchmark covering both speech and singing voice editing under clean, simulated, and in-the-wild acoustic conditions. Experiments on Chinese and English speech and singing datasets showed that AnyEdit consistently outperforms strong baselines in content accuracy, subjective quality, and background consistency under noisy and reverberant conditions. Demo: https://any-edit.github.io/. AnyEditBench: https://huggingface.co/datasets/Ririiiii/anyeditbench.",
-   "url": "https://arxiv.org/abs/2610.15665",
-   "pdf": "https://arxiv.org/pdf/2610.15665",
-   "explain": {
-    "tldr": "A system for editing speech and singing that keeps background noise, reverb, and other environmental sounds intact.",
-    "plain": "Editing vocals in real recordings is hard because you need to change what someone says or sings while keeping their voice recognizable and preserving all the background noise and room acoustics. Most editing tools work on clean audio, so they struggle with messy real-world recordings. AnyEdit splits the problem into two steps: first, it figures out what the new words or melody should be, then it adds back the original room sound and background noise so the edit blends seamlessly. The researchers tested it on speech and singing in multiple languages and found it outperforms other methods at keeping edits natural-sounding.",
-    "why": "If you record vocals in real spaces—bedrooms, studios with ambient noise, live settings—you can now edit what was said or sung without losing the authentic acoustic character of the original recording. This matters for producers fixing takes, musicians re-recording parts, and anyone working with imperfect recordings.",
-    "terms": [
-     {
-      "term": "prosody",
-      "meaning": "The rhythm, timing, and intonation patterns of speech or singing—how something is said, not just what is said."
-     },
-     {
-      "term": "flow-matching acoustic model",
-      "meaning": "A machine learning model that generates audio by gradually transforming noise into realistic sound, guided by conditions like the surrounding acoustic environment."
-     },
-     {
-      "term": "in-context rendering",
-      "meaning": "Generating new audio that matches the acoustic properties (noise, reverb, background sounds) of the original recording it's being inserted into."
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.15474",
-   "title": "Sori: Streamable and Controllable Model for Non-musical Audio to Symbolic Music Transformation",
-   "authors": [
-    "Kyungsu Kim",
-    "Yejin Kim",
-    "Kyogu Lee"
-   ],
-   "published": "2026-10-11",
-   "category": "cs.SD",
-   "topics": [
-    "mir",
-    "rep"
-   ],
-   "summary": "We introduce Non-musical Audio to Symbolic Music Transformation (NASMT), a novel task that converts non-musical audio into symbolic music representations. Unlike automatic music transcription, which assumes musical input and a unique correct score, NASMT is inherently one-to-many and requires evaluation along two axes: input correspondence and musicality. We present Sori, an encoder--decoder Transformer that addresses this task through domain adversarial training (DAT), which bridges the gap between musical and non-musical audio in the encoder's feature space, and classifier-free guidance (CFG) with a continuous parameter~$γ$ that controls the trade-off between correspondence and musicality at inference time. Across objective metrics and a listening study, Sori provides effective continuous control via $γ$ and compares favorably with instrument-agnostic transcription models. Sori supports real-time streaming on a consumer CPU. Audio examples are available at https://soridemo0320.github.io/sori-demo/.",
-   "url": "https://arxiv.org/abs/2610.15474",
-   "pdf": "https://arxiv.org/pdf/2610.15474",
-   "explain": {
-    "tldr": "A system that converts non-musical sounds into sheet music notation with adjustable control over accuracy versus musical quality.",
-    "plain": "The paper tackles a new problem: turning everyday sounds (like traffic, speech, or nature recordings) into symbolic music—the kind you'd read as sheet music or MIDI. Unlike transcribing an actual performance, there's no single \"correct\" answer; the same sound could become many different pieces depending on how musical you want the output to be. The researchers built a model called Sori that lets you dial up or down how closely the output matches the original sound versus how musically pleasing it sounds, and it runs fast enough on regular computers to work in real time.",
-    "why": "This could open creative possibilities for producers and composers—turning found sounds or field recordings into playable musical material. It also suggests new ways to think about the relationship between sound and music notation, which matters for anyone interested in algorithmic composition or sound design.",
-    "terms": [
-     {
-      "term": "symbolic music representation",
-      "meaning": "Music stored as notes, timing, and pitch rather than as audio waveforms—like MIDI or sheet music notation"
-     },
-     {
-      "term": "domain adversarial training",
-      "meaning": "A technique that trains a model to extract features that look similar whether the input is musical or non-musical audio, helping bridge the gap between the two"
-     },
-     {
-      "term": "classifier-free guidance",
-      "meaning": "A method that lets you control a model's output at inference time by adjusting how much it follows a particular goal, using a single parameter"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.15464",
-   "title": "The NPU-ASLP System for Music Restoration in the CCF-AATC 2026 Challenge",
-   "authors": [
-    "Zeyu Zhu",
-    "Yike Zhu",
-    "Xingchen Li",
-    "Chaoren Yu",
-    "Jingyi Wang",
-    "Yurun Li",
-    "Jierui Guo",
-    "Chunjiang He",
-    "Lei Xie"
-   ],
-   "published": "2026-10-11",
-   "category": "eess.AS",
-   "topics": [
-    "gen"
-   ],
-   "summary": "This paper presents the NPU-ASLP music restoration system developed for Track 1 of the China Computer Federation (CCF) Advanced Audio Technology Competition (AATC) 2026 Challenge. The task aims to recover clean music from mobile-device-captured recordings affected by coupled degradations from playback devices, acoustic propagation, environmental noise and recording terminals. System development is further constrained by limited and imperfectly aligned real data pairs and a strict model-complexity budget. In our system, we adopt TF-MoE as the backbone for its dual-axis modeling of cross-band and temporal dependencies, whose Top-1 routing activates a single expert per token to bound computation under the strict budget. We extend it with two task-specific adaptations: a scale-aware encoder and a complex mapping decoder. The former encodes normalized complex spectra jointly with per-band log-RMS to preserve the band-energy cues discarded by band-wise normalization. The latter directly estimates the clean complex spectrum rather than masking the input, thereby repairing coupled degradations. To address the limited, imperfectly aligned real recordings, we further build a challenge-calibrated playback--propagation--recording simulator that generates 1,572.12 h of sample-aligned data across 202 acoustic conditions. The final system contains 2.951M parameters and requires 82.659 GMACs for a 10-s input. On the official blind test, it achieved -49.067 dB SI-SNR, 1.273 LSD, 2.540 FAD, and 3.495 ViSQOL. It ranked third in LSD, FAD, and ViSQOL and received the third prize in the challenge.",
-   "url": "https://arxiv.org/abs/2610.15464",
-   "pdf": "https://arxiv.org/pdf/2610.15464",
-   "explain": {
-    "tldr": "A system that cleans up music recorded on phones by modeling audio structure efficiently and simulating realistic degradation.",
-    "plain": "When you record music on a phone, it gets degraded by the device itself, room acoustics, background noise, and the microphone. This paper describes a system that tries to recover clean music from these messy recordings. The researchers used a neural network designed to understand how frequencies and time interact while staying computationally efficient. They also created a simulator that generates thousands of hours of training data by artificially degrading clean music in realistic ways, since real paired recordings are hard to get. The system ranked third in a competition and achieved measurable improvements in audio quality metrics.",
-    "why": "This matters if you're working with phone recordings or low-quality audio captures and want to restore them automatically. It shows how to build practical restoration tools that work within real computational constraints—useful for mobile apps or live processing.",
-    "terms": [
-     {
-      "term": "TF-MoE",
-      "meaning": "A neural network architecture that separately models how frequencies relate to each other and how sound changes over time, using 'experts' that activate selectively to save computation."
-     },
-     {
-      "term": "complex spectrum",
-      "meaning": "A representation of audio that captures both the magnitude (loudness) and phase (timing) of each frequency, rather than just loudness alone."
-     },
-     {
-      "term": "SI-SNR, LSD, FAD, ViSQOL",
-      "meaning": "Different metrics that measure how well restored audio matches the original clean version, each focusing on different aspects of audio quality."
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.15356",
-   "title": "JSIR: An Audio-Aligned, Multi-Task Dataset of Jazz Standard Recordings",
-   "authors": [
-    "Sihun Lee",
-    "Dasaem Jeong"
-   ],
-   "published": "2026-10-11",
-   "category": "cs.SD",
-   "topics": [
-    "mir",
-    "hci"
-   ],
-   "summary": "Beat tracking, chord estimation, and structure analysis are staple tasks of music information retrieval. Their datasets are drawn largely from Western popular music, and jazz remains a repertoire on which state-of-the-art systems underperform. We present JSIR, the Jazz Standards dataset for Information Retrieval. Its 267 recordings of 44 jazz standards span 25.6 hours, 3.7 times the audio of JAAH, the closest existing resource. For each recording, we provide annotations for beat and downbeat positions, chords, and sections, all produced by a jazz musician and revised in several passes. In baseline experiments, models trained with JSIR also improve on other jazz datasets: the downbeat F-measure of a state-of-the-art beat tracker rises from 87.7% to 89.2%, and the seventh-chord accuracy of a pop-trained chord estimator on JAAH from 34% to 41%. We publicly release the annotations, the annotation tool used to create them, and a web application that displays them in sync with the audio.",
-   "url": "https://arxiv.org/abs/2610.15356",
-   "pdf": "https://arxiv.org/pdf/2610.15356",
-   "explain": {
-    "tldr": "A new dataset of 267 jazz recordings with detailed annotations for beats, chords, and song structure to improve music analysis systems.",
-    "plain": "Jazz music has been underrepresented in datasets used to train music analysis systems, so existing tools don't work as well on jazz as they do on pop music. The researchers created JSIR, a collection of 267 jazz standard recordings with careful, expert annotations marking where the beats fall, what chords are played, and how songs are structured. When they trained systems on this new dataset, performance improved—both on jazz recordings and on other existing jazz datasets.",
-    "why": "If you work with jazz recordings or want to build tools that understand jazz music, better datasets and trained models mean more accurate automatic analysis of beats, harmony, and song form. This could help with transcription, remixing, or music discovery tools tailored to jazz.",
-    "terms": [
-     {
-      "term": "beat tracking",
-      "meaning": "automatically detecting where the regular pulses (beats) occur in a recording"
-     },
-     {
-      "term": "chord estimation",
-      "meaning": "automatically identifying which chords are being played at each moment in the music"
-     },
-     {
-      "term": "F-measure",
-      "meaning": "a score that measures how accurate a system is, combining how many correct detections it makes and how many false alarms it produces"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.15350",
-   "title": "Gugak-VocalSet: A Multi-Genre Studio-Quality Dataset of Korean Traditional Singing with Sigimsae Annotations",
-   "authors": [
-    "Danbinaerin Han",
-    "Wonil Kim",
-    "Seah Hong",
-    "Dongjoo Moon",
-    "Jaeok Lee",
-    "Jongpil Lee",
-    "Chaewon Kim",
-    "Juhan Nam"
-   ],
-   "published": "2026-10-11",
-   "category": "cs.SD",
-   "topics": [
-    "mir",
-    "rep"
-   ],
-   "summary": "We present Gugak-VocalSet, the first publicly available audio dataset for Korean traditional singing with dense annotations of sigimsae, a structured pitch contour system of vocal expressions. Gugak-VocalSet contains 24.5 hours of unaccompanied solo vocal recordings across 305 tracks of representative repertoire curated by the National Gugak Center, performed by 20 professional singers in a controlled studio environment with fixed key and tempo. In addition to genre, lyrics, and mood/timbre tags, the dataset provides a unified sigimsae ontology and approximately 68,000 segments (71,700 instances including multi-label) of audio-grounded sigimsae annotations; the ontology adopts a functional-position-based hierarchy designed for consistent application across genres, and 14 expert annotators specializing in Korean traditional music performed segment-level labeling accordingly. Baseline experiments on sigimsae classification and event detection show that domain-informed F0 representations remain competitive with, and on classification surpass, frozen probing of a general-purpose music foundation model, while pitch and spectral cues play complementary roles in event-level detection. Companion page: https://www.danbinaerin.com/Gugak-VocalSet/",
-   "url": "https://arxiv.org/abs/2610.15350",
-   "pdf": "https://arxiv.org/pdf/2610.15350",
-   "explain": {
-    "tldr": "A dataset of Korean traditional singing with detailed annotations of sigimsae vocal techniques for research and AI training.",
-    "plain": "Korean traditional singing (gugak) uses a specific system of pitch movements and vocal ornaments called sigimsae to express emotion and style. This paper introduces a new dataset of 24.5 hours of professional recordings labeled with about 68,000 examples of these techniques, created by music experts. They tested whether AI models could recognize sigimsae from audio, finding that pitch-focused representations work well, sometimes better than general music AI models.",
-    "why": "This dataset lets researchers and musicians study how Korean traditional singing creates its distinctive sound. It could help develop tools for analyzing, teaching, or even synthesizing these vocal techniques, and provides a model for documenting ornamental singing systems in other traditions.",
-    "terms": [
-     {
-      "term": "sigimsae",
-      "meaning": "A structured system of pitch movements and vocal ornaments used in Korean traditional singing to express emotion and style"
-     },
-     {
-      "term": "F0 representations",
-      "meaning": "Different ways of encoding the fundamental frequency (pitch) of a voice for analysis by computers"
-     },
-     {
-      "term": "foundation model",
-      "meaning": "A large general-purpose AI model trained on broad music data that can be adapted for specific tasks"
-     }
-    ],
-    "model": "anthropic/claude-haiku-4.5"
-   }
-  },
-  {
-   "id": "2610.15243",
-   "title": "HE-NAC: High-Efficiency Neural Audio Coding via Hierarchical and Residual Multi-Band Quantization",
-   "authors": [
-    "Darius Pétermann",
-    "Wootaek Lim",
-    "Seungkwon Beack",
-    "Minje Kim"
-   ],
-   "published": "2026-10-11",
-   "category": "eess.AS",
-   "topics": [
-    "rep"
-   ],
-   "summary": "High-fidelity audio coding requires faithful reconstruction of perceptually important high-frequency components, which are often lost due to the aggressive temporal decimation and quantization of neural codecs. State-of-the-art neural audio coding methods rely on adversarial learning to hallucinate these missing components, yielding perceptually plausible but imprecise reconstructions; a limitation for high-fidelity music applications. As a remedy, we propose high-efficiency neural audio coding (HE-NAC), which provides a multi-band extension of the popular residual vector quantization (RVQ) scheme. HE-NAC introduces an effective training mechanism that harmonizes a bitrate-free blind upsampling process, residual learning to compensate it with minimal bitrate, and a multi-head decoder architecture for band-specific reconstruction. As a result, HE-NAC achieves a balanced trade-off, reliably reconstructing the core-band ($\\leq$ 3 kHz) component while preserving overall sound fidelity. Subjective listening tests and objective evaluations demonstrate that HE-NAC outperforms both the DAC baseline and MPEG HE-AAC at equal or lower bitrates.",
-   "url": "https://arxiv.org/abs/2610.15243",
-   "pdf": "https://arxiv.org/pdf/2610.15243",
-   "explain": {
-    "tldr": "A neural audio codec that better preserves high frequencies and sound quality by processing different frequency bands separately with improved quantization.",
-    "plain": "Neural audio codecs often lose important high-frequency details when compressing audio, sometimes trying to fake them back in. This paper proposes HE-NAC, which handles different frequency ranges separately instead of treating all audio the same way. It uses a technique called residual vector quantization applied across multiple bands, plus a smarter decoder that reconstructs each band appropriately. Tests show it produces better-sounding audio than existing methods at the same file size.",
-    "why": "For musicians and producers working with high-quality recordings, this matters because it means compressed audio files could maintain more of the original sound's clarity and detail—important when you care about preserving the nuances of instruments and vocals.",
-    "terms": [
-     {
-      "term": "residual vector quantization (RVQ)",
-      "meaning": "A compression technique that breaks audio into small pieces and represents each piece with a code, then refines the representation by encoding what was missed in the first pass"
-     },
-     {
-      "term": "bitrate",
-      "meaning": "How many bits of data per second are used to store or transmit audio; lower bitrate means smaller file size but potentially lower quality"
-     },
-     {
-      "term": "multi-band",
-      "meaning": "Dividing audio into separate frequency ranges (like bass, mids, treble) and processing each range independently"
      }
     ],
     "model": "anthropic/claude-haiku-4.5"
